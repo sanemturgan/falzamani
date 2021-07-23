@@ -14,11 +14,11 @@ function HomePage() {
     <div className="wrapperClass">
       <div className={classes.banner}>
         <div className={classes.bnrhdr}>
-          <h4>Fal Zamanı'na Hoş geldin!</h4>
+          <h4>Fal Zamanına Hoş geldin!</h4>
           <h4>
             <span>
               50+ Gerçek Falcılar ile Online, Canlı Hemen Fal Baktır! Tüm Fal
-              Severler Fal Zamanı'nda!
+              Severler Fal Zamanında!
             </span>
           </h4>
           <p>Gerçek Falcılar, Sorularını Yanıtlamak İçin Sabırsızlanıyor!</p>
@@ -29,12 +29,12 @@ function HomePage() {
       </div>
       <div className={classes.snm}>
         <div className={classes.snmhdr}>
-          <h3>GERÇEK FALCILAR İLE ONLİNE CANLI FAL ZAMANI'NDA</h3>
+          <h3>GERÇEK FALCILAR İLE ONLİNE CANLI FAL ZAMANINDA</h3>
         </div>
         <div className={classes.snmlist}>
           <ul>
             <li>
-              <h6>Tüm Fal Severler Fal Zamanı'nda!</h6>
+              <h6>Tüm Fal Severler Fal Zamanında!</h6>
               <p>
                 Gerçek falcılara online fal baktırmak artık çok kolay. Kahve
                 falı, tarot falı, katina aşk falı, ilişki danışmanlığı,
@@ -43,7 +43,7 @@ function HomePage() {
               </p>
             </li>
             <li>
-              <h6>Tüm Fal Severler Fal Zamanı'nda!</h6>
+              <h6>Tüm Fal Severler Fal Zamanında!</h6>
               <p>
                 Gerçek falcılara online fal baktırmak artık çok kolay. Kahve
                 falı, tarot falı, katina aşk falı, ilişki danışmanlığı,
@@ -52,7 +52,7 @@ function HomePage() {
               </p>
             </li>
             <li>
-              <h6>Tüm Fal Severler Fal Zamanı'nda!</h6>
+              <h6>Tüm Fal Severler Fal Zamanında!</h6>
               <p>
                 Gerçek falcılara online fal baktırmak artık çok kolay. Kahve
                 falı, tarot falı, katina aşk falı, ilişki danışmanlığı,
@@ -72,14 +72,16 @@ function HomePage() {
         >
           <SwiperSlide>
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -87,10 +89,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -101,14 +103,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -116,10 +120,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -130,14 +134,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -145,10 +151,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -159,14 +165,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -174,10 +182,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -188,14 +196,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -203,10 +213,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -217,14 +227,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -232,10 +244,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -246,14 +258,16 @@ function HomePage() {
           <SwiperSlide>
             {" "}
             <div className={classes.card}>
-              <Image src={CardImg} />
+              <div className={classes.cardimg}>
+                <Image src={CardImg} alt="teller" />
+              </div>
               <h5>Luna</h5>
               <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
-                <FaStar color="#ECDCF5" size="20px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
+                <FaStar color="#ECDCF5" size="14px" />
               </div>
               <p>
                 20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
@@ -261,10 +275,10 @@ function HomePage() {
               </p>
               <div className={classes.crdi}>
                 <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="34px" />
+                  <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </div>
                 <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="34px" />
+                  <FaEnvelope color="#ECDCF5" size="20px" />
                 </div>
               </div>
               <div className={classes.cardbtn}>
@@ -288,7 +302,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -300,7 +314,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -312,7 +326,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -324,7 +338,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -336,7 +350,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -348,7 +362,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -360,7 +374,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -372,7 +386,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">
@@ -384,7 +398,7 @@ function HomePage() {
             <SwiperSlide>
               <div className={classes.zdcmain}>
                 <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} />
+                  <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
                   <Link className={classes.zdch3} href="/">

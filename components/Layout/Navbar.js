@@ -8,37 +8,41 @@ function Navbar() {
   return (
     <nav className={classes.navbarmain}>
       <div className={classes.logo}>
-        <a href="/">
+        <Link href="/homepage">
           <div className={classes.imglg}>
-            <Image src={Logo} />
+            <Image src={Logo} alt="logo" />
           </div>
           <h3>Fal Zamanı</h3>
-        </a>
+        </Link>
       </div>
       <ul className={classes.bar}>
         <li>
-          <a href="/">
-            Fal Türleri
-            <FaAngleDown color="#140731" size="20px" />
-          </a>
+          <Link href="/faltürleri">
+            <a>
+              Fal Türleri
+              <FaAngleDown color="#140731" size="20px" />
+            </a>
+          </Link>
         </li>
         <li>
-          <a href="/">Uzmanlar</a>
+          <Link href="/uzmanlar">
+            <a>Uzmanlar</a>
+          </Link>
         </li>
         <li>
-          <a href="/">Burçlar</a>
+          <Link href="/burçlar">Burçlar</Link>
         </li>
         <li>
-          <a href="/">Blog</a>
+          <Link href="/blog">Blog</Link>
         </li>
         <li>
-          <a href="/">Kredi Al</a>
+          <Link href="/kredi">Kredi Al</Link>
         </li>
         <li>
-          <a href="/">Kariyer</a>
+          <Link href="/kariyer">Kariyer</Link>
         </li>
         <li>
-          <a href="/">Bize Ulaşın</a>
+          <Link href="/iletisim">Bize Ulaşın</Link>
         </li>
       </ul>
       <div className={classes.giris}>

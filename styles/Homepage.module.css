@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 1018px;
+  height: 700px;
   background-image: url(../public/img/Desktop\ Wallpaper\ Fantasy\,\ Planets\,\ Space\,\ Astronaut\,\ Hd\ Image\,\ Picture\,\ Background\,\ 07ee48.png);
-
   background-repeat: no-repeat;
+  background-size: cover;
 }
 .bnrhdr {
-  width: 60%;
-  height: 70%;
+  width: 70%;
+  height: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,27 +24,29 @@
   color: #fff;
 }
 .bnrhdr h4 {
-  font-size: 40px;
+  font-size: 30px;
   font-weight: 400;
+  padding: 0 30px;
 }
 .bnrhdr span {
   font-weight: bold;
 }
 .bnrhdr p {
-  font-size: 30px;
+  font-size: 20px;
 }
 .bnrgiris {
-  width: 248px;
-  height: 84px;
+  width: 148px;
+  height: 54px;
   background-color: #1cd42e;
   color: #fff;
   border-radius: 34px;
   border: none;
-  font-size: 30px;
+  font-size: 20px;
+  margin-bottom: 30px;
 }
 .snm {
   margin-top: 72px;
-  height: 504px;
+  height: 400px;
   background: linear-gradient(#1e1435, #221737, #281c3b);
   color: #fff;
   display: flex;
@@ -54,7 +56,7 @@
   text-align: center;
 }
 .snmhdr h3 {
-  font-size: 30px;
+  font-size: 22px;
 }
 .snmlist ul {
   list-style: none;
@@ -71,11 +73,11 @@
   flex-direction: column;
 }
 .snmlist h6 {
-  font-size: 24px;
+  font-size: 20px;
   margin: 0;
 }
 .snmlist p {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: lighter;
 }
 .snmlist ul :last-child {
@@ -83,8 +85,8 @@
 }
 
 .card {
-  width: 534px;
-  height: 804px;
+  width: 330px;
+  height: 504px;
   background-color: #281c3b;
   border-radius: 50px;
   display: flex;
@@ -92,49 +94,53 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  margin: 0 8px;
 }
 .card h5 {
-  font-size: 40px;
+  font-size: 24px;
   color: #ecdcf5;
   margin: 0;
   margin-bottom: 30px;
 }
 .card p {
-  font-size: 20px;
+  font-size: 18px;
   color: #fff;
-  padding: 30px;
+  padding: 15px;
   margin: 0;
+}
+.cardimg {
+  width: 130px;
 }
 .crdi {
   display: flex;
   justify-content: space-between;
 }
 .cardicon {
-  padding: 20px 36px;
+  padding: 10px 20px;
 }
 .cardgiris {
-  width: 248px;
-  height: 84px;
+  width: 148px;
+  height: 54px;
   background-color: #1cd42e;
   color: #fff;
   border-radius: 34px;
   border: none;
-  font-size: 30px;
+  font-size: 20px;
 }
 .zodiac {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 600px;
+  height: 500px;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 72px;
   background: linear-gradient(#1e1435, #221737, #281c3b);
 }
 .zodiacswp {
   display: flex;
   width: 100%;
-  height: 450px;
+  height: 250px;
   align-items: center;
   justify-content: center;
 }
@@ -150,37 +156,36 @@
   width: 100%;
 }
 .zodiachdr {
-  border-bottom: 1px solid #fff;
-  width: 30%;
-  text-align: center;
+  margin: 10px;
 }
 .zodiachdr h3 {
   color: #fff;
-  font-size: 35px;
+  font-size: 26px;
   font-weight: 400;
-  padding: 0;
+  padding: 10px;
   margin: 10px;
 }
+
 .zdcimg {
-  width: 347px;
-  height: 347px;
+  width: 247px;
+  height: 247px;
   position: absolute;
   top: 0;
   z-index: 2;
 }
 .zdcrd {
   background-color: #ecdcf5;
-  width: 314px;
-  height: 171px;
-  border-radius: 50px;
+  width: 234px;
+  height: 120px;
+  border-radius: 40px;
   position: relative;
-  top: 120px;
+  top: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .zdcrd a {
-  font-size: 25px;
+  font-size: 20px;
   color: #140731;
   padding: 20px;
 }
@@ -190,22 +195,53 @@
     font-size: 20px;
   }
   .bnrhdr p {
-    font-size: 15px;
+    font-size: 14px;
   }
   .bnrgiris {
     width: 124px;
     height: 44px;
 
-    font-size: 15px;
+    font-size: 14px;
   }
   .bnrhdr {
     width: 50%;
     height: 60%;
   }
   .snmlist h6 {
-    font-size: 20px;
+    font-size: 16px;
   }
   .snmlist p {
+    font-size: 14px;
+  }
+  .card {
+    width: 310px;
+    height: 454px;
+  }
+  .card h5 {
+    font-size: 18px;
+  }
+  .card p {
+    font-size: 14px;
+  }
+  .cardgiris {
+    font-size: 14px;
+    width: 128px;
+    height: 44px;
+  }
+  .zodiac {
+    height: 450px;
+  }
+  .zdcimg {
+    width: 217px;
+    height: 217px;
+  }
+  .zdcrd {
+    border-radius: 34px;
+    top: 5px;
+    width: 214px;
+    height: 90px;
+  }
+  .zdcrd a {
     font-size: 16px;
   }
 }

@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 512px;
+  height: 312px;
 }
 .socialicons {
   margin-top: 160px;
@@ -14,7 +14,8 @@
   justify-content: space-between;
   align-items: center;
   color: #ecdcf5;
+  padding: 5px 20px;
 }
 .copyrght {
-  font-size: 18px;
+  font-size: 14px;
 }
