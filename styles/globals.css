@@ -16,3 +16,37 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.swipercards {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.swipercards .swiper-slide {
+  margin: auto;
+  display: flex;
+  width: fit-content;
+}
+.zodiacswp {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 470px;
+}
+.zodiacswp .swiper-slide {
+  margin: 10px;
+  display: flex;
+  width: fit-content;
+}
+/* .arrow .swiper-button-next {
+  color: #ecdcf5;
+  font-size: 24px;
+}
+.arrow .swiper-button-prev {
+  color: #ecdcf5;
+  font-size: 24px;
+} */

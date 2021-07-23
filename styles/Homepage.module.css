@@ -81,13 +81,7 @@
 .snmlist ul :last-child {
   border: none;
 }
-.swipercards {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  margin-top: 50px;
-}
+
 .card {
   width: 534px;
   height: 804px;
@@ -165,24 +159,24 @@
   margin: 10px;
 }
 .zdcimg {
-  width: 300px;
-  height: 300px;
+  width: 347px;
+  height: 347px;
   position: absolute;
   top: 0;
   z-index: 2;
 }
 .zdcrd {
   background-color: #ecdcf5;
-  width: 270px;
-  height: 150px;
+  width: 314px;
+  height: 171px;
   border-radius: 50px;
   position: relative;
-  top: 90px;
+  top: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.zdcrd p {
+.zdcrd a {
   font-size: 25px;
   color: #140731;
   padding: 20px;
