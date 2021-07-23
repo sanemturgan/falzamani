@@ -1,0 +1,223 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 1018px;
+  background-image: url(../public/img/Desktop\ Wallpaper\ Fantasy\,\ Planets\,\ Space\,\ Astronaut\,\ Hd\ Image\,\ Picture\,\ Background\,\ 07ee48.png);
+
+  background-repeat: no-repeat;
+}
+.bnrhdr {
+  width: 60%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 50px;
+  color: #fff;
+}
+.bnrhdr h4 {
+  font-size: 40px;
+  font-weight: 400;
+}
+.bnrhdr span {
+  font-weight: bold;
+}
+.bnrhdr p {
+  font-size: 30px;
+}
+.bnrgiris {
+  width: 248px;
+  height: 84px;
+  background-color: #1cd42e;
+  color: #fff;
+  border-radius: 34px;
+  border: none;
+  font-size: 30px;
+}
+.snm {
+  margin-top: 72px;
+  height: 504px;
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.snmhdr h3 {
+  font-size: 30px;
+}
+.snmlist ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.snmlist li {
+  padding: 30px;
+  border-right: 1px solid #fff;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.snmlist h6 {
+  font-size: 24px;
+  margin: 0;
+}
+.snmlist p {
+  font-size: 20px;
+  font-weight: lighter;
+}
+.snmlist ul :last-child {
+  border: none;
+}
+.swipercards {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.card {
+  width: 534px;
+  height: 804px;
+  background-color: #281c3b;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 36px;
+}
+.card h5 {
+  font-size: 40px;
+  color: #ecdcf5;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.card p {
+  font-size: 20px;
+  color: #fff;
+  padding: 30px;
+  margin: 0;
+}
+.crdi {
+  display: flex;
+  justify-content: space-between;
+}
+.cardicon {
+  padding: 20px 36px;
+}
+.cardgiris {
+  width: 248px;
+  height: 84px;
+  background-color: #1cd42e;
+  color: #fff;
+  border-radius: 34px;
+  border: none;
+  font-size: 30px;
+}
+.zodiac {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 600px;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 72px;
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+}
+.zodiacswp {
+  display: flex;
+  width: 100%;
+  height: 450px;
+  align-items: center;
+  justify-content: center;
+}
+.zdcmain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.zodiachdr {
+  border-bottom: 1px solid #fff;
+  width: 30%;
+  text-align: center;
+}
+.zodiachdr h3 {
+  color: #fff;
+  font-size: 35px;
+  font-weight: 400;
+  padding: 0;
+  margin: 10px;
+}
+.zdcimg {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  z-index: 2;
+}
+.zdcrd {
+  background-color: #ecdcf5;
+  width: 270px;
+  height: 150px;
+  border-radius: 50px;
+  position: relative;
+  top: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.zdcrd p {
+  font-size: 25px;
+  color: #140731;
+  padding: 20px;
+}
+
+@media screen and (max-width: 960px) {
+  .bnrhdr h4 {
+    font-size: 20px;
+  }
+  .bnrhdr p {
+    font-size: 15px;
+  }
+  .bnrgiris {
+    width: 124px;
+    height: 44px;
+
+    font-size: 15px;
+  }
+  .bnrhdr {
+    width: 50%;
+    height: 60%;
+  }
+  .snmlist h6 {
+    font-size: 20px;
+  }
+  .snmlist p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .snmlist h6 {
+    font-size: 16px;
+  }
+  .snmlist p {
+    font-size: 12px;
+  }
+}
