@@ -23,6 +23,7 @@ a {
   align-items: center;
   justify-content: center;
   margin-top: 50px;
+  padding: 0 30px !important;
 }
 
 .swipercards .swiper-slide {
@@ -36,17 +37,10 @@ a {
   align-items: center;
   justify-content: center;
   height: 470px;
+  padding: 0 30px !important;
 }
 .zodiacswp .swiper-slide {
-  margin: 10px;
+  margin: auto;
   display: flex;
   width: fit-content;
 }
-/* .arrow .swiper-button-next {
-  color: #ecdcf5;
-  font-size: 24px;
-}
-.arrow .swiper-button-prev {
-  color: #ecdcf5;
-  font-size: 24px;
-} */

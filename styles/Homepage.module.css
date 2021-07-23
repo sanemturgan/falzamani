@@ -92,7 +92,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-left: 36px;
 }
 .card h5 {
   font-size: 40px;
@@ -143,8 +142,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: fit-content;
   justify-content: center;
   text-align: center;
+}
+.bottomSlider {
+  width: 100%;
 }
 .zodiachdr {
   border-bottom: 1px solid #fff;
