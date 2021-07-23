@@ -11,7 +11,7 @@ SwiperCore.use([Navigation, A11y]);
 
 function HomePage() {
   return (
-    <div>
+    <div className="wrapperClass">
       <div className={classes.banner}>
         <div className={classes.bnrhdr}>
           <h4>Fal Zamanı'na Hoş geldin!</h4>
