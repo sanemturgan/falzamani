@@ -4,7 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: #0f0b27;
+  background-color: #0f0b27 !important;
   list-style: none;
 }
 
@@ -16,7 +16,18 @@ a {
 * {
   box-sizing: border-box;
 }
-
+.uzmanMain {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.uzmanDetay {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
 .wrapperClass {
   width: 100%;
   max-width: 1250px;

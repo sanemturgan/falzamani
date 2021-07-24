@@ -26,8 +26,48 @@ function Navbar() {
         {/*  Dropdown Menu  */}
         <li ref={menuRef} onClick={() => openMenu(!menuIsOpen)}>
           Fal Türleri
-          <FaAngleDown color="#140731" size="20px" />
-          {menuIsOpen && <div className={classes.navbarDropdownMenu}>Menu</div>}
+          <FaAngleDown color="#140731" size="16px" />
+          {menuIsOpen && (
+            <div className={classes.navbarDropdownMenu}>
+              <ul className={classes.dropdownmenu}>
+                <li>
+                  <Link href="#kahve">
+                    <a>Kahve Falı</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#yildiz">
+                    <a>Yıldız Falı</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#dururgoru">
+                    <a>Durugörü</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#ruya">
+                    <a>Rüya Yorumu</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#el">
+                    <a>El Falı</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#iskambil">
+                    <a>İskambil Falı</a>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#dert">
+                    <a>Dert Köşesi</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </li>
         <li>
           <Link href="/uzmanlar">

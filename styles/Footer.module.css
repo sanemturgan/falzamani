@@ -6,6 +6,7 @@
   height: 312px;
 }
 .socialicons {
+  display: flex;
   margin-top: 160px;
 }
 .ftrbtm {
@@ -15,6 +16,9 @@
   align-items: center;
   color: #ecdcf5;
   padding: 5px 20px;
+}
+.btmicons {
+  display: flex;
 }
 .copyrght {
   font-size: 14px;
