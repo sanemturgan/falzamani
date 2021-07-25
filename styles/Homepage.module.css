@@ -4,9 +4,20 @@
   justify-content: center;
   width: 100%;
   height: 700px;
-  background-image: url(../public/img/banner.png);
-  background-repeat: no-repeat;
-  background-size: cover;
+  position: relative;
+}
+
+.backImage {
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.backImage img {
+  object-fit: cover;
 }
 .bnrhdr {
   width: 70%;
@@ -22,6 +33,7 @@
   -webkit-backdrop-filter: blur(8px);
   border-radius: 50px;
   color: #fff;
+  z-index: 2;
 }
 .bnrhdr h4 {
   font-size: 30px;

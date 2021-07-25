@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import CardImg from "../public/img/falcard.png";
 import Zodiacimg from "../public/img/zodiac.png";
+import BannerImg from "../public/img/banner.png";
 import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 SwiperCore.use([Navigation, A11y]);
@@ -27,6 +28,9 @@ function HomePage() {
               <button className={classes.bnrgiris}>Üye Ol</button>
             </Link>
           </div>
+        </div>
+        <div className={classes.backImage}>
+          <Image src={BannerImg} alt="teller" layout="fill" />
         </div>
       </div>
       <div className={classes.snm}>
