@@ -1,0 +1,141 @@
+.burchdr {
+  width: 100%;
+  height: 140px;
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to right, #402759, #2a1b40, #160f26);
+}
+.burchdr h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 30px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+}
+.search {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: 20px;
+  height: 40px;
+  width: 250px;
+  background-color: #ecdcf5;
+  opacity: 0.8;
+  border-radius: 20px;
+}
+.srchi {
+  margin: 0 10px;
+}
+.detaymain {
+  display: flex;
+  color: #fff;
+  margin-top: 72px;
+}
+.dtyrght {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+  margin-bottom: 100px;
+}
+.dtyimg {
+  width: 600px;
+  position: absolute;
+  top: 350px;
+  z-index: 2;
+}
+
+.dtyexp {
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+  border-radius: 40px;
+  position: relative;
+  top: 150px;
+  display: flex;
+  padding: 150px 50px 50px 50px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.dtyexp h4 {
+  font-size: 20px;
+  border-bottom: 1px solid #fff;
+  width: 70%;
+  text-align: center;
+  padding: 5px;
+}
+.dtyexp p {
+  font-size: 16px;
+  padding: 5px;
+  margin-top: 10px;
+}
+.categories {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+
+  border-left: 1px solid #fff;
+}
+.catalog {
+  list-style: none;
+  margin: 15px;
+}
+.fldr {
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+  width: 70%;
+  border-radius: 50px;
+  background-color: #9c7fb9;
+}
+.flt {
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+  width: 70%;
+  border-radius: 50px;
+  background-color: #5a4b69;
+}
+.flt a {
+  font-size: 16px;
+}
+@media screen and (max-width: 1200px) {
+  .dtyimg {
+    width: 50%;
+  }
+  .dtyexp {
+    padding: 16% 50px 50px 50px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .categories {
+    display: none;
+  }
+  .dtyimg {
+    position: relative;
+    top: 0;
+    margin: 30px;
+    width: 90%;
+  }
+  .detaymain {
+    display: grid;
+  }
+  .dtyexp {
+    top: 0;
+    padding: 50px;
+  }
+  .dtyrght {
+    width: 100%;
+  }
+  .dtyexp p {
+    font-size: 12px;
+  }
+  .dtyexp h4 {
+    font-size: 14px;
+  }
+}

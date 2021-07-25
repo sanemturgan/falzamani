@@ -34,6 +34,66 @@ a {
   padding: 0 25px;
   margin: auto;
 }
+.falturleri {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.burclar {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.burcdetay {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.blog {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.blogdetay {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.kredial {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.kariyer {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.bizeulasin {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.uyegiris {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.kayit {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
 .swipercards {
   display: flex;
   width: 100%;
@@ -56,8 +116,23 @@ a {
   height: 470px;
   padding: 0 30px !important;
 }
+.swpalt {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  height: 370px;
+  padding: 0 30px !important;
+}
 .zodiacswp .swiper-slide {
   margin: auto;
   display: flex;
   width: fit-content;
+}
+.swpalt .swiper-slide {
+  margin: auto;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
 }

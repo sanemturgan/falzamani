@@ -23,7 +23,9 @@ function HomePage() {
           </h4>
           <p>Gerçek Falcılar, Sorularını Yanıtlamak İçin Sabırsızlanıyor!</p>
           <div className={classes.bnruye}>
-            <button className={classes.bnrgiris}>Üye Ol</button>
+            <Link href="/kayit">
+              <button className={classes.bnrgiris}>Üye Ol</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -96,7 +98,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -127,7 +131,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -158,7 +164,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -189,7 +197,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -220,7 +230,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -251,7 +263,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -282,7 +296,9 @@ function HomePage() {
                 </div>
               </div>
               <div className={classes.cardbtn}>
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <Link href="/uzmandetay">
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </Link>
               </div>
             </div>
           </SwiperSlide>
@@ -305,7 +321,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -317,7 +333,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -329,7 +345,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -341,7 +357,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -353,7 +369,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -365,7 +381,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -377,7 +393,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -389,7 +405,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>
@@ -401,7 +417,7 @@ function HomePage() {
                   <Image src={Zodiacimg} alt="zodiac" />
                 </div>
                 <div className={classes.zdcrd}>
-                  <Link className={classes.zdch3} href="/">
+                  <Link className={classes.zdch3} href="/burcdetay">
                     <a>Koç Burcunda Bu Hafta...</a>
                   </Link>
                 </div>

@@ -1,0 +1,276 @@
+.bloghdr {
+  width: 100%;
+  height: 140px;
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to right, #402759, #2a1b40, #160f26);
+}
+.bloghdr h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 30px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+}
+.search {
+  display: flex;
+  align-items: center;
+  float: right;
+  margin-top: 20px;
+  height: 40px;
+  width: 250px;
+  background-color: #ecdcf5;
+  opacity: 0.8;
+  border-radius: 20px;
+}
+.srchi {
+  margin: 0 10px;
+}
+.blghdr {
+  font-size: 20px;
+  color: #fff;
+  padding: 30px;
+}
+.blogdtymain {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  margin-top: 20px;
+}
+.blgdtyust {
+  display: flex;
+  margin-bottom: 50px;
+}
+.blgdtyrght {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+.blogcard {
+  margin: 15px;
+  text-align: center;
+  width: 90%;
+  border-radius: 50px;
+  background-color: #281c3b;
+}
+.blgcrdimg {
+  width: 100%;
+}
+.writer {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 40px;
+  width: 70%;
+  margin: auto;
+}
+.wrtimg {
+  position: absolute;
+  width: 150px;
+}
+.wrtexp {
+  background-color: #5a4b69;
+  border-radius: 50px;
+  padding: 10px 10px 10px 160px;
+  text-align: left;
+}
+.wrtexp h4 {
+  font-size: 20px;
+}
+.wrtexp p {
+  font-size: 14px;
+}
+.altexphdr {
+  font-size: 20px;
+  display: flex;
+  justify-content: left;
+  width: 90%;
+  margin: auto;
+  border-bottom: 1px solid #fff;
+}
+.blgcrdexp {
+  padding: 20px;
+  font-size: 16px;
+  text-align: center;
+}
+.blgmore {
+  padding: 10px 50px;
+  text-align: left;
+  color: #1cd42e;
+}
+.categories {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+
+  border-left: 1px solid #fff;
+}
+.catalog {
+  list-style: none;
+  margin: 15px;
+}
+.flt {
+  margin: 15px;
+  padding: 5px;
+  text-align: center;
+  width: 70%;
+  border-radius: 50px;
+  background-color: #5a4b69;
+}
+.flt a {
+  font-size: 16px;
+}
+.altcatalog {
+  margin: 15px 26px;
+  padding: 20px;
+  text-align: center;
+  width: 70%;
+  border-radius: 40px;
+  background-color: #5a4b69;
+}
+.altcatalog ul {
+  list-style: none;
+}
+.altfirstli {
+  font-size: 20px;
+  border-bottom: 1px solid #fff;
+}
+.altli {
+  font-size: 16px;
+  border-bottom: 1px solid #fff;
+  padding: 5px 0;
+}
+.blgalt {
+  display: flex;
+  flex-direction: column;
+}
+.althdr {
+  font-size: 20px;
+  color: #fff;
+  padding: 30px;
+}
+.altswp {
+  width: 100%;
+}
+.altimg {
+  width: 90%;
+  padding: 5%;
+}
+.altcrd {
+  background-color: #5a4b69;
+
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.altexp {
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+@media screen and (max-width: 1120px) {
+  .writer {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    padding: 10px;
+    width: 70%;
+    margin: auto;
+  }
+  .wrtimg {
+    display: none;
+  }
+  .wrtexp {
+    border-radius: 40px;
+    padding: 0;
+    text-align: center;
+  }
+  .wrtexp h4 {
+    font-size: 16px;
+    padding: 5px;
+    border-bottom: 1px solid #fff;
+    width: 50%;
+    margin: auto;
+  }
+  .wrtexp p {
+    padding: 10px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 960px) {
+  .flt a {
+    font-size: 12px;
+  }
+  .blghdr {
+    font-size: 16px;
+  }
+  .altexphdr {
+    font-size: 16px;
+  }
+  .blgcrdexp {
+    font-size: 14px;
+  }
+  .altfirstli {
+    font-size: 16px;
+  }
+  .blgmore a {
+    font-size: 12px;
+  }
+  .altli {
+    font-size: 12px;
+  }
+  .althdr {
+    font-size: 16px;
+    padding: 0 30px;
+  }
+  .altexp {
+    font-size: 12px;
+  }
+  .altcrd {
+    width: 200px;
+    height: 200px;
+  }
+  .altimg {
+    width: 70%;
+    padding: 1%;
+  }
+  .wrtexp {
+    margin-bottom: 20px;
+  }
+  .wrtexp h4 {
+    border-right: 1px solid #fff;
+    border-bottom: none;
+    padding: 5px;
+  }
+  .wrtexp p {
+    padding: 5px 15px;
+    text-align: left;
+  }
+  .wrtexp {
+    border-radius: 17px;
+    display: flex;
+  }
+}
+@media screen and (max-width: 700px) {
+  .categories {
+    display: none;
+  }
+  .blgrght {
+    width: 100%;
+  }
+  .wrtexp p {
+    font-size: 10px;
+  }
+  .wrtexp h4 {
+    font-size: 12px;
+  }
+}
