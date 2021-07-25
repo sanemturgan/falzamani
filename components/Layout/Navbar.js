@@ -102,7 +102,9 @@ function Navbar() {
       </ul>
       <div className={classes.giris}>
         <Link href="/uyegiris">
-          <button className={classes.uyegiris}>Üye Girişi</button>
+          <a>
+            <button className={classes.uyegiris}>Üye Girişi</button>
+          </a>
         </Link>
       </div>
     </nav>
