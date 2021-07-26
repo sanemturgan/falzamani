@@ -20,8 +20,10 @@
   object-fit: cover;
 }
 .bnrhdr {
-  width: 70%;
-  height: 60%;
+  /* width: 70%; */
+  /* height: 60%; */
+  padding: 80px;
+  margin: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -33,7 +35,7 @@
   -webkit-backdrop-filter: blur(8px);
   border-radius: 50px;
   color: #fff;
-  z-index: 2;
+  z-index: 1;
 }
 .bnrhdr h4 {
   font-size: 30px;
@@ -54,11 +56,12 @@
   border-radius: 34px;
   border: none;
   font-size: 20px;
-  margin-bottom: 30px;
+  margin: 20px;
+  cursor: pointer;
 }
 .snm {
   margin-top: 72px;
-  height: 400px;
+  padding: 50px;
   background: linear-gradient(#1e1435, #221737, #281c3b);
   color: #fff;
   display: flex;
@@ -74,13 +77,12 @@
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  margin: 10px;
 }
 .snmlist li {
   padding: 30px;
   border-right: 1px solid #fff;
   align-items: center;
-  justify-content: center;
   display: flex;
   flex-direction: column;
 }
@@ -97,7 +99,7 @@
 }
 
 .card {
-  width: 330px;
+  width: 300px;
   height: 504px;
   background-color: #281c3b;
   border-radius: 50px;
@@ -106,7 +108,6 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin: 0 8px;
 }
 .card h5 {
   font-size: 24px;
@@ -138,6 +139,8 @@
   border-radius: 34px;
   border: none;
   font-size: 20px;
+  cursor: pointer;
+  margin: 10px;
 }
 .star {
   display: flex;
@@ -198,6 +201,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .zdcrd a {
   font-size: 20px;
@@ -218,18 +222,15 @@
 
     font-size: 14px;
   }
-  .bnrhdr {
-    width: 50%;
-    height: 60%;
-  }
+
   .snmlist h6 {
-    font-size: 16px;
-  }
-  .snmlist p {
     font-size: 14px;
   }
+  .snmlist p {
+    font-size: 12px;
+  }
   .card {
-    width: 310px;
+    width: 250px;
     height: 454px;
   }
   .card h5 {
@@ -267,5 +268,20 @@
   }
   .snmlist p {
     font-size: 12px;
+  }
+  .bnrhdr {
+    padding: 40px;
+  }
+  .snmhdr h3 {
+    font-size: 16px;
+  }
+  .snmlist ul {
+    flex-direction: column;
+  }
+  .snmlist li {
+    border-right: none;
+    border-bottom: 1px solid #fff;
+    padding: 5px 0;
+    margin: 5px 0;
   }
 }

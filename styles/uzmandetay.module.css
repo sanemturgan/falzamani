@@ -1,17 +1,17 @@
 .uzmanhdr {
   width: 100%;
-  height: 140px;
   margin-top: 62px;
   display: flex;
   flex-direction: column;
-
-  justify-content: left;
+  align-items: flex-start;
+  justify-content: center;
   background: linear-gradient(to right, #402759, #2a1b40, #160f26);
 }
 .uzmanhdr h4 {
   color: #fff;
   font-size: 20px;
-  margin: 30px;
+  margin: 10px 30px;
+  padding: 10px;
   width: 60%;
   border-bottom: 1px solid #fff;
 }
@@ -19,6 +19,7 @@
   color: #fff;
   font-size: 16px;
   margin: 0 30px;
+  padding: 20px;
 }
 .uzmangenel {
   width: 95%;
@@ -66,6 +67,7 @@
   border-radius: 20px;
   font-size: 14px;
   margin: 5px;
+  cursor: pointer;
 }
 .etkilesim {
   border: 1px solid #1cd42e;
@@ -73,6 +75,7 @@
   border-radius: 20px;
   font-size: 14px;
   margin: 5px;
+  cursor: pointer;
 }
 .online {
   display: flex;
@@ -89,6 +92,7 @@
   padding: 4px;
   margin: 4px;
   background-color: #aaa9a9;
+  cursor: pointer;
 }
 .ustiki {
   margin-top: 40px;
@@ -132,6 +136,7 @@
   display: flex;
   justify-content: space-between;
   padding: 8px;
+  align-items: center;
 }
 .faldty h5 {
   font-size: 18px;
@@ -141,11 +146,13 @@
   padding: 5px;
   margin: 0 5px;
   border-radius: 16px;
+  cursor: pointer;
 }
 .rnd {
   background-color: #1cd42e;
   padding: 5px;
   border-radius: 16px;
+  cursor: pointer;
 }
 .options {
   padding: 30px;
@@ -158,7 +165,7 @@
   display: flex;
   flex-direction: column;
   width: 480px;
-  height: 280px;
+
   padding: 40px;
   margin: 10px;
   background-color: #5a4b69;
@@ -223,6 +230,7 @@
   align-items: center;
   justify-content: center;
   padding: 30px;
+  cursor: pointer;
 }
 @media screen and (max-width: 870px) {
   .uzmanhdr h4 {
@@ -266,16 +274,55 @@
   .faldty h5 {
     font-size: 16px;
   }
-  .ophdr {
-    font-size: 14px;
-  }
-  .opexp {
-    font-size: 12px;
-  }
+
   .btmhdr {
     font-size: 16px;
   }
   .rote p {
     font-size: 12px;
   }
+  .rnd {
+    padding: 3px;
+    font-size: 12px;
+  }
+  .pay button {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .ophdr {
+    font-size: 14px;
+  }
+  .opexp {
+    font-size: 12px;
+  }
+  .comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 12px;
+  }
+  .rote {
+    padding: 5px;
+  }
+  .pay button {
+    padding: 5px;
+    margin: 5px;
+  }
+  .faldty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #fff;
+  }
+  .options {
+    padding: 20px;
+  }
+  .option {
+    padding: 30px;
+    margin: 10px;
+  }
+}
+@media screen and (max-width: 460px) {
 }

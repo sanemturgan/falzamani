@@ -9,6 +9,9 @@
   display: flex;
   margin-top: 160px;
 }
+.socialicons a {
+  padding: 15px;
+}
 .ftrbtm {
   width: 100%;
   display: flex;
@@ -22,4 +25,9 @@
 }
 .copyrght {
   font-size: 14px;
+}
+@media screen and (max-width: 960px) {
+  .copyrght {
+    font-size: 10px;
+  }
 }

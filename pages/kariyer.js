@@ -29,29 +29,24 @@ function kariyer() {
         </p>
       </div>
       <div className={classes.formkariyer}>
-        <FormControl id="form">
+        <FormControl id="formkariyer">
           <FormLabel color="#fff" mb="16px" fontSize="18px">
             Ad
           </FormLabel>
-          <Input placeholder="Adınız" size="lg" />
+          <Input placeholder="Adınız" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Soyad
           </FormLabel>
-          <Input placeholder="Soyadınız" size="lg" />
+          <Input placeholder="Soyadınız" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Email
           </FormLabel>
-          <Input type="E-mail" size="lg" />
-          <FormHelperText
-            color="#fff"
-            mb="16px"
-            mt="16px"
-            fontSize="18px"
-          ></FormHelperText>
+          <Input type="E-mail" size="lg" color="white" />
+
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Mesajınız
           </FormLabel>
-          <Textarea placeholder="Mesajınız" size="lg" />
+          <Textarea placeholder="Mesajınız" size="lg" color="white" />
         </FormControl>
         <div className={classes.export}>
           <p>dosya seçebilirsiniz</p>
@@ -61,7 +56,9 @@ function kariyer() {
         </div>
         <div className={classes.gonder}>
           <Link href="/Gonder">
-            <button className={classes.gnd}>Gönder</button>
+            <a>
+              <button className={classes.gnd}>Gönder</button>
+            </a>
           </Link>
         </div>
       </div>

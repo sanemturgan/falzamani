@@ -27,6 +27,11 @@ function kayit() {
           </FormLabel>
           <Input placeholder="Kullanıcı Adı" size="lg" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+            Email
+          </FormLabel>
+          <Input type="E-mail" size="lg" color="white" />
+
+          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre
           </FormLabel>
           <Input
@@ -50,7 +55,9 @@ function kayit() {
 
         <div className={classes.gonder}>
           <Link href="/Kayit">
-            <button className={classes.gnd}>Kayıt Ol</button>
+            <a>
+              <button className={classes.gnd}>Kayıt Ol</button>
+            </a>
           </Link>
         </div>
       </div>

@@ -120,7 +120,10 @@ function burclar() {
             </div>
             <div className={classes.more}>
               <Link href="/more">
-                <FaSortDown color="#ECDCF5" size="30px" />
+                <a>
+                  {" "}
+                  <FaSortDown color="#ECDCF5" size="30px" />
+                </a>
               </Link>
             </div>
           </div>

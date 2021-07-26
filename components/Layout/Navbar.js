@@ -5,6 +5,19 @@ import Image from "next/image";
 import Logo from "../../public/img/logo.png";
 import Link from "next/link";
 import useOutSideClick from "../../hooks/useOutSideClick";
+import { FaBars } from "react-icons/fa";
+import {
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuItemOption,
+  MenuGroup,
+  MenuOptionGroup,
+  MenuIcon,
+  MenuCommand,
+  MenuDivider,
+} from "@chakra-ui/react";
 function Navbar() {
   // Dropdown Menu
   const menuRef = useRef();
@@ -106,6 +119,53 @@ function Navbar() {
             <button className={classes.uyegiris}>Üye Girişi</button>
           </a>
         </Link>
+      </div>
+      <div className={classes.hamburgermenu}>
+        <Menu>
+          <MenuButton>
+            <FaBars color="#140731" size="20px" />
+          </MenuButton>
+          <MenuList>
+            {/* MenuItems are not rendered unless Menu is open */}
+            <MenuItem>
+              <Link href="/falturleri">
+                <a>Fal Türleri</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/uzmanlar">
+                <a>Uzmanlar</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              {" "}
+              <Link href="/burclar">
+                <a>Burçlar</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/blog">
+                <a>Blog</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              {" "}
+              <Link href="/kredial">
+                <a>Kredi Al</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/kariyer">
+                <a>Kariyer</a>
+              </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link href="/bizeulasin">
+                <a>Bize Ulaşın</a>
+              </Link>
+            </MenuItem>
+          </MenuList>
+        </Menu>
       </div>
     </nav>
   );

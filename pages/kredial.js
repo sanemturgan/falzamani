@@ -18,7 +18,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -31,7 +33,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -44,7 +48,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -57,7 +63,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -70,7 +78,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -83,7 +93,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -96,7 +108,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>
@@ -109,7 +123,9 @@ function kredial() {
           <h4>50 TL</h4>
           <div className={classes.kredibtn}>
             <Link href="/odeme">
-              <button className={classes.cardbuy}>Satın Al</button>
+              <a>
+                <button className={classes.cardbuy}>Satın Al</button>
+              </a>
             </Link>
           </div>
         </div>

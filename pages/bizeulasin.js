@@ -33,24 +33,24 @@ function kariyer() {
           <FormLabel color="#fff" mb="16px" fontSize="18px">
             Ad
           </FormLabel>
-          <Input placeholder="Adınız" size="lg" />
+          <Input placeholder="Adınız" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Soyad
           </FormLabel>
-          <Input placeholder="Soyadınız" size="lg" />
+          <Input placeholder="Soyadınız" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Email
           </FormLabel>
-          <Input type="E-mail" size="lg" />
+          <Input type="E-mail" size="lg" color="white" />
 
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Telefon
           </FormLabel>
-          <Input placeholder="Telefonunuz" size="lg" />
+          <Input placeholder="Telefonunuz" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Mesajınız
           </FormLabel>
-          <Textarea placeholder="Mesajınız" size="lg" />
+          <Textarea placeholder="Mesajınız" size="lg" color="white" />
         </FormControl>
         <div className={classes.export}>
           <p>dosya seçebilirsiniz</p>
@@ -60,7 +60,9 @@ function kariyer() {
         </div>
         <div className={classes.gonder}>
           <Link href="/Gonder">
-            <button className={classes.gnd}>Gönder</button>
+            <a>
+              <button className={classes.gnd}>Gönder</button>
+            </a>
           </Link>
         </div>
       </div>

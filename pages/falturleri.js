@@ -65,7 +65,9 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
@@ -95,7 +97,9 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
@@ -125,7 +129,9 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
@@ -155,7 +161,9 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
@@ -185,7 +193,9 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
@@ -215,14 +225,19 @@ function falturleri() {
               </div>
               <div className={classes.cardbtn}>
                 <Link href="/uzmandetay">
-                  <button className={classes.cardgiris}>Fal Baktır</button>
+                  <a>
+                    <button className={classes.cardgiris}>Fal Baktır</button>
+                  </a>
                 </Link>
               </div>
             </div>
           </div>
           <div className={classes.more}>
             <Link href="/more">
-              <FaSortDown color="#ECDCF5" size="30px" />
+              <a>
+                {" "}
+                <FaSortDown color="#ECDCF5" size="30px" />
+              </a>
             </Link>
           </div>
         </div>

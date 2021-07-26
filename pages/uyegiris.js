@@ -11,6 +11,8 @@ import {
   ButtonGroup,
   InputGroup,
   InputRightElement,
+  Checkbox,
+  CheckboxGroup,
 } from "@chakra-ui/react";
 
 function UYEGIRIS() {
@@ -24,7 +26,7 @@ function UYEGIRIS() {
           <FormLabel color="#fff" mb="16px" fontSize="18px">
             Kullanıcı Adı
           </FormLabel>
-          <Input placeholder="Kullanıcı Adı" size="lg" />
+          <Input placeholder="Kullanıcı Adı" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre
           </FormLabel>
@@ -34,7 +36,11 @@ function UYEGIRIS() {
             type="password"
             size="lg"
             placeholder="Şifre"
+            color="white"
           />
+          <Checkbox defaultIsChecked color="white" s>
+            Beni Hatırla
+          </Checkbox>
         </FormControl>
 
         <div className={classes.gonder}>

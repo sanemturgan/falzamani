@@ -45,15 +45,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -75,15 +85,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -105,15 +125,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -135,15 +165,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -165,15 +205,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -195,15 +245,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -225,15 +285,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -255,15 +325,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>
@@ -285,15 +365,25 @@ function uzmanlar() {
             </p>
             <div className={classes.crdi}>
               <div className={classes.cardicon}>
-                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
+                <Link href="/uzmandetay">
+                  <a>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </a>
+                </Link>
               </div>
             </div>
             <div className={classes.cardbtn}>
               <Link href="/uzmandetay">
-                <button className={classes.cardgiris}>Fal Baktır</button>
+                <a>
+                  <button className={classes.cardgiris}>Fal Baktır</button>
+                </a>
               </Link>
             </div>
           </div>

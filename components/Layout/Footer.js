@@ -15,9 +15,21 @@ function Footer() {
   return (
     <div className={classes.footer}>
       <div className={classes.socialicons}>
-        <FaInstagram color="#ECDCF5" size="30px" />
-        <FaFacebookSquare color="#ECDCF5" size="30px" />
-        <FaLinkedin color="#ECDCF5" size="30px" />
+        <Link href="/instagram">
+          <a>
+            <FaInstagram color="#ECDCF5" size="30px" />
+          </a>
+        </Link>
+        <Link href="/facebook">
+          <a>
+            <FaFacebookSquare color="#ECDCF5" size="30px" />
+          </a>
+        </Link>
+        <Link href="/linkedin">
+          <a>
+            <FaLinkedin color="#ECDCF5" size="30px" />
+          </a>
+        </Link>
       </div>
       <div className={classes.ftrbtm}>
         <div className={classes.copyrght}>
@@ -27,10 +39,10 @@ function Footer() {
           </p>
         </div>
         <div className={classes.btmicons}>
-          <FaCcVisa color="#ECDCF5" size="14px" />
-          <FaCcMastercard color="#ECDCF5" size="14px" />
-          <FaCcStripe color="#ECDCF5" size="14px" />
-          <FaCcAmex color="#ECDCF5" size="14px" />
+          <FaCcVisa color="#ECDCF5" size="12px" />
+          <FaCcMastercard color="#ECDCF5" size="12px" />
+          <FaCcStripe color="#ECDCF5" size="12px" />
+          <FaCcAmex color="#ECDCF5" size="12px" />
         </div>
       </div>
     </div>
