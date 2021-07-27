@@ -169,9 +169,11 @@
   width: fit-content;
   justify-content: center;
   text-align: center;
+  height: 360px;
 }
 .bottomSlider {
   width: 100%;
+  height: unset !important;
 }
 .zodiachdr {
   margin: 10px;
@@ -187,7 +189,7 @@
 .zdcimg {
   width: 247px;
   height: 247px;
-  position: absolute;
+  position: relative;
   top: 0;
   z-index: 2;
 }
@@ -197,7 +199,7 @@
   height: 120px;
   border-radius: 40px;
   position: relative;
-  top: 30px;
+  top: -30px;
   display: flex;
   align-items: center;
   justify-content: center;

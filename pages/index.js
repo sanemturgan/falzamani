@@ -75,7 +75,7 @@ function HomePage() {
       <div>
         <Swiper
           className="swipercards"
-          spaceBetween={100}
+          spaceBetween={60}
           slidesPerView="auto"
           navigation
         >
@@ -149,7 +149,6 @@ function HomePage() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            {" "}
             <div className={classes.card}>
               <div className={classes.cardimg}>
                 <Image src={CardImg} alt="teller" />
@@ -332,118 +331,24 @@ function HomePage() {
         <div className={classes.bottomSlider}>
           <Swiper
             className="zodiacswp"
-            spaceBetween={60}
+            spaceBetween={30}
             slidesPerView="auto"
             navigation
           >
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
+            {Array.from(Array(10)).map((e, i) => (
+              <SwiperSlide key={i}>
+                <div className={classes.zdcmain}>
+                  <div className={classes.zdcimg}>
+                    <Image src={Zodiacimg} alt="zodiac" />
+                  </div>
+                  <div className={classes.zdcrd}>
+                    <Link href="/burcdetay">
+                      <a>Koç Burcunda Bu Hafta...</a>
+                    </Link>
+                  </div>
                 </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
