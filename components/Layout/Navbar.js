@@ -126,7 +126,6 @@ function Navbar() {
             <FaBars color="#140731" size="20px" />
           </MenuButton>
           <MenuList>
-            {/* MenuItems are not rendered unless Menu is open */}
             <Link href="/falturleri">
               <a>
                 <MenuItem>Fal Türleri</MenuItem>
