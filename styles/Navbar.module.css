@@ -95,10 +95,6 @@
   display: none;
   cursor: pointer;
 }
-@media screen and (max-width: 1895px) {
-}
-@media screen and (max-width: 1650px) {
-}
 
 @media screen and (max-width: 1420px) {
   .bar li {
@@ -111,6 +107,9 @@
   }
 }
 @media screen and (max-width: 1000px) {
+  .navbarmain {
+    height: 60px;
+  }
   .uyegiris {
     display: none;
   }

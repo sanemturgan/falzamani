@@ -214,6 +214,7 @@
 @media screen and (max-width: 960px) {
   .bnrhdr h4 {
     font-size: 20px;
+    padding: 0;
   }
   .bnrhdr p {
     font-size: 14px;
@@ -232,7 +233,7 @@
     font-size: 12px;
   }
   .card {
-    width: 250px;
+    width: 260px;
     height: 454px;
   }
   .card h5 {
@@ -246,8 +247,8 @@
     width: 128px;
     height: 44px;
   }
-  .zodiac {
-    height: 450px;
+  .zodiachdr h3 {
+    text-align: center;
   }
   .zdcimg {
     width: 217px;
@@ -255,7 +256,6 @@
   }
   .zdcrd {
     border-radius: 34px;
-    top: 5px;
     width: 214px;
     height: 90px;
   }
@@ -272,7 +272,16 @@
     font-size: 12px;
   }
   .bnrhdr {
-    padding: 40px;
+    padding: 20px 20px;
+    width: 90%;
+    margin: 0;
+    border-radius: 10px;
+  }
+  .banner {
+    height: 500px;
+  }
+  .bnrgiris {
+    margin-bottom: 0;
   }
   .snmhdr h3 {
     font-size: 16px;
