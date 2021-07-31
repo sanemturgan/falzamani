@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../styles/Homepage.module.css";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,12 @@ import Link from "next/link";
 SwiperCore.use([Navigation, A11y]);
 
 function HomePage() {
+  const [arrows, setArrows] = useState(true);
+  useEffect(() => {
+    if (window) {
+      setArrows(window.innerHeight > 900);
+    }
+  }, []);
   return (
     <div className="wrapperClass">
       <div className={classes.banner}>
@@ -75,254 +81,46 @@ function HomePage() {
       <div>
         <Swiper
           className="swipercards"
-          spaceBetween={100}
+          spaceBetween={30}
           slidesPerView="auto"
-          navigation
+          navigation={arrows}
         >
-          <SwiperSlide>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
+          {Array.from(Array(10)).map((e, i) => (
+            <SwiperSlide key={i}>
+              <div className={classes.card}>
+                <div className={classes.cardimg}>
+                  <Image src={CardImg} alt="teller" />
                 </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
+                <h5>Luna</h5>
+                <div className={classes.star}>
+                  <FaStar color="#ECDCF5" size="14px" />
+                  <FaStar color="#ECDCF5" size="14px" />
+                  <FaStar color="#ECDCF5" size="14px" />
+                  <FaStar color="#ECDCF5" size="14px" />
+                  <FaStar color="#ECDCF5" size="14px" />
                 </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
+                <p>
+                  20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
+                  yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
+                </p>
+                <div className={classes.crdi}>
+                  <div className={classes.cardicon}>
+                    <FaPhoneAlt color="#ECDCF5" size="20px" />
+                  </div>
+                  <div className={classes.cardicon}>
+                    <FaEnvelope color="#ECDCF5" size="20px" />
+                  </div>
                 </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
+                <div className={classes.cardbtn}>
+                  <Link href="/uzmandetay">
+                    <a>
+                      <button className={classes.cardgiris}>Fal Baktır</button>
+                    </a>
+                  </Link>
                 </div>
               </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            {" "}
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
       <div className={classes.zodiac}>
@@ -332,118 +130,24 @@ function HomePage() {
         <div className={classes.bottomSlider}>
           <Swiper
             className="zodiacswp"
-            spaceBetween={60}
+            spaceBetween={30}
             slidesPerView="auto"
-            navigation
+            navigation={arrows}
           >
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
+            {Array.from(Array(10)).map((e, i) => (
+              <SwiperSlide key={i}>
+                <div className={classes.zdcmain}>
+                  <div className={classes.zdcimg}>
+                    <Image src={Zodiacimg} alt="zodiac" />
+                  </div>
+                  <div className={classes.zdcrd}>
+                    <Link href="/burcdetay">
+                      <a>Koç Burcunda Bu Hafta...</a>
+                    </Link>
+                  </div>
                 </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide>
-              <div className={classes.zdcmain}>
-                <div className={classes.zdcimg}>
-                  <Image src={Zodiacimg} alt="zodiac" />
-                </div>
-                <div className={classes.zdcrd}>
-                  <Link href="/burcdetay">
-                    <a>Koç Burcunda Bu Hafta...</a>
-                  </Link>
-                </div>
-              </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

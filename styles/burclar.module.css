@@ -117,8 +117,17 @@
     padding: 5px;
     font-size: 12px;
   }
+  .btmhdr {
+    width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+  }
   .rghthdr {
     width: 100%;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
   }
   .rghthdr h5 {
     font-size: 14px;
