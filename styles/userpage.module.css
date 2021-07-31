@@ -1,0 +1,109 @@
+.kariyerhdr {
+  width: 100%;
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to right, #402759, #2a1b40, #160f26);
+}
+.kariyerhdr h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 30px;
+  padding: 10px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+}
+.adminmain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+  margin: auto;
+  margin-right: 30px;
+  border-radius: 50px;
+  color: #fff;
+  margin-top: 72px;
+}
+.admininfo {
+  display: flex;
+  flex-direction: column;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+.info a {
+  font-size: 12px;
+  text-decoration: underline;
+}
+.danismanlistbtm {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  width: 100%;
+}
+.btmhdr {
+  font-size: 18px;
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  margin: 10px 5px;
+}
+.btminfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+.btminfolist {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+.payanddetails {
+  display: flex;
+  font-size: 14px;
+  text-align: center;
+}
+.payanddetails p {
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  margin-right: 5px;
+}
+.infodetail {
+  padding: 5px;
+  border: 1px solid #fff;
+  border-radius: 15px;
+  margin-left: 5px;
+}
+@media screen and (max-width: 760px) {
+  .payanddetails {
+    font-size: 12px;
+  }
+  .btminfolist {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .info {
+    flex-direction: column;
+  }
+  .listtop {
+    flex-direction: column;
+    font-size: 14px;
+  }
+  .btmhdr {
+    font-size: 14px;
+  }
+  .infofal {
+    font-size: 14px;
+  }
+  .kariyerhdr h4 {
+    font-size: 14px;
+  }
+}

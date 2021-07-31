@@ -32,6 +32,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -72,6 +73,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -112,6 +114,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -152,6 +155,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -192,6 +196,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -232,6 +237,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -272,6 +278,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -312,6 +319,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />
@@ -352,6 +360,7 @@ function uzmanlar() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <FaStar color="#ECDCF5" size="14px" />

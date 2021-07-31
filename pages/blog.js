@@ -4,6 +4,8 @@ import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Kova from "../public/img/kova.png";
 import Geyik from "../public/img/geyik.png";
+
+import ZodiacImgone from "../public/img/venus.png";
 import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -181,6 +183,141 @@ function blog() {
               </ul>
             </div>
           </div>
+        </div>
+        <div className={classes.rghtbtm}>
+          <div className={classes.btmhdr}>
+            <h6>Burçlar</h6>
+          </div>
+          <div className={classes.btmcrds}>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+            <div className={classes.btmcrd}>
+              <div className={classes.btmcrdımg}>
+                <Image src={ZodiacImgone} alt="btmcrd" />
+              </div>
+              <div className={classes.btmcrdlink}>
+                <Link href="/burcdetay">
+                  <a>Yengeç</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+          {/* <div className={classes.more}>
+              <Link href="/more">
+                <a>
+                  {" "}
+                  <FaSortDown color="#ECDCF5" size="30px" />
+                </a>
+              </Link>
+            </div> */}
         </div>
         <div className={classes.blgalt}>
           <div className={classes.althdr}>

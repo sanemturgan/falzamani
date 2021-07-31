@@ -117,15 +117,75 @@ function burclar() {
                   </Link>
                 </div>
               </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
+              <div className={classes.btmcrd}>
+                <div className={classes.btmcrdımg}>
+                  <Image src={ZodiacImgone} alt="btmcrd" />
+                </div>
+                <div className={classes.btmcrdlink}>
+                  <Link href="/burcdetay">
+                    <a>Yengeç Burcu Aylık Burç Yorumları - Temmuz 2021</a>
+                  </Link>
+                </div>
+              </div>
             </div>
-            <div className={classes.more}>
+            {/* <div className={classes.more}>
               <Link href="/more">
                 <a>
                   {" "}
                   <FaSortDown color="#ECDCF5" size="30px" />
                 </a>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={classes.categories}>

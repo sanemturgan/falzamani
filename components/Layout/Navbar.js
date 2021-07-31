@@ -36,6 +36,11 @@ function Navbar() {
         </Link>
       </div>
       <ul className={classes.bar}>
+        <li>
+          <Link href="/uzmanlar">
+            <a>Uzmanlar</a>
+          </Link>
+        </li>
         {/*  Dropdown Menu  */}
         <li ref={menuRef} onClick={() => openMenu(!menuIsOpen)}>
           Fal Türleri
@@ -82,16 +87,11 @@ function Navbar() {
             </div>
           )}
         </li>
-        <li>
-          <Link href="/uzmanlar">
-            <a>Uzmanlar</a>
-          </Link>
-        </li>
-        <li>
+        {/* <li>
           <Link href="/burclar">
             <a>Burçlar</a>
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link href="/blog">
             <a>Blog</a>
@@ -137,12 +137,12 @@ function Navbar() {
                 <a>Uzmanlar</a>
               </Link>
             </MenuItem>
-            <MenuItem>
+            {/* <MenuItem>
               {" "}
               <Link href="/burclar">
                 <a>Burçlar</a>
               </Link>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem>
               <Link href="/blog">
                 <a>Blog</a>

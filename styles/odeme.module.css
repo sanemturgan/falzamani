@@ -1,0 +1,88 @@
+.kariyerhdr {
+  width: 100%;
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to right, #402759, #2a1b40, #160f26);
+}
+.kariyerhdr h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 30px;
+  padding: 10px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+}
+.paymain {
+  display: flex;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 72px;
+}
+.payentry {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+  margin: auto;
+  border-radius: 50px;
+  width: 50%;
+}
+.date {
+  display: flex;
+  width: 40%;
+  align-items: center;
+}
+.cvv {
+  display: flex;
+  width: 20%;
+  align-items: center;
+}
+.gonder {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  color: #fff;
+  padding: 15px;
+}
+.gnd {
+  padding: 10px 50px;
+  border: 1px solid #fff;
+  border-radius: 40px;
+  cursor: pointer;
+}
+.payinfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px;
+  background: linear-gradient(#1e1435, #221737, #281c3b);
+  margin: auto;
+  border-radius: 50px;
+  width: 40%;
+}
+.payinfotop {
+  border-bottom: 1px solid #fff;
+}
+.payone {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+@media screen and (max-width: 650px) {
+  .paymain {
+    flex-direction: column;
+  }
+  .payentry {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .payinfo {
+    width: 100%;
+  }
+}

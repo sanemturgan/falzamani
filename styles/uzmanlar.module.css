@@ -46,8 +46,8 @@
   margin: 70px 0;
 }
 .card {
-  width: 330px;
-  height: 504px;
+  width: 290px;
+  height: 404px;
   background-color: #281c3b;
   border-radius: 50px;
   display: flex;
@@ -58,31 +58,32 @@
   margin: 15px 15px;
 }
 .card h5 {
-  font-size: 24px;
+  font-size: 20px;
   color: #ecdcf5;
   margin: 0;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 .card p {
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
-  padding: 15px;
+  padding: 10px;
   margin: 0;
 }
 .cardimg {
-  width: 130px;
+  width: 100px;
+  margin-top: 15px;
 }
 .crdi {
   display: flex;
   justify-content: space-between;
 }
 .cardicon {
-  padding: 10px 20px;
+  margin: 10px 20px;
   cursor: pointer;
 }
 .cardgiris {
-  width: 148px;
-  height: 54px;
+  padding: 5px 20px;
+  margin-bottom: 15px;
   background-color: #1cd42e;
   color: #fff;
   border-radius: 34px;
@@ -90,21 +91,25 @@
   font-size: 20px;
   cursor: pointer;
 }
+.online {
+  padding: 0;
+  margin: 0;
+  color: #1cd42e;
+  font-size: 14px;
+}
 @media screen and (max-width: 960px) {
   .card {
-    width: 310px;
-    height: 454px;
+    width: 250px;
+    height: 370px;
   }
   .card h5 {
-    font-size: 18px;
+    font-size: 16px;
   }
   .card p {
     font-size: 14px;
   }
   .cardgiris {
     font-size: 14px;
-    width: 128px;
-    height: 44px;
   }
   .uzmanhdr h4 {
     font-size: 16px;

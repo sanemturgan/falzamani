@@ -144,6 +144,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .altexp {
@@ -152,7 +153,40 @@
   margin-bottom: 20px;
   padding: 5px;
 }
-
+.rghtbtm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.btmhdr {
+  margin: 30px 50px;
+  font-size: 16px;
+}
+.btmcrds {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.btmcrd {
+  width: 170px;
+  padding: 5px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #5a4b69;
+  margin: 10px;
+  cursor: pointer;
+}
+.btmcrdlink {
+  padding: 5px;
+}
+.btmcrdımg {
+}
 @media screen and (max-width: 960px) {
   .flt a {
     font-size: 12px;

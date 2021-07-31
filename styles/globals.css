@@ -88,7 +88,55 @@ a {
   padding: 0 25px;
   margin: auto;
 }
+.adminpage {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.adminblog {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.adminkredi {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.danisman {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.search {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.odeme {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.userpage {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
 .kayit {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.adminlogin {
   width: 100%;
   max-width: 1250px;
   padding: 0 25px;
