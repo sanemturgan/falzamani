@@ -10,12 +10,13 @@ import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 SwiperCore.use([Navigation, A11y]);
 
-function HomePage() {
+function HomePage({ data }) {
   const [arrows, setArrows] = useState(true);
   useEffect(() => {
     if (window) {
       setArrows(window.innerHeight > 900);
     }
+    console.log(data);
   }, []);
   return (
     <div className="wrapperClass">
@@ -153,6 +154,21 @@ function HomePage() {
       </div>
     </div>
   );
+}
+export async function getServerSideProps(context) {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+  const data = await res.json();
+  console.log(data);
+
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: { data }, // will be passed to the page component as props
+  };
 }
 
 export default HomePage;
