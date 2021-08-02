@@ -127,43 +127,48 @@ function Navbar() {
           </MenuButton>
           <MenuList>
             {/* MenuItems are not rendered unless Menu is open */}
-            <MenuItem>
-              <Link href="/falturleri">
-                <a>Fal Türleri</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/uzmanlar">
-                <a>Uzmanlar</a>
-              </Link>
-            </MenuItem>
+            <Link href="/falturleri">
+              <a>
+                <MenuItem>Fal Türleri</MenuItem>
+              </a>
+            </Link>
+            <Link href="/uzmanlar">
+              <a>
+                <MenuItem>Uzmanlar</MenuItem>
+              </a>
+            </Link>
             {/* <MenuItem>
               {" "}
               <Link href="/burclar">
                 <a>Burçlar</a>
               </Link>
             </MenuItem> */}
-            <MenuItem>
-              <Link href="/blog">
-                <a>Blog</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              {" "}
-              <Link href="/kredial">
-                <a>Kredi Al</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/kariyer">
-                <a>Kariyer</a>
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href="/bizeulasin">
-                <a>Bize Ulaşın</a>
-              </Link>
-            </MenuItem>
+            <Link href="/blog">
+              <a>
+                <MenuItem>Blog</MenuItem>
+              </a>
+            </Link>
+            <Link href="/kredial">
+              <a>
+                <MenuItem> Kredi Al</MenuItem>
+              </a>
+            </Link>
+            <Link href="/kariyer">
+              <a>
+                <MenuItem>Kariyer</MenuItem>
+              </a>
+            </Link>
+            <Link href="/bizeulasin">
+              <a>
+                {" "}
+                <MenuItem>Bize Ulaşın</MenuItem>
+              </a>
+            </Link>{" "}
+            <Link href="/uyegiris">
+              <a>
+                <MenuItem>Üye Girişi</MenuItem>
+              </a>
+            </Link>
           </MenuList>
         </Menu>
       </div>
