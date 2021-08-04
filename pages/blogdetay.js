@@ -18,7 +18,7 @@ function blogdetay() {
       </div>
       <div className={classes.search}>
         <div className={classes.srchi}>
-          <Link href="/">
+          <Link href="/search">
             <a>
               <FaSearch color="#281c3b" size="16px" />
             </a>

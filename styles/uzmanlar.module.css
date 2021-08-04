@@ -97,6 +97,20 @@
   color: #1cd42e;
   font-size: 14px;
 }
+.offline {
+  padding: 0;
+  margin: 0;
+  color: rgb(155, 155, 155);
+  font-size: 14px;
+  display: none;
+}
+.notavailable {
+  padding: 0;
+  margin: 0;
+  color: rgb(180, 6, 6);
+  font-size: 14px;
+  display: none;
+}
 @media screen and (max-width: 960px) {
   .card {
     width: 250px;

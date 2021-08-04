@@ -67,11 +67,21 @@
   font-size: 16px;
   cursor: pointer;
 }
+.user {
+  display: flex;
+}
+.user p {
+  margin-left: 5px;
+}
 @media screen and (max-width: 460px) {
   .info {
     flex-direction: column;
   }
   .adminmain {
     margin-right: 0;
+  }
+  .user {
+    flex-direction: column;
+    align-items: center;
   }
 }

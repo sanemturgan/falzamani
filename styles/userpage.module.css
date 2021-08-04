@@ -81,6 +81,12 @@
   border-radius: 15px;
   margin-left: 5px;
 }
+.user {
+  display: flex;
+}
+.user p {
+  margin-left: 5px;
+}
 @media screen and (max-width: 760px) {
   .payanddetails {
     font-size: 12px;
@@ -92,6 +98,10 @@
   }
   .info {
     flex-direction: column;
+  }
+  .user {
+    flex-direction: column;
+    align-items: center;
   }
   .listtop {
     flex-direction: column;

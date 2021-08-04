@@ -10,19 +10,28 @@ function adminpage() {
       <div className={classes.adminmain}>
         <div className={classes.admininfo}>
           <div className={classes.info}>
-            <p>Kullanıcı Adı:Luna</p>
+            <div className={classes.user}>
+              <p>Kullanıcı Adı:</p>
+              <p>Luna</p>
+            </div>
             <Link href="/changeusername">
               <a>Değiştir</a>
             </Link>
           </div>
           <div className={classes.info}>
-            <p>Email:Luna@fdgfd.com</p>
+            <div className={classes.user}>
+              <p>E-Mail:</p>
+              <p>Luna@fgdg.com</p>
+            </div>
             <Link href="/changeemail">
               <a>Değiştir</a>
             </Link>
           </div>
           <div className={classes.info}>
-            <p>Şifre:********</p>
+            <div className={classes.user}>
+              <p>Şifre:</p>
+              <p>*********</p>
+            </div>
             <Link href="/changepassword">
               <a>Değiştir</a>
             </Link>
