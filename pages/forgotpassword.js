@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../styles/uyegiris.module.css";
+import classes from "../styles/forgotpassword.module.css";
 import {
   FormControl,
   FormLabel,
@@ -15,11 +15,11 @@ import {
   CheckboxGroup,
 } from "@chakra-ui/react";
 import Link from "next/link";
-function UYEGIRIS() {
+function SIFREMIUNUTTUM() {
   return (
-    <div className="uyegiris">
+    <div className="fpassword">
       <div className={classes.kariyerhdr}>
-        <h4>ÜYE GİRİŞİ</h4>
+        <h4>ŞİFREMİ UNUTTUM</h4>
       </div>
       <div className={classes.formkariyer}>
         <FormControl id="form">
@@ -27,34 +27,23 @@ function UYEGIRIS() {
             Kullanıcı Adı
           </FormLabel>
           <Input placeholder="Kullanıcı Adı" size="lg" color="white" />
-
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Şifre
+            Telefon
           </FormLabel>
-          <Input
-            pr="4.5rem"
-            mb="16px"
-            type="password"
-            size="lg"
-            placeholder="Şifre"
-            color="white"
-          />
-          <Checkbox defaultIsChecked color="white" s>
-            Beni Hatırla
-          </Checkbox>
-          <div className={classes.forgotpassword}>
-            <Link href="/forgotpassword">
-              <a>Şifremi Unuttum</a>
-            </Link>
-          </div>
+          <Input placeholder="Telefon Numarası" size="lg" color="white" />
+          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+            Email
+          </FormLabel>
+          <Input type="E-mail" mb="16px" size="lg" color="white" />
         </FormControl>
 
         <div className={classes.gonder}>
-          <button className={classes.gnd}>Giriş Yap</button>
+          <button className={classes.gnd}>Şifremi Mail Adresime Gönder</button>
+          <button className={classes.gnd}>Şifremi Telefonuma Gönder</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default UYEGIRIS;
+export default SIFREMIUNUTTUM;

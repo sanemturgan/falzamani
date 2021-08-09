@@ -29,6 +29,15 @@ function adminpage() {
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
+              <p>Telefon:</p>
+              <p>0555555555</p>
+            </div>
+            <Link href="/changeemail">
+              <a>Değiştir</a>
+            </Link>
+          </div>
+          <div className={classes.info}>
+            <div className={classes.user}>
               <p>Şifre:</p>
               <p>*********</p>
             </div>

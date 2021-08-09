@@ -30,7 +30,7 @@ function adminblog() {
               Kredi Miktarı Giriniz
             </FormLabel>
             <Input size="lg" color="white" />
-            <FormLabel color="#fff" mb="16px" fontSize="18px">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Kredi Fiyatını Belirleyiniz
             </FormLabel>
             <Input size="lg" color="white" />
@@ -48,86 +48,7 @@ function adminblog() {
             </Link>
           </div>
         </div>
-        <div className={classes.bloglist}>
-          <ul>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
+
         <div className={classes.categories}>
           <ul className={classes.catalog}>
             <li className={classes.flt}>

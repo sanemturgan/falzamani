@@ -63,7 +63,7 @@
 }
 .uzmrandevu {
   background-color: #1cd42e;
-  padding: 6px;
+  padding: 7px;
   border-radius: 20px;
   font-size: 14px;
   margin: 5px;
@@ -71,7 +71,7 @@
 }
 .etkilesim {
   border: 1px solid #1cd42e;
-  padding: 6px;
+  padding: 7px;
   border-radius: 20px;
   font-size: 14px;
   margin: 5px;
@@ -143,14 +143,34 @@
 }
 .pay button {
   border: 1px solid #fff;
-  padding: 5px;
+  padding: 7px;
   margin: 0 5px;
   border-radius: 16px;
   cursor: pointer;
 }
+.online {
+  padding: 0;
+  margin: 0;
+  color: #1cd42e;
+  font-size: 14px;
+}
+.offline {
+  padding: 0;
+  margin: 0;
+  color: rgb(155, 155, 155);
+  font-size: 14px;
+  display: none;
+}
+.notavailable {
+  padding: 0;
+  margin: 0;
+  color: rgb(180, 6, 6);
+  font-size: 14px;
+  display: none;
+}
 .rnd {
   background-color: #1cd42e;
-  padding: 5px;
+  padding: 7px;
   border-radius: 16px;
   cursor: pointer;
 }

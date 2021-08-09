@@ -28,6 +28,9 @@ function uzmandetay() {
               <Image src={CardImg} alt="teller" />
             </div>
             <h5>Luna</h5>
+            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
+            <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
+            <h6 className={classes.notavailable}>(MEŞGUL)</h6>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <p>5/5</p>
@@ -44,7 +47,7 @@ function uzmandetay() {
                 </a>
               </Link>
             </div>
-            <div className={classes.online}>
+            <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="alerts" mb="0" fontSize="14px">
                   Online Olduğunda Bildir
@@ -254,7 +257,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -280,7 +283,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -306,7 +309,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -332,7 +335,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -358,7 +361,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -384,7 +387,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -410,7 +413,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>
@@ -436,7 +439,7 @@ function uzmandetay() {
                   <span>Seans 25 Dakikadır.</span>
                 </p>
                 <p>
-                  <span>160 TL</span>
+                  <span>160 KREDİ</span>
                 </p>
               </div>
               <div className={classes.opran}>

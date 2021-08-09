@@ -27,6 +27,10 @@ function kayit() {
           </FormLabel>
           <Input placeholder="Kullanıcı Adı" size="lg" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+            Telefon
+          </FormLabel>
+          <Input placeholder="Telefon Numarası" size="lg" color="white" />
+          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Email
           </FormLabel>
           <Input type="E-mail" size="lg" color="white" />
