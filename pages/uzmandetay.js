@@ -36,16 +36,16 @@ function uzmandetay() {
               <p>5/5</p>
             </div>
             <div className={classes.cardbtn}>
-              <Link href="/randevu">
+              <Link href="/odeme">
                 <a>
                   <button className={classes.uzmrandevu}>Randevu Al</button>
                 </a>
               </Link>
-              <Link href="/etkilesim">
+              {/* <Link href="/etkilesim">
                 <a>
                   <button className={classes.etkilesim}>Hızlı Etkileşim</button>
                 </a>
-              </Link>
+              </Link> */}
             </div>
             <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
@@ -104,12 +104,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -119,12 +119,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -134,12 +134,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -149,12 +149,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -164,12 +164,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -179,12 +179,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -194,12 +194,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -209,12 +209,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -224,12 +224,12 @@ function uzmandetay() {
               <div className={classes.faldty}>
                 <h5>Kahve Falı</h5>
                 <div className={classes.pay}>
-                  <Link href="/kredi">
+                  <Link href="/odeme">
                     <a>
                       <button>650 Kredi</button>
                     </a>
                   </Link>
-                  <Link href="/randevu">
+                  <Link href="/odeme">
                     <a>
                       <button className={classes.rnd}>Randevu Al</button>
                     </a>
@@ -261,7 +261,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -287,7 +287,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -313,7 +313,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -339,7 +339,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -365,7 +365,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -391,7 +391,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -417,7 +417,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
@@ -443,7 +443,7 @@ function uzmandetay() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/randevu">
+                <Link href="/odeme">
                   <a>
                     <button className={classes.rnd}>Randevu Al</button>
                   </a>
