@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+
 import classes from "../styles/kayit.module.css";
 import {
   FormControl,
@@ -14,7 +15,24 @@ import {
 } from "@chakra-ui/react";
 import { FaFileExport } from "react-icons/fa";
 import Link from "next/link";
-function kayit() {
+import axios from "axios";
+function Kayit() {
+  const [name, setName] = useState("");
+  const unSubmit=()=>{
+    e.preventDefault()
+        let userObject = {
+           name: name,
+            surname: surname,
+            username:username,
+            email: mail,
+            phone:phone,
+            password: password,
+            
+        };
+        const regResponse = await axios.post(process.env.REACT_APP_CLIENT_API_URL + /user/signup, userObject)
+        console.log(regResponse)
+
+  }
   return (
     <div className="kayit">
       <div className={classes.kariyerhdr}>
@@ -25,7 +43,15 @@ function kayit() {
           <FormLabel color="#fff" mb="16px" fontSize="18px">
             Kullanıcı Adı
           </FormLabel>
-          <Input placeholder="Kullanıcı Adı" size="lg" />
+          <Input
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+            value={name}
+            placeholder="Kullanıcı Adı"
+            color="#fff"
+            size="lg"
+          />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Telefon
           </FormLabel>
@@ -69,4 +95,4 @@ function kayit() {
   );
 }
 
-export default kayit;
+export default Kayit;
