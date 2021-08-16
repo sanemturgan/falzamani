@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import classes from "../styles/blog.module.css";
 import { Input } from "@chakra-ui/react";
@@ -6,12 +7,12 @@ import Kova from "../public/img/kova.png";
 import Geyik from "../public/img/geyik.png";
 
 import ZodiacImgone from "../public/img/venus.png";
-import Image from "next/image";
+// import img from "next/img";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 
-export default function Blog() {
+export default function Blog({ blogData, horoscopeData }) {
   return (
     <div className="blog">
       <div className={classes.bloghdr}>
@@ -33,75 +34,25 @@ export default function Blog() {
       <div className={classes.blgmain}>
         <div className={classes.blgust}>
           <div className={classes.blgrght}>
-            <div className={classes.blogcard}>
-              <div className={classes.blgcrdimg}>
-                <Image src={Geyik} alt="dty" />
-              </div>
-              <div className={classes.altexphdr}>
-                <h5>Kahve Falında Geyik Görmek </h5>
-              </div>
-              <div className={classes.blgcrdexp}>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur….
-                </p>
-              </div>
-              <div className={classes.blgmore}>
-                <Link href="/blogdetay">
-                  <a>Devamı için tıklayın</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.blogcard}>
-              <div className={classes.blgcrdimg}>
-                <Image src={Geyik} alt="dty" />
-              </div>
-              <div className={classes.altexphdr}>
-                <h5>Kahve Falında Geyik Görmek </h5>
-              </div>
-              <div className={classes.blgcrdexp}>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur….
-                </p>
-              </div>
-              <div className={classes.blgmore}>
-                <Link href="/blogdetay">
-                  <a>Devamı için tıklayın</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.blogcard}>
-              <div className={classes.blgcrdimg}>
-                <Image src={Geyik} alt="dty" />
-              </div>
-              <div className={classes.altexphdr}>
-                <h5>Kahve Falında Geyik Görmek </h5>
-              </div>
-              <div className={classes.blgcrdexp}>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur….
-                </p>
-              </div>
-              <div className={classes.blgmore}>
-                <Link href="/blogdetay">
-                  <a>Devamı için tıklayın</a>
-                </Link>
-              </div>
-            </div>
+            {blogData &&
+              blogData.map((data, index) => (
+                <div key={index} className={classes.blogcard}>
+                  <div className={classes.blgcrdimg}>
+                    <img src={data.image} alt="dty" />
+                  </div>
+                  <div className={classes.altexphdr}>
+                    <h5>{data.title}</h5>
+                  </div>
+                  <div className={classes.blgcrdexp}>
+                    <p>{data.description.split(0, 200)}</p>
+                  </div>
+                  <div className={classes.blgmore}>
+                    <Link href="/blogdetay">
+                      <a>Devamı için tıklayı n</a>
+                    </Link>
+                  </div>
+                </div>
+              ))}
           </div>
           <div className={classes.categories}>
             <ul className={classes.catalog}>
@@ -189,126 +140,19 @@ export default function Blog() {
             <h6>Burçlar</h6>
           </div>
           <div className={classes.btmcrds}>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.btmcrd}>
-              <div className={classes.btmcrdımg}>
-                <Image src={ZodiacImgone} alt="btmcrd" />
-              </div>
-              <div className={classes.btmcrdlink}>
-                <Link href="/burcdetay">
-                  <a>Yengeç</a>
-                </Link>
-              </div>
-            </div>
+            {horoscopeData &&
+              horoscopeData.map((data, index) => (
+                <div key={index} className={classes.btmcrd}>
+                  <div className={classes.btmcrdımg}>
+                    <img src={data.image} alt="btmcrd" />
+                  </div>
+                  <div className={classes.btmcrdlink}>
+                    <Link href="/burcdetay">
+                      <a>{data.name}</a>
+                    </Link>
+                  </div>
+                </div>
+              ))}
           </div>
           {/* <div className={classes.more}>
               <Link href="/more">
@@ -333,7 +177,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -345,7 +189,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -357,7 +201,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -369,7 +213,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -381,7 +225,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -393,7 +237,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -405,7 +249,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -417,7 +261,7 @@ export default function Blog() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <img src={Kova} alt="dty" />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -435,21 +279,32 @@ export default function Blog() {
 }
 
 export async function getServerSideProps(context) {
-  const res = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
+  const blogRes = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
     method: "GET",
   });
 
-  const data = await res.json();
+  const blogData = await blogRes.json();
 
-  console.log(data);
-  if (!data) {
+  const horoscopeRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/horoscope/all`,
+    {
+      method: "GET",
+    }
+  );
+
+  const horoscopeData = await horoscopeRes.json();
+
+  console.log(blogData);
+  console.log(horoscopeData);
+  if (!blogData || !horoscopeData) {
     return {
       notFound: true,
     };
   }
   return {
     props: {
-      categoriesData: data,
+      blogData,
+      horoscopeData,
     },
   };
 }
