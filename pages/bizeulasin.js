@@ -33,20 +33,6 @@ export default function Bizeulasin() {
 
       text,
     };
-    await axios
-      .post(
-        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
-        userObject
-      )
-      .then((res) => {
-        if (res.data.status === 200) {
-          console.log("Gönderildi");
-          setTimeout(() => {
-            router.replace("/");
-          }, 500);
-        }
-        console.log(res);
-      });
   };
   return (
     <div className="bizeulasin">
@@ -71,7 +57,7 @@ export default function Bizeulasin() {
             </FormLabel>
             <Input
               onChange={(e) => {
-                setUsername(e.target.value);
+                setName(e.target.value);
               }}
               value={username}
               placeholder="ad"
@@ -85,7 +71,7 @@ export default function Bizeulasin() {
             </FormLabel>
             <Input
               onChange={(e) => {
-                setName(e.target.value);
+                setSurname(e.target.value);
               }}
               value={name}
               placeholder="  soyad"
@@ -131,7 +117,7 @@ export default function Bizeulasin() {
             </FormLabel>
             <Textarea
               onChange={(e) => {
-                setUsername(e.target.value);
+                setText(e.target.value);
               }}
               value={text}
               placeholder="ad"
