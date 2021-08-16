@@ -34,7 +34,7 @@ export default function Blog({ blogData, horoscopeData }) {
       <div className={classes.blgmain}>
         <div className={classes.blgust}>
           <div className={classes.blgrght}>
-            {blogData &&
+            {blogData.length > 0 &&
               blogData.map((data, index) => (
                 <div key={index} className={classes.blogcard}>
                   <div className={classes.blgcrdimg}>
@@ -140,7 +140,7 @@ export default function Blog({ blogData, horoscopeData }) {
             <h6>Burçlar</h6>
           </div>
           <div className={classes.btmcrds}>
-            {horoscopeData &&
+            {blogData.length > 0 &&
               horoscopeData.map((data, index) => (
                 <div key={index} className={classes.btmcrd}>
                   <div className={classes.btmcrdımg}>
