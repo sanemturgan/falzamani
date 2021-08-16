@@ -47,7 +47,7 @@ export default function Adminkredi() {
               </FormLabel>
               <Input
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setCreditAmount(e.target.value);
                 }}
                 value={creditamount}
                 placeholder="miktar"
@@ -61,7 +61,7 @@ export default function Adminkredi() {
               </FormLabel>
               <Input
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setCreditPrice(e.target.value);
                 }}
                 value={creditprice}
                 placeholder="fiyat"
@@ -75,7 +75,7 @@ export default function Adminkredi() {
               </FormLabel>
               <Textarea
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setCreditdescp(e.target.value);
                 }}
                 value={creditdescp}
                 placeholder="açıklama"

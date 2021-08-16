@@ -14,18 +14,12 @@ function adminpage() {
               <p>Kullanıcı Adı:</p>
               <p>Luna</p>
             </div>
-            <Link href="/changeusername">
-              <a>Değiştir</a>
-            </Link>
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
               <p>E-Mail:</p>
               <p>Luna@fgdg.com</p>
             </div>
-            <Link href="/changeemail">
-              <a>Değiştir</a>
-            </Link>
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
@@ -55,7 +49,7 @@ function adminpage() {
               </Link>
             </li>
             <li className={classes.flt}>
-              <Link href="/cikis">
+              <Link href="/uyegiris">
                 <a>Çıkış Yap</a>
               </Link>
             </li>

@@ -87,6 +87,11 @@
 .user p {
   margin-left: 5px;
 }
+.exit button {
+  font-size: 14px;
+  padding: 5px;
+  text-decoration: underline;
+}
 @media screen and (max-width: 760px) {
   .payanddetails {
     font-size: 12px;

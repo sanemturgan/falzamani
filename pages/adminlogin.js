@@ -63,7 +63,7 @@ function ADMINLOGIN() {
               </FormLabel>
               <Input
                 onChange={(e) => {
-                  setEmail(e.target.value);
+                  setUsername(e.target.value);
                 }}
                 value={email}
                 placeholder="kullanıcı adı"

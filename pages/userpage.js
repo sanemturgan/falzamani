@@ -43,27 +43,18 @@ export default function Userpage() {
               <p>Kullanıcı Adı:</p>
               <p>{customerInfo.username}</p>
             </div>
-            <Link href="/changeusername">
-              <a>Değiştir</a>
-            </Link>
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
               <p>E-Mail:</p>
               <p>{customerInfo.email}</p>
             </div>
-            <Link href="/changeemail">
-              <a>Değiştir</a>
-            </Link>
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
               <p>Telefon:</p>
               <p>{customerInfo.phone}</p>
             </div>
-            <Link href="/changeemail">
-              <a>Değiştir</a>
-            </Link>
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
@@ -72,6 +63,13 @@ export default function Userpage() {
             </div>
             <Link href="/changepassword">
               <a>Değiştir</a>
+            </Link>
+          </div>
+          <div className={classes.exit}>
+            <Link href="/uyegiris">
+              <a>
+                <button>Çıkış Yap</button>
+              </a>
             </Link>
           </div>
         </div>
