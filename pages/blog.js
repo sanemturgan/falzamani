@@ -39,8 +39,9 @@ export default function Blog({ blogData, horoscopeData }) {
               blogData.map((data, index) => (
                 <div key={index} className={classes.blogcard}>
                   <div className={classes.blgcrdimg}>
+                    {console.log(data.image)}
                     <Image
-                      src={Geyik}
+                      src={`${data.image}`}
                       alt="blog"
                       objectFit="contain"
                       layout="fill"
@@ -151,7 +152,7 @@ export default function Blog({ blogData, horoscopeData }) {
                 <div key={index} className={classes.btmcrd}>
                   <div className={classes.btmcrdimg}>
                     <Image
-                      src={Geyik}
+                      src={`${data.image}`}
                       alt="dty"
                       objectFit="contain"
                       layout="fill"
