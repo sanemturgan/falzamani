@@ -16,22 +16,33 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
-
+import Cookies from "universal-cookie/es6";
+import axios from "axios";
 export default function Adminblog() {
-  const [blogtitleadmin, setBlogTitleAdmin] = useState("");
-  const [blogimgadmin, setBlogImgAdmin] = useState("");
-  const [blogdescpadmin, setBlogDescpAdmin] = useState("");
+  const [title, setTitle] = useState("");
+  const [img, setImg] = useState("");
+  const [description, setDescription] = useState("");
+  const cookies = new Cookies();
   const onSubmit = async (e) => {
     e.preventDefault();
-    let userObject = {
-      blogtitleadmin,
-      blogimgadmin,
-      blogdescpadmin,
+    let blogObject = {
+      title,
+      description,
+      image: img,
     };
-    await axios.post(
-      process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
-      userObject
-    );
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/admin`, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+      });
+    // await axios.post(
+    //   process.env.REACT_APP_CLIENT_API_URL + `/blog`,
+    //   blogObject
+    // );
   };
   return (
     <div className="adminblog">
@@ -40,16 +51,16 @@ export default function Adminblog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <form id="blogform">
+          <form onSubmit={onSubmit} id="blogform">
             <FormControl isRequired id="blogtitle">
               <FormLabel color="#fff" mb="16px" fontSize="18px">
                 Blog Başlık
               </FormLabel>
               <Input
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setTitle(e.target.value);
                 }}
-                value={blogtitleadmin}
+                value={title}
                 placeholder="başlık"
                 color="#fff"
                 size="lg"
@@ -61,9 +72,9 @@ export default function Adminblog() {
               </FormLabel>
               <Input
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setImg(e.target.value);
                 }}
-                value={blogimgadmin}
+                value={img}
                 placeholder="fotoğraf"
                 color="#fff"
                 size="lg"
@@ -81,17 +92,17 @@ export default function Adminblog() {
               </FormLabel>
               <Textarea
                 onChange={(e) => {
-                  setUsername(e.target.value);
+                  setDescription(e.target.value);
                 }}
-                value={blogdescpadmin}
+                value={description}
                 placeholder="detay"
                 color="#fff"
                 size="lg"
               />
             </FormControl>
             <div className={classes.gonder}>
-              <button onClick={onSubmit} className={classes.gnd}>
-                Giriş Yap
+              <button type="submit" className={classes.gnd}>
+                Ekle
               </button>
             </div>
           </form>
