@@ -23,6 +23,7 @@ export default function UYEGIRIS() {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [notification, setNotification] = useState();
+  const [customer, setCustomer] = useState(false);
   const router = useRouter();
   const cookies = new Cookies();
   useEffect(() => {
@@ -30,6 +31,8 @@ export default function UYEGIRIS() {
       router.replace("/userpage");
     }
   }, []);
+
+  console.log(customer);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,24 +43,14 @@ export default function UYEGIRIS() {
     const maxAgeTime = rememberMe ? 86400 * 4 : null;
     await axios
       .post(
-        process.env.REACT_APP_CLIENT_API_URL + `/customer/login`,
+        process.env.REACT_APP_CLIENT_API_URL +
+          `${customer ? `/customer/login` : `/warlock/login`}`,
         userObject
       )
       .then(async (res) => {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
 
-        await axios
-          .get(process.env.REACT_APP_CLIENT_API_URL + `/customer`, {
-            headers: {
-              Authorization: `${cookies.get("jwt")}`,
-            },
-          })
-          .then((res) => {
-            cookies.set("userInfo", res.data.data, {
-              maxAge: maxAgeTime,
-            });
-          });
         if (res.data.status === 200 && cookies.get("jwt")) {
           setTimeout(() => {
             router.replace("/userpage");
@@ -74,6 +67,18 @@ export default function UYEGIRIS() {
         <h4>ÜYE GİRİŞİ</h4>
       </div>
       <div className={classes.formkariyer}>
+        <div
+          style={{ color: "white", cursor: "pointer" }}
+          onClick={() => setCustomer(false)}
+        >
+          falcı
+        </div>
+        <div
+          style={{ color: "white", cursor: "pointer" }}
+          onClick={() => setCustomer(true)}
+        >
+          customer
+        </div>
         <form onSubmit={onSubmit}>
           <FormControl isRequired id="email">
             <FormLabel color="#fff" mb="16px" fontSize="18px">
