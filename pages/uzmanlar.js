@@ -29,7 +29,12 @@ function uzmanlar() {
         <div className={classes.cardMain}>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -72,7 +77,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -115,7 +125,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -158,7 +173,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -201,7 +221,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -244,7 +269,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -287,7 +317,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -330,7 +365,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
@@ -373,7 +413,12 @@ function uzmanlar() {
           </div>
           <div className={classes.card}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>

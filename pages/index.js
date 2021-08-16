@@ -40,7 +40,7 @@ function HomePage({ data }) {
           </div>
         </div>
         <div className={classes.backImage}>
-          <Image src={BannerImg} alt="teller" layout="fill" />
+          <Image src={BannerImg} alt="teller" objectFit="cover" layout="fill" />
         </div>
       </div>
       <div className={classes.snm}>
@@ -90,7 +90,12 @@ function HomePage({ data }) {
             <SwiperSlide key={i}>
               <div className={classes.card}>
                 <div className={classes.cardimg}>
-                  <Image src={CardImg} alt="teller" />
+                  <Image
+                    src={CardImg}
+                    alt="teller"
+                    objectFit="contain"
+                    layout="fill"
+                  />
                 </div>
                 <h5>Luna</h5>
                 <div className={classes.star}>
@@ -139,7 +144,12 @@ function HomePage({ data }) {
               <SwiperSlide key={i}>
                 <div className={classes.zdcmain}>
                   <div className={classes.zdcimg}>
-                    <Image src={Zodiacimg} alt="zodiac" />
+                    <Image
+                      src={Zodiacimg}
+                      alt="zodiac"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.zdcrd}>
                     <Link href="/burcdetay">

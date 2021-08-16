@@ -110,7 +110,10 @@
   margin: 0;
 }
 .cardimg {
-  width: 130px;
+  width: 150px;
+  height: 150px;
+  padding: 15px;
+  position: relative;
 }
 .crdi {
   display: flex;

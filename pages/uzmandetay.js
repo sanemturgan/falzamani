@@ -25,7 +25,12 @@ function uzmandetay() {
         <div className={classes.uzmantop}>
           <div className={classes.ustbir}>
             <div className={classes.cardimg}>
-              <Image src={CardImg} alt="teller" />
+              <Image
+                src={CardImg}
+                alt="teller"
+                objectFit="cover"
+                layout="fill"
+              />
             </div>
             <h5>Luna</h5>
             <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>

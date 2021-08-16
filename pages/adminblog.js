@@ -89,14 +89,12 @@ export default function Adminblog() {
                 size="lg"
               />
             </FormControl>
+            <div className={classes.gonder}>
+              <button onClick={onSubmit} className={classes.gnd}>
+                Giriş Yap
+              </button>
+            </div>
           </form>
-          <div className={classes.gonder}>
-            <Link href="/Gonder">
-              <a>
-                <button className={classes.gnd}>Gönder</button>
-              </a>
-            </Link>
-          </div>
         </div>
         <div className={classes.bloglist}>
           <ul>

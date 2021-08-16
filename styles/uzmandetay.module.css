@@ -48,6 +48,8 @@
 }
 .cardimg {
   width: 230px;
+  height: 230px;
+  position: relative;
 }
 .star {
   display: flex;

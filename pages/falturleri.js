@@ -41,7 +41,12 @@ function falturleri() {
           <div className={classes.cardMain}>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
@@ -73,7 +78,12 @@ function falturleri() {
             </div>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
@@ -105,7 +115,12 @@ function falturleri() {
             </div>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
@@ -137,7 +152,12 @@ function falturleri() {
             </div>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
@@ -169,7 +189,12 @@ function falturleri() {
             </div>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
@@ -201,7 +226,12 @@ function falturleri() {
             </div>
             <div className={classes.card}>
               <div className={classes.cardimg}>
-                <Image src={CardImg} alt="teller" />
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <h5>Luna</h5>
               <div className={classes.star}>
