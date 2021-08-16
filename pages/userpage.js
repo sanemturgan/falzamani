@@ -1,7 +1,24 @@
 import React from "react";
 import classes from "../styles/userpage.module.css";
 import Link from "next/dist/client/link";
-function adminpage() {
+
+export default function Userpage() {
+  // const cookies = new Cookies();
+
+  // useEffect(() => {
+  //   if (cookies.get("jwt")) {
+  //     const accountResponse = axios.get(
+  //       process.env.REACT_APP_CLIENT_API_URL + `/user/data/customer`,
+  //       {
+  //         headers: {
+  //           Authorization: `${cookies.get("jwt")}`,
+  //         },
+  //       }
+  //     );
+  //     setAccountInfo(accountResponse.data);
+  //   }
+  // }, []);
+
   return (
     <div className="userpage">
       <div className={classes.kariyerhdr}>
@@ -111,5 +128,3 @@ function adminpage() {
     </div>
   );
 }
-
-export default adminpage;

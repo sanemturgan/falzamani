@@ -11,7 +11,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 
-function blog() {
+export default function Blog() {
   return (
     <div className="blog">
       <div className={classes.bloghdr}>
@@ -434,4 +434,22 @@ function blog() {
   );
 }
 
-export default blog;
+export async function getServerSideProps(context) {
+  const res = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
+    method: "GET",
+  });
+
+  const data = await res.json();
+
+  console.log(data);
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      categoriesData: data,
+    },
+  };
+}

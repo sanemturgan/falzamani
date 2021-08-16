@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import classes from "../styles/kayit.module.css";
 import {
+  Form,
   FormControl,
   FormLabel,
   FormErrorMessage,
@@ -12,11 +13,15 @@ import {
   ButtonGroup,
   InputGroup,
   InputRightElement,
+  NumberInput,
+  NumberInputField,
 } from "@chakra-ui/react";
 import { FaFileExport } from "react-icons/fa";
 import Link from "next/link";
 import axios from "axios";
+import router from "next/router";
 function Kayit() {
+  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [surname, setSurname] = useState("");
@@ -24,29 +29,35 @@ function Kayit() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
 
-  const onSubmit = async () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
     let userObject = {
-      name: name,
-      surname: surname,
-      username: "username",
-      email: email,
-      phone: phone,
-      password: password,
+      name,
+      surname,
+      username,
+      email,
+      phone,
+      password,
     };
-
-    // const regResponse = await axios.post(
-    //   "https://falzamani-backend.herokuapp.com/api/customer/register",
-    //   userObject
-    // );
-
-    const regResponse = await axios.get(
-      "https://falzamani-backend.herokuapp.com/api/warlock/all"
-    );
-
-    console.log(regResponse);
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+        userObject
+      )
+      .then((res) => {
+        if (res.data.status === 200) {
+          console.log("Giriş Başarılı");
+          setTimeout(() => {
+            router.replace("/uyegiris");
+          }, 500);
+        }
+        console.log(res);
+      })
+      .catch((err) =>
+        console.log(err, "Hatalı Giriş, Lütfen Bilgilerinizi Kontrol Ediniz.")
+      );
   };
 
-  console.log(name, phone, email, password);
   return (
     <div className="kayit">
       <div className={classes.kariyerhdr}>
@@ -54,9 +65,21 @@ function Kayit() {
       </div>
 
       <div className={classes.formkariyer}>
-        <FormControl id="form">
+        <form onSubmit={onSubmit}>
           <FormLabel color="#fff" mb="16px" fontSize="18px">
             Kullanıcı Adı
+          </FormLabel>
+          <Input
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+            value={username}
+            placeholder="Kullanıcı Adı"
+            color="#fff"
+            size="lg"
+          />
+          <FormLabel color="#fff" mb="16px" fontSize="18px">
+            Ad
           </FormLabel>
           <Input
             onChange={(e) => {
@@ -67,18 +90,37 @@ function Kayit() {
             color="#fff"
             size="lg"
           />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Telefon
+          <FormLabel color="#fff" mb="16px" fontSize="18px">
+            Soyad
           </FormLabel>
           <Input
             onChange={(e) => {
-              setPhone(e.target.value);
+              setSurname(e.target.value);
             }}
-            value={phone}
-            placeholder="Telefon Numarası"
+            value={surname}
+            placeholder="Kullanıcı Adı"
+            color="#fff"
             size="lg"
-            color="white"
           />
+
+          <FormControl isRequired id="phone">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Telefon
+            </FormLabel>
+            <NumberInput
+              max={9999999999}
+              onChange={(valueAsString, valueAsNumber) => {
+                setPhone(valueAsNumber);
+              }}
+              value={phone}
+              placeholder="Telefon Numarası"
+              size="lg"
+              color="white"
+            >
+              <NumberInputField />
+            </NumberInput>
+          </FormControl>
+
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Email
           </FormLabel>
@@ -87,7 +129,7 @@ function Kayit() {
               setEmail(e.target.value);
             }}
             value={email}
-            type="E-mail"
+            type="email"
             size="lg"
             color="white"
           />
@@ -106,7 +148,7 @@ function Kayit() {
             size="lg"
             placeholder="Şifre"
           />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+          {/* <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre Tekrar
           </FormLabel>
           <Input
@@ -119,13 +161,13 @@ function Kayit() {
             type="password"
             size="lg"
             placeholder="Şifre Tekrar"
-          />
+          /> */}
           <div className={classes.gonder}>
-            <button onClick={onSubmit} className={classes.gnd}>
+            <button type="submit" className={classes.gnd}>
               Kayıt Ol
             </button>
           </div>
-        </FormControl>
+        </form>
       </div>
     </div>
   );

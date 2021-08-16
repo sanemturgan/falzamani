@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/uyegiris.module.css";
+import axios from "axios";
+import Cookies from "universal-cookie";
 import {
   FormControl,
   FormLabel,
@@ -15,7 +17,41 @@ import {
   CheckboxGroup,
 } from "@chakra-ui/react";
 import Link from "next/link";
-function UYEGIRIS() {
+import { useRouter } from "next/router";
+export default function UYEGIRIS() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
+  const router = useRouter();
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let userObject = {
+      email,
+      password,
+    };
+    const maxAgeTime = rememberMe ? 86400 * 4 : null;
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + `/customer/login`,
+        userObject
+      )
+      .then((res) => {
+        const cookies = new Cookies();
+        cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
+        if (res.data.status === 200 && cookies.get("jwt")) {
+          console.log("Giriş Başarılı");
+          setTimeout(() => {
+            router.replace("/userpage");
+            console.log(res);
+          }, 500);
+        }
+      })
+      .catch((err) =>
+        console.log(err, "Hatalı Giriş, Lütfen Bilgilerinizi Kontrol Ediniz.")
+      );
+  };
+
   return (
     <div className="uyegiris">
       <div className={classes.kariyerhdr}>
@@ -24,14 +60,22 @@ function UYEGIRIS() {
       <div className={classes.formkariyer}>
         <FormControl id="form">
           <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Kullanıcı Adı
+            Email
           </FormLabel>
-          <Input placeholder="Kullanıcı Adı" size="lg" color="white" />
+          <Input
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+            placeholder="Email"
+            size="lg"
+            color="white"
+          />
 
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre
           </FormLabel>
           <Input
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             pr="4.5rem"
             mb="16px"
             type="password"
@@ -39,7 +83,13 @@ function UYEGIRIS() {
             placeholder="Şifre"
             color="white"
           />
-          <Checkbox defaultIsChecked color="white" s>
+          <Checkbox
+            onChange={(e) => {
+              setRememberMe(e.target.checked);
+            }}
+            checked={rememberMe}
+            color="white"
+          >
             Beni Hatırla
           </Checkbox>
           <div className={classes.forgotpassword}>
@@ -50,11 +100,11 @@ function UYEGIRIS() {
         </FormControl>
 
         <div className={classes.gonder}>
-          <button className={classes.gnd}>Giriş Yap</button>
+          <button onClick={onSubmit} className={classes.gnd}>
+            Giriş Yap
+          </button>
         </div>
       </div>
     </div>
   );
 }
-
-export default UYEGIRIS;
