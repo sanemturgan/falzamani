@@ -354,8 +354,8 @@ export async function getServerSideProps(context) {
   }
   return {
     props: {
-      blogData,
-      horoscopeData,
+      blogData: blogData.data,
+      horoscopeData: horoscopeData.data,
     },
   };
 }
