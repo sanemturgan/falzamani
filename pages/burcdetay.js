@@ -25,7 +25,12 @@ function burcdetay() {
       <div className={classes.detaymain}>
         <div className={classes.dtyrght}>
           <div className={classes.dtyimg}>
-            <Image src={ZodiacImgthree} alt="dty" />
+            <Image
+              src={ZodiacImgthree}
+              alt="dty"
+              objectFit="contain"
+              layout="fill"
+            />
           </div>
           <div className={classes.dtyexp}>
             <h4>Terazi Burcu Aylık Burç Yorumları - Temmuz 2021</h4>

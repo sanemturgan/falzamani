@@ -54,10 +54,16 @@
   text-align: center;
   width: 90%;
   border-radius: 50px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: #281c3b;
 }
 .blgcrdimg {
-  width: 100%;
+  width: 600px;
+  height: 300px;
+  position: relative;
 }
 .writer {
   display: flex;
@@ -157,23 +163,25 @@
   width: 100%;
 }
 .altimg {
-  padding: 10px;
+  margin-top: 15px;
+  width: 200px;
+  height: 120px;
+  position: relative;
 }
 .altcrd {
-  width: 280px;
+  width: 200px;
   background-color: #5a4b69;
   border-radius: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
 .altexp {
   font-size: 16px;
-  display: flex;
   text-align: center;
-  justify-content: center;
   margin-bottom: 20px;
   padding: 5px;
 }
