@@ -107,6 +107,18 @@
   font-size: 16px;
   cursor: pointer;
 }
+.blockButton {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+}
+.block {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #fff;
+  border-radius: 20px;
+}
 @media screen and (max-width: 760px) {
   .payanddetails {
     font-size: 12px;

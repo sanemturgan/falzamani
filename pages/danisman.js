@@ -26,7 +26,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              <div className={classes.danismanlistbtm}>
+              {/* <div className={classes.danismanlistbtm}>
                 <div className={classes.btmhdr}>
                   <h5>Fal Geçmişi</h5>
                 </div>
@@ -94,6 +94,11 @@ function danisman() {
                     </li>
                   </ul>
                 </div>
+              </div> */}
+              <div className={classes.blockButton}>
+                <button mt="16px" type="send" className={classes.block}>
+                  Üyeyi Engelle/Sil
+                </button>
               </div>
             </li>
             <li className={classes.danismanlistmain}>
@@ -110,7 +115,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              <div className={classes.danismanlistbtm}>
+              {/* <div className={classes.danismanlistbtm}>
                 <div className={classes.btmhdr}>
                   <h5>Fal Geçmişi</h5>
                 </div>
@@ -178,6 +183,11 @@ function danisman() {
                     </li>
                   </ul>
                 </div>
+              </div> */}
+              <div className={classes.blockButton}>
+                <button mt="16px" type="send" className={classes.block}>
+                  Üyeyi Engelle/Sil
+                </button>
               </div>
             </li>
             <li className={classes.danismanlistmain}>
@@ -194,7 +204,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              <div className={classes.danismanlistbtm}>
+              {/* <div className={classes.danismanlistbtm}>
                 <div className={classes.btmhdr}>
                   <h5>Fal Geçmişi</h5>
                 </div>
@@ -262,6 +272,11 @@ function danisman() {
                     </li>
                   </ul>
                 </div>
+              </div> */}
+              <div className={classes.blockButton}>
+                <button mt="16px" type="send" className={classes.block}>
+                  Üyeyi Engelle/Sil
+                </button>
               </div>
             </li>
             <li className={classes.danismanlistmain}>
@@ -278,7 +293,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              <div className={classes.danismanlistbtm}>
+              {/* <div className={classes.danismanlistbtm}>
                 <div className={classes.btmhdr}>
                   <h5>Fal Geçmişi</h5>
                 </div>
@@ -346,6 +361,11 @@ function danisman() {
                     </li>
                   </ul>
                 </div>
+              </div> */}
+              <div className={classes.blockButton}>
+                <button mt="16px" type="send" className={classes.block}>
+                  Üyeyi Engelle/Sil
+                </button>
               </div>
             </li>
             <li className={classes.danismanlistmain}>
@@ -362,7 +382,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              <div className={classes.danismanlistbtm}>
+              {/* <div className={classes.danismanlistbtm}>
                 <div className={classes.btmhdr}>
                   <h5>Fal Geçmişi</h5>
                 </div>
@@ -430,6 +450,11 @@ function danisman() {
                     </li>
                   </ul>
                 </div>
+              </div> */}
+              <div className={classes.blockButton}>
+                <button mt="16px" type="send" className={classes.block}>
+                  Üyeyi Engelle/Sil
+                </button>
               </div>
             </li>
           </ul>

@@ -118,6 +118,12 @@ a {
   padding: 0 25px;
   margin: auto;
 }
+.WarlockPage {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
 .search {
   width: 100%;
   max-width: 1250px;

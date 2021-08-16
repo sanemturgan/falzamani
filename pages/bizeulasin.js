@@ -59,7 +59,7 @@ export default function Bizeulasin() {
               onChange={(e) => {
                 setName(e.target.value);
               }}
-              value={username}
+              value={name}
               placeholder="ad"
               color="#fff"
               size="lg"

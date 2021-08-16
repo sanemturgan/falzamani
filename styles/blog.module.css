@@ -59,9 +59,9 @@
   background-color: #281c3b;
 }
 .blgcrdimg {
-  width: 100%;
-  height: 100px;
-
+  width: 90%;
+  height: 120px;
+  margin: 30px auto;
   position: relative;
 }
 

@@ -40,10 +40,11 @@ export default function Blog({ blogData, horoscopeData }) {
                 <div key={index} className={classes.blogcard}>
                   <div className={classes.blgcrdimg}>
                     {console.log(data.image)}
+
                     <Image
                       src={`${data.image}`}
                       alt="blog"
-                      objectFit="contain"
+                      objectFit="cover"
                       layout="fill"
                     />
                   </div>
@@ -55,7 +56,7 @@ export default function Blog({ blogData, horoscopeData }) {
                   </div>
                   <div className={classes.blgmore}>
                     <Link href="/blogdetay">
-                      <a>Devamı için tıklayı n</a>
+                      <a>Devamı için tıklayın</a>
                     </Link>
                   </div>
                 </div>

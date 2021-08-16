@@ -1,0 +1,350 @@
+.uzmanhdr {
+  width: 100%;
+  margin-top: 62px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: linear-gradient(to right, #402759, #2a1b40, #160f26);
+}
+.uzmanhdr h4 {
+  color: #fff;
+  font-size: 20px;
+  margin: 10px 30px;
+  padding: 10px;
+  width: 60%;
+  border-bottom: 1px solid #fff;
+}
+.uzmanhdr p {
+  color: #fff;
+  font-size: 16px;
+  margin: 0 30px;
+  padding: 20px;
+}
+.uzmangenel {
+  width: 95%;
+
+  margin: auto;
+  margin-top: 50px;
+  color: #fff;
+  border-radius: 50px;
+  background: linear-gradient(#3f2d53, #3c294f, #221835);
+}
+.uzmantop {
+  display: flex;
+}
+.ustbir {
+  margin-top: 40px;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  border-right: 1px solid #fff;
+}
+.ustbir h5 {
+  font-size: 20px;
+}
+.cardimg {
+  width: 230px;
+  height: 230px;
+  position: relative;
+}
+.star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+.cardbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.uzmrandevu {
+  background-color: #1cd42e;
+  padding: 7px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 5px;
+  cursor: pointer;
+}
+.etkilesim {
+  border: 1px solid #1cd42e;
+  padding: 7px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: 5px;
+  cursor: pointer;
+}
+.online {
+  display: flex;
+}
+.cesit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.cesit a {
+  border-radius: 10px;
+  font-size: 12px;
+  padding: 4px;
+  margin: 4px;
+  background-color: #aaa9a9;
+  cursor: pointer;
+}
+.ustiki {
+  margin-top: 40px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+.exp {
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+}
+.iletisim {
+  display: flex;
+  margin: 10px;
+}
+.cardicon {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #fff;
+}
+.cardicon p {
+  padding-left: 5px;
+}
+.expbtm {
+  font-size: 16px;
+  text-align: center;
+  margin: 10px;
+}
+.fallar {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.faldty {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+  align-items: center;
+}
+.faldty h5 {
+  font-size: 18px;
+}
+.pay button {
+  border: 1px solid #fff;
+  padding: 7px;
+  margin: 0 5px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.online {
+  padding: 0;
+  margin: 0;
+  color: #1cd42e;
+  font-size: 14px;
+}
+.offline {
+  padding: 0;
+  margin: 0;
+  color: rgb(155, 155, 155);
+  font-size: 14px;
+  display: none;
+}
+.notavailable {
+  padding: 0;
+  margin: 0;
+  color: rgb(180, 6, 6);
+  font-size: 14px;
+  display: none;
+}
+.rnd {
+  background-color: #1cd42e;
+  padding: 7px;
+  border-radius: 16px;
+  cursor: pointer;
+}
+.options {
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  justify-content: center;
+}
+.option {
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+
+  padding: 40px;
+  margin: 10px;
+  background-color: #5a4b69;
+  border-radius: 50px;
+}
+.ophdr {
+  padding: 3px;
+  font-size: 18px;
+}
+.opexp {
+  padding: 3px;
+  font-size: 16px;
+}
+.opexp span {
+  padding: 3px;
+  font-weight: lighter;
+}
+.opran {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.uzmanbtm {
+  display: flex;
+  flex-direction: column;
+}
+.btmhdr {
+  color: #fff;
+  font-size: 20px;
+  padding: 10px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  text-align: center;
+  margin: 30px;
+}
+.comment {
+  display: flex;
+  padding: 40px;
+  margin: auto;
+  width: 90%;
+  justify-content: space-between;
+  border-bottom: 1px solid #fff;
+}
+.comments :last-child {
+  border: none;
+}
+.rotestr {
+  display: flex;
+  padding: 0 30px;
+}
+.rote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+}
+.rote p {
+  font-size: 16px;
+}
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  cursor: pointer;
+}
+@media screen and (max-width: 870px) {
+  .uzmanhdr h4 {
+    font-size: 16px;
+  }
+  .uzmanhdr p {
+    font-size: 12px;
+  }
+  .cardimg {
+    width: 130px;
+  }
+  .uzmantop {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .ustbir {
+    margin-top: 20px;
+    width: 100%;
+    border-right: none;
+  }
+  .uzmrandevu {
+    font-size: 12px;
+  }
+  .etkilesim {
+    font-size: 12px;
+  }
+  .ustbir h5 {
+    font-size: 16px;
+  }
+  .ustiki {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .exp {
+    font-size: 12px;
+  }
+  .expbtm {
+    font-size: 12px;
+  }
+  .faldty h5 {
+    font-size: 16px;
+  }
+
+  .btmhdr {
+    font-size: 16px;
+  }
+  .rote p {
+    font-size: 12px;
+  }
+  .rnd {
+    padding: 3px;
+    font-size: 12px;
+  }
+  .pay button {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .ophdr {
+    font-size: 14px;
+  }
+  .opexp {
+    font-size: 12px;
+  }
+  .comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 12px;
+  }
+  .rote {
+    padding: 5px;
+  }
+  .pay button {
+    padding: 5px;
+    margin: 5px;
+  }
+  .faldty {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    border-bottom: 1px solid #fff;
+  }
+  .options {
+    padding: 20px;
+  }
+  .option {
+    padding: 30px;
+    margin: 10px;
+  }
+}
+@media screen and (max-width: 460px) {
+}
