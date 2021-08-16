@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/adminkredi.module.css";
 import {
   FormControl,
@@ -17,7 +17,22 @@ import {
 import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
 
-function adminblog() {
+export default function Adminkredi() {
+  const [creditamount, setCreditAmount] = useState("");
+  const [creditprice, setCreditPrice] = useState("");
+  const [creditdescp, setCreditdescp] = useState("");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let userObject = {
+      creditamount,
+      creditprice,
+      creditdescp,
+    };
+    await axios.post(
+      process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+      userObject
+    );
+  };
   return (
     <div className="adminkredi">
       <div className={classes.kariyerhdr}>
@@ -25,28 +40,59 @@ function adminblog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <FormControl id="krediform">
-            <FormLabel color="#fff" mb="16px" fontSize="18px">
-              Kredi Miktarı Giriniz
-            </FormLabel>
-            <Input size="lg" color="white" />
-            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-              Kredi Fiyatını Belirleyiniz
-            </FormLabel>
-            <Input size="lg" color="white" />
-
-            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-              Açıklama Ekleyiniz
-            </FormLabel>
-            <Textarea size="lg" color="white" />
-          </FormControl>
-          <div className={classes.gonder}>
-            <Link href="/Gonder">
-              <a>
-                <button className={classes.gnd}>Gönder</button>
-              </a>
-            </Link>
-          </div>
+          <form id="krediform">
+            <FormControl isRequired id="creditamount">
+              <FormLabel color="#fff" mb="16px" fontSize="18px">
+                Kredi Miktarı Giriniz
+              </FormLabel>
+              <Input
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={creditamount}
+                placeholder="miktar"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
+            <FormControl isRequired id="creditprice">
+              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+                Kredi Fiyatını Belirleyiniz
+              </FormLabel>
+              <Input
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={creditprice}
+                placeholder="fiyat"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
+            <FormControl isRequired id="creditprice">
+              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+                Açıklama Ekleyiniz
+              </FormLabel>
+              <Textarea
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={creditdescp}
+                placeholder="açıklama"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
+            <div className={classes.gonder}>
+              <Link href="/Gonder">
+                <a>
+                  <button onClick={onSubmit} className={classes.gnd}>
+                    Gönder
+                  </button>
+                </a>
+              </Link>
+            </div>
+          </form>
         </div>
 
         <div className={classes.categories}>
@@ -72,5 +118,3 @@ function adminblog() {
     </div>
   );
 }
-
-export default adminblog;

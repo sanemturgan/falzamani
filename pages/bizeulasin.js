@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/bizeulasin.module.css";
 import {
   FormControl,
@@ -9,10 +9,45 @@ import {
   Textarea,
   Button,
   ButtonGroup,
+  NumberInput,
+  NumberInputField,
 } from "@chakra-ui/react";
 import { FaFileExport } from "react-icons/fa";
 import Link from "next/link";
-function kariyer() {
+import axios from "axios";
+import router from "next/router";
+export default function Bizeulasin() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+
+  const [text, setText] = useState("");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let userObject = {
+      name,
+      surname,
+
+      email,
+
+      text,
+    };
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+        userObject
+      )
+      .then((res) => {
+        if (res.data.status === 200) {
+          console.log("Gönderildi");
+          setTimeout(() => {
+            router.replace("/");
+          }, 500);
+        }
+        console.log(res);
+      });
+  };
   return (
     <div className="bizeulasin">
       <div className={classes.kariyerhdr}>
@@ -29,45 +64,89 @@ function kariyer() {
         </p>
       </div>
       <div className={classes.formkariyer}>
-        <FormControl id="form">
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Ad
-          </FormLabel>
-          <Input placeholder="Adınız" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Soyad
-          </FormLabel>
-          <Input placeholder="Soyadınız" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Email
-          </FormLabel>
-          <Input type="E-mail" size="lg" color="white" />
+        <form onSubmit={onSubmit}>
+          <FormControl isRequired id="name">
+            <FormLabel color="#fff" mb="16px" fontSize="18px">
+              Ad
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={username}
+              placeholder="ad"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
+          <FormControl isRequired id="surname">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Soyad
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              value={name}
+              placeholder="  soyad"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
 
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Telefon
-          </FormLabel>
-          <Input placeholder="Telefonunuz" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Mesajınız
-          </FormLabel>
-          <Textarea placeholder="Mesajınız" size="lg" color="white" />
-        </FormControl>
-        <div className={classes.export}>
-          <p>dosya seçebilirsiniz</p>
-          <Button colorScheme="#402759">
-            <FaFileExport color="#ECDCF5" size="16px" />
-          </Button>
-        </div>
-        <div className={classes.gonder}>
-          <Link href="/Gonder">
-            <a>
-              <button className={classes.gnd}>Gönder</button>
-            </a>
-          </Link>
-        </div>
+          <FormControl isRequired id="phone">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Telefon
+            </FormLabel>
+            <NumberInput
+              max={9999999999}
+              onChange={(valueAsString, valueAsNumber) => {
+                setPhone(valueAsNumber);
+              }}
+              value={phone}
+              placeholder="Telefon Numarası"
+              size="lg"
+              color="white"
+            >
+              <NumberInputField />
+            </NumberInput>
+          </FormControl>
+          <FormControl isRequired id="email">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Email
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+              type="email"
+              size="lg"
+              color="white"
+            />
+          </FormControl>
+          <FormControl isRequired id="text">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Mesajınız
+            </FormLabel>
+            <Textarea
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={text}
+              placeholder="ad"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
+
+          <div className={classes.gonder}>
+            <button mt="16px" type="send" className={classes.gnd}>
+              Gönder
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
 }
-
-export default kariyer;

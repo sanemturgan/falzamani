@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/adminblog.module.css";
 import {
   FormControl,
@@ -17,7 +17,22 @@ import {
 import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
 
-function adminblog() {
+export default function Adminblog() {
+  const [blogtitleadmin, setBlogTitleAdmin] = useState("");
+  const [blogimgadmin, setBlogImgAdmin] = useState("");
+  const [blogdescpadmin, setBlogDescpAdmin] = useState("");
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let userObject = {
+      blogtitleadmin,
+      blogimgadmin,
+      blogdescpadmin,
+    };
+    await axios.post(
+      process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+      userObject
+    );
+  };
   return (
     <div className="adminblog">
       <div className={classes.kariyerhdr}>
@@ -25,30 +40,56 @@ function adminblog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <FormControl id="blogform">
-            <FormLabel color="#fff" mb="16px" fontSize="18px">
-              Blog Başlık
-            </FormLabel>
-            <Input placeholder="Blog Başlığı" size="lg" color="white" />
-            <FormLabel color="#fff" mb="16px" fontSize="18px">
-              Blog Fotoğraf
-            </FormLabel>
-            <Input
-              placeholder="Blog Fotoğrafı Ekleyiniz "
-              size="lg"
-              color="white"
-            />
+          <form id="blogform">
+            <FormControl isRequired id="blogtitle">
+              <FormLabel color="#fff" mb="16px" fontSize="18px">
+                Blog Başlık
+              </FormLabel>
+              <Input
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={blogtitleadmin}
+                placeholder="başlık"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
+            <FormControl isRequired id="blogimg">
+              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+                Blog Fotoğraf
+              </FormLabel>
+              <Input
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={blogimgadmin}
+                placeholder="fotoğraf"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
             <div className={classes.export}>
               <p>dosya ekleyin</p>
               <Button colorScheme="#402759">
                 <FaFileExport color="#ECDCF5" size="16px" />
               </Button>
             </div>
-            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-              Blog Detay
-            </FormLabel>
-            <Textarea size="lg" color="white" />
-          </FormControl>
+            <FormControl isRequired id="blogdescription">
+              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+                Blog Detay
+              </FormLabel>
+              <Textarea
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                }}
+                value={blogdescpadmin}
+                placeholder="detay"
+                color="#fff"
+                size="lg"
+              />
+            </FormControl>
+          </form>
           <div className={classes.gonder}>
             <Link href="/Gonder">
               <a>
@@ -160,5 +201,3 @@ function adminblog() {
     </div>
   );
 }
-
-export default adminblog;

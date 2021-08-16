@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/kariyer.module.css";
 import {
   FormControl,
@@ -12,7 +12,39 @@ import {
 } from "@chakra-ui/react";
 import { FaFileExport } from "react-icons/fa";
 import Link from "next/link";
-function kariyer() {
+export default function Kariyer() {
+  const [username, setUsername] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [surname, setSurname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let userObject = {
+      name,
+      surname,
+      email,
+      text,
+    };
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+        userObject
+      )
+      .then((res) => {
+        if (res.data.status === 200) {
+          console.log("Mesaj Gönderildi");
+          setTimeout(() => {
+            router.replace("/");
+          }, 500);
+        }
+        console.log(res);
+      });
+  };
+
   return (
     <div className="kariyer">
       <div className={classes.kariyerhdr}>
@@ -29,41 +61,45 @@ function kariyer() {
         </p>
       </div>
       <div className={classes.formkariyer}>
-        <FormControl id="formkariyer">
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Ad
-          </FormLabel>
-          <Input placeholder="Adınız" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Soyad
-          </FormLabel>
-          <Input placeholder="Soyadınız" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Email
-          </FormLabel>
-          <Input type="E-mail" size="lg" color="white" />
+        <form onSubmit={onSubmit}>
+          <FormControl isRequired id="name">
+            <FormLabel color="#fff" mb="16px" fontSize="18px">
+              Ad
+            </FormLabel>
+            <Input placeholder="Adınız" size="lg" color="white" />
+          </FormControl>
+          <FormControl isRequired id="surname">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Soyad
+            </FormLabel>
+            <Input placeholder="Soyadınız" size="lg" color="white" />
+          </FormControl>
+          <FormControl isRequired id="email">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Email
+            </FormLabel>
+            <Input type="E-mail" size="lg" color="white" />
+          </FormControl>
+          <FormControl isRequired id="text">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Mesajınız
+            </FormLabel>
+            <Textarea placeholder="Mesajınız" size="lg" color="white" />
+          </FormControl>
+          <div className={classes.export}>
+            <p>dosya seçebilirsiniz</p>
+            <Button colorScheme="#402759">
+              <FaFileExport color="#ECDCF5" size="16px" />
+            </Button>
+          </div>
 
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Mesajınız
-          </FormLabel>
-          <Textarea placeholder="Mesajınız" size="lg" color="white" />
-        </FormControl>
-        <div className={classes.export}>
-          <p>dosya seçebilirsiniz</p>
-          <Button colorScheme="#402759">
-            <FaFileExport color="#ECDCF5" size="16px" />
-          </Button>
-        </div>
-        <div className={classes.gonder}>
-          <Link href="/Gonder">
-            <a>
-              <button className={classes.gnd}>Gönder</button>
-            </a>
-          </Link>
-        </div>
+          <div className={classes.gonder}>
+            <button onClick={onSubmit} className={classes.gnd}>
+              Giriş Yap
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
 }
-
-export default kariyer;

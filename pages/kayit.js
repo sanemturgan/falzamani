@@ -66,43 +66,48 @@ function Kayit() {
 
       <div className={classes.formkariyer}>
         <form onSubmit={onSubmit}>
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Kullanıcı Adı
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setUsername(e.target.value);
-            }}
-            value={username}
-            placeholder="Kullanıcı Adı"
-            color="#fff"
-            size="lg"
-          />
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Ad
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-            value={name}
-            placeholder="Kullanıcı Adı"
-            color="#fff"
-            size="lg"
-          />
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Soyad
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setSurname(e.target.value);
-            }}
-            value={surname}
-            placeholder="Kullanıcı Adı"
-            color="#fff"
-            size="lg"
-          />
-
+          <FormControl isRequired id="name">
+            <FormLabel color="#fff" mb="16px" fontSize="18px">
+              Ad
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setUsername(e.target.value);
+              }}
+              value={name}
+              placeholder="ad"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
+          <FormControl isRequired id="surname">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Soyad
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              value={surname}
+              placeholder="  soyad"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
+          <FormControl isRequired id="username">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Kullanıcı Adı
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setSurname(e.target.value);
+              }}
+              value={username}
+              placeholder="Kullanıcı Adı"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
           <FormControl isRequired id="phone">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Telefon
@@ -120,34 +125,37 @@ function Kayit() {
               <NumberInputField />
             </NumberInput>
           </FormControl>
-
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Email
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-            value={email}
-            type="email"
-            size="lg"
-            color="white"
-          />
-
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Şifre
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-            value={password}
-            pr="4.5rem"
-            mb="16px"
-            type="password"
-            size="lg"
-            placeholder="Şifre"
-          />
+          <FormControl isRequired id="email">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Email
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+              type="email"
+              size="lg"
+              color="white"
+            />
+          </FormControl>
+          <FormControl isRequired id="password">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Şifre
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
+              pr="4.5rem"
+              mb="16px"
+              type="password"
+              size="lg"
+              placeholder="Şifre"
+              color="#fff"
+            />
+          </FormControl>
           {/* <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre Tekrar
           </FormLabel>

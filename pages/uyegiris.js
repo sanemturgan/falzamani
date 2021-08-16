@@ -58,31 +58,38 @@ export default function UYEGIRIS() {
         <h4>ÜYE GİRİŞİ</h4>
       </div>
       <div className={classes.formkariyer}>
-        <FormControl id="form">
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Email
-          </FormLabel>
-          <Input
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-            placeholder="Email"
-            size="lg"
-            color="white"
-          />
-
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Şifre
-          </FormLabel>
-          <Input
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            pr="4.5rem"
-            mb="16px"
-            type="password"
-            size="lg"
-            placeholder="Şifre"
-            color="white"
-          />
+        <form onSubmit={onSubmit}>
+          <FormControl isRequired id="email">
+            <FormLabel color="#fff" mb="16px" fontSize="18px">
+              E-Mail
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+              placeholder="email"
+              color="#fff"
+              size="lg"
+            />
+          </FormControl>
+          <FormControl isRequired id="email">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              Şifre
+            </FormLabel>
+            <Input
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+              value={password}
+              pr="4.5rem"
+              mb="16px"
+              type="password"
+              size="lg"
+              placeholder="şifre"
+              color="#fff"
+            />
+          </FormControl>
           <Checkbox
             onChange={(e) => {
               setRememberMe(e.target.checked);
@@ -97,13 +104,12 @@ export default function UYEGIRIS() {
               <a>Şifremi Unuttum</a>
             </Link>
           </div>
-        </FormControl>
-
-        <div className={classes.gonder}>
-          <button onClick={onSubmit} className={classes.gnd}>
-            Giriş Yap
-          </button>
-        </div>
+          <div className={classes.gonder}>
+            <button onClick={onSubmit} className={classes.gnd}>
+              Giriş Yap
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
