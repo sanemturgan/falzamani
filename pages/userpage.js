@@ -1,23 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import classes from "../styles/userpage.module.css";
 import Link from "next/dist/client/link";
+import axios from "axios";
+import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
 
 export default function Userpage() {
-  // const cookies = new Cookies();
+  const cookies = new Cookies();
+  const router = useRouter();
+  const [customerInfo, setCustomerInfo] = useState("");
+  const [notification, setNotification] = useState();
 
-  // useEffect(() => {
-  //   if (cookies.get("jwt")) {
-  //     const accountResponse = axios.get(
-  //       process.env.REACT_APP_CLIENT_API_URL + `/user/data/customer`,
-  //       {
-  //         headers: {
-  //           Authorization: `${cookies.get("jwt")}`,
-  //         },
-  //       }
-  //     );
-  //     setAccountInfo(accountResponse.data);
-  //   }
-  // }, []);
+  useEffect(() => {
+    async function fetchData() {
+      if (cookies.get("jwt")) {
+        await axios
+          .get(process.env.REACT_APP_CLIENT_API_URL + `/customer`, {
+            headers: {
+              Authorization: `${cookies.get("jwt")}`,
+            },
+          })
+          .then((res) => {
+            setCustomerInfo(res.data.data);
+          })
+          .catch((err) => setNotification(err.response.data.error));
+      } else {
+        router.replace("/uyegiris");
+      }
+    }
+    fetchData();
+  }, []);
 
   return (
     <div className="userpage">
@@ -29,7 +41,7 @@ export default function Userpage() {
           <div className={classes.info}>
             <div className={classes.user}>
               <p>Kullanıcı Adı:</p>
-              <p>Luna</p>
+              <p>{customerInfo.username}</p>
             </div>
             <Link href="/changeusername">
               <a>Değiştir</a>
@@ -38,7 +50,7 @@ export default function Userpage() {
           <div className={classes.info}>
             <div className={classes.user}>
               <p>E-Mail:</p>
-              <p>Luna@fgdg.com</p>
+              <p>{customerInfo.email}</p>
             </div>
             <Link href="/changeemail">
               <a>Değiştir</a>
@@ -47,7 +59,7 @@ export default function Userpage() {
           <div className={classes.info}>
             <div className={classes.user}>
               <p>Telefon:</p>
-              <p>0555555555</p>
+              <p>{customerInfo.phone}</p>
             </div>
             <Link href="/changeemail">
               <a>Değiştir</a>

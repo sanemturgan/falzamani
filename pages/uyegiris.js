@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../styles/uyegiris.module.css";
 import axios from "axios";
 import Cookies from "universal-cookie";
@@ -22,7 +22,14 @@ export default function UYEGIRIS() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [notification, setNotification] = useState();
   const router = useRouter();
+  const cookies = new Cookies();
+  useEffect(() => {
+    if (cookies.get("jwt")) {
+      router.replace("/userpage");
+    }
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,16 +47,12 @@ export default function UYEGIRIS() {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
         if (res.data.status === 200 && cookies.get("jwt")) {
-          console.log("Giriş Başarılı");
           setTimeout(() => {
             router.replace("/userpage");
-            console.log(res);
           }, 500);
         }
       })
-      .catch((err) =>
-        console.log(err, "Hatalı Giriş, Lütfen Bilgilerinizi Kontrol Ediniz.")
-      );
+      .catch((err) => setNotification(err.response.data.error));
   };
 
   return (
@@ -68,7 +71,7 @@ export default function UYEGIRIS() {
                 setEmail(e.target.value);
               }}
               value={email}
-              placeholder="email"
+              placeholder="Email"
               color="#fff"
               size="lg"
             />
@@ -86,10 +89,11 @@ export default function UYEGIRIS() {
               mb="16px"
               type="password"
               size="lg"
-              placeholder="şifre"
+              placeholder="Şifre"
               color="#fff"
             />
           </FormControl>
+          {notification && <p style={{ color: "white" }}>{notification}</p>}
           <Checkbox
             onChange={(e) => {
               setRememberMe(e.target.checked);

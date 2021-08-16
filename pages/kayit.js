@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import classes from "../styles/kayit.module.css";
 import {
@@ -19,15 +19,27 @@ import {
 import { FaFileExport } from "react-icons/fa";
 import Link from "next/link";
 import axios from "axios";
-import router from "next/router";
+import { useRouter } from "next/router";
+import Cookies from "universal-cookie";
+
 function Kayit() {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState();
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
+  const [notification, setNotification] = useState();
+
+  const cookies = new Cookies();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (cookies.get("jwt")) {
+      router.replace("/userpage");
+    }
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +51,8 @@ function Kayit() {
       phone,
       password,
     };
+
+    console.log(userObject);
     await axios
       .post(
         process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
@@ -46,16 +60,13 @@ function Kayit() {
       )
       .then((res) => {
         if (res.data.status === 200) {
-          console.log("Giriş Başarılı");
           setTimeout(() => {
             router.replace("/uyegiris");
           }, 500);
         }
         console.log(res);
       })
-      .catch((err) =>
-        console.log(err, "Hatalı Giriş, Lütfen Bilgilerinizi Kontrol Ediniz.")
-      );
+      .catch((err) => setNotification(err.response.data.error));
   };
 
   return (
@@ -72,10 +83,10 @@ function Kayit() {
             </FormLabel>
             <Input
               onChange={(e) => {
-                setUsername(e.target.value);
+                setName(e.target.value);
               }}
               value={name}
-              placeholder="ad"
+              placeholder="Ad"
               color="#fff"
               size="lg"
             />
@@ -86,10 +97,10 @@ function Kayit() {
             </FormLabel>
             <Input
               onChange={(e) => {
-                setName(e.target.value);
+                setSurname(e.target.value);
               }}
               value={surname}
-              placeholder="  soyad"
+              placeholder="Soyad"
               color="#fff"
               size="lg"
             />
@@ -100,7 +111,7 @@ function Kayit() {
             </FormLabel>
             <Input
               onChange={(e) => {
-                setSurname(e.target.value);
+                setUsername(e.target.value);
               }}
               value={username}
               placeholder="Kullanıcı Adı"
@@ -118,11 +129,10 @@ function Kayit() {
                 setPhone(valueAsNumber);
               }}
               value={phone}
-              placeholder="Telefon Numarası"
               size="lg"
               color="white"
             >
-              <NumberInputField />
+              <NumberInputField placeholder="Telefon Numarası" />
             </NumberInput>
           </FormControl>
           <FormControl isRequired id="email">
@@ -137,6 +147,7 @@ function Kayit() {
               type="email"
               size="lg"
               color="white"
+              placeholder="Email"
             />
           </FormControl>
           <FormControl isRequired id="password">
@@ -156,6 +167,7 @@ function Kayit() {
               color="#fff"
             />
           </FormControl>
+          {notification && <p style={{ color: "white" }}>{notification}</p>}
           {/* <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Şifre Tekrar
           </FormLabel>

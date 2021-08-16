@@ -146,7 +146,7 @@ export default function Blog({ blogData, horoscopeData }) {
             <h6>Burçlar</h6>
           </div>
           <div className={classes.btmcrds}>
-            {blogData.length > 0 &&
+            {horoscopeData.length > 0 &&
               horoscopeData.map((data, index) => (
                 <div key={index} className={classes.btmcrd}>
                   <div className={classes.btmcrdimg}>
