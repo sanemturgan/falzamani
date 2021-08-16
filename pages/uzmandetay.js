@@ -28,7 +28,7 @@ function uzmandetay() {
               <Image
                 src={CardImg}
                 alt="teller"
-                objectFit="cover"
+                objectFit="contain"
                 layout="fill"
               />
             </div>

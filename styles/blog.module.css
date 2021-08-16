@@ -58,6 +58,7 @@
 }
 .blgcrdimg {
   width: 100%;
+  position: relative;
 }
 
 .altexphdr {
@@ -134,10 +135,13 @@
   width: 100%;
 }
 .altimg {
-  padding: 10px;
+  margin-top: 15px;
+  width: 200px;
+  height: 120px;
+  position: relative;
 }
 .altcrd {
-  width: 280px;
+  width: 200px;
   background-color: #5a4b69;
   border-radius: 50px;
   display: flex;
@@ -185,7 +189,8 @@
 .btmcrdlink {
   padding: 5px;
 }
-.btmcrdımg {
+.btmcrdimg {
+  position: relative;
 }
 @media screen and (max-width: 960px) {
   .flt a {

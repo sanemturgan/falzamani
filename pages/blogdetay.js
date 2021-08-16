@@ -34,7 +34,12 @@ function blogdetay() {
           <div className={classes.blgdtyrght}>
             <div className={classes.blogcard}>
               <div className={classes.blgcrdimg}>
-                <Image src={Geyik} alt="dty" />
+                <Image
+                  src={Geyik}
+                  alt="dty"
+                  objectFit="contain"
+                  layout="fill"
+                />
               </div>
               <div className={classes.altexphdr}>
                 <h5>Kahve Falında Geyik Görmek </h5>
@@ -51,7 +56,12 @@ function blogdetay() {
               </div>
               <div className={classes.writer}>
                 <div className={classes.wrtimg}>
-                  <Image src={Writer} alt="dty" />
+                  <Image
+                    src={Writer}
+                    alt="dty"
+                    objectFit="contain"
+                    layout="fill"
+                  />
                 </div>
                 <div className={classes.wrtexp}>
                   <h4>Vivi</h4>
@@ -160,7 +170,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -172,7 +187,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -184,7 +204,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -196,7 +221,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -208,7 +238,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -220,7 +255,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -232,7 +272,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">
@@ -244,7 +289,12 @@ function blogdetay() {
               <SwiperSlide>
                 <div className={classes.altcrd}>
                   <div className={classes.altimg}>
-                    <Image src={Kova} alt="dty" />
+                    <Image
+                      src={Kova}
+                      alt="dty"
+                      objectFit="contain"
+                      layout="fill"
+                    />
                   </div>
                   <div className={classes.altexp}>
                     <Link href="/blogdetay">

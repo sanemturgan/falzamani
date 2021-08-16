@@ -41,12 +41,12 @@
   justify-content: center;
   align-items: center;
   margin-right: 50px;
-  margin-bottom: 100px;
 }
 .dtyimg {
-  width: 600px;
-  position: absolute;
-  top: 350px;
+  width: 700px;
+  height: 300px;
+  position: relative;
+
   z-index: 2;
 }
 
@@ -54,7 +54,7 @@
   background: linear-gradient(#1e1435, #221737, #281c3b);
   border-radius: 40px;
   position: relative;
-  top: 150px;
+  top: -100px;
   display: flex;
   padding: 150px 50px 50px 50px;
   flex-direction: column;
@@ -106,7 +106,7 @@
 }
 @media screen and (max-width: 1200px) {
   .dtyimg {
-    width: 50%;
+    width: 70%;
   }
   .dtyexp {
     padding: 16% 50px 50px 50px;
