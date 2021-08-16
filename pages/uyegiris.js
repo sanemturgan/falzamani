@@ -43,16 +43,29 @@ export default function UYEGIRIS() {
         process.env.REACT_APP_CLIENT_API_URL + `/customer/login`,
         userObject
       )
-      .then((res) => {
+      .then(async (res) => {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
+
+        await axios
+          .get(process.env.REACT_APP_CLIENT_API_URL + `/customer`, {
+            headers: {
+              Authorization: `${cookies.get("jwt")}`,
+            },
+          })
+          .then((res) => {
+            cookies.set("userInfo", res.data.data, {
+              maxAge: maxAgeTime,
+            });
+          });
         if (res.data.status === 200 && cookies.get("jwt")) {
           setTimeout(() => {
             router.replace("/userpage");
           }, 500);
         }
       })
-      .catch((err) => setNotification(err.response.data.error));
+      .catch((err) => console.log(err))
+      .catch((e) => console.log(e));
   };
 
   return (
