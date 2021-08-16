@@ -51,6 +51,8 @@
 }
 .blogcard {
   margin: 15px;
+  display: flex;
+  flex-direction: column;
   text-align: center;
   width: 90%;
   border-radius: 50px;
@@ -58,6 +60,8 @@
 }
 .blgcrdimg {
   width: 100%;
+  height: 100px;
+
   position: relative;
 }
 
@@ -175,6 +179,7 @@
 }
 .btmcrd {
   width: 170px;
+  height: 200px;
   padding: 5px;
   border-radius: 20px;
   display: flex;
@@ -191,6 +196,8 @@
 }
 .btmcrdimg {
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 @media screen and (max-width: 960px) {
   .flt a {
