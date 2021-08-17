@@ -6,6 +6,7 @@ import {
   FaEnvelope,
   FaSearch,
   FaSortDown,
+  FaPlusCircle,
 } from "react-icons/fa";
 import CardImg from "../public/img/falcard.png";
 import Image from "next/image";
@@ -23,6 +24,15 @@ import {
   CheckIcon,
   useEditableControls,
   CloseIcon,
+  Button,
+  Modal,
+  useDisclosure,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
 } from "@chakra-ui/react";
 function WarlockPage() {
   const EditableControls = () => {
@@ -32,6 +42,7 @@ function WarlockPage() {
       getCancelButtonProps,
       getEditButtonProps,
     } = useEditableControls();
+
     return isEditing ? (
       <ButtonGroup justifyContent="center" size="sm">
         <IconButton icon={<p>check</p>} {...getSubmitButtonProps()} />
@@ -43,7 +54,7 @@ function WarlockPage() {
       </Flex>
     );
   };
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div className="WarlockPage">
       <div className={classes.uzmanhdr}>
@@ -53,17 +64,17 @@ function WarlockPage() {
         <div className={classes.uzmantop}>
           <div className={classes.ustbir}>
             <div className={classes.cardimg}>
-              {/* <Image
+              <Image
                 src={CardImg}
                 alt="teller"
                 objectFit="contain"
                 layout="fill"
-              /> */}
+              />
+              <FaPlusCircle color="#281c3b" size="20px" />
             </div>
             <h5>Luna</h5>
-            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
-            <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
-            <h6 className={classes.notavailable}>(MEŞGUL)</h6>
+            <div className={classes.status}>(ONAYLI HESAP)</div>
+            <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
             <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <p>5/5</p>
@@ -88,179 +99,49 @@ function WarlockPage() {
             </div>
             <div className={classes.ustiki}>
               <div className={classes.exp}>
-                {/* <Editable
-                  textAlign="center"
-                  defaultValue="Rasengan ⚡️"
-                  fontSize="2xl"
-                  isPreviewFocusable={false}
-                >
-                  <EditablePreview />
-                  <EditableInput />
-                  <EditableControls />
-                </Editable> */}
+                <GigEditable value={"Kendinizden bahsedin :)"} />
+              </div>
+              <div className={classes.warlockAdvert}>
+                <div className={classes.options}>
+                  <div className={classes.optionAdvert}>
+                    <div className={classes.ophdr}>
+                      <h5>İlan Ekle</h5>
+                    </div>
+                    <div className={classes.opexp}>
+                      <Button
+                        backgroundColor="inherit"
+                        onClick={() => {
+                          console.log(isOpen);
+                          onOpen();
+                        }}
+                      >
+                        <FaPlusCircle color="#281c3b" size="20px" />
+                      </Button>
+                      <Modal isOpen={isOpen} onClose={onClose}>
+                        <ModalOverlay />
+                        <ModalContent>
+                          <ModalHeader>İlan Ekle</ModalHeader>
+                          <ModalCloseButton />
+                          <ModalBody>
+                            <GigEditable value="İlan Başlığı" />
+                            <GigEditable value="İlan Açıklaması" />
+                            <GigEditable value="Seans Zamanı" />
+                            <GigEditable value="Seans Fiyatı" />
+                          </ModalBody>
 
-                <GigEditable value={"Miraç"} />
-              </div>
-              <div className={classes.iletisim}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                  <p>+955 155 55 55</p>
-                </div>
-              </div>
-            </div>
-          </div>
+                          <ModalFooter>
+                            <Button colorScheme="red" mr={2} onClick={onClose}>
+                              Çıkış
+                            </Button>
 
-          <div className={classes.uzmanmid}>
-            <div className={classes.options}>
-              <div className={classes.option}>
-                <div className={classes.ophdr}>
-                  <h5>Zihin Okuma Seansı</h5>
-                </div>
-                <div className={classes.opexp}>
-                  <GigEditable value="İlan Başlığı" />
-                  <GigEditable value="İlan Açıklaması" />
-
-                  <Editable
-                    textAlign="center"
-                    defaultValue="Seans Zamanı"
-                    fontSize="2xl"
-                    isPreviewFocusable={false}
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                    <EditableControls />
-                  </Editable>
-
-                  <Editable
-                    textAlign="center"
-                    defaultValue="Seans Fiyatı"
-                    fontSize="2xl"
-                    isPreviewFocusable={false}
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                    <EditableControls />
-                  </Editable>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-              <div className={classes.faldty}>
-                <h5>Kahve Falı</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>650 Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
+                            <Button colorScheme="green" variant="ghost">
+                              Kaydet
+                            </Button>
+                          </ModalFooter>
+                        </ModalContent>
+                      </Modal>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -288,193 +169,42 @@ function WarlockPage() {
                 </p>
               </div>
               <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
+                <Button
+                  color="#281c3b"
+                  border="2px"
+                  backgroundColor="inherit"
+                  onClick={() => {
+                    console.log(isOpen);
+                    onOpen();
+                  }}
+                >
+                  İlanı Düzenle
+                </Button>
+                <Modal isOpen={isOpen} onClose={onClose}>
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>İlan Düzenle</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                      <GigEditable value="İlan Başlığı" />
+                      <GigEditable value="İlan Açıklaması" />
+                      <GigEditable value="Seans Zamanı" />
+                      <GigEditable value="Seans Fiyatı" />
+                    </ModalBody>
+
+                    <ModalFooter>
+                      <Button colorScheme="red" variant="ghost">
+                        Sil
+                      </Button>
+                      <Button colorScheme="green" variant="ghost">
+                        Kaydet
+                      </Button>
+                      <Button colorScheme="red" mr={2} onClick={onClose}>
+                        Çıkış
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
               </div>
             </div>
           </div>
@@ -524,94 +254,6 @@ function WarlockPage() {
                 </div>
               </div>
             </div>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={classes.more}>
-            <Link href="/more">
-              <a>
-                {" "}
-                <FaSortDown color="#ECDCF5" size="30px" />
-              </a>
-            </Link>
           </div>
         </div>
       </div>

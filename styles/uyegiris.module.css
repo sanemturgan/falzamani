@@ -15,6 +15,17 @@
   width: 60%;
   border-bottom: 1px solid #fff;
 }
+.typeUser {
+  display: flex;
+  justify-content: space-evenly;
+}
+.customer,
+.warlock {
+  border: 1px solid #fff;
+  padding: 7px;
+  border-radius: 20px;
+  text-align: center;
+}
 .kariyerhdr p {
   color: #fff;
   font-size: 16px;

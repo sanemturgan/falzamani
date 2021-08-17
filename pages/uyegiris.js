@@ -67,17 +67,21 @@ export default function UYEGIRIS() {
         <h4>ÜYE GİRİŞİ</h4>
       </div>
       <div className={classes.formkariyer}>
-        <div
-          style={{ color: "white", cursor: "pointer" }}
-          onClick={() => setCustomer(false)}
-        >
-          falcı
-        </div>
-        <div
-          style={{ color: "white", cursor: "pointer" }}
-          onClick={() => setCustomer(true)}
-        >
-          customer
+        <div className={classes.typeUser}>
+          <div
+            className={classes.customer}
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={() => setCustomer(true)}
+          >
+            Danışman Girişi
+          </div>
+          <div
+            className={classes.warlock}
+            style={{ color: "white", cursor: "pointer" }}
+            onClick={() => setCustomer(false)}
+          >
+            Falcı Girişi
+          </div>
         </div>
         <form onSubmit={onSubmit}>
           <FormControl isRequired id="email">
@@ -124,6 +128,11 @@ export default function UYEGIRIS() {
           <div className={classes.forgotpassword}>
             <Link href="/forgotpassword">
               <a>Şifremi Unuttum</a>
+            </Link>
+          </div>
+          <div className={classes.forgotpassword}>
+            <Link href="/kayit">
+              <a>Hemen Kaydolun</a>
             </Link>
           </div>
           <div className={classes.gonder}>

@@ -7,7 +7,7 @@ import {
   IconButton,
   useEditableControls,
 } from "@chakra-ui/react";
-
+import { FaEdit, FaCheck, FaTimes } from "react-icons/fa";
 export default function GigEditable({ value }) {
   const EditableControls = () => {
     const {
@@ -18,21 +18,35 @@ export default function GigEditable({ value }) {
     } = useEditableControls();
     return isEditing ? (
       <ButtonGroup justifyContent="center" size="sm">
-        <IconButton icon={<p>check</p>} {...getSubmitButtonProps()} />
-        <IconButton icon={<p>closes</p>} {...getCancelButtonProps()} />
+        <IconButton
+          backgroundColor="inherit"
+          icon={<FaCheck color="green" size="16px" />}
+          {...getSubmitButtonProps()}
+        />
+
+        <IconButton
+          backgroundColor="inherit"
+          icon={<FaTimes color="red" size="16px" />}
+          {...getCancelButtonProps()}
+        />
       </ButtonGroup>
     ) : (
-      <Flex justifyContent="center">
-        <IconButton size="sm" icon={<p>edit</p>} {...getEditButtonProps()} />
+      <Flex justifyContent="flex-end">
+        <IconButton
+          backgroundColor="inherit"
+          size="sm"
+          icon={<FaEdit color="#281c3b" size="16px" />}
+          {...getEditButtonProps()}
+        />
       </Flex>
     );
   };
 
   return (
     <Editable
-      textAlign="center"
+      textAlign="left"
       defaultValue={value}
-      fontSize="2xl"
+      fontSize="1xl"
       isPreviewFocusable={false}
     >
       <EditablePreview />

@@ -4,6 +4,27 @@ import Link from "next/dist/client/link";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
+import {
+  Editable,
+  EditableInput,
+  EditablePreview,
+  ButtonGroup,
+  Flex,
+  EditIcon,
+  IconButton,
+  CheckIcon,
+  useEditableControls,
+  CloseIcon,
+  Button,
+  Modal,
+  useDisclosure,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+} from "@chakra-ui/react";
 
 export default function Userpage() {
   const cookies = new Cookies();
@@ -30,7 +51,7 @@ export default function Userpage() {
     }
     fetchData();
   }, []);
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <div className="userpage">
       <div className={classes.kariyerhdr}>
@@ -85,11 +106,33 @@ export default function Userpage() {
                 </div>
                 <div className={classes.payanddetails}>
                   <p>650 Kredi Ödendi</p>
-                  <Link href="/detay">
-                    <a>
-                      <button className={classes.infodetail}>Detay Oku</button>
-                    </a>
-                  </Link>
+                  <div className={classes.details}>
+                    <Button
+                      backgroundColor="inherit"
+                      color="gray"
+                      onClick={onOpen}
+                    >
+                      Detay Oku
+                    </Button>
+
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>Fal Detayı</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <p>Fal Detayı</p>
+                        </ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button variant="ghost">Secondary Action</Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </div>
                 </div>
               </li>
               <li className={classes.btminfolist}>
@@ -98,11 +141,33 @@ export default function Userpage() {
                 </div>
                 <div className={classes.payanddetails}>
                   <p>650 Kredi Ödendi</p>
-                  <Link href="/detay">
-                    <a>
-                      <button className={classes.infodetail}>Detay Oku</button>
-                    </a>
-                  </Link>
+                  <div className={classes.details}>
+                    <Button
+                      backgroundColor="inherit"
+                      color="gray"
+                      onClick={onOpen}
+                    >
+                      Detay Oku
+                    </Button>
+
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>Fal Detayı</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <p>Fal Detayı</p>
+                        </ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button variant="ghost">Secondary Action</Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </div>
                 </div>
               </li>
               <li className={classes.btminfolist}>
@@ -111,11 +176,33 @@ export default function Userpage() {
                 </div>
                 <div className={classes.payanddetails}>
                   <p>650 Kredi Ödendi</p>
-                  <Link href="/detay">
-                    <a>
-                      <button className={classes.infodetail}>Detay Oku</button>
-                    </a>
-                  </Link>
+                  <div className={classes.details}>
+                    <Button
+                      backgroundColor="inherit"
+                      color="gray"
+                      onClick={onOpen}
+                    >
+                      Detay Oku
+                    </Button>
+
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>Fal Detayı</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <p>Fal Detayı</p>
+                        </ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button variant="ghost">Secondary Action</Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </div>
                 </div>
               </li>
               <li className={classes.btminfolist}>
@@ -124,11 +211,33 @@ export default function Userpage() {
                 </div>
                 <div className={classes.payanddetails}>
                   <p>650 Kredi Ödendi</p>
-                  <Link href="/detay">
-                    <a>
-                      <button className={classes.infodetail}>Detay Oku</button>
-                    </a>
-                  </Link>
+                  <div className={classes.details}>
+                    <Button
+                      backgroundColor="inherit"
+                      color="gray"
+                      onClick={onOpen}
+                    >
+                      Detay Oku
+                    </Button>
+
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>Fal Detayı</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <p>Fal Detayı</p>
+                        </ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="blue" mr={3} onClick={onClose}>
+                            Close
+                          </Button>
+                          <Button variant="ghost">Secondary Action</Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </div>
                 </div>
               </li>
             </ul>
