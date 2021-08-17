@@ -105,154 +105,6 @@ export default function WarlockPage() {
                   <FaPhoneAlt color="#ECDCF5" size="20px" />
                   <p>+955 155 55 55</p>
                 </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                  <p>Yazılı Fal</p>
-                </div>
-              </div>
-              <div className={classes.expbtm}>
-                <p>
-                  Uzmanlarımıza, adınızı, burcunuzu, yaşınızı, mesleğinizi ve
-                  sormak istediğiniz soruları yazınız. Falınız size yazılı
-                  olarak gelsin!
-                </p>
-              </div>
-              <div className={classes.fallar}>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
-                <div className={classes.faldty}>
-                  <h5>Kahve Falı</h5>
-                  <div className={classes.pay}>
-                    <Link href="/odeme">
-                      <a>
-                        <button>650 Kredi</button>
-                      </a>
-                    </Link>
-                    <Link href="/odeme">
-                      <a>
-                        <button className={classes.rnd}>Randevu Al</button>
-                      </a>
-                    </Link>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -264,25 +116,50 @@ export default function WarlockPage() {
                   <h5>Zihin Okuma Seansı</h5>
                 </div>
                 <div className={classes.opexp}>
-                  <p>
-                    Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                    kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                    beynine girip düşüncelerini sizlerle net bir şekilde
-                    paylaşacağım.
-                  </p>
-                  <p>
-                    <span>Seans 25 Dakikadır.</span>
-                  </p>
-                  <p>
-                    <span>160 KREDİ</span>
-                  </p>
-                </div>
-                <div className={classes.opran}>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
+                  <Editable
+                    textAlign="center"
+                    defaultValue="İlan Başlığı"
+                    fontSize="2xl"
+                    isPreviewFocusable={false}
+                  >
+                    <EditablePreview />
+                    <EditableInput />
+                    <EditableControls />
+                  </Editable>
+                  )
+                  <Editable
+                    textAlign="center"
+                    defaultValue="İlan Açıklaması"
+                    fontSize="2xl"
+                    isPreviewFocusable={false}
+                  >
+                    <EditablePreview />
+                    <EditableInput />
+                    <EditableControls />
+                  </Editable>
+                  )
+                  <Editable
+                    textAlign="center"
+                    defaultValue="Seans Zamanı"
+                    fontSize="2xl"
+                    isPreviewFocusable={false}
+                  >
+                    <EditablePreview />
+                    <EditableInput />
+                    <EditableControls />
+                  </Editable>
+                  )
+                  <Editable
+                    textAlign="center"
+                    defaultValue="Seans Fiyatı"
+                    fontSize="2xl"
+                    isPreviewFocusable={false}
+                  >
+                    <EditablePreview />
+                    <EditableInput />
+                    <EditableControls />
+                  </Editable>
+                  )
                 </div>
               </div>
               <div className={classes.option}>
