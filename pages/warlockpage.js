@@ -11,6 +11,7 @@ import CardImg from "../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
 
+import GigEditable from "../components/GigEditable";
 import {
   Editable,
   EditableInput,
@@ -87,7 +88,7 @@ function WarlockPage() {
             </div>
             <div className={classes.ustiki}>
               <div className={classes.exp}>
-                <Editable
+                {/* <Editable
                   textAlign="center"
                   defaultValue="Rasengan ⚡️"
                   fontSize="2xl"
@@ -96,8 +97,9 @@ function WarlockPage() {
                   <EditablePreview />
                   <EditableInput />
                   <EditableControls />
-                </Editable>
-                )
+                </Editable> */}
+
+                <GigEditable value={"Miraç"} />
               </div>
               <div className={classes.iletisim}>
                 <div className={classes.cardicon}>
@@ -115,28 +117,9 @@ function WarlockPage() {
                   <h5>Zihin Okuma Seansı</h5>
                 </div>
                 <div className={classes.opexp}>
-                  <Editable
-                    textAlign="center"
-                    defaultValue="İlan Başlığı"
-                    fontSize="2xl"
-                    isPreviewFocusable={false}
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                    <EditableControls />
-                  </Editable>
-                  )
-                  <Editable
-                    textAlign="center"
-                    defaultValue="İlan Açıklaması"
-                    fontSize="2xl"
-                    isPreviewFocusable={false}
-                  >
-                    <EditablePreview />
-                    <EditableInput />
-                    <EditableControls />
-                  </Editable>
-                  )
+                  <GigEditable value="İlan Başlığı" />
+                  <GigEditable value="İlan Açıklaması" />
+
                   <Editable
                     textAlign="center"
                     defaultValue="Seans Zamanı"
@@ -147,7 +130,7 @@ function WarlockPage() {
                     <EditableInput />
                     <EditableControls />
                   </Editable>
-                  )
+
                   <Editable
                     textAlign="center"
                     defaultValue="Seans Fiyatı"
@@ -158,7 +141,6 @@ function WarlockPage() {
                     <EditableInput />
                     <EditableControls />
                   </Editable>
-                  )
                 </div>
               </div>
               <div className={classes.faldty}>
