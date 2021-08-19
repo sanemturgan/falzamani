@@ -1,19 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import classes from "../styles/blog.module.css";
+import classes from "../../styles/blog.module.css";
 import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
-import Kova from "../public/img/kova.png";
-import Geyik from "../public/img/geyik.png";
+import Kova from "../../public/img/kova.png";
+import Geyik from "../../public/img/geyik.png";
 
-import ZodiacImgone from "../public/img/venus.png";
+import ZodiacImgone from "../../public/img/venus.png";
 //import img from "next/img";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import Image from "next/image";
 
-export default function Blog({ blogData, horoscopeData }) {
+export default function Blog({ blogData, horoscopeData, falData }) {
   return (
     <div className="blog">
       <div className={classes.bloghdr}>
@@ -55,7 +55,7 @@ export default function Blog({ blogData, horoscopeData }) {
                     <p>{data.description.split(0, 200)}</p>
                   </div>
                   <div className={classes.blgmore}>
-                    <Link href="/blogdetay">
+                    <Link href="/blog/5">
                       <a>Devamı için tıklayın</a>
                     </Link>
                   </div>
@@ -64,51 +64,14 @@ export default function Blog({ blogData, horoscopeData }) {
           </div>
           <div className={classes.categories}>
             <ul className={classes.catalog}>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Kahve Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Tarot Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Su Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Katina Aşk Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>İskambil Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>DuruGörü</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Yıldızname</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Venüs Burcu</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Mars Burcu</a>
-                </Link>
-              </li>
+              {falData.length > 0 &&
+                falData.map((data, index) => (
+                  <li key={index} className={classes.flt}>
+                    <Link href="/blog">
+                      <a>{data.name}</a>
+                    </Link>
+                  </li>
+                ))}
             </ul>
             <div className={classes.altcatalog}>
               <ul className={classes.altct}>
@@ -337,6 +300,11 @@ export async function getServerSideProps(context) {
   });
 
   const blogData = await blogRes.json();
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
+    method: "GET",
+  });
+
+  const falData = await falRes.json();
 
   const horoscopeRes = await fetch(
     process.env.NEXT_APP_API_URL + `/horoscope/all`,
@@ -347,9 +315,8 @@ export async function getServerSideProps(context) {
 
   const horoscopeData = await horoscopeRes.json();
 
-  console.log(blogData);
-  console.log(horoscopeData);
-  if (!blogData || !horoscopeData) {
+  console.log(falData.data);
+  if (!blogData || !horoscopeData || !falData) {
     return {
       notFound: true,
     };
@@ -357,6 +324,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       blogData: blogData.data,
+      falData: falData.data,
       horoscopeData: horoscopeData.data,
     },
   };
