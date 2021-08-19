@@ -12,6 +12,7 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import Image from "next/image";
+import MiniCategoryMenu from "../../components/MiniCategoryMenu";
 
 export default function Blog({ blogData, horoscopeData, falData }) {
   return (
@@ -55,24 +56,16 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                     <p>{data.description.split(0, 200)}</p>
                   </div>
                   <div className={classes.blgmore}>
-                    <Link href="/blog/5">
+                    <Link href={`/blog/${data.id}`}>
                       <a>Devamı için tıklayın</a>
                     </Link>
+                    {console.log(data)}
                   </div>
                 </div>
               ))}
           </div>
           <div className={classes.categories}>
-            <ul className={classes.catalog}>
-              {falData.length > 0 &&
-                falData.map((data, index) => (
-                  <li key={index} className={classes.flt}>
-                    <Link href="/blog">
-                      <a>{data.name}</a>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
+            <MiniCategoryMenu classes={classes} falData={falData} />
             <div className={classes.altcatalog}>
               <ul className={classes.altct}>
                 <li className={classes.altfirstli}>Son Yazılar</li>

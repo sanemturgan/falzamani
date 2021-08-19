@@ -9,8 +9,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
+import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 
-export default function blogdetay() {
+export default function blogdetay({ blogSingleData, falData }) {
   return (
     <div className="blogdetay">
       <div className={classes.bloghdr}>
@@ -42,17 +43,10 @@ export default function blogdetay() {
                 />
               </div>
               <div className={classes.altexphdr}>
-                <h5>Kahve Falında Geyik Görmek </h5>
+                <h5>{blogSingleData.title}</h5>
               </div>
               <div className={classes.blgcrdexp}>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                  irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur….
-                </p>
+                <p>{blogSingleData.description}</p>
               </div>
               <div className={classes.writer}>
                 <div className={classes.wrtimg}>
@@ -76,53 +70,7 @@ export default function blogdetay() {
           </div>
 
           <div className={classes.categories}>
-            <ul className={classes.catalog}>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Kahve Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Tarot Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Su Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Katina Aşk Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>İskambil Falı</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>DuruGörü</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Yıldızname</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Venüs Burcu</a>
-                </Link>
-              </li>
-              <li className={classes.flt}>
-                <Link href="/blog">
-                  <a>Mars Burcu</a>
-                </Link>
-              </li>
-            </ul>
+            <MiniCategoryMenu classes={classes} falData={falData} />
             <div className={classes.altcatalog}>
               <ul className={classes.altct}>
                 <li className={classes.altfirstli}>Son Yazılar</li>
@@ -313,14 +261,20 @@ export default function blogdetay() {
 
 export async function getServerSideProps(context) {
   const paramsData = await context.query;
-  const res = await fetch(process.env.NEXT_APP_API_URL + `/blog/5`, {
+  const res = await fetch(
+    process.env.NEXT_APP_API_URL + `/blog/${paramsData.id}`,
+    {
+      method: "GET",
+    }
+  );
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
     method: "GET",
   });
 
-  const blogSingleData = res.json();
+  const falData = await falRes.json();
+  const blogSingleData = await res.json();
 
-  console.log(blogSingleData);
-  if (!blogSingleData) {
+  if (!blogSingleData || !falData) {
     return {
       notFound: true,
     };
@@ -328,6 +282,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       blogSingleData: blogSingleData.data,
+      falData: falData.data,
     },
   };
 }
