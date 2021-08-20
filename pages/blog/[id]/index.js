@@ -10,8 +10,9 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
-
-export default function blogdetay({ blogSingleData, falData }) {
+import MiniCategorySecondMenu from "../../../components/MiniCategorySecondMenu";
+import BottomSwiperSlide from "../../../components/BottomSwiperSlide";
+export default function blogdetay({ blogSingleData, falData, blogData }) {
   return (
     <div className="blogdetay">
       <div className={classes.bloghdr}>
@@ -74,32 +75,7 @@ export default function blogdetay({ blogSingleData, falData }) {
             <div className={classes.altcatalog}>
               <ul className={classes.altct}>
                 <li className={classes.altfirstli}>Son Yazılar</li>
-                <li className={classes.altli}>
-                  <Link href="/blogdetay">
-                    <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                  </Link>
-                </li>
-                <li className={classes.altli}>
-                  <Link href="/blogdetay">
-                    <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                  </Link>
-                </li>
-                <li className={classes.altli}>
-                  <Link href="/blogdetay">
-                    <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                  </Link>
-                </li>
-
-                <li className={classes.altli}>
-                  <Link href="/blogdetay">
-                    <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                  </Link>
-                </li>
-                <li className={classes.altli}>
-                  <Link href="/blogdetay">
-                    <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                  </Link>
-                </li>
+                <MiniCategorySecondMenu classes={classes} blogData={blogData} />
               </ul>
             </div>
           </div>
@@ -125,11 +101,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -142,11 +114,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -159,11 +127,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -176,11 +140,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -193,11 +153,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -210,11 +166,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -227,11 +179,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
               <SwiperSlide>
@@ -244,11 +192,7 @@ export default function blogdetay({ blogSingleData, falData }) {
                       layout="fill"
                     />
                   </div>
-                  <div className={classes.altexp}>
-                    <Link href="/blogdetay">
-                      <a>Kova Burcu Aylık Burç Yorumları - Temmuz 2021</a>
-                    </Link>
-                  </div>
+                  <BottomSwiperSlide classes={classes} blogData={blogData} />
                 </div>
               </SwiperSlide>
             </Swiper>
@@ -267,6 +211,10 @@ export async function getServerSideProps(context) {
       method: "GET",
     }
   );
+  const blogRes = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
+    method: "GET",
+  });
+  const blogData = await blogRes.json();
   const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
     method: "GET",
   });
@@ -283,6 +231,7 @@ export async function getServerSideProps(context) {
     props: {
       blogSingleData: blogSingleData.data,
       falData: falData.data,
+      blogData: blogData.data,
     },
   };
 }

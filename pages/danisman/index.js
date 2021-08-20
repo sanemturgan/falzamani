@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "../../../styles/danisman.module.css";
-import CardImg from "../../../public/img/falcard.png";
+import classes from "../../styles/danisman.module.css";
+import CardImg from "../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
 function danisman() {

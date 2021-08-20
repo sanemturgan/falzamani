@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../styles/adminpage.module.css";
+import classes from "../../styles/adminpage.module.css";
 import Link from "next/dist/client/link";
 function adminpage() {
   return (

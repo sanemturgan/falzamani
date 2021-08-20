@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import classes from "../styles/adminlogin.module.css";
+import classes from "../../styles/adminlogin.module.css";
 import {
   FormControl,
   FormLabel,
