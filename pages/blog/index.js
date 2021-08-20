@@ -54,7 +54,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                     <h5>{data.title}</h5>
                   </div>
                   <div className={classes.blgcrdexp}>
-                    <p>{data.description.split(0, 200)}</p>
+                    <p>{data.description} </p>
                   </div>
                   <div className={classes.blgmore}>
                     <Link href={`/blog/${data.id}`}>

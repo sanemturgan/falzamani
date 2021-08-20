@@ -1,12 +1,12 @@
 import React from "react";
-import classes from "../styles/burcdetay.module.css";
-import ZodiacImgthree from "../public/img/burcdty.png";
+import classes from "../../../styles/burcdetay.module.css";
+import ZodiacImgthree from "../../../public/img/burcdty.png";
 import { Input } from "@chakra-ui/react";
 import { FaSearch, FaSortDown } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Burcdetay({ data, HoroscopeDescriptionData }) {
+export default function Burcdetay({ horoscopeDescriptionData }) {
   return (
     <div className="burcdetay">
       <div className={classes.burchdr}>
@@ -23,8 +23,8 @@ export default function Burcdetay({ data, HoroscopeDescriptionData }) {
         <Input variant="unstyled" placeholder="Ara" />
       </div>
       <div className={classes.detaymain}>
-        {HoroscopeDescriptionData.length > 0 &&
-          HoroscopeDescriptionData.map((data, index) => {
+        {horoscopeDescriptionData.length > 0 &&
+          horoscopeDescriptionData.map((data, index) => {
             return (
               <div key={index} className={classes.descriptionmain}>
                 <div className={classes.dtyrght}>
@@ -107,23 +107,18 @@ export async function getServerSideProps(context) {
       method: "GET",
     }
   );
-  const HoroscopeDescriptionRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/horoscopeDescription`,
-    {
-      /*method: "GET",*/
-    }
-  );
 
-  const HoroscopeDescriptionData = await HoroscopeDescriptionRes.json();
+  const horoscopeDescriptionData = await res.json();
 
-  if (!HoroscopeDescriptionData) {
+  if (!horoscopeDescriptionData) {
     return {
       notFound: true,
     };
   }
+  console.log(paramsData);
   return {
     props: {
-      HoroscopeDescriptionData: HoroscopeDescriptionData.data,
+      horoscopeDescriptionData: horoscopeDescriptionData.data,
     },
   };
 }

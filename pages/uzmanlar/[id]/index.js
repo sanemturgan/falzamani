@@ -600,22 +600,24 @@ export default function uzmandetay() {
 
 export async function getServerSideProps(context) {
   const paramsData = await context.query;
-  const res = await fetch(process.env.NEXT_APP_API_URL + `/warlock`, {
-    method: "GET",
-    body: JSON.stringify({ id: 5 }),
-  });
+  const res = await fetch(
+    process.env.NEXT_APP_API_URL + `/warlock/${paramsData.id}`,
+    {
+      method: "GET",
+    }
+  );
 
-  const warlockSingleData = res.json();
+  const warlockSingleData = await res.json();
 
   console.log(warlockSingleData);
-  if (!data) {
+  if (!warlockSingleData) {
     return {
       notFound: true,
     };
   }
   return {
     props: {
-      paramsData: "4",
+      warlockSingleData: warlockSingleData.data,
     },
   };
 }

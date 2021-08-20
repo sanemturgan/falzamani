@@ -57,14 +57,14 @@ export default function uzmanlar({ warlockData }) {
                   <p>{data.about}</p>
                   <div className={classes.crdi}>
                     <div className={classes.cardicon}>
-                      <Link href="/uzmanlar/4">
+                      <Link href={`/uzmanlar/${data.id}`}>
                         <a>
                           <FaPhoneAlt color="#ECDCF5" size="20px" />
                         </a>
                       </Link>
                     </div>
                     <div className={classes.cardicon}>
-                      <Link href="/uzmanlar/4">
+                      <Link href={`/uzmanlar/${data.id}`}>
                         <a>
                           <FaEnvelope color="#ECDCF5" size="20px" />
                         </a>
@@ -72,7 +72,7 @@ export default function uzmanlar({ warlockData }) {
                     </div>
                   </div>
                   <div className={classes.cardbtn}>
-                    <Link href="/uzmanlar/4">
+                    <Link href={`/uzmanlar/${data.id}`}>
                       <a>
                         <button className={classes.cardgiris}>
                           Fal Baktır
