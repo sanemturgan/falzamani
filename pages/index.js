@@ -16,7 +16,6 @@ function HomePage({ data, warlockData, horoscopeData }) {
     if (window) {
       setArrows(window.innerHeight > 900);
     }
-    console.log(data);
   }, []);
   return (
     <div className="wrapperClass">

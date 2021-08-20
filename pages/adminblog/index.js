@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
-import Cookies from "universal-cookie/es6";
+import Cookies from "universal-cookie";
 import axios from "axios";
 export default function Adminblog() {
   const [title, setTitle] = useState("");

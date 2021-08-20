@@ -22,7 +22,7 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 
-function Kayit() {
+export default function Kayit() {
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhone] = useState();
@@ -192,5 +192,3 @@ function Kayit() {
     </div>
   );
 }
-
-export default Kayit;

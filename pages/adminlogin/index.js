@@ -16,8 +16,8 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
-
-function ADMINLOGIN() {
+import Cookies from "universal-cookie";
+export default function ADMINLOGIN() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -140,5 +140,3 @@ function ADMINLOGIN() {
     </div>
   );
 }
-
-export default ADMINLOGIN;
