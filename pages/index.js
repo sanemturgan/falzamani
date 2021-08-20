@@ -10,7 +10,7 @@ import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 SwiperCore.use([Navigation, A11y]);
 
-function HomePage({ data }) {
+function HomePage({ data, warlockData, horoscopeData }) {
   const [arrows, setArrows] = useState(true);
   useEffect(() => {
     if (window) {
@@ -88,42 +88,62 @@ function HomePage({ data }) {
         >
           {Array.from(Array(10)).map((e, i) => (
             <SwiperSlide key={i}>
-              <div className={classes.card}>
-                <div className={classes.cardimg}>
-                  <Image
-                    src={CardImg}
-                    alt="teller"
-                    objectFit="contain"
-                    layout="fill"
-                  />
-                </div>
-                <h5>Luna</h5>
-                <div className={classes.star}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <p>
-                  20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                  yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-                </p>
-                <div className={classes.crdi}>
-                  <div className={classes.cardicon}>
-                    <FaPhoneAlt color="#ECDCF5" size="20px" />
-                  </div>
-                  <div className={classes.cardicon}>
-                    <FaEnvelope color="#ECDCF5" size="20px" />
-                  </div>
-                </div>
-                <div className={classes.cardbtn}>
-                  <Link href="/uzmandetay">
-                    <a>
-                      <button className={classes.cardgiris}>Fal Baktır</button>
-                    </a>
-                  </Link>
-                </div>
+              <div className={classes.cardMain}>
+                {warlockData.length > 0 &&
+                  warlockData.map((data, index) => {
+                    return (
+                      <div key={index} className={classes.card}>
+                        <div className={classes.cardimg}>
+                          <Image
+                            src={CardImg}
+                            alt="teller"
+                            objectFit="cover"
+                            layout="fill"
+                          />
+                        </div>
+                        <h5>{data.name}</h5>
+                        <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
+                        <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
+                        <h6 className={classes.notavailable}>
+                          (MEŞGUL){data.status}
+                        </h6>
+                        <div className={classes.star}>
+                          <FaStar color="#ECDCF5" size="14px" />
+                          <FaStar color="#ECDCF5" size="14px" />
+                          <FaStar color="#ECDCF5" size="14px" />
+                          <FaStar color="#ECDCF5" size="14px" />
+                          <FaStar color="#ECDCF5" size="14px" />
+                          {data.rating}
+                        </div>
+                        <p>{data.about}</p>
+                        <div className={classes.crdi}>
+                          <div className={classes.cardicon}>
+                            <Link href="/uzmanlar/4">
+                              <a>
+                                <FaPhoneAlt color="#ECDCF5" size="20px" />
+                              </a>
+                            </Link>
+                          </div>
+                          <div className={classes.cardicon}>
+                            <Link href="/uzmanlar/4">
+                              <a>
+                                <FaEnvelope color="#ECDCF5" size="20px" />
+                              </a>
+                            </Link>
+                          </div>
+                        </div>
+                        <div className={classes.cardbtn}>
+                          <Link href="/uzmanlar/4">
+                            <a>
+                              <button className={classes.cardgiris}>
+                                Fal Baktır
+                              </button>
+                            </a>
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </SwiperSlide>
           ))}
@@ -140,23 +160,26 @@ function HomePage({ data }) {
             slidesPerView="auto"
             navigation={arrows}
           >
-            {Array.from(Array(10)).map((e, i) => (
+            {Array.from(Array(12)).map((e, i) => (
               <SwiperSlide key={i}>
-                <div className={classes.zdcmain}>
-                  <div className={classes.zdcimg}>
-                    <Image
-                      src={Zodiacimg}
-                      alt="zodiac"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <div className={classes.zdcrd}>
-                    <Link href="/burcdetay">
-                      <a>Koç Burcunda Bu Hafta...</a>
-                    </Link>
-                  </div>
-                </div>
+                {horoscopeData.length > 0 &&
+                  horoscopeData.map((data, index) => (
+                    <div key={index} className={classes.zdcmain}>
+                      <div className={classes.zdcimg}>
+                        <Image
+                          src={Zodiacimg}
+                          alt="zodiac"
+                          objectFit="contain"
+                          layout="fill"
+                        />
+                      </div>
+                      <div className={classes.zdcrd}>
+                        <Link href="/burcdetay">
+                          <a>{data.name}</a>
+                        </Link>
+                      </div>
+                    </div>
+                  ))}
               </SwiperSlide>
             ))}
           </Swiper>
@@ -169,15 +192,36 @@ export async function getServerSideProps(context) {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const data = await res.json();
   console.log(data);
+  const warlockRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/warlock/all`,
+    {
+      method: "GET",
+    }
+  );
+  const warlockData = await warlockRes.json();
 
-  if (!data) {
+  console.log(warlockData);
+  const horoscopeRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/horoscope/all`,
+    {
+      method: "GET",
+    }
+  );
+
+  const horoscopeData = await horoscopeRes.json();
+
+  if (!data || !warlockData || !horoscopeData) {
     return {
       notFound: true,
     };
   }
 
   return {
-    props: { data }, // will be passed to the page component as props
+    props: {
+      data, // will be passed to the page component as props
+      warlockData: warlockData.data,
+      horoscopeData: horoscopeData.data,
+    },
   };
 }
 

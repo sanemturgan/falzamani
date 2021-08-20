@@ -11,7 +11,8 @@ import {
 import CardImg from "../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
-function falturleri() {
+import MiniCategoryMenu from "../components/MiniCategoryMenu";
+export default function Falturleri({ warlockData, falData }) {
   return (
     <div className="falturleri">
       <div className={classes.faltrhdr}>
@@ -39,290 +40,105 @@ function falturleri() {
             </p>
           </div>
           <div className={classes.cardMain}>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className={classes.card}>
-              <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-              </div>
-              <h5>Luna</h5>
-              <div className={classes.star}>
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-                <FaStar color="#ECDCF5" size="14px" />
-              </div>
-              <p>
-                20 yıldır yorumculuk yapıyorum. Doğuştan gelen psişik
-                yeteneklere sahibim. Hislerimi sizler için kullanmaya hazırım
-              </p>
-              <div className={classes.crdi}>
-                <div className={classes.cardicon}>
-                  <FaPhoneAlt color="#ECDCF5" size="20px" />
-                </div>
-                <div className={classes.cardicon}>
-                  <FaEnvelope color="#ECDCF5" size="20px" />
-                </div>
-              </div>
-              <div className={classes.cardbtn}>
-                <Link href="/uzmandetay">
-                  <a>
-                    <button className={classes.cardgiris}>Fal Baktır</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
+            {warlockData.length > 0 &&
+              warlockData.map((data, index) => {
+                return (
+                  <div key={index} className={classes.card}>
+                    <div className={classes.cardimg}>
+                      <Image
+                        src={CardImg}
+                        alt="teller"
+                        objectFit="cover"
+                        layout="fill"
+                      />
+                    </div>
+                    <h5>{data.name}</h5>
+                    <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
+                    <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
+                    <h6 className={classes.notavailable}>
+                      (MEŞGUL){data.status}
+                    </h6>
+                    <div className={classes.star}>
+                      <FaStar color="#ECDCF5" size="14px" />
+                      <FaStar color="#ECDCF5" size="14px" />
+                      <FaStar color="#ECDCF5" size="14px" />
+                      <FaStar color="#ECDCF5" size="14px" />
+                      <FaStar color="#ECDCF5" size="14px" />
+                      {data.rating}
+                    </div>
+                    <p>{data.about}</p>
+                    <div className={classes.crdi}>
+                      <div className={classes.cardicon}>
+                        <Link href="/uzmanlar/4">
+                          <a>
+                            <FaPhoneAlt color="#ECDCF5" size="20px" />
+                          </a>
+                        </Link>
+                      </div>
+                      <div className={classes.cardicon}>
+                        <Link href="/uzmanlar/4">
+                          <a>
+                            <FaEnvelope color="#ECDCF5" size="20px" />
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className={classes.cardbtn}>
+                      <Link href="/uzmanlar/4">
+                        <a>
+                          <button className={classes.cardgiris}>
+                            Fal Baktır
+                          </button>
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
           </div>
-          <div className={classes.more}>
+          {/* <div className={classes.more}>
             <Link href="/more">
               <a>
                 {" "}
                 <FaSortDown color="#ECDCF5" size="30px" />
               </a>
             </Link>
-          </div>
+          </div> */}
         </div>
         <div className={classes.categories}>
-          <ul className={classes.catalog}>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Kahve Falı</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Tarot Falı</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Su Falı</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Katina Aşk Falı</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>İskambil Falı</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>DuruGörü</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Yıldızname</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Venüs Burcu</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/falturleri">
-                <a>Mars Burcu</a>
-              </Link>
-            </li>
-          </ul>
+          <MiniCategoryMenu classes={classes} falData={falData} />
         </div>
       </div>
     </div>
   );
 }
+export async function getServerSideProps(context) {
+  const warlockRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/warlock/all`,
+    {
+      method: "GET",
+    }
+  );
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
+    method: "GET",
+  });
 
-export default falturleri;
+  const falData = await falRes.json();
+
+  const warlockData = await warlockRes.json();
+
+  console.log(warlockData);
+
+  if (!warlockData) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      warlockData: warlockData.data,
+      falData: falData.data,
+    },
+  };
+}

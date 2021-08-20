@@ -33,8 +33,12 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Radio,
+  RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 function WarlockPage() {
+  const [value, setValue] = React.useState("1");
   const EditableControls = () => {
     const {
       isEditing,
@@ -98,6 +102,13 @@ function WarlockPage() {
               </Link>
             </div>
             <div className={classes.ustiki}>
+              <RadioGroup onChange={setValue} value={value}>
+                <Stack direction="row">
+                  <Radio value="1">Çevrimiçi</Radio>
+                  <Radio value="2">Çevrimdışı</Radio>
+                  <Radio value="3">Meşgul</Radio>
+                </Stack>
+              </RadioGroup>
               <div className={classes.exp}>
                 <GigEditable value={"Kendinizden bahsedin :)"} />
               </div>
