@@ -130,3 +130,9 @@
     display: flex;
   }
 }
+
+@media screen and (max-width: 860px) {
+  .navbarmain {
+    height: 40px;
+  }
+}

@@ -62,6 +62,7 @@
   width: 90%;
   height: 120px;
   margin: 30px auto;
+  border-radius: 50px;
   position: relative;
 }
 
@@ -209,9 +210,11 @@
   padding: 5px;
 }
 .btmcrdimg {
+  width: 90%;
+  height: 120px;
+  margin: 30px auto;
+
   position: relative;
-  width: 100%;
-  height: 100%;
 }
 @media screen and (max-width: 960px) {
   .flt a {
