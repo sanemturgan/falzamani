@@ -119,110 +119,26 @@ export default function Blog({ blogData, horoscopeData, falData }) {
               slidesPerView="auto"
               navigation
             >
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
+              {blogData.map((data, index) => (
+                <SwiperSlide key={index}>
+                  <div className={classes.altcrd}>
+                    <div className={classes.altimg}>
+                      <Image
+                        src={Kova}
+                        // src={data.image}
+                        alt="dty"
+                        objectFit="contain"
+                        layout="fill"
+                      />
+                    </div>
+                    <div className={classes.altexp}>
+                      <Link href={`/blog/${data.id}`}>
+                        <a>{data.title}</a>
+                      </Link>
+                    </div>
                   </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
