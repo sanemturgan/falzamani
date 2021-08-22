@@ -159,28 +159,27 @@ function HomePage({ data, warlockData, horoscopeData }) {
             slidesPerView="auto"
             navigation={arrows}
           >
-            {Array.from(Array(12)).map((e, i) => (
-              <SwiperSlide key={i}>
-                {horoscopeData.length > 0 &&
-                  horoscopeData.map((data, index) => (
-                    <div key={index} className={classes.zdcmain}>
-                      <div className={classes.zdcimg}>
-                        <Image
-                          src={Zodiacimg}
-                          alt="zodiac"
-                          objectFit="contain"
-                          layout="fill"
-                        />
-                      </div>
-                      <div className={classes.zdcrd}>
-                        <Link href="/burcdetay">
-                          <a>{data.name}</a>
-                        </Link>
-                      </div>
+            {horoscopeData.length > 0 &&
+              horoscopeData.map((data, index) => (
+                <SwiperSlide key={index}>
+                  <div key={index} className={classes.zdcmain}>
+                    <div className={classes.zdcimg}>
+                      <Image
+                        src={Zodiacimg}
+                        alt="zodiac"
+                        objectFit="contain"
+                        layout="fill"
+                      />
                     </div>
-                  ))}
-              </SwiperSlide>
-            ))}
+                    <div className={classes.zdcrd}>
+                      <Link href="/burcdetay">
+                        <a>{data.name}</a>
+                      </Link>
+                    </div>
+                  </div>
+                  ))
+                </SwiperSlide>
+              ))}
           </Swiper>
         </div>
       </div>

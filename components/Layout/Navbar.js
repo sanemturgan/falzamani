@@ -18,11 +18,26 @@ import {
   MenuCommand,
   MenuDivider,
 } from "@chakra-ui/react";
+import axios from "axios";
 function Navbar() {
   // Dropdown Menu
   const menuRef = useRef();
   const [menuIsOpen, openMenu] = useState(false);
   useOutSideClick(menuRef, () => openMenu(false));
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      await axios
+        .get(process.env.REACT_APP_CLIENT_API_URL + `/category/all`, {})
+        .then((res) => {
+          setCategory(res.data.data);
+        })
+        .catch((err) => console.log(err.response.data.error));
+    }
+    fetchData();
+  }, []);
+
   return (
     <nav className={classes.navbarmain}>
       <div className={classes.logo}>
