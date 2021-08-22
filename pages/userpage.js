@@ -26,6 +26,7 @@ import {
   ModalBody,
   ModalFooter,
 } from "@chakra-ui/react";
+import CustomerHistory from "../components/CustomerHistory";
 
 export default function Userpage() {
   const cookies = new Cookies();
@@ -169,6 +170,8 @@ export default function Userpage() {
                   </div>
                 </div>
               </li>
+              <CustomerHistory />
+              <CustomerHistory />
             </ul>
           </div>
         </div>
