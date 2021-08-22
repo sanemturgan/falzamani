@@ -85,67 +85,65 @@ function HomePage({ data, warlockData, horoscopeData }) {
           slidesPerView="auto"
           navigation={arrows}
         >
-          {Array.from(Array(10)).map((e, i) => (
-            <SwiperSlide key={i}>
-              <div className={classes.cardMain}>
-                {warlockData.length > 0 &&
-                  warlockData.map((data, index) => {
-                    return (
-                      <div key={index} className={classes.card}>
-                        <div className={classes.cardimg}>
-                          <Image
-                            src={CardImg}
-                            alt="teller"
-                            objectFit="cover"
-                            layout="fill"
-                          />
-                        </div>
-                        <h5>{data.name}</h5>
-                        <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
-                        <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
-                        <h6 className={classes.notavailable}>
-                          (MEŞGUL){data.status}
-                        </h6>
-                        <div className={classes.star}>
-                          <FaStar color="#ECDCF5" size="14px" />
-                          <FaStar color="#ECDCF5" size="14px" />
-                          <FaStar color="#ECDCF5" size="14px" />
-                          <FaStar color="#ECDCF5" size="14px" />
-                          <FaStar color="#ECDCF5" size="14px" />
-                          {data.rating}
-                        </div>
-                        <p>{data.about}</p>
-                        <div className={classes.crdi}>
-                          <div className={classes.cardicon}>
-                            <Link href="/uzmanlar/4">
-                              <a>
-                                <FaPhoneAlt color="#ECDCF5" size="20px" />
-                              </a>
-                            </Link>
-                          </div>
-                          <div className={classes.cardicon}>
-                            <Link href="/uzmanlar/4">
-                              <a>
-                                <FaEnvelope color="#ECDCF5" size="20px" />
-                              </a>
-                            </Link>
-                          </div>
-                        </div>
-                        <div className={classes.cardbtn}>
+          {warlockData.length > 0 &&
+            warlockData.map((data, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <div className={classes.cardMain}>
+                    <div className={classes.card}>
+                      <div className={classes.cardimg}>
+                        <Image
+                          src={CardImg}
+                          alt="teller"
+                          objectFit="cover"
+                          layout="fill"
+                        />
+                      </div>
+                      <h5>{data.name}</h5>
+                      <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
+                      <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
+                      <h6 className={classes.notavailable}>
+                        (MEŞGUL){data.status}
+                      </h6>
+                      <div className={classes.star}>
+                        <FaStar color="#ECDCF5" size="14px" />
+                        <FaStar color="#ECDCF5" size="14px" />
+                        <FaStar color="#ECDCF5" size="14px" />
+                        <FaStar color="#ECDCF5" size="14px" />
+                        <FaStar color="#ECDCF5" size="14px" />
+                        {data.rating}
+                      </div>
+                      <p>{data.about}</p>
+                      <div className={classes.crdi}>
+                        <div className={classes.cardicon}>
                           <Link href="/uzmanlar/4">
                             <a>
-                              <button className={classes.cardgiris}>
-                                Fal Baktır
-                              </button>
+                              <FaPhoneAlt color="#ECDCF5" size="20px" />
+                            </a>
+                          </Link>
+                        </div>
+                        <div className={classes.cardicon}>
+                          <Link href="/uzmanlar/4">
+                            <a>
+                              <FaEnvelope color="#ECDCF5" size="20px" />
                             </a>
                           </Link>
                         </div>
                       </div>
-                    );
-                  })}
-              </div>
-            </SwiperSlide>
-          ))}
+                      <div className={classes.cardbtn}>
+                        <Link href="/uzmanlar/4">
+                          <a>
+                            <button className={classes.cardgiris}>
+                              Fal Baktır
+                            </button>
+                          </a>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
       <div className={classes.zodiac}>

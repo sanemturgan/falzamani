@@ -31,13 +31,10 @@ export default function Falturleri({ warlockData, falData }) {
       <div className={classes.falmain}>
         <div className={classes.faltur}>
           <div className={classes.falturhdr}>
-            <h3>Kahve Falı</h3>
-            <p>
-              Canlı ve online Kahve Falına mı baktırmak istiyorsun? İçtiğin
-              kahvenin telvesinin fotoğrafını, gerçek kahve falı yorumcularımıza
-              mesaj ile atın, falın sana gelsin! Falcılarımızdan birini seç ve
-              telefonda canlı kahve falı baktırmak için Fal Baktıra tıkla!
-            </p>
+            <div className={classes.falHeader}>
+              <h3>{falData.name}</h3>
+              <p>{falData.description}</p>
+            </div>
           </div>
           <div className={classes.cardMain}>
             {warlockData.length > 0 &&
@@ -113,28 +110,26 @@ export default function Falturleri({ warlockData, falData }) {
   );
 }
 export async function getServerSideProps(context) {
+  const paramsData = await context.query;
   const warlockRes = await fetch(
     process.env.NEXT_APP_API_URL + `/warlock/all`,
     {
       method: "GET",
     }
   );
-  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
-    method: "GET",
-  });
-
-  const falData = await falRes.json();
-
   const warlockData = await warlockRes.json();
 
-  console.log(warlockData);
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/5`, {
+    method: "GET",
+  });
+  const falData = await falRes.json();
 
-  if (!warlockData) {
+  if (!warlockData || !falData) {
     return {
       notFound: true,
     };
   }
-
+  console.log(falData);
   return {
     props: {
       warlockData: warlockData.data,

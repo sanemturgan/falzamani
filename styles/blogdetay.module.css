@@ -69,18 +69,22 @@
   display: flex;
   align-items: center;
   justify-content: left;
-  padding: 40px;
+  padding: 10px;
   width: 70%;
-  margin: auto;
-}
-.wrtimg {
-  position: absolute;
-  width: 150px;
-}
-.wrtexp {
+  text-align: center;
+  margin: 10px auto;
   background-color: #5a4b69;
   border-radius: 50px;
-  padding: 10px 10px 10px 160px;
+}
+.wrtimg {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  padding: 5px;
+}
+.wrtexp {
+  border-radius: 50px;
+  padding: 5px;
   text-align: left;
 }
 .wrtexp h4 {

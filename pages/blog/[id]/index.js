@@ -7,12 +7,18 @@ import Geyik from "../../../public/img/geyik.png";
 import Kova from "../../../public/img/kova.png";
 import Image from "next/image";
 import Link from "next/link";
+import SwiperCards from "../../../components/SwiperCards";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../../components/MiniCategorySecondMenu";
-import BottomSwiperSlide from "../../../components/BottomSwiperSlide";
-export default function blogdetay({ blogSingleData, falData, blogData }) {
+
+export default function blogdetay({
+  blogSingleData,
+  falData,
+  blogData,
+  adminData,
+}) {
   return (
     <div className="blogdetay">
       <div className={classes.bloghdr}>
@@ -59,12 +65,8 @@ export default function blogdetay({ blogSingleData, falData, blogData }) {
                   />
                 </div>
                 <div className={classes.wrtexp}>
-                  <h4>Vivi</h4>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                    do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua.{" "}
-                  </p>
+                  <h4>{adminData.name}</h4>
+                  <p>{adminData.about}</p>
                 </div>
               </div>
             </div>
@@ -91,110 +93,11 @@ export default function blogdetay({ blogSingleData, falData, blogData }) {
               slidesPerView="auto"
               navigation
             >
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className={classes.altcrd}>
-                  <div className={classes.altimg}>
-                    <Image
-                      src={Kova}
-                      alt="dty"
-                      objectFit="contain"
-                      layout="fill"
-                    />
-                  </div>
-                  <BottomSwiperSlide classes={classes} blogData={blogData} />
-                </div>
-              </SwiperSlide>
+              {blogData.map((data, index) => (
+                <SwiperSlide key={index}>
+                  <SwiperCards classes={classes} blogData={data} />
+                </SwiperSlide>
+              ))}
             </Swiper>
           </div>
         </div>
@@ -211,18 +114,29 @@ export async function getServerSideProps(context) {
       method: "GET",
     }
   );
+  const blogSingleData = await res.json();
+
   const blogRes = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
     method: "GET",
   });
   const blogData = await blogRes.json();
+
   const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
     method: "GET",
   });
-
   const falData = await falRes.json();
-  const blogSingleData = await res.json();
 
-  if (!blogSingleData || !falData) {
+  const adminres = await fetch(
+    process.env.NEXT_APP_API_URL + `/admin/${blogSingleData.data.adminId}`,
+    {
+      method: "GET",
+    }
+  );
+  const adminData = await adminres.json();
+
+  console.log(adminData);
+
+  if (!blogSingleData || !falData || !adminData || !blogData) {
     return {
       notFound: true,
     };
@@ -232,6 +146,7 @@ export async function getServerSideProps(context) {
       blogSingleData: blogSingleData.data,
       falData: falData.data,
       blogData: blogData.data,
+      adminData: adminData.data,
     },
   };
 }

@@ -14,7 +14,7 @@ import SwiperCore, { Navigation, A11y } from "swiper";
 import Image from "next/image";
 import MiniCategoryMenu from "../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../components/MiniCategorySecondMenu";
-import BottomSwiperSlide from "../../components/BottomSwiperSlide";
+import SwiperCards from "../../components/SwiperCards";
 export default function Blog({ blogData, horoscopeData, falData }) {
   return (
     <div className="blog">
@@ -121,22 +121,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
             >
               {blogData.map((data, index) => (
                 <SwiperSlide key={index}>
-                  <div className={classes.altcrd}>
-                    <div className={classes.altimg}>
-                      <Image
-                        src={Kova}
-                        // src={data.image}
-                        alt="dty"
-                        objectFit="contain"
-                        layout="fill"
-                      />
-                    </div>
-                    <div className={classes.altexp}>
-                      <Link href={`/blog/${data.id}`}>
-                        <a>{data.title}</a>
-                      </Link>
-                    </div>
-                  </div>
+                  <SwiperCards classes={classes} blogData={data} />
                 </SwiperSlide>
               ))}
             </Swiper>

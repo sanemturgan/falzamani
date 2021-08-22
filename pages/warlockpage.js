@@ -11,7 +11,8 @@ import {
 import CardImg from "../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
-
+import Cookies from "universal-cookie";
+import router from "next/router";
 import GigEditable from "../components/GigEditable";
 import {
   Editable,
@@ -38,6 +39,12 @@ import {
   Stack,
 } from "@chakra-ui/react";
 function WarlockPage() {
+  const cookies = new Cookies();
+  useEffect(() => {
+    if (!cookies.get("jwt")) {
+      router.replace("/uyegiris");
+    }
+  }, []);
   const [value, setValue] = React.useState("1");
   const EditableControls = () => {
     const {
