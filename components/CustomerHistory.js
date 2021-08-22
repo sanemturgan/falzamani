@@ -1,3 +1,27 @@
+import React from "react";
+import GigEditable from "./GigEditable";
+import {
+  Editable,
+  EditableInput,
+  EditablePreview,
+  ButtonGroup,
+  Flex,
+  EditIcon,
+  IconButton,
+  CheckIcon,
+  useEditableControls,
+  CloseIcon,
+  Button,
+  Modal,
+  useDisclosure,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalCloseButton,
+  ModalBody,
+  ModalFooter,
+} from "@chakra-ui/react";
+
 export default function CustomerHistory({ classes }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {

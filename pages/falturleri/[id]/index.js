@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../styles/falturleri.module.css";
+import classes from "../../../styles/falturleri.module.css";
 import { Input } from "@chakra-ui/react";
 import {
   FaPhoneAlt,
@@ -8,10 +8,10 @@ import {
   FaSearch,
   FaSortDown,
 } from "react-icons/fa";
-import CardImg from "../public/img/falcard.png";
+import CardImg from "../../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
-import MiniCategoryMenu from "../components/MiniCategoryMenu";
+import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 export default function Falturleri({ warlockData, falData }) {
   return (
     <div className="falturleri">
@@ -119,9 +119,12 @@ export async function getServerSideProps(context) {
   );
   const warlockData = await warlockRes.json();
 
-  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/5`, {
-    method: "GET",
-  });
+  const falRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/category/${paramsData.id}`,
+    {
+      method: "GET",
+    }
+  );
   const falData = await falRes.json();
 
   if (!warlockData || !falData) {

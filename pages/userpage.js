@@ -3,7 +3,7 @@ import classes from "../styles/userpage.module.css";
 import Link from "next/dist/client/link";
 import axios from "axios";
 import Cookies from "universal-cookie";
-import GigEditable from "../components/GigEditable";
+
 import { useRouter } from "next/router";
 import {
   Editable,
@@ -25,6 +25,7 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  GigEditable,
 } from "@chakra-ui/react";
 import CustomerHistory from "../components/CustomerHistory";
 
@@ -108,70 +109,8 @@ export default function Userpage() {
           </div>
           <div className={classes.btminfo}>
             <ul>
-              <li className={classes.btminfolist}>
-                <div className={classes.infofal}>
-                  <h6>Kahve Falı</h6>
-                </div>
-                <div className={classes.payanddetails}>
-                  <div className={classes.addComment}>
-                    <Button
-                      backgroundColor="inherit"
-                      color="gray"
-                      onClick={onOpen2}
-                      mr="16px"
-                    >
-                      Yorum Yap
-                    </Button>
-
-                    <Modal isOpen={isOpen2} onClose={onClose2}>
-                      <ModalOverlay />
-                      <ModalContent>
-                        <ModalHeader>Yorum Yap</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                          <GigEditable value="Yorum Yap" />
-                        </ModalBody>
-                        <ModalFooter>
-                          <Button colorScheme="red" mr={2} onClick={onClose2}>
-                            Çıkış
-                          </Button>
-                          <Button colorScheme="green" variant="ghost">
-                            Kaydet
-                          </Button>
-                        </ModalFooter>
-                      </ModalContent>
-                    </Modal>
-                  </div>
-                  <div className={classes.details}>
-                    <Button
-                      backgroundColor="inherit"
-                      color="gray"
-                      onClick={onOpen}
-                    >
-                      Detay Oku
-                    </Button>
-
-                    <Modal isOpen={isOpen} onClose={onClose}>
-                      <ModalOverlay />
-                      <ModalContent>
-                        <ModalHeader>Fal Detayı</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                          <p>Fal Detayı</p>
-                        </ModalBody>
-
-                        <ModalFooter>
-                          <Button colorScheme="blue" mr={3} onClick={onClose}>
-                            Close
-                          </Button>
-                        </ModalFooter>
-                      </ModalContent>
-                    </Modal>
-                  </div>
-                </div>
-              </li>
-              <CustomerHistory />
-              <CustomerHistory />
+              <CustomerHistory classes={classes} />
+              <CustomerHistory classes={classes} />
             </ul>
           </div>
         </div>

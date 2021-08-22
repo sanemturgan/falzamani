@@ -91,7 +91,7 @@ function WarlockPage() {
               <p>5/5</p>
             </div>
 
-            <div className={classes.cesit}>
+            {/* <div className={classes.cesit}>
               <Link href="/falturleri">
                 <a>Kahve Falı</a>
               </Link>
@@ -107,7 +107,7 @@ function WarlockPage() {
               <Link href="/falturleri">
                 <a>Tarot Falı</a>
               </Link>
-            </div>
+            </div> */}
             <div className={classes.ustiki}>
               <RadioGroup onChange={setValue} value={value}>
                 <Stack direction="row">

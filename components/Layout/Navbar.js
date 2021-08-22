@@ -19,7 +19,7 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import axios from "axios";
-function Navbar() {
+export default function Navbar(data) {
   // Dropdown Menu
   const menuRef = useRef();
   const [menuIsOpen, openMenu] = useState(false);
@@ -65,38 +65,38 @@ function Navbar() {
             <div className={classes.navbarDropdownMenu}>
               <ul className={classes.dropdownmenu}>
                 <li>
-                  <Link href="/falturleri">
+                  <Link href={`/falturleri/${data.id}`}>
                     <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>Yıldız Falı</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>Durugörü</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>Rüya Yorumu</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>El Falı</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>İskambil Falı</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/falturleri">
-                    <a>Dert Köşesi</a>
+                  <Link href={`/falturleri/${data.id}`}>
+                    <a>Kahve Falı</a>
                   </Link>
                 </li>
               </ul>
@@ -191,5 +191,3 @@ function Navbar() {
     </nav>
   );
 }
-
-export default Navbar;
