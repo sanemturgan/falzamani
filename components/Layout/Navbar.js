@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import classes from "../../styles/Navbar.module.css";
 import { FaAngleDown } from "react-icons/fa";
 import Image from "next/image";
@@ -38,6 +38,7 @@ function Navbar() {
     fetchData();
   }, []);
 
+  console.log(category);
   return (
     <nav className={classes.navbarmain}>
       <div className={classes.logo}>
