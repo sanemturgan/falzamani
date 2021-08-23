@@ -21,11 +21,11 @@
 }
 .customer,
 .warlock {
-  border: 1px solid #fff;
-  padding: 7px;
+  padding: 3px 5px;
   border-radius: 20px;
   text-align: center;
 }
+
 .kariyerhdr p {
   color: #fff;
   font-size: 16px;
@@ -63,6 +63,11 @@
   border: 1px solid #fff;
   border-radius: 40px;
   cursor: pointer;
+}
+.gnd:hover {
+  background-color: #fff;
+  opacity: 0.7;
+  color: #1e1435;
 }
 .forgotpassword {
   color: #fff;

@@ -94,6 +94,9 @@
   font-size: 20px;
   cursor: pointer;
 }
+.cardgiris:hover {
+  border: 2px solid white;
+}
 .online {
   padding: 0;
   margin: 0;

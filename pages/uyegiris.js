@@ -15,6 +15,9 @@ import {
   InputRightElement,
   Checkbox,
   CheckboxGroup,
+  Radio,
+  RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -68,20 +71,28 @@ export default function UYEGIRIS() {
       </div>
       <div className={classes.formkariyer}>
         <div className={classes.typeUser}>
-          <div
-            className={classes.customer}
-            style={{ color: "white", cursor: "pointer" }}
-            onClick={() => setCustomer(true)}
-          >
-            Danışman Girişi
-          </div>
-          <div
-            className={classes.warlock}
-            style={{ color: "white", cursor: "pointer" }}
-            onClick={() => setCustomer(false)}
-          >
-            Falcı Girişi
-          </div>
+          <RadioGroup defaultValue="2">
+            <Stack spacing={5} direction="row">
+              <Radio colorScheme="purple" value="1">
+                <div
+                  className={classes.customer}
+                  style={{ color: "white", cursor: "pointer" }}
+                  onClick={() => setCustomer(true)}
+                >
+                  Danışman Girişi
+                </div>
+              </Radio>
+              <Radio colorScheme="purple" value="2">
+                <div
+                  className={classes.warlock}
+                  style={{ color: "white", cursor: "pointer" }}
+                  onClick={() => setCustomer(false)}
+                >
+                  Falcı Girişi
+                </div>
+              </Radio>
+            </Stack>
+          </RadioGroup>
         </div>
         <form onSubmit={onSubmit}>
           <FormControl isRequired id="email">

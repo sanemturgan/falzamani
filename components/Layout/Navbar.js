@@ -5,7 +5,7 @@ import Image from "next/image";
 import Logo from "../../public/img/logo.png";
 import Link from "next/link";
 import useOutSideClick from "../../hooks/useOutSideClick";
-import { FaBars } from "react-icons/fa";
+import { FaBars, FaUserAlt } from "react-icons/fa";
 import {
   Menu,
   MenuButton,
@@ -52,6 +52,13 @@ export default function Navbar(data) {
         </Link>
       </div>
       <ul className={classes.bar}>
+        <li>
+          <Link href="/userpage">
+            <a>
+              <FaUserAlt color="#140731" size="14px" />
+            </a>
+          </Link>
+        </li>
         <li>
           <Link href="/uzmanlar">
             <a>Uzmanlar</a>
@@ -136,6 +143,13 @@ export default function Navbar(data) {
           </a>
         </Link>
       </div>
+      <div className={classes.giris}>
+        <Link href="/kayit">
+          <a>
+            <button className={classes.uyegiris}>Üye Ol</button>
+          </a>
+        </Link>
+      </div>
       <div className={classes.hamburgermenu}>
         <Menu>
           <MenuButton>
@@ -143,6 +157,14 @@ export default function Navbar(data) {
           </MenuButton>
           <MenuList>
             {/* MenuItems are not rendered unless Menu is open */}
+            <Link href="/userpage">
+              <a>
+                <MenuItem>
+                  <FaUserAlt color="#140731" size="14px" />
+                  Profil
+                </MenuItem>
+              </a>
+            </Link>
             <Link href="/falturleri">
               <a>
                 <MenuItem>Fal Türleri</MenuItem>
@@ -183,6 +205,11 @@ export default function Navbar(data) {
             <Link href="/uyegiris">
               <a>
                 <MenuItem>Üye Girişi</MenuItem>
+              </a>
+            </Link>
+            <Link href="/kayit">
+              <a>
+                <MenuItem>Üye Ol</MenuItem>
               </a>
             </Link>
           </MenuList>

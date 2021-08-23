@@ -59,6 +59,9 @@
   margin: 20px;
   cursor: pointer;
 }
+.bnrgiris:hover {
+  border: 2px solid white;
+}
 .snm {
   margin-top: 72px;
   padding: 50px;
@@ -144,6 +147,9 @@
   font-size: 20px;
   cursor: pointer;
   margin: 10px;
+}
+.cardgiris:hover {
+  border: 2px solid white;
 }
 .star {
   display: flex;
