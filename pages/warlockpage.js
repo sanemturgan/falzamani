@@ -38,13 +38,60 @@ import {
   RadioGroup,
   Stack,
 } from "@chakra-ui/react";
+import axios from "axios";
 function WarlockPage() {
   const cookies = new Cookies();
+  const [gigs, setGigs] = useState([]);
+
+  const warlockGig = async () => {
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + "/gig/5/all")
+      .then((res) => {
+        setGigs(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     if (!cookies.get("jwt")) {
       router.replace("/uyegiris");
     }
+    warlockGig();
   }, []);
+
+  const onAddGig = async () => {
+    const gigObject = {
+      description: gigEditableDescription,
+      price: 160,
+      title: "Yıldız Falı İlan",
+      duration: "25",
+      warlockId: 5,
+      categoryId: 5,
+    };
+
+    await axios.post(process.env.REACT_APP_CLIENT_API_URL + "gig", gigObject, {
+      headers: {
+        Authorization: `${cookies.get("jwt")}`,
+      },
+    });
+  };
+
+  const onUpdateStatus = async (value) => {
+    const statusObject = {
+      status: value,
+    };
+
+    console.log(value);
+    // await axios.post(
+    //   process.env.REACT_APP_CLIENT_API_URL + "gig/status",
+    //   statusObject,
+    //   {
+    //     headers: {
+    //       Authorization: `${cookies.get("jwt")}`,
+    //     },
+    //   }
+    // );
+  };
   const [value, setValue] = React.useState("1");
   const EditableControls = () => {
     const {
@@ -66,6 +113,11 @@ function WarlockPage() {
     );
   };
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isOpenAdd,
+    onOpen: onOpenAdd,
+    onClose: onCloseAdd,
+  } = useDisclosure();
   return (
     <div className="WarlockPage">
       <div className={classes.uzmanhdr}>
@@ -109,11 +161,11 @@ function WarlockPage() {
               </Link>
             </div> */}
             <div className={classes.ustiki}>
-              <RadioGroup onChange={setValue} value={value}>
+              <RadioGroup onChange={(e) => onUpdateStatus(e)} value={value}>
                 <Stack direction="row">
-                  <Radio value="1">Çevrimiçi</Radio>
-                  <Radio value="2">Çevrimdışı</Radio>
-                  <Radio value="3">Meşgul</Radio>
+                  <Radio value="çevrimiçi">Çevrimiçi</Radio>
+                  <Radio value="çevrimdışı">Çevrimdışı</Radio>
+                  <Radio value="meşgul">Meşgul</Radio>
                 </Stack>
               </RadioGroup>
               <div className={classes.exp}>
@@ -129,13 +181,13 @@ function WarlockPage() {
                       <Button
                         backgroundColor="inherit"
                         onClick={() => {
-                          console.log(isOpen);
-                          onOpen();
+                          console.log(isOpenAdd);
+                          onOpenAdd();
                         }}
                       >
                         <FaPlusCircle color="#281c3b" size="20px" />
                       </Button>
-                      <Modal isOpen={isOpen} onClose={onClose}>
+                      <Modal isOpen={isOpenAdd} onClose={onCloseAdd}>
                         <ModalOverlay />
                         <ModalContent>
                           <ModalHeader>İlan Ekle</ModalHeader>
@@ -148,12 +200,20 @@ function WarlockPage() {
                           </ModalBody>
 
                           <ModalFooter>
-                            <Button colorScheme="red" mr={2} onClick={onClose}>
+                            <Button
+                              colorScheme="red"
+                              mr={2}
+                              onClick={onCloseAdd}
+                            >
                               Çıkış
                             </Button>
 
-                            <Button colorScheme="green" variant="ghost">
-                              Kaydet
+                            <Button
+                              onClick={onAddGig}
+                              colorScheme="green"
+                              variant="ghost"
+                            >
+                              Ekle
                             </Button>
                           </ModalFooter>
                         </ModalContent>
@@ -168,63 +228,65 @@ function WarlockPage() {
 
         <div className={classes.uzmanmid}>
           <div className={classes.options}>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Button
-                  color="#281c3b"
-                  border="2px"
-                  backgroundColor="inherit"
-                  onClick={() => {
-                    console.log(isOpen);
-                    onOpen();
-                  }}
-                >
-                  İlanı Düzenle
-                </Button>
-                <Modal isOpen={isOpen} onClose={onClose}>
-                  <ModalOverlay />
-                  <ModalContent>
-                    <ModalHeader>İlan Düzenle</ModalHeader>
-                    <ModalCloseButton />
-                    <ModalBody>
-                      <GigEditable value="İlan Başlığı" />
-                      <GigEditable value="İlan Açıklaması" />
-                      <GigEditable value="Seans Zamanı" />
-                      <GigEditable value="Seans Fiyatı" />
-                    </ModalBody>
+            {gigs.map((data, index) => (
+              <div key={index} className={classes.option}>
+                <div className={classes.ophdr}>
+                  <h5>Zihin Okuma Seansı</h5>
+                </div>
+                <div className={classes.opexp}>
+                  <p>
+                    Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
+                    kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
+                    beynine girip düşüncelerini sizlerle net bir şekilde
+                    paylaşacağım.
+                  </p>
+                  <p>
+                    <span>Seans 25 Dakikadır.</span>
+                  </p>
+                  <p>
+                    <span>160 KREDİ</span>
+                  </p>
+                </div>
+                <div className={classes.opran}>
+                  <Button
+                    color="#281c3b"
+                    border="2px"
+                    backgroundColor="inherit"
+                    onClick={() => {
+                      console.log(isOpen);
+                      onOpen();
+                    }}
+                  >
+                    İlanı Düzenle
+                  </Button>
+                  <Modal isOpen={isOpen} onClose={onClose}>
+                    <ModalOverlay />
+                    <ModalContent>
+                      <ModalHeader>İlan Düzenle</ModalHeader>
+                      <ModalCloseButton />
+                      <ModalBody>
+                        <GigEditable value={data.title} />
+                        <GigEditable value="İlan Açıklaması" />
+                        <GigEditable value="Seans Zamanı" />
+                        <GigEditable value="Seans Fiyatı" />
+                      </ModalBody>
 
-                    <ModalFooter>
-                      <Button colorScheme="red" variant="ghost">
-                        Sil
-                      </Button>
-                      <Button colorScheme="green" variant="ghost">
-                        Kaydet
-                      </Button>
-                      <Button colorScheme="red" mr={2} onClick={onClose}>
-                        Çıkış
-                      </Button>
-                    </ModalFooter>
-                  </ModalContent>
-                </Modal>
+                      <ModalFooter>
+                        <Button colorScheme="red" variant="ghost">
+                          Sil
+                        </Button>
+                        <Button colorScheme="green" variant="ghost">
+                          Kaydet
+                        </Button>
+                        <Button colorScheme="red" mr={2} onClick={onClose}>
+                          Çıkış
+                        </Button>
+                      </ModalFooter>
+                    </ModalContent>
+                  </Modal>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className={classes.uzmanbtm}>

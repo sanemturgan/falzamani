@@ -29,7 +29,7 @@ export default function Navbar(data) {
   useEffect(() => {
     async function fetchData() {
       await axios
-        .get(process.env.REACT_APP_CLIENT_API_URL + `/category/all`, {})
+        .get(process.env.REACT_APP_CLIENT_API_URL + `/category/all`)
         .then((res) => {
           setCategory(res.data.data);
         })
@@ -71,41 +71,13 @@ export default function Navbar(data) {
           {menuIsOpen && (
             <div className={classes.navbarDropdownMenu}>
               <ul className={classes.dropdownmenu}>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
+                {category.map((data, index) => (
+                  <Link key={index} href={`/falturleri/${data.id}`}>
+                    <a>
+                      <li>{data.name}</li>
+                    </a>
                   </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
-                <li>
-                  <Link href={`/falturleri/${data.id}`}>
-                    <a>Kahve Falı</a>
-                  </Link>
-                </li>
+                ))}
               </ul>
             </div>
           )}

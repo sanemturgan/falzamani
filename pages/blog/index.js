@@ -92,7 +92,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                     />
                   </div>
                   <div className={classes.btmcrdlink}>
-                    <Link href="/burcdetay">
+                    <Link href={`/burcdetay/${data.id}`}>
                       <a>{data.name}</a>
                     </Link>
                   </div>
