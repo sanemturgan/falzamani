@@ -37,43 +37,38 @@ export default function GigCard({ warlockData }) {
       })
       .catch((err) => console.log(err));
   };
+
   useEffect(() => {
-    if (!cookies.get("jwt")) {
-      router.replace("/uzmanpage");
-    }
     warlockGig();
   }, []);
+
   return (
-    <div className={classes.options}>
-      {gigs.map((data, index) => (
-        <div key={index} className={classes.option}>
-          <div className={classes.ophdr}>
-            <h5>{gigs.title}</h5>
-          </div>
-          <div className={classes.opexp}>
-            <p>{gigs.description}</p>
-            <p>
-              <span>{gigs.duration}</span>
-            </p>
-            <p>
-              <span>{gigs.price}</span>
-            </p>
-          </div>
-          <div className={classes.opran}>
-            <Button
-              color="#281c3b"
-              border="2px"
-              backgroundColor="inherit"
-              onClick={() => {
-                console.log(isOpen);
-                onOpen();
-              }}
-            >
-              Randevu Al
-            </Button>
-          </div>
-        </div>
-      ))}
+    <div key={index} className={classes.option}>
+      <div className={classes.ophdr}>
+        <h5>{warlockData.title}</h5>
+      </div>
+      <div className={classes.opexp}>
+        <p>{warlockData.description}</p>
+        <p>
+          <span>{warlockData.duration}</span>
+        </p>
+        <p>
+          <span>{warlockData.price}</span>
+        </p>
+      </div>
+      <div className={classes.opran}>
+        <Button
+          color="#281c3b"
+          border="2px"
+          backgroundColor="inherit"
+          onClick={() => {
+            console.log(isOpen);
+            onOpen();
+          }}
+        >
+          Randevu Al
+        </Button>
+      </div>
     </div>
   );
 }
