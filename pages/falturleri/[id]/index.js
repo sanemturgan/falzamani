@@ -13,7 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 import GigCard from "../../../components/gigCard";
-export default function Falturleri({ warlockData, falData }) {
+export default function Falturleri({ gigData, falData, warlockData }) {
   return (
     <div className="falturleri">
       <div className={classes.faltrhdr}>
@@ -38,9 +38,9 @@ export default function Falturleri({ warlockData, falData }) {
             </div>
           </div>
           <div className={classes.cardMain}>
-            {warlockData.length > 0 &&
-              warlockData.map((data, index) => {
-                return <GigCard key={index} warlockData={data} />;
+            {gigData.length > 0 &&
+              gigData.map((data, index) => {
+                return <GigCard key={index} gigData={data} />;
               })}
           </div>
           {/* <div className={classes.more}>
@@ -77,16 +77,27 @@ export async function getServerSideProps(context) {
   );
   const falData = await falRes.json();
 
-  if (!warlockData || !falData) {
+  const gigRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/gig/all/${paramsData.id}`,
+    {
+      method: "GET",
+    }
+  );
+
+  const gigData = await gigRes.json();
+
+  if (!warlockData || !falData || !gigData) {
     return {
       notFound: true,
     };
   }
+  console.log(gigData);
   console.log(falData);
   return {
     props: {
       warlockData: warlockData.data,
       falData: falData.data,
+      gigData: gigData.data,
     },
   };
 }

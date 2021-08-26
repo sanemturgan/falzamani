@@ -26,7 +26,7 @@ import {
 } from "@chakra-ui/react";
 import classes from "../styles/warlockpage.module.css";
 import axios from "axios";
-export default function GigCard({ warlockData }) {
+export default function GigCard({ gigData }) {
   const [gigs, setGigs] = useState([]);
 
   const warlockGig = async () => {
@@ -43,17 +43,17 @@ export default function GigCard({ warlockData }) {
   }, []);
 
   return (
-    <div key={index} className={classes.option}>
+    <div className={classes.option}>
       <div className={classes.ophdr}>
-        <h5>{warlockData.title}</h5>
+        <h5>{gigData.title}</h5>
       </div>
       <div className={classes.opexp}>
-        <p>{warlockData.description}</p>
+        <p>{gigData.description}</p>
         <p>
-          <span>{warlockData.duration}</span>
+          <span>{gigData.duration}</span>
         </p>
         <p>
-          <span>{warlockData.price}</span>
+          <span>{gigData.price}</span>
         </p>
       </div>
       <div className={classes.opran}>
@@ -71,28 +71,4 @@ export default function GigCard({ warlockData }) {
       </div>
     </div>
   );
-}
-export async function getServerSideProps(context) {
-  const warlockRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/warlock/all`,
-    {
-      method: "GET",
-    }
-  );
-
-  const warlockData = await warlockRes.json();
-
-  console.log(warlockData);
-
-  if (!warlockData) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      warlockData: warlockData.data,
-    },
-  };
 }
