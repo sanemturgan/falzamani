@@ -92,6 +92,18 @@ function WarlockPage() {
     //   }
     // );
   };
+  const onUptadeAbout = (aboutObject) => {
+    axios.post(
+      process.env.REACT_APP_CLIENT_API_URL + "gig/about",
+      { about: aboutObject },
+      {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      }
+    );
+    console.log(aboutObject);
+  };
   const [value, setValue] = React.useState("1");
   const EditableControls = () => {
     const {
@@ -169,7 +181,10 @@ function WarlockPage() {
                 </Stack>
               </RadioGroup>
               <div className={classes.exp}>
-                <GigEditable value={"Kendinizden bahsedin :)"} />
+                <GigEditable
+                  onClick={onUptadeAbout}
+                  value={"Kendinizden bahsedin :)"}
+                />
               </div>
               <div className={classes.warlockAdvert}>
                 <div className={classes.options}>

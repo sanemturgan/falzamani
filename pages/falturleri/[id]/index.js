@@ -12,6 +12,7 @@ import CardImg from "../../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
+import GigCard from "../../../components/gigCard";
 export default function Falturleri({ warlockData, falData }) {
   return (
     <div className="falturleri">
@@ -37,7 +38,7 @@ export default function Falturleri({ warlockData, falData }) {
             </div>
           </div>
           <div className={classes.cardMain}>
-            {warlockData.length > 0 &&
+            {/* {warlockData.length > 0 &&
               warlockData.map((data, index) => {
                 return (
                   <div key={index} className={classes.card}>
@@ -91,7 +92,8 @@ export default function Falturleri({ warlockData, falData }) {
                     </div>
                   </div>
                 );
-              })}
+              })} */}
+            <GigCard classes={classes} warlockData={warlockData} />
           </div>
           {/* <div className={classes.more}>
             <Link href="/more">

@@ -8,7 +8,7 @@ import {
   useEditableControls,
 } from "@chakra-ui/react";
 import { FaEdit, FaCheck, FaTimes } from "react-icons/fa";
-export default function GigEditable({ value }) {
+export default function GigEditable({ value, onClick }) {
   const EditableControls = () => {
     const {
       isEditing,
@@ -22,6 +22,7 @@ export default function GigEditable({ value }) {
           backgroundColor="inherit"
           icon={<FaCheck color="green" size="16px" />}
           {...getSubmitButtonProps()}
+          onClick={onClick}
         />
 
         <IconButton
