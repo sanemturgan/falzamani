@@ -129,61 +129,90 @@ export default function Navbar(data) {
           </MenuButton>
           <MenuList>
             {/* MenuItems are not rendered unless Menu is open */}
-            <Link href="/userpage">
-              <a>
-                <MenuItem>
-                  <FaUserAlt color="#140731" size="14px" />
-                  Profil
-                </MenuItem>
-              </a>
-            </Link>
-            <Link href="/falturleri">
-              <a>
-                <MenuItem>Fal Türleri</MenuItem>
-              </a>
-            </Link>
-            <Link href="/uzmanlar">
-              <a>
-                <MenuItem>Uzmanlar</MenuItem>
-              </a>
-            </Link>
+            <li ref={menuRef} onClick={() => openMenu(!menuIsOpen)}>
+              Fal Türleri
+              <FaAngleDown color="#140731" size="14px" />
+              {menuIsOpen && (
+                <div className={classes.navbarDropdownMenu}>
+                  <ul className={classes.dropdownmenu}>
+                    {category.map((data, index) => (
+                      <Link key={index} href={`/falturleri/${data.id}`}>
+                        <a>
+                          <li>{data.name}</li>
+                        </a>
+                      </Link>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+            <li>
+              <Link href="/userpage">
+                <a>
+                  <MenuItem>
+                    <FaUserAlt color="#140731" size="14px" />
+                    Profil
+                  </MenuItem>
+                </a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="/uzmanlar">
+                <a>
+                  <MenuItem>Uzmanlar</MenuItem>
+                </a>
+              </Link>
+            </li>
             {/* <MenuItem>
               {" "}
               <Link href="/burclar">
                 <a>Burçlar</a>
               </Link>
             </MenuItem> */}
-            <Link href="/blog">
-              <a>
-                <MenuItem>Blog</MenuItem>
-              </a>
-            </Link>
-            <Link href="/kredial">
-              <a>
-                <MenuItem> Kredi Al</MenuItem>
-              </a>
-            </Link>
-            <Link href="/kariyer">
-              <a>
-                <MenuItem>Kariyer</MenuItem>
-              </a>
-            </Link>
-            <Link href="/bizeulasin">
-              <a>
-                {" "}
-                <MenuItem>Bize Ulaşın</MenuItem>
-              </a>
-            </Link>{" "}
-            <Link href="/uyegiris">
-              <a>
-                <MenuItem>Üye Girişi</MenuItem>
-              </a>
-            </Link>
-            <Link href="/kayit">
-              <a>
-                <MenuItem>Üye Ol</MenuItem>
-              </a>
-            </Link>
+            <li>
+              <Link href="/blog">
+                <a>
+                  <MenuItem>Blog</MenuItem>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/kredial">
+                <a>
+                  <MenuItem> Kredi Al</MenuItem>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/kariyer">
+                <a>
+                  <MenuItem>Kariyer</MenuItem>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/bizeulasin">
+                <a>
+                  {" "}
+                  <MenuItem>Bize Ulaşın</MenuItem>
+                </a>
+              </Link>{" "}
+            </li>
+            <li>
+              <Link href="/uyegiris">
+                <a>
+                  <MenuItem>Üye Girişi</MenuItem>
+                </a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/kayit">
+                <a>
+                  <MenuItem>Üye Ol</MenuItem>
+                </a>
+              </Link>
+            </li>
           </MenuList>
         </Menu>
       </div>

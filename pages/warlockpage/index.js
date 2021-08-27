@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "../styles/warlockpage.module.css";
+import classes from "../../styles/warlockpage.module.css";
 import {
   FaPhoneAlt,
   FaStar,
@@ -8,12 +8,12 @@ import {
   FaSortDown,
   FaPlusCircle,
 } from "react-icons/fa";
-import CardImg from "../public/img/falcard.png";
+import CardImg from "../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
 import Cookies from "universal-cookie";
 import router from "next/router";
-import GigEditable from "../components/GigEditable";
+import GigEditable from "../../components/GigEditable";
 import {
   Editable,
   EditableInput,
@@ -37,9 +37,10 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  FormLabel,
 } from "@chakra-ui/react";
 import axios from "axios";
-function WarlockPage() {
+export default function WarlockPage({ warlockData }) {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
 
@@ -150,10 +151,10 @@ function WarlockPage() {
             <h5>Luna</h5>
             <div className={classes.status}>(ONAYLI HESAP)</div>
             <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
-            <div className={classes.star}>
+            {/* <div className={classes.star}>
               <FaStar color="#ECDCF5" size="14px" />
               <p>5/5</p>
-            </div>
+            </div> */}
 
             {/* <div className={classes.cesit}>
               <Link href="/falturleri">
@@ -181,10 +182,15 @@ function WarlockPage() {
                 </Stack>
               </RadioGroup>
               <div className={classes.exp}>
-                <GigEditable
-                  onClick={onUptadeAbout}
-                  value={"Kendinizden bahsedin :)"}
-                />
+                {warlockData.length > 0 &&
+                  warlockData.map((data, index) => (
+                    <GigEditable
+                      key={index}
+                      onClick={onUptadeAbout}
+                      value={data.about}
+                      warlockData={warlockData}
+                    />
+                  ))}
               </div>
               <div className={classes.warlockAdvert}>
                 <div className={classes.options}>
@@ -208,10 +214,14 @@ function WarlockPage() {
                           <ModalHeader>İlan Ekle</ModalHeader>
                           <ModalCloseButton />
                           <ModalBody>
-                            <GigEditable value="İlan Başlığı" />
-                            <GigEditable value="İlan Açıklaması" />
-                            <GigEditable value="Seans Zamanı" />
-                            <GigEditable value="Seans Fiyatı" />
+                            <FormLabel>İlan Başlığı</FormLabel>
+                            <GigEditable value="Başlık Ekleyin" />
+                            <FormLabel>İlan Açıklaması</FormLabel>
+                            <GigEditable value="Açıklama Ekleyin" />
+                            <FormLabel>Seans Süresi</FormLabel>
+                            <GigEditable value="Seans Süresi Belirleyin" />
+                            <FormLabel>Seans Ücreti</FormLabel>
+                            <GigEditable value="Seans Ücreti Belirleyin" />
                           </ModalBody>
 
                           <ModalFooter>
@@ -246,20 +256,15 @@ function WarlockPage() {
             {gigs.map((data, index) => (
               <div key={index} className={classes.option}>
                 <div className={classes.ophdr}>
-                  <h5>Zihin Okuma Seansı</h5>
+                  <h5>{data.title}</h5>
                 </div>
                 <div className={classes.opexp}>
+                  <p>{data.description}</p>
                   <p>
-                    Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                    kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                    beynine girip düşüncelerini sizlerle net bir şekilde
-                    paylaşacağım.
+                    <span>{data.duration}</span>
                   </p>
                   <p>
-                    <span>Seans 25 Dakikadır.</span>
-                  </p>
-                  <p>
-                    <span>160 KREDİ</span>
+                    <span>{data.price}</span>
                   </p>
                 </div>
                 <div className={classes.opran}>
@@ -280,10 +285,14 @@ function WarlockPage() {
                       <ModalHeader>İlan Düzenle</ModalHeader>
                       <ModalCloseButton />
                       <ModalBody>
+                        <FormLabel>İlan Başlığı</FormLabel>
                         <GigEditable value={data.title} />
-                        <GigEditable value="İlan Açıklaması" />
-                        <GigEditable value="Seans Zamanı" />
-                        <GigEditable value="Seans Fiyatı" />
+                        <FormLabel>İlan Açıklaması</FormLabel>
+                        <GigEditable value={data.description} />
+                        <FormLabel>Seans Süresi</FormLabel>
+                        <GigEditable value={data.duration} />
+                        <FormLabel>Seans Ücreti</FormLabel>
+                        <GigEditable value={data.price} />
                       </ModalBody>
 
                       <ModalFooter>
@@ -329,6 +338,7 @@ function WarlockPage() {
                 </div>
               </div>
             </div>
+
             <div className={classes.comment}>
               <div className={classes.ctxt}>
                 <p>
@@ -355,5 +365,25 @@ function WarlockPage() {
     </div>
   );
 }
+export async function getServerSideProps(context) {
+  const paramsData = await context.query;
+  const warlockRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/warlock/all`,
+    {
+      method: "GET",
+    }
+  );
+  const warlockData = await warlockRes.json();
 
-export default WarlockPage;
+  if (!warlockData) {
+    return {
+      notFound: true,
+    };
+  }
+  console.log(warlockData);
+  return {
+    props: {
+      warlockData: warlockData.data,
+    },
+  };
+}

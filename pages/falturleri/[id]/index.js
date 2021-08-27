@@ -12,8 +12,9 @@ import CardImg from "../../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
+
 import GigCard from "../../../components/gigCard";
-export default function Falturleri({ gigData, falData, warlockData }) {
+export default function Falturleri({ gigData, falData, falCategoryData }) {
   return (
     <div className="falturleri">
       <div className={classes.faltrhdr}>
@@ -33,8 +34,8 @@ export default function Falturleri({ gigData, falData, warlockData }) {
         <div className={classes.faltur}>
           <div className={classes.falturhdr}>
             <div className={classes.falHeader}>
-              <h3>{falData.name}</h3>
-              <p>{falData.description}</p>
+              <h3>{falCategoryData.name}</h3>
+              <p>{falCategoryData.description}</p>
             </div>
           </div>
           <div className={classes.cardMain}>
@@ -43,14 +44,6 @@ export default function Falturleri({ gigData, falData, warlockData }) {
                 return <GigCard key={index} gigData={data} />;
               })}
           </div>
-          {/* <div className={classes.more}>
-            <Link href="/more">
-              <a>
-                {" "}
-                <FaSortDown color="#ECDCF5" size="30px" />
-              </a>
-            </Link>
-          </div> */}
         </div>
         <div className={classes.categories}>
           <MiniCategoryMenu classes={classes} falData={falData} />
@@ -69,12 +62,17 @@ export async function getServerSideProps(context) {
   );
   const warlockData = await warlockRes.json();
 
-  const falRes = await fetch(
+  const falCategoryRes = await fetch(
     process.env.NEXT_APP_API_URL + `/category/${paramsData.id}`,
     {
       method: "GET",
     }
   );
+  const falCategoryData = await falCategoryRes.json();
+
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
+    method: "GET",
+  });
   const falData = await falRes.json();
 
   const gigRes = await fetch(
@@ -86,18 +84,19 @@ export async function getServerSideProps(context) {
 
   const gigData = await gigRes.json();
 
-  if (!warlockData || !falData || !gigData) {
+  if (!warlockData || !falCategoryData || !gigData || !falData) {
     return {
       notFound: true,
     };
   }
-  console.log(gigData);
-  console.log(falData);
+
+  console.log(falCategoryData);
   return {
     props: {
       warlockData: warlockData.data,
-      falData: falData.data,
+      falCategoryData: falCategoryData.data,
       gigData: gigData.data,
+      falData: falData.data,
     },
   };
 }
