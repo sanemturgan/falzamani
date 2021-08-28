@@ -93,6 +93,24 @@ export default function WarlockPage() {
       .then((res) => console.log(res));
   };
 
+  const onUpdateGig = async (object, id) => {
+    const gigObject = {
+      description: object.description,
+      price: parseInt(object.price),
+      title: object.title,
+      duration: object.time,
+      id: id,
+    };
+
+    await axios
+      .put(process.env.REACT_APP_CLIENT_API_URL + "/gig", gigObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => console.log(res));
+  };
+
   const onUpdateStatus = async (value) => {
     const statusObject = {
       status: value,
@@ -221,7 +239,7 @@ export default function WarlockPage() {
                     <NewgGigEdit
                       key={index}
                       data={data}
-                      onSubmit={(e) => console.log(e)}
+                      onSubmit={(e) => onUpdateGig(e, data.id)}
                     />
                   );
                 })}
