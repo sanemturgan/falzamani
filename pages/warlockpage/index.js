@@ -15,6 +15,7 @@ import Cookies from "universal-cookie";
 import router from "next/router";
 import GigEditable from "../../components/GigEditable";
 import NewGigModal from "../../components/NewGigModal";
+import NewgGigEdit from "../../components/NewGigEdit";
 import {
   Editable,
   EditableInput,
@@ -214,64 +215,16 @@ export default function WarlockPage() {
 
           <div className={classes.uzmanmid}>
             <div className={classes.options}>
-              {gigs.map((data, index) => (
-                <div key={index} className={classes.option}>
-                  <div className={classes.ophdr}>
-                    <h5>{data.title}</h5>
-                  </div>
-                  <div className={classes.opexp}>
-                    <p>{data.description}</p>
-                    <p>
-                      <span>{data.duration}</span>
-                    </p>
-                    <p>
-                      <span>{data.price}</span>
-                    </p>
-                  </div>
-                  <div className={classes.opran}>
-                    <Button
-                      color="#281c3b"
-                      border="2px"
-                      backgroundColor="inherit"
-                      onClick={() => {
-                        console.log(isOpen);
-                        onOpen();
-                      }}
-                    >
-                      İlanı Düzenle
-                    </Button>
-                    <Modal isOpen={isOpen} onClose={onClose}>
-                      <ModalOverlay />
-                      <ModalContent>
-                        <ModalHeader>İlan Düzenle</ModalHeader>
-                        <ModalCloseButton />
-                        <ModalBody>
-                          <FormLabel>İlan Başlığı</FormLabel>
-                          <GigEditable value={data.title} />
-                          <FormLabel>İlan Açıklaması</FormLabel>
-                          <GigEditable value={data.description} />
-                          <FormLabel>Seans Süresi</FormLabel>
-                          <GigEditable value={data.duration} />
-                          <FormLabel>Seans Ücreti</FormLabel>
-                          <GigEditable value={data.price} />
-                        </ModalBody>
-
-                        <ModalFooter>
-                          <Button colorScheme="red" variant="ghost">
-                            Sil
-                          </Button>
-                          <Button colorScheme="green" variant="ghost">
-                            Kaydet
-                          </Button>
-                          <Button colorScheme="red" mr={2} onClick={onClose}>
-                            Çıkış
-                          </Button>
-                        </ModalFooter>
-                      </ModalContent>
-                    </Modal>
-                  </div>
-                </div>
-              ))}
+              {gigs.length > 0 &&
+                gigs.map((data, index) => {
+                  return (
+                    <NewgGigEdit
+                      key={index}
+                      data={data}
+                      onSubmit={(e) => console.log(e)}
+                    />
+                  );
+                })}
             </div>
           </div>
           <div className={classes.uzmanbtm}>
