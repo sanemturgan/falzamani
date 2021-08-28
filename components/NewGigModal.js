@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "../styles/warlockpage.module.css";
+import classes from "../styles/NewGigModal.module.css";
 import GigEditable from "../components/GigEditable";
 
 import {
