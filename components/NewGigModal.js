@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../styles/warlockpage.module.css";
 import GigEditable from "../components/GigEditable";
 
@@ -43,12 +43,11 @@ export default function NewGigModal({ onSubmit }) {
     onClose: onCloseAdd,
   } = useDisclosure();
 
-  const gigObject = {
-    title,
-    description,
-    time,
-    price,
-  };
+  const [title, setTitle] = useState("Başlık Ekleyin");
+  const [description, setDescription] = useState("Açıklama Ekleyin");
+  const [time, setTime] = useState("Seans Süresi Belirleyin");
+  const [price, setPrice] = useState("Seans Ücreti Belirleyin");
+
   return (
     <div className={classes.warlockAdvert}>
       <div className={classes.options}>
@@ -73,13 +72,16 @@ export default function NewGigModal({ onSubmit }) {
                 <ModalCloseButton />
                 <ModalBody>
                   <FormLabel>İlan Başlığı</FormLabel>
-                  <GigEditable value="Başlık Ekleyin" />
+                  <GigEditable value={title} onSubmit={(e) => setTitle(e)} />
                   <FormLabel>İlan Açıklaması</FormLabel>
-                  <GigEditable value="Açıklama Ekleyin" />
+                  <GigEditable
+                    value={description}
+                    onSubmit={(e) => setDescription(e)}
+                  />
                   <FormLabel>Seans Süresi</FormLabel>
-                  <GigEditable value="Seans Süresi Belirleyin" />
+                  <GigEditable value={time} onSubmit={(e) => setTime(e)} />
                   <FormLabel>Seans Ücreti</FormLabel>
-                  <GigEditable value="Seans Ücreti Belirleyin" />
+                  <GigEditable value={price} onSubmit={(e) => setPrice(e)} />
                 </ModalBody>
 
                 <ModalFooter>
@@ -88,7 +90,10 @@ export default function NewGigModal({ onSubmit }) {
                   </Button>
 
                   <Button
-                    onClick={() => onSubmit(gigObject)}
+                    onClick={() => {
+                      onSubmit({ title, description, time, price });
+                      onCloseAdd();
+                    }}
                     colorScheme="green"
                     variant="ghost"
                   >

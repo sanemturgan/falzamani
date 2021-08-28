@@ -74,21 +74,22 @@ export default function WarlockPage() {
     warlockGig();
   }, []);
 
-  const onAddGig = async () => {
+  const onAddGig = async (object) => {
     const gigObject = {
-      description: gigEditableDescription,
-      price: 160,
-      title: "Yıldız Falı İlan",
-      duration: "25",
-      warlockId: 5,
+      description: object.description,
+      price: parseInt(object.price),
+      title: object.title,
+      duration: object.time,
       categoryId: 5,
     };
 
-    await axios.post(process.env.REACT_APP_CLIENT_API_URL + "gig", gigObject, {
-      headers: {
-        Authorization: `${cookies.get("jwt")}`,
-      },
-    });
+    await axios
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/gig", gigObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => console.log(res));
   };
 
   const onUpdateStatus = async (value) => {
@@ -206,7 +207,7 @@ export default function WarlockPage() {
                     value={warlockData.about}
                   />
                 </div>
-                <NewGigModal />
+                <NewGigModal onSubmit={onAddGig} />
               </div>
             </div>
           </div>
