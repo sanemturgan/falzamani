@@ -56,7 +56,7 @@ export default function UYEGIRIS() {
 
         if (res.data.status === 200 && cookies.get("jwt")) {
           setTimeout(() => {
-            router.replace("/userpage");
+            router.replace(customer ? "/userpage" : "/warlockpage");
           }, 500);
         }
       })

@@ -14,6 +14,7 @@ import Link from "next/link";
 import Cookies from "universal-cookie";
 import router from "next/router";
 import GigEditable from "../../components/GigEditable";
+import NewGigModal from "../../components/NewGigModal";
 import {
   Editable,
   EditableInput,
@@ -40,9 +41,10 @@ import {
   FormLabel,
 } from "@chakra-ui/react";
 import axios from "axios";
-export default function WarlockPage({ warlockData }) {
+export default function WarlockPage() {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
+  const [warlockData, setWarlockData] = useState("");
 
   const warlockGig = async () => {
     await axios
@@ -53,10 +55,22 @@ export default function WarlockPage({ warlockData }) {
       .catch((err) => console.log(err));
   };
 
+  const getWarlock = async () => {
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/warlock/me`, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => setWarlockData(res.data.data))
+      .catch((err) => console.log(err));
+  };
+
   useEffect(() => {
     if (!cookies.get("jwt")) {
       router.replace("/uyegiris");
     }
+    getWarlock();
     warlockGig();
   }, []);
 
@@ -81,31 +95,32 @@ export default function WarlockPage({ warlockData }) {
     const statusObject = {
       status: value,
     };
-
-    console.log(value);
-    // await axios.post(
-    //   process.env.REACT_APP_CLIENT_API_URL + "gig/status",
-    //   statusObject,
-    //   {
-    //     headers: {
-    //       Authorization: `${cookies.get("jwt")}`,
-    //     },
-    //   }
-    // );
-  };
-  const onUptadeAbout = (aboutObject) => {
-    axios.post(
-      process.env.REACT_APP_CLIENT_API_URL + "gig/about",
-      { about: aboutObject },
+    setRadioValue(value);
+    await axios.put(
+      process.env.REACT_APP_CLIENT_API_URL + "/warlock/status",
+      statusObject,
       {
         headers: {
           Authorization: `${cookies.get("jwt")}`,
         },
       }
     );
-    console.log(aboutObject);
   };
-  const [value, setValue] = React.useState("1");
+  const onUptadeAbout = (aboutObject) => {
+    axios
+      .put(
+        process.env.REACT_APP_CLIENT_API_URL + "/warlock/about",
+        { about: aboutObject },
+        {
+          headers: {
+            Authorization: `${cookies.get("jwt")}`,
+          },
+        }
+      )
+      .then((res) => console.log(res));
+  };
+
+  const [radioValue, setRadioValue] = useState(warlockData.status);
   const EditableControls = () => {
     const {
       isEditing,
@@ -132,247 +147,194 @@ export default function WarlockPage({ warlockData }) {
     onClose: onCloseAdd,
   } = useDisclosure();
   return (
-    <div className="WarlockPage">
-      <div className={classes.uzmanhdr}>
-        <h4>FALCI PANELİM</h4>
-      </div>
-      <div className={classes.uzmangenel}>
-        <div className={classes.uzmantop}>
-          <div className={classes.ustbir}>
-            <div className={classes.cardimg}>
-              <Image
-                src={CardImg}
-                alt="teller"
-                objectFit="contain"
-                layout="fill"
-              />
-              <FaPlusCircle color="#281c3b" size="20px" />
-            </div>
-            <h5>Luna</h5>
-            <div className={classes.status}>(ONAYLI HESAP)</div>
-            <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
-            {/* <div className={classes.star}>
-              <FaStar color="#ECDCF5" size="14px" />
-              <p>5/5</p>
-            </div> */}
-
-            {/* <div className={classes.cesit}>
-              <Link href="/falturleri">
-                <a>Kahve Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>El Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Katina Aşk Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Su Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Tarot Falı</a>
-              </Link>
-            </div> */}
-            <div className={classes.ustiki}>
-              <RadioGroup onChange={(e) => onUpdateStatus(e)} value={value}>
-                <Stack direction="row">
-                  <Radio value="çevrimiçi">Çevrimiçi</Radio>
-                  <Radio value="çevrimdışı">Çevrimdışı</Radio>
-                  <Radio value="meşgul">Meşgul</Radio>
-                </Stack>
-              </RadioGroup>
-              <div className={classes.exp}>
-                {warlockData.length > 0 &&
-                  warlockData.map((data, index) => (
-                    <GigEditable
-                      key={index}
-                      onClick={onUptadeAbout}
-                      value={data.about}
-                      warlockData={warlockData}
-                    />
-                  ))}
+    warlockData && (
+      <div className="WarlockPage">
+        <div className={classes.uzmanhdr}>
+          <h4>FALCI PANELİM</h4>
+        </div>
+        <div className={classes.uzmangenel}>
+          <div className={classes.uzmantop}>
+            <div className={classes.ustbir}>
+              <div className={classes.cardimg}>
+                <Image
+                  src={CardImg}
+                  alt="teller"
+                  objectFit="contain"
+                  layout="fill"
+                />
+                <FaPlusCircle color="#281c3b" size="20px" />
               </div>
-              <div className={classes.warlockAdvert}>
-                <div className={classes.options}>
-                  <div className={classes.optionAdvert}>
-                    <div className={classes.ophdr}>
-                      <h5>İlan Ekle</h5>
-                    </div>
-                    <div className={classes.opexp}>
-                      <Button
-                        backgroundColor="inherit"
-                        onClick={() => {
-                          console.log(isOpenAdd);
-                          onOpenAdd();
-                        }}
-                      >
-                        <FaPlusCircle color="#281c3b" size="20px" />
-                      </Button>
-                      <Modal isOpen={isOpenAdd} onClose={onCloseAdd}>
-                        <ModalOverlay />
-                        <ModalContent>
-                          <ModalHeader>İlan Ekle</ModalHeader>
-                          <ModalCloseButton />
-                          <ModalBody>
-                            <FormLabel>İlan Başlığı</FormLabel>
-                            <GigEditable value="Başlık Ekleyin" />
-                            <FormLabel>İlan Açıklaması</FormLabel>
-                            <GigEditable value="Açıklama Ekleyin" />
-                            <FormLabel>Seans Süresi</FormLabel>
-                            <GigEditable value="Seans Süresi Belirleyin" />
-                            <FormLabel>Seans Ücreti</FormLabel>
-                            <GigEditable value="Seans Ücreti Belirleyin" />
-                          </ModalBody>
+              <h5>Luna</h5>
+              <div className={classes.status}>(ONAYLI HESAP)</div>
+              <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
+              {/* <div className={classes.star}>
+            <FaStar color="#ECDCF5" size="14px" />
+            <p>5/5</p>
+          </div> */}
 
-                          <ModalFooter>
-                            <Button
-                              colorScheme="red"
-                              mr={2}
-                              onClick={onCloseAdd}
-                            >
-                              Çıkış
-                            </Button>
+              {/* <div className={classes.cesit}>
+            <Link href="/falturleri">
+              <a>Kahve Falı</a>
+            </Link>
+            <Link href="/falturleri">
+              <a>El Falı</a>
+            </Link>
+            <Link href="/falturleri">
+              <a>Katina Aşk Falı</a>
+            </Link>
+            <Link href="/falturleri">
+              <a>Su Falı</a>
+            </Link>
+            <Link href="/falturleri">
+              <a>Tarot Falı</a>
+            </Link>
+          </div> */}
+              <div className={classes.ustiki}>
+                <RadioGroup
+                  onChange={(e) => onUpdateStatus(e)}
+                  value={radioValue}
+                >
+                  <Stack direction="row">
+                    <Radio value="çevrimiçi">Çevrimiçi</Radio>
+                    <Radio value="çevrimdışı">Çevrimdışı</Radio>
+                    <Radio value="meşgul">Meşgul</Radio>
+                  </Stack>
+                </RadioGroup>
+                <div className={classes.exp}>
+                  <GigEditable
+                    onSubmit={onUptadeAbout}
+                    value={warlockData.about}
+                  />
+                </div>
+                <NewGigModal />
+              </div>
+            </div>
+          </div>
 
-                            <Button
-                              onClick={onAddGig}
-                              colorScheme="green"
-                              variant="ghost"
-                            >
-                              Ekle
-                            </Button>
-                          </ModalFooter>
-                        </ModalContent>
-                      </Modal>
-                    </div>
+          <div className={classes.uzmanmid}>
+            <div className={classes.options}>
+              {gigs.map((data, index) => (
+                <div key={index} className={classes.option}>
+                  <div className={classes.ophdr}>
+                    <h5>{data.title}</h5>
+                  </div>
+                  <div className={classes.opexp}>
+                    <p>{data.description}</p>
+                    <p>
+                      <span>{data.duration}</span>
+                    </p>
+                    <p>
+                      <span>{data.price}</span>
+                    </p>
+                  </div>
+                  <div className={classes.opran}>
+                    <Button
+                      color="#281c3b"
+                      border="2px"
+                      backgroundColor="inherit"
+                      onClick={() => {
+                        console.log(isOpen);
+                        onOpen();
+                      }}
+                    >
+                      İlanı Düzenle
+                    </Button>
+                    <Modal isOpen={isOpen} onClose={onClose}>
+                      <ModalOverlay />
+                      <ModalContent>
+                        <ModalHeader>İlan Düzenle</ModalHeader>
+                        <ModalCloseButton />
+                        <ModalBody>
+                          <FormLabel>İlan Başlığı</FormLabel>
+                          <GigEditable value={data.title} />
+                          <FormLabel>İlan Açıklaması</FormLabel>
+                          <GigEditable value={data.description} />
+                          <FormLabel>Seans Süresi</FormLabel>
+                          <GigEditable value={data.duration} />
+                          <FormLabel>Seans Ücreti</FormLabel>
+                          <GigEditable value={data.price} />
+                        </ModalBody>
+
+                        <ModalFooter>
+                          <Button colorScheme="red" variant="ghost">
+                            Sil
+                          </Button>
+                          <Button colorScheme="green" variant="ghost">
+                            Kaydet
+                          </Button>
+                          <Button colorScheme="red" mr={2} onClick={onClose}>
+                            Çıkış
+                          </Button>
+                        </ModalFooter>
+                      </ModalContent>
+                    </Modal>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={classes.uzmanbtm}>
+            <div className={classes.btmhdr}>
+              <h4>FALCI YORUMLARI</h4>
+            </div>
+            <div className={classes.comments}>
+              <div className={classes.comment}>
+                <div className={classes.ctxt}>
+                  <p>
+                    Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
+                    ötesi....
+                  </p>
+                </div>
+                <div className={classes.rote}>
+                  <div className={classes.rotestr}>
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                  </div>
+                  <div className={classes.rtdate}>
+                    <p>24.01.21</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className={classes.comment}>
+                <div className={classes.ctxt}>
+                  <p>
+                    Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
+                    ötesi....
+                  </p>
+                </div>
+                <div className={classes.rote}>
+                  <div className={classes.rotestr}>
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                    <FaStar color="#ECDCF5" size="14px" />
+                  </div>
+                  <div className={classes.rtdate}>
+                    <p>24.01.21</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        <div className={classes.uzmanmid}>
-          <div className={classes.options}>
-            {gigs.map((data, index) => (
-              <div key={index} className={classes.option}>
-                <div className={classes.ophdr}>
-                  <h5>{data.title}</h5>
-                </div>
-                <div className={classes.opexp}>
-                  <p>{data.description}</p>
-                  <p>
-                    <span>{data.duration}</span>
-                  </p>
-                  <p>
-                    <span>{data.price}</span>
-                  </p>
-                </div>
-                <div className={classes.opran}>
-                  <Button
-                    color="#281c3b"
-                    border="2px"
-                    backgroundColor="inherit"
-                    onClick={() => {
-                      console.log(isOpen);
-                      onOpen();
-                    }}
-                  >
-                    İlanı Düzenle
-                  </Button>
-                  <Modal isOpen={isOpen} onClose={onClose}>
-                    <ModalOverlay />
-                    <ModalContent>
-                      <ModalHeader>İlan Düzenle</ModalHeader>
-                      <ModalCloseButton />
-                      <ModalBody>
-                        <FormLabel>İlan Başlığı</FormLabel>
-                        <GigEditable value={data.title} />
-                        <FormLabel>İlan Açıklaması</FormLabel>
-                        <GigEditable value={data.description} />
-                        <FormLabel>Seans Süresi</FormLabel>
-                        <GigEditable value={data.duration} />
-                        <FormLabel>Seans Ücreti</FormLabel>
-                        <GigEditable value={data.price} />
-                      </ModalBody>
-
-                      <ModalFooter>
-                        <Button colorScheme="red" variant="ghost">
-                          Sil
-                        </Button>
-                        <Button colorScheme="green" variant="ghost">
-                          Kaydet
-                        </Button>
-                        <Button colorScheme="red" mr={2} onClick={onClose}>
-                          Çıkış
-                        </Button>
-                      </ModalFooter>
-                    </ModalContent>
-                  </Modal>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className={classes.uzmanbtm}>
-          <div className={classes.btmhdr}>
-            <h4>FALCI YORUMLARI</h4>
-          </div>
-          <div className={classes.comments}>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </div>
+    )
   );
 }
 export async function getServerSideProps(context) {
+  const cookies = new Cookies();
   const paramsData = await context.query;
-  const warlockRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/warlock/all`,
-    {
-      method: "GET",
-    }
-  );
+  const warlockRes = await fetch(process.env.NEXT_APP_API_URL + `/warlock/me`, {
+    method: "GET",
+    headers: {
+      Authorization: `${cookies.get("jwt")}`,
+    },
+  });
   const warlockData = await warlockRes.json();
 
   if (!warlockData) {
@@ -383,7 +345,7 @@ export async function getServerSideProps(context) {
   console.log(warlockData);
   return {
     props: {
-      warlockData: warlockData.data,
+      warlockData: null,
     },
   };
 }
