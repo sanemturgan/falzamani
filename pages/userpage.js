@@ -53,11 +53,11 @@ export default function Userpage() {
       }
     }
     fetchData();
-  }, [cookies, router]);
+  }, []);
 
-  const logOut = async (e) => {
-    remove("jwt", [e]);
-    remove("userData", [e]);
+  const logOut = () => {
+    cookies.remove("jwt");
+    cookies.remove("userData");
     router.replace("/uyegiris");
   };
 
