@@ -72,7 +72,7 @@ export default function UYEGIRIS() {
       </div>
       <div className={classes.formkariyer}>
         <div className={classes.typeUser}>
-          <RadioGroup defaultValue="2">
+          <RadioGroup defaultValue="1">
             <Stack spacing={5} direction="row">
               <Radio colorScheme="purple" value="1">
                 <div
@@ -110,7 +110,7 @@ export default function UYEGIRIS() {
               size="lg"
             />
           </FormControl>
-          <FormControl isRequired id="email">
+          <FormControl isRequired id="password">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Şifre
             </FormLabel>
