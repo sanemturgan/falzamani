@@ -10,6 +10,8 @@ import NewGigModal from "../../components/NewGigModal";
 import NewgGigEdit from "../../components/NewGigEdit";
 import Comment from "../../components/Comment";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import withAuth from "../../HOC/withAuth";
 import {
   ButtonGroup,
   Flex,
@@ -21,7 +23,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import axios from "axios";
-export default function WarlockPage() {
+function WarlockPage() {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
   const [warlockData, setWarlockData] = useState("");
@@ -145,6 +147,13 @@ export default function WarlockPage() {
     onOpen: onOpenAdd,
     onClose: onCloseAdd,
   } = useDisclosure();
+
+  const logOut = () => {
+    cookies.remove("jwt");
+    cookies.remove("userData");
+    router.replace("/uyegiris");
+  };
+
   return (
     warlockData && (
       <div className="WarlockPage">
@@ -166,6 +175,13 @@ export default function WarlockPage() {
               <h5>{warlockData.name}</h5>
               <div className={classes.status}>(ONAYLI HESAP)</div>
               <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
+              <div className={classes.exit}>
+                <Link href="/uyegiris">
+                  <a>
+                    <button onClick={logOut}>Çıkış Yap</button>
+                  </a>
+                </Link>
+              </div>
               {/* <div className={classes.star}>
             <FaStar color="#ECDCF5" size="14px" />
             <p>5/5</p>
@@ -241,26 +257,5 @@ export default function WarlockPage() {
     )
   );
 }
-export async function getServerSideProps(context) {
-  const cookies = new Cookies();
-  const paramsData = await context.query;
-  const warlockRes = await fetch(process.env.NEXT_APP_API_URL + `/warlock/me`, {
-    method: "GET",
-    headers: {
-      Authorization: `${cookies.get("jwt")}`,
-    },
-  });
-  const warlockData = await warlockRes.json();
 
-  if (!warlockData) {
-    return {
-      notFound: true,
-    };
-  }
-
-  return {
-    props: {
-      warlockData: null,
-    },
-  };
-}
+export default withAuth(WarlockPage);
