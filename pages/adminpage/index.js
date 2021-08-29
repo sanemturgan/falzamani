@@ -1,7 +1,16 @@
 import React from "react";
 import classes from "../../styles/adminpage.module.css";
 import Link from "next/dist/client/link";
+import Cookies from "universal-cookie";
+import { useRouter } from "next/router";
 export default function Adminpage() {
+  const cookies = new Cookies();
+  const router = useRouter();
+  const logOut = () => {
+    cookies.remove("jwt");
+    cookies.remove("userData");
+    router.replace("/adminlogin");
+  };
   return (
     <div className="adminpage">
       <div className={classes.kariyerhdr}>
@@ -49,9 +58,13 @@ export default function Adminpage() {
               </Link>
             </li>
             <li className={classes.flt}>
-              <Link href="/uyegiris">
-                <a>Çıkış Yap</a>
-              </Link>
+              <div className={classes.exit}>
+                <Link href="/adminlogin">
+                  <a>
+                    <button onClick={logOut}>Çıkış Yap</button>
+                  </a>
+                </Link>
+              </div>
             </li>
           </ul>
         </div>
