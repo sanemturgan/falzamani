@@ -1,20 +1,7 @@
 import React from "react";
 import classes from "../styles/odeme.module.css";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Checkbox,
-  CheckboxGroup,
-} from "@chakra-ui/react";
-function odeme() {
+import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+export default function Odeme() {
   return (
     <div className="odeme">
       <div className={classes.kariyerhdr}>
@@ -80,5 +67,3 @@ function odeme() {
     </div>
   );
 }
-
-export default odeme;

@@ -5,23 +5,15 @@ import Cookies from "universal-cookie";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
   Checkbox,
-  CheckboxGroup,
   Radio,
   RadioGroup,
   Stack,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-export default function UYEGIRIS() {
+export default function UyeGiris() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);

@@ -2,22 +2,13 @@ import React, { useState, useEffect } from "react";
 
 import classes from "../styles/kayit.module.css";
 import {
-  Form,
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
-import { FaFileExport } from "react-icons/fa";
-import Link from "next/link";
+
 import axios from "axios";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
@@ -126,7 +117,7 @@ export default function Kayit() {
             <NumberInput
               max={9999999999}
               min={0}
-              onChange={(valueAsString, valueAsNumber) => {
+              onChange={(valueAsNumber) => {
                 console.log(valueAsNumber);
                 setPhone(valueAsNumber || "");
               }}

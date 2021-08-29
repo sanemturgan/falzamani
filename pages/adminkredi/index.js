@@ -1,21 +1,7 @@
 import React, { useState } from "react";
 import classes from "../../styles/adminkredi.module.css";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Checkbox,
-  CheckboxGroup,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Textarea } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
-import { FaFileExport } from "react-icons/fa";
 
 export default function Adminkredi() {
   const [creditamount, setCreditAmount] = useState("");

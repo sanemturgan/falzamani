@@ -141,12 +141,6 @@ function WarlockPage() {
       </Flex>
     );
   };
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const {
-    isOpen: isOpenAdd,
-    onOpen: onOpenAdd,
-    onClose: onCloseAdd,
-  } = useDisclosure();
 
   const logOut = () => {
     cookies.remove("jwt");
@@ -182,28 +176,7 @@ function WarlockPage() {
                   </a>
                 </Link>
               </div>
-              {/* <div className={classes.star}>
-            <FaStar color="#ECDCF5" size="14px" />
-            <p>5/5</p>
-          </div> */}
 
-              {/* <div className={classes.cesit}>
-            <Link href="/falturleri">
-              <a>Kahve Falı</a>
-            </Link>
-            <Link href="/falturleri">
-              <a>El Falı</a>
-            </Link>
-            <Link href="/falturleri">
-              <a>Katina Aşk Falı</a>
-            </Link>
-            <Link href="/falturleri">
-              <a>Su Falı</a>
-            </Link>
-            <Link href="/falturleri">
-              <a>Tarot Falı</a>
-            </Link>
-          </div> */}
               <div className={classes.ustiki}>
                 <RadioGroup
                   onChange={(e) => onUpdateStatus(e)}

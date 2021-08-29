@@ -3,16 +3,9 @@ import classes from "../../styles/adminblog.module.css";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Textarea,
   Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Checkbox,
-  CheckboxGroup,
 } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
@@ -25,11 +18,7 @@ export default function Adminblog() {
   const cookies = new Cookies();
   const onSubmit = async (e) => {
     e.preventDefault();
-    let blogObject = {
-      title,
-      description,
-      image: img,
-    };
+
     await axios
       .get(process.env.REACT_APP_CLIENT_API_URL + `/admin`, {
         headers: {
@@ -39,10 +28,6 @@ export default function Adminblog() {
       .then((res) => {
         console.log(res.data);
       });
-    // await axios.post(
-    //   process.env.REACT_APP_CLIENT_API_URL + `/blog`,
-    //   blogObject
-    // );
   };
   return (
     <div className="adminblog">

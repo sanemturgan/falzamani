@@ -1,21 +1,8 @@
 import React from "react";
 import classes from "../styles/forgotpassword.module.css";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Checkbox,
-  CheckboxGroup,
-} from "@chakra-ui/react";
-import Link from "next/link";
-function SIFREMIUNUTTUM() {
+import { FormControl, FormLabel, Input } from "@chakra-ui/react";
+
+export default function ForgotPassword() {
   return (
     <div className="fpassword">
       <div className={classes.kariyerhdr}>
@@ -45,5 +32,3 @@ function SIFREMIUNUTTUM() {
     </div>
   );
 }
-
-export default SIFREMIUNUTTUM;

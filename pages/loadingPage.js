@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../styles/LoadingPage.module.css";
-import { Button, ButtonGroup, BeatLoader } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 export default function search() {
   return (
     <div className="loading">

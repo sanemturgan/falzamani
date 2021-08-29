@@ -10,7 +10,7 @@ import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
 SwiperCore.use([Navigation, A11y]);
 
-function HomePage({ data, warlockData, horoscopeData }) {
+function HomePage({ warlockData, horoscopeData }) {
   const [arrows, setArrows] = useState(true);
   useEffect(() => {
     if (window) {
@@ -184,7 +184,7 @@ function HomePage({ data, warlockData, horoscopeData }) {
     </div>
   );
 }
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const data = await res.json();
   console.log(data);

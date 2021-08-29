@@ -1,12 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "../../../styles/uzmandetay.module.css";
-import {
-  FaPhoneAlt,
-  FaStar,
-  FaEnvelope,
-  FaSearch,
-  FaSortDown,
-} from "react-icons/fa";
+import { FaPhoneAlt, FaStar, FaEnvelope, FaSortDown } from "react-icons/fa";
 import CardImg from "../../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
@@ -28,7 +22,7 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
 
     fetchData();
   }, []);
-  console.log(gig);
+
   return (
     <div className="uzmanDetay">
       <div className={classes.uzmanhdr}>
@@ -57,14 +51,7 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
               <FaStar color="#ECDCF5" size="14px" />
               <p>5/5</p>
             </div>
-            {/* <div className={classes.cardbtn}>
-              <Link href="/odeme">
-                <a>
-                  <button className={classes.uzmrandevu}>Randevu Al</button>
-                </a>
-              </Link>
-          
-            </div> */}
+
             <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="alerts" mb="0" fontSize="14px">
@@ -73,23 +60,6 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
                 <Switch size="lg" id="alerts" />
               </FormControl>
             </div>
-            {/* <div className={classes.cesit}>
-              <Link href="/falturleri">
-                <a>Kahve Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>El Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Katina Aşk Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Su Falı</a>
-              </Link>
-              <Link href="/falturleri">
-                <a>Tarot Falı</a>
-              </Link>
-            </div> */}
           </div>
           <div className={classes.ustiki}>
             <div className={classes.iletisim}>

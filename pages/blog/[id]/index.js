@@ -4,12 +4,12 @@ import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Writer from "../../../public/img/writer.png";
 import Geyik from "../../../public/img/geyik.png";
-import Kova from "../../../public/img/kova.png";
+
 import Image from "next/image";
 import Link from "next/link";
 import SwiperCards from "../../../components/SwiperCards";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, A11y } from "swiper";
+
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../../components/MiniCategorySecondMenu";
 

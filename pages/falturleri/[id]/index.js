@@ -1,15 +1,8 @@
 import React from "react";
 import classes from "../../../styles/falturleri.module.css";
 import { Input } from "@chakra-ui/react";
-import {
-  FaPhoneAlt,
-  FaStar,
-  FaEnvelope,
-  FaSearch,
-  FaSortDown,
-} from "react-icons/fa";
-import CardImg from "../../../public/img/falcard.png";
-import Image from "next/image";
+import { FaSearch } from "react-icons/fa";
+
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 

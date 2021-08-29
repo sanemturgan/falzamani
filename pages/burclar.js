@@ -178,14 +178,6 @@ function burclar() {
                 </div>
               </div>
             </div>
-            {/* <div className={classes.more}>
-              <Link href="/more">
-                <a>
-                  {" "}
-                  <FaSortDown color="#ECDCF5" size="30px" />
-                </a>
-              </Link>
-            </div> */}
           </div>
         </div>
         <div className={classes.categories}>

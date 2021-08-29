@@ -2,7 +2,7 @@ import React from "react";
 import classes from "../styles/kredial.module.css";
 import Link from "next/link";
 
-function kredial() {
+export default function Kredial() {
   return (
     <div className="kredial">
       <div className={classes.kredihdr}>
@@ -133,5 +133,3 @@ function kredial() {
     </div>
   );
 }
-
-export default kredial;

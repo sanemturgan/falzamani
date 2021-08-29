@@ -5,28 +5,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 
 import { useRouter } from "next/router";
-import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  ButtonGroup,
-  Flex,
-  EditIcon,
-  IconButton,
-  CheckIcon,
-  useEditableControls,
-  CloseIcon,
-  Button,
-  Modal,
-  useDisclosure,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  GigEditable,
-} from "@chakra-ui/react";
+import { useDisclosure } from "@chakra-ui/react";
 import CustomerHistory from "../components/CustomerHistory";
 
 export default function Userpage() {
@@ -61,12 +40,6 @@ export default function Userpage() {
     router.replace("/uyegiris");
   };
 
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const {
-    isOpen: isOpen2,
-    onOpen: onOpen2,
-    onClose: onClose2,
-  } = useDisclosure();
   return (
     <div className="userpage">
       <div className={classes.kariyerhdr}>

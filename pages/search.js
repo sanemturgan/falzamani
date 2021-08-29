@@ -1,6 +1,6 @@
 import React from "react";
 import classes from "../styles/search.module.css";
-function search() {
+export default function Search() {
   return (
     <div className="search">
       <div className={classes.kariyerhdr}>
@@ -31,5 +31,3 @@ function search() {
     </div>
   );
 }
-
-export default search;

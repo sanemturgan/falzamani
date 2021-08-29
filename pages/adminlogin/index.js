@@ -1,19 +1,6 @@
 import React, { useState } from "react";
 import classes from "../../styles/adminlogin.module.css";
-import {
-  FormControl,
-  FormLabel,
-  FormErrorMessage,
-  FormHelperText,
-  Input,
-  Textarea,
-  Button,
-  ButtonGroup,
-  InputGroup,
-  InputRightElement,
-  Checkbox,
-  CheckboxGroup,
-} from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Checkbox } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
@@ -21,7 +8,7 @@ export default function ADMINLOGIN() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [rememberMe, setRememberMe] = useState(false);
+  const [rememberMe] = useState(false);
   const router = useRouter();
 
   const onSubmit = async (e) => {

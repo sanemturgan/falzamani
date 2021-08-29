@@ -2,7 +2,7 @@ import React from "react";
 import classes from "../../../styles/burcdetay.module.css";
 import ZodiacImgthree from "../../../public/img/burcdty.png";
 import { Input } from "@chakra-ui/react";
-import { FaSearch, FaSortDown } from "react-icons/fa";
+import { FaSearch } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 

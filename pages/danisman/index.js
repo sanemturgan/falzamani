@@ -26,75 +26,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              {/* <div className={classes.danismanlistbtm}>
-                <div className={classes.btmhdr}>
-                  <h5>Fal Geçmişi</h5>
-                </div>
-                <div className={classes.btminfo}>
-                  <ul>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+
               <div className={classes.blockButton}>
                 <button mt="16px" type="send" className={classes.block}>
                   Üyeyi Engelle/Sil
@@ -115,75 +47,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              {/* <div className={classes.danismanlistbtm}>
-                <div className={classes.btmhdr}>
-                  <h5>Fal Geçmişi</h5>
-                </div>
-                <div className={classes.btminfo}>
-                  <ul>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+
               <div className={classes.blockButton}>
                 <button mt="16px" type="send" className={classes.block}>
                   Üyeyi Engelle/Sil
@@ -204,75 +68,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              {/* <div className={classes.danismanlistbtm}>
-                <div className={classes.btmhdr}>
-                  <h5>Fal Geçmişi</h5>
-                </div>
-                <div className={classes.btminfo}>
-                  <ul>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+
               <div className={classes.blockButton}>
                 <button mt="16px" type="send" className={classes.block}>
                   Üyeyi Engelle/Sil
@@ -293,75 +89,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              {/* <div className={classes.danismanlistbtm}>
-                <div className={classes.btmhdr}>
-                  <h5>Fal Geçmişi</h5>
-                </div>
-                <div className={classes.btminfo}>
-                  <ul>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+
               <div className={classes.blockButton}>
                 <button mt="16px" type="send" className={classes.block}>
                   Üyeyi Engelle/Sil
@@ -382,75 +110,7 @@ function danisman() {
                   <p> Üyelik Tarihi :24.01.2021</p>
                 </div>
               </div>
-              {/* <div className={classes.danismanlistbtm}>
-                <div className={classes.btmhdr}>
-                  <h5>Fal Geçmişi</h5>
-                </div>
-                <div className={classes.btminfo}>
-                  <ul>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                    <li className={classes.btminfolist}>
-                      <div className={classes.infofal}>
-                        <h6>Kahve Falı</h6>
-                      </div>
-                      <div className={classes.payanddetails}>
-                        <p>650 Kredi Ödendi</p>
-                        <Link href="/detay">
-                          <a>
-                            <button className={classes.infodetail}>
-                              Detay Oku
-                            </button>
-                          </a>
-                        </Link>
-                      </div>
-                    </li>
-                  </ul>
-                </div>
-              </div> */}
+
               <div className={classes.blockButton}>
                 <button mt="16px" type="send" className={classes.block}>
                   Üyeyi Engelle/Sil

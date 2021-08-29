@@ -3,23 +3,16 @@ import classes from "../styles/kariyer.module.css";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Textarea,
   Button,
-  ButtonGroup,
 } from "@chakra-ui/react";
 import { FaFileExport } from "react-icons/fa";
-import Link from "next/link";
+
 export default function Kariyer() {
-  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();

@@ -3,19 +3,12 @@ import classes from "../styles/bizeulasin.module.css";
 import {
   FormControl,
   FormLabel,
-  FormErrorMessage,
-  FormHelperText,
   Input,
   Textarea,
-  Button,
-  ButtonGroup,
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
-import { FaFileExport } from "react-icons/fa";
-import Link from "next/link";
-import axios from "axios";
-import router from "next/router";
+
 export default function Bizeulasin() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -25,14 +18,6 @@ export default function Bizeulasin() {
   const [text, setText] = useState("");
   const onSubmit = async (e) => {
     e.preventDefault();
-    let userObject = {
-      name,
-      surname,
-
-      email,
-
-      text,
-    };
   };
   return (
     <div className="bizeulasin">
@@ -86,7 +71,7 @@ export default function Bizeulasin() {
             </FormLabel>
             <NumberInput
               max={9999999999}
-              onChange={(valueAsString, valueAsNumber) => {
+              onChange={(valueAsNumber) => {
                 setPhone(valueAsNumber);
               }}
               value={phone}

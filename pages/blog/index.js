@@ -3,14 +3,10 @@ import React from "react";
 import classes from "../../styles/blog.module.css";
 import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
-import Kova from "../../public/img/kova.png";
-import Geyik from "../../public/img/geyik.png";
 
-import ZodiacImgone from "../../public/img/venus.png";
-//import img from "next/img";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation, A11y } from "swiper";
+
 import Image from "next/image";
 import MiniCategoryMenu from "../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../components/MiniCategorySecondMenu";
@@ -99,14 +95,6 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                 </div>
               ))}
           </div>
-          {/* <div className={classes.more}>
-              <Link href="/more">
-                <a>
-                  {" "}
-                  <FaSortDown color="#ECDCF5" size="30px" />
-                </a>
-              </Link>
-            </div> */}
         </div>
         <div className={classes.blgalt}>
           <div className={classes.althdr}>
@@ -132,7 +120,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps() {
   const blogRes = await fetch(process.env.NEXT_APP_API_URL + `/blog/all`, {
     method: "GET",
   });
