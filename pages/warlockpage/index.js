@@ -75,7 +75,6 @@ export default function WarlockPage() {
     getWarlock();
     warlockGig();
   }, []);
-  console.log(warlockData);
 
   const onAddGig = async (object) => {
     const gigObject = {
@@ -253,9 +252,9 @@ export default function WarlockPage() {
             </div>
             <div className={classes.comments}>
               {warlockData.Gig.map((data, index) => {
-                data.Comment.map((commentData, index) => (
-                  <Comment key={index} data={commentData} />
-                ));
+                return data.Comment.map((commentData, index) => {
+                  return <Comment key={index} data={commentData} />;
+                });
               })}
             </div>
           </div>

@@ -11,7 +11,6 @@ import {
 } from "react-icons/fa";
 
 export default function Comment({ data }) {
-  console.log(data);
   return (
     <div className={classes.comment}>
       <div className={classes.ctxt}>
@@ -26,7 +25,7 @@ export default function Comment({ data }) {
           <FaStar color="#ECDCF5" size="14px" />
         </div>
         <div className={classes.rtdate}>
-          <p>24.01.21</p>
+          <p>{data.createdAt}</p>
         </div>
       </div>
     </div>
