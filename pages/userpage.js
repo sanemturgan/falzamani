@@ -55,6 +55,12 @@ export default function Userpage() {
     fetchData();
   }, [cookies, router]);
 
+  const logOut = async (e) => {
+    remove("jwt", [e]);
+    remove("userData", [e]);
+    router.replace("/uyegiris");
+  };
+
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpen2,
@@ -98,7 +104,7 @@ export default function Userpage() {
           <div className={classes.exit}>
             <Link href="/uyegiris">
               <a>
-                <button>Çıkış Yap</button>
+                <button onClick={logOut}>Çıkış Yap</button>
               </a>
             </Link>
           </div>
