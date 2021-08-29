@@ -39,7 +39,6 @@ export default function NewGigModal({ data, onSubmit }) {
   const [description, setDescription] = useState(data.description);
   const [time, setTime] = useState(data.duration);
   const [price, setPrice] = useState(data.price);
-  console.log(data);
   return (
     data && (
       <div className={classes.option}>

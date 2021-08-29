@@ -16,6 +16,7 @@ import router from "next/router";
 import GigEditable from "../../components/GigEditable";
 import NewGigModal from "../../components/NewGigModal";
 import NewgGigEdit from "../../components/NewGigEdit";
+import Comment from "../../components/Comment";
 import {
   Editable,
   EditableInput,
@@ -74,6 +75,7 @@ export default function WarlockPage() {
     getWarlock();
     warlockGig();
   }, []);
+  console.log(warlockData);
 
   const onAddGig = async (object) => {
     const gigObject = {
@@ -250,47 +252,10 @@ export default function WarlockPage() {
               <h4>FALCI YORUMLARI</h4>
             </div>
             <div className={classes.comments}>
-              <div className={classes.comment}>
-                <div className={classes.ctxt}>
-                  <p>
-                    Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                    ötesi....
-                  </p>
-                </div>
-                <div className={classes.rote}>
-                  <div className={classes.rotestr}>
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                  </div>
-                  <div className={classes.rtdate}>
-                    <p>24.01.21</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className={classes.comment}>
-                <div className={classes.ctxt}>
-                  <p>
-                    Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                    ötesi....
-                  </p>
-                </div>
-                <div className={classes.rote}>
-                  <div className={classes.rotestr}>
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                    <FaStar color="#ECDCF5" size="14px" />
-                  </div>
-                  <div className={classes.rtdate}>
-                    <p>24.01.21</p>
-                  </div>
-                </div>
-              </div>
+              {gigs.length > 0 &&
+                gigs.map((data, index) => {
+                  return <p key={index}>{data.comments}</p>;
+                })}
             </div>
           </div>
         </div>
@@ -314,7 +279,7 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
-  console.log(warlockData);
+
   return {
     props: {
       warlockData: null,

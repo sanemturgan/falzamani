@@ -53,6 +53,7 @@ export default function UYEGIRIS() {
       .then(async (res) => {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
+        cookies.set("userData", res.data.data[0], { maxAge: maxAgeTime });
 
         if (res.data.status === 200 && cookies.get("jwt")) {
           setTimeout(() => {

@@ -19,11 +19,20 @@ import {
   MenuDivider,
 } from "@chakra-ui/react";
 import axios from "axios";
+import { useRouter } from "next/router";
+import Cookies from "universal-cookie";
 export default function Navbar(data) {
+  const [email] = useState("");
+  const [password] = useState("");
+  const [rememberMe] = useState(false);
+  const cookies = new Cookies();
+  const [customer] = useState(false);
+  const router = useRouter();
+  const [userData, setUserData] = useState();
   // Dropdown Menu
   const menuRef = useRef();
-  const [menuIsOpen, openMenu] = useState(false);
-  useOutSideClick(menuRef, () => openMenu(false));
+  const [menuIsOpen, setOpenMenu] = useState(false);
+  useOutSideClick(menuRef, () => setOpenMenu(false));
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
@@ -34,11 +43,14 @@ export default function Navbar(data) {
           setCategory(res.data.data);
         })
         .catch((err) => console.log(err.response.data.error));
+
+      await setUserData(cookies.get("userData"));
     }
+
     fetchData();
   }, []);
+  console.log(userData);
 
-  console.log(category);
   return (
     <nav className={classes.navbarmain}>
       <div className={classes.logo}>
@@ -53,7 +65,9 @@ export default function Navbar(data) {
       </div>
       <ul className={classes.bar}>
         <li>
-          <Link href="/userpage">
+          <Link
+            href={userData?.role === "customer" ? "/userpage" : "/warlockpage"}
+          >
             <a>
               <FaUserAlt color="#140731" size="14px" />
             </a>
@@ -65,7 +79,7 @@ export default function Navbar(data) {
           </Link>
         </li>
         {/*  Dropdown Menu  */}
-        <li ref={menuRef} onClick={() => openMenu(!menuIsOpen)}>
+        <li ref={menuRef} onClick={() => setOpenMenu(!menuIsOpen)}>
           Fal Türleri
           <FaAngleDown color="#140731" size="16px" />
           {menuIsOpen && (
@@ -129,7 +143,7 @@ export default function Navbar(data) {
           </MenuButton>
           <MenuList>
             {/* MenuItems are not rendered unless Menu is open */}
-            <li ref={menuRef} onClick={() => openMenu(!menuIsOpen)}>
+            <li ref={menuRef} onClick={() => setOpenMenu(!menuIsOpen)}>
               Fal Türleri
               <FaAngleDown color="#140731" size="14px" />
               {menuIsOpen && (
