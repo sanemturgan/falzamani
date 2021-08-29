@@ -39,7 +39,7 @@ export default function Userpage() {
     async function fetchData() {
       if (cookies.get("jwt")) {
         await axios
-          .get(process.env.REACT_APP_CLIENT_API_URL + `/customer`, {
+          .get(process.env.REACT_APP_CLIENT_API_URL + `/customer/me`, {
             headers: {
               Authorization: `${cookies.get("jwt")}`,
             },

@@ -125,8 +125,10 @@ export default function Kayit() {
             </FormLabel>
             <NumberInput
               max={9999999999}
+              min={0}
               onChange={(valueAsString, valueAsNumber) => {
-                setPhone(valueAsNumber);
+                console.log(valueAsNumber);
+                setPhone(valueAsNumber || "");
               }}
               value={phone}
               size="lg"

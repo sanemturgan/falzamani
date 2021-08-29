@@ -1,24 +1,26 @@
-import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
+const ReDirectLoader = dynamic(() => import("./ReDirectLoader"), {
+  ssr: false,
+});
 
-function WithAuth(WrappedComponent) {
-  const cookies = new Cookies();
-
-  // checks whether we are on client / browser or server.
-  if (typeof window !== "undefined") {
-    const accessToken = cookies.get("jwt");
-
-    // If there is no access token we redirect to "/" page.
-    if (!accessToken) {
-      router.replace("/");
-      return null;
+const withAuth = (Component) => {
+  const Auth = (props) => {
+    const cookies = new Cookies();
+    const router = useRouter();
+    if (cookies.get("jwt") === undefined) {
+      return <ReDirectLoader />;
     }
+    return <Component {...props} />;
+  };
 
-    // If this is an accessToken we just render the component that was passed with all its props
-
-    return <WrappedComponent />;
+  // Copy getInitial props so it will run as well
+  if (Component.getServerSideProps) {
+    Auth.getServerSideProps = Component.getServerSideProps;
   }
-  return null;
-}
 
-export default WithAuth;
+  return Auth;
+};
+
+export default withAuth;
