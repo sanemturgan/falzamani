@@ -30,7 +30,11 @@ function WarlockPage() {
 
   const warlockGig = async () => {
     await axios
-      .get(process.env.REACT_APP_CLIENT_API_URL + "/gig/5/all")
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/gig/5/all`, {
+        headers: {
+          Authorization: `${cookies.get("userData")}`,
+        },
+      })
       .then((res) => {
         setGigs(res.data.data);
       })

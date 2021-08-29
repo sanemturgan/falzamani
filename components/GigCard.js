@@ -1,30 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  ButtonGroup,
-  Flex,
-  EditIcon,
-  IconButton,
-  CheckIcon,
-  useEditableControls,
-  CloseIcon,
-  Button,
-  Modal,
-  useDisclosure,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Radio,
-  RadioGroup,
-  Stack,
-} from "@chakra-ui/react";
-import classes from "../styles/warlockpage.module.css";
+import { Button } from "@chakra-ui/react";
+import classes from "../styles/GigCard.module.css";
 import axios from "axios";
 export default function GigCard({ gigData }) {
   const [gigs, setGigs] = useState([]);

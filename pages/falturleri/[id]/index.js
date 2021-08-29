@@ -83,7 +83,6 @@ export async function getServerSideProps(context) {
     };
   }
 
-  console.log(falCategoryData);
   return {
     props: {
       warlockData: warlockData.data,

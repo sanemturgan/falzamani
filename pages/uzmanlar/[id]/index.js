@@ -4,9 +4,11 @@ import { FaPhoneAlt, FaStar, FaEnvelope, FaSortDown } from "react-icons/fa";
 import CardImg from "../../../public/img/falcard.png";
 import Image from "next/image";
 import Link from "next/link";
+import Comment from "../../../components/Comment";
 import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
 import axios from "axios";
-export default function Uzmandetay({ warlockSingleData, falData }) {
+import GigCard from "../../../components/GigCard";
+export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
   const [gig, setGig] = useState();
   useEffect(() => {
     async function fetchData() {
@@ -44,13 +46,7 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
               />
             </div>
             <h5>{warlockSingleData.name}</h5>
-            <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
-            <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
-            <h6 className={classes.notavailable}>(MEŞGUL)</h6>
-            <div className={classes.star}>
-              <FaStar color="#ECDCF5" size="14px" />
-              <p>5/5</p>
-            </div>
+            <h6 className={classes.status}>{warlockSingleData.status}</h6>
 
             <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
@@ -97,32 +93,10 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
 
         <div className={classes.uzmanmid}>
           <div className={classes.options}>
-            <div className={classes.option}>
-              <div className={classes.ophdr}>
-                <h5>Zihin Okuma Seansı</h5>
-              </div>
-              <div className={classes.opexp}>
-                <p>
-                  Telepati, karşı tarafın düşüncelerini okuma, değiştirme ve
-                  kontrol etme yeteneğidir. Ben, merak ettiğiniz kişilerin
-                  beynine girip düşüncelerini sizlerle net bir şekilde
-                  paylaşacağım.
-                </p>
-                <p>
-                  <span>Seans 25 Dakikadır.</span>
-                </p>
-                <p>
-                  <span>160 KREDİ</span>
-                </p>
-              </div>
-              <div className={classes.opran}>
-                <Link href="/odeme">
-                  <a>
-                    <button className={classes.rnd}>Randevu Al</button>
-                  </a>
-                </Link>
-              </div>
-            </div>
+            {gigData.length > 0 &&
+              gigData.map((data, index) => {
+                return <GigCard key={index} gigData={data} />;
+              })}
           </div>
         </div>
         <div className={classes.uzmanbtm}>
@@ -130,34 +104,11 @@ export default function Uzmandetay({ warlockSingleData, falData }) {
             <h4>FALCI YORUMLARI</h4>
           </div>
           <div className={classes.comments}>
-            <div className={classes.comment}>
-              <div className={classes.ctxt}>
-                <p>
-                  Sevgili Luna hanım. Her şey söylediğiniz gibi oldu. Müthiş
-                  ötesi....
-                </p>
-              </div>
-              <div className={classes.rote}>
-                <div className={classes.rotestr}>
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                  <FaStar color="#ECDCF5" size="14px" />
-                </div>
-                <div className={classes.rtdate}>
-                  <p>24.01.21</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={classes.more}>
-            <Link href="/more">
-              <a>
-                {" "}
-                <FaSortDown color="#ECDCF5" size="30px" />
-              </a>
-            </Link>
+            {warlockSingleData.Gig.map((data, index) => {
+              return data.Comment.map((commentData, index) => {
+                return <Comment key={index} data={commentData} />;
+              });
+            })}
           </div>
         </div>
       </div>
@@ -183,7 +134,16 @@ export async function getServerSideProps(context) {
   );
   const falData = await falRes.json();
 
-  if (!warlockSingleData || !falData) {
+  const gigRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/gig/all/${paramsData.id}`,
+    {
+      method: "GET",
+    }
+  );
+
+  const gigData = await gigRes.json();
+
+  if (!warlockSingleData || !falData || !gigData) {
     return {
       notFound: true,
     };
@@ -192,6 +152,7 @@ export async function getServerSideProps(context) {
     props: {
       warlockSingleData: warlockSingleData.data,
       falData: falData.data,
+      gigData: gigData.data,
     },
   };
 }
