@@ -1,46 +1,24 @@
 import React, { useState, useEffect } from "react";
 import classes from "../../styles/warlockpage.module.css";
-import {
-  FaPhoneAlt,
-  FaStar,
-  FaEnvelope,
-  FaSearch,
-  FaSortDown,
-  FaPlusCircle,
-} from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 import CardImg from "../../public/img/falcard.png";
 import Image from "next/image";
-import Link from "next/link";
 import Cookies from "universal-cookie";
 import router from "next/router";
 import GigEditable from "../../components/GigEditable";
 import NewGigModal from "../../components/NewGigModal";
 import NewgGigEdit from "../../components/NewGigEdit";
 import Comment from "../../components/Comment";
+import { useRouter } from "next/router";
 import {
-  Editable,
-  EditableInput,
-  EditablePreview,
   ButtonGroup,
   Flex,
-  EditIcon,
   IconButton,
-  CheckIcon,
   useEditableControls,
-  CloseIcon,
-  Button,
-  Modal,
   useDisclosure,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
   Radio,
   RadioGroup,
   Stack,
-  FormLabel,
 } from "@chakra-ui/react";
 import axios from "axios";
 export default function WarlockPage() {
@@ -185,7 +163,7 @@ export default function WarlockPage() {
                 />
                 <FaPlusCircle color="#281c3b" size="20px" />
               </div>
-              <h5>Luna</h5>
+              <h5>{warlockData.name}</h5>
               <div className={classes.status}>(ONAYLI HESAP)</div>
               <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
               {/* <div className={classes.star}>

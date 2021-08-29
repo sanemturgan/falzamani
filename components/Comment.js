@@ -1,6 +1,6 @@
 import React from "react";
 
-import classes from "../styles/warlockpage.module.css";
+import classes from "../styles/Comment.module.css";
 import {
   FaPhoneAlt,
   FaStar,
@@ -8,9 +8,20 @@ import {
   FaSearch,
   FaSortDown,
   FaPlusCircle,
+  FaRegStar,
 } from "react-icons/fa";
 
 export default function Comment({ data }) {
+  const today = new Date(data.createdAt);
+
+  console.log(
+    new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(today)
+  );
+
   return (
     <div className={classes.comment}>
       <div className={classes.ctxt}>
@@ -18,14 +29,21 @@ export default function Comment({ data }) {
       </div>
       <div className={classes.rote}>
         <div className={classes.rotestr}>
-          <FaStar color="#ECDCF5" size="14px" />
-          <FaStar color="#ECDCF5" size="14px" />
-          <FaStar color="#ECDCF5" size="14px" />
-          <FaStar color="#ECDCF5" size="14px" />
-          <FaStar color="#ECDCF5" size="14px" />
+          {[...Array(data.rate)].map((data, index) => {
+            return <FaStar key={index} color="#ECDCF5" size="12px" />;
+          })}
+          {[...Array(5 - data.rate)].map((data, index) => {
+            return <FaRegStar key={index} color="#ECDCF5" size="12px" />;
+          })}
         </div>
         <div className={classes.rtdate}>
-          <p>{data.createdAt}</p>
+          <p>
+            {new Intl.DateTimeFormat("en-US", {
+              year: "numeric",
+              month: "2-digit",
+              day: "2-digit",
+            }).format(today)}
+          </p>
         </div>
       </div>
     </div>

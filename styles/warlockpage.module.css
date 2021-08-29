@@ -192,37 +192,13 @@
   text-align: center;
   margin: 30px;
 }
-.comment {
-  display: flex;
-  padding: 40px;
-  margin: auto;
-  width: 90%;
-  justify-content: space-between;
-  border-bottom: 1px solid #fff;
+.comments {
+  padding: 5px;
 }
 .comments :last-child {
   border: none;
 }
-.rotestr {
-  display: flex;
-  padding: 0 30px;
-}
-.rote {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 30px;
-}
-.rote p {
-  font-size: 16px;
-}
-.more {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  cursor: pointer;
-}
+
 @media screen and (max-width: 870px) {
   .uzmanhdr h4 {
     font-size: 16px;
@@ -269,9 +245,7 @@
   .btmhdr {
     font-size: 16px;
   }
-  .rote p {
-    font-size: 12px;
-  }
+
   .rnd {
     padding: 3px;
     font-size: 12px;
@@ -286,16 +260,7 @@
   .opexp {
     font-size: 12px;
   }
-  .comment {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    font-size: 12px;
-  }
-  .rote {
-    padding: 5px;
-  }
+
   .pay button {
     padding: 5px;
     margin: 5px;

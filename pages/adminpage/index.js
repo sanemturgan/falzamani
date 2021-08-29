@@ -1,7 +1,7 @@
 import React from "react";
 import classes from "../../styles/adminpage.module.css";
 import Link from "next/dist/client/link";
-function adminpage() {
+export default function Adminpage() {
   return (
     <div className="adminpage">
       <div className={classes.kariyerhdr}>
@@ -59,5 +59,3 @@ function adminpage() {
     </div>
   );
 }
-
-export default adminpage;
