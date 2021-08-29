@@ -252,10 +252,11 @@ export default function WarlockPage() {
               <h4>FALCI YORUMLARI</h4>
             </div>
             <div className={classes.comments}>
-              {gigs.length > 0 &&
-                gigs.map((data, index) => {
-                  return <p key={index}>{data.comments}</p>;
-                })}
+              {warlockData.Gig.map((data, index) => {
+                data.Comment.map((commentData, index) => (
+                  <Comment key={index} data={commentData} />
+                ));
+              })}
             </div>
           </div>
         </div>

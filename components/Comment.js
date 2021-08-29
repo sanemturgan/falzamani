@@ -10,11 +10,12 @@ import {
   FaPlusCircle,
 } from "react-icons/fa";
 
-export default function Comment({ commentData }) {
+export default function Comment({ data }) {
+  console.log(data);
   return (
     <div className={classes.comment}>
       <div className={classes.ctxt}>
-        <p>{commentData.text}</p>
+        <p>{data.text}</p>
       </div>
       <div className={classes.rote}>
         <div className={classes.rotestr}>

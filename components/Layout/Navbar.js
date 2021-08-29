@@ -49,7 +49,6 @@ export default function Navbar(data) {
 
     fetchData();
   }, []);
-  console.log(userData);
 
   return (
     <nav className={classes.navbarmain}>
