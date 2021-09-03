@@ -25,16 +25,13 @@ export default function ADMINLOGIN() {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
         if (res.data.status === 200 && cookies.get("jwt")) {
-          console.log("Giriş Başarılı");
           setTimeout(() => {
             router.replace("/adminpage");
             console.log(res);
           }, 500);
         }
       })
-      .catch((err) =>
-        console.log(err, "Hatalı Giriş, Lütfen Bilgilerinizi Kontrol Ediniz.")
-      );
+      .catch((err) => console.log(err.response.data.error));
   };
   return (
     <div className="adminlogin">

@@ -48,7 +48,6 @@ export default function Kayit() {
       password,
     };
 
-    console.log(userObject);
     await axios
       .post(
         process.env.REACT_APP_CLIENT_API_URL + userType === "1"
@@ -71,7 +70,6 @@ export default function Kayit() {
         }
       });
   };
-  console.log(userType);
   return (
     <div className="kayit">
       <div className={classes.kariyerhdr}>
@@ -153,7 +151,6 @@ export default function Kayit() {
               max={9999999999}
               min={0}
               onChange={(valueAsNumber) => {
-                console.log(valueAsNumber);
                 setPhone(valueAsNumber || "");
               }}
               value={phone}

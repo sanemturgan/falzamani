@@ -55,7 +55,6 @@ export default function UyeGiris() {
         }
       })
       .catch((err) => {
-        // console.log(err.rresponse.data.error);
         window.alert(err.response.data.error);
       });
   };

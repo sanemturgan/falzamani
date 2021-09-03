@@ -60,7 +60,6 @@ export default function NewGigModal({ data, onSubmit }) {
             border="2px"
             backgroundColor="inherit"
             onClick={() => {
-              console.log(isOpen);
               onOpen();
             }}
           >

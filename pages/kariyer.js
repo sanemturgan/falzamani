@@ -29,7 +29,6 @@ export default function Kariyer() {
       )
       .then((res) => {
         if (res.data.status === 200) {
-          console.log("Mesaj Gönderildi");
           setTimeout(() => {
             router.replace("/");
           }, 500);

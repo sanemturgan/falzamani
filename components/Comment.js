@@ -14,14 +14,6 @@ import {
 export default function Comment({ data }) {
   const today = new Date(data.createdAt);
 
-  console.log(
-    new Intl.DateTimeFormat("en-US", {
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-    }).format(today)
-  );
-
   return (
     <div className={classes.comment}>
       <div className={classes.ctxt}>

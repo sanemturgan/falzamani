@@ -129,8 +129,6 @@ export async function getServerSideProps(context) {
   );
   const adminData = await adminres.json();
 
-  console.log(adminData);
-
   if (!blogSingleData || !falData || !adminData || !blogData) {
     return {
       notFound: true,

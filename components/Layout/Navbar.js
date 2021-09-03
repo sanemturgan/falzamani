@@ -34,10 +34,7 @@ export default function Navbar(data) {
   const menuRef = useRef();
   const [menuIsOpen, setOpenMenu] = useState(false);
 
-  console.log(cookies.get("jwt"));
-
   useOutSideClick(menuRef, () => {
-    console.log("asd");
     setOpenMenu(false);
   });
   const [category, setCategory] = useState([]);

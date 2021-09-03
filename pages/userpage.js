@@ -75,10 +75,8 @@ export default function Userpage() {
         }
       })
       .catch((err) => {
-        // console.log(err.rresponse.data.error);
         window.alert(err.response.data.error);
       });
-    console.log(userObject);
   };
 
   const logOut = () => {
