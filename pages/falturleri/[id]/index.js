@@ -6,7 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 
-import GigCard from "../../../components/gigCard";
+import GigCard from "../../../components/GigCard";
 export default function Falturleri({ gigData, falData, falCategoryData }) {
   return (
     <div className="falturleri">

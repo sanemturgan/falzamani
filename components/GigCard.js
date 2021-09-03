@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
+
 import { Button } from "@chakra-ui/react";
 import classes from "../styles/GigCard.module.css";
 import axios from "axios";
