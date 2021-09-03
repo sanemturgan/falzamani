@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../styles/forgotpassword.module.css";
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
-
+import axios from "axios";
+import { useRouter } from "next/router";
 export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
+  const router = useRouter();
+  console.log(email);
+  const sendEmail = async () => {
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + `/password/forgot-password`,
+        { email }
+      )
+      .then((res) => {
+        if (res.data.status === 200) {
+          window.alert("Mail Gönderildi");
+          setTimeout(() => {
+            router.replace("/");
+          }, 500);
+        }
+        console.log(res);
+      })
+      .catch((err) => {
+        // console.log(err.rresponse.data.error);
+        window.alert(err.response.data.error);
+      });
+  };
   return (
     <div className="fpassword">
       <div className={classes.kariyerhdr}>
@@ -10,23 +34,25 @@ export default function ForgotPassword() {
       </div>
       <div className={classes.formkariyer}>
         <FormControl id="form">
-          <FormLabel color="#fff" mb="16px" fontSize="18px">
-            Kullanıcı Adı
-          </FormLabel>
-          <Input placeholder="Kullanıcı Adı" size="lg" color="white" />
-          <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Telefon
-          </FormLabel>
-          <Input placeholder="Telefon Numarası" size="lg" color="white" />
           <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
             Email
           </FormLabel>
-          <Input type="E-mail" mb="16px" size="lg" color="white" />
+          <Input
+            type="email"
+            mb="16px"
+            size="lg"
+            color="white"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            value={email}
+          />
         </FormControl>
 
         <div className={classes.gonder}>
-          <button className={classes.gnd}>Şifremi Mail Adresime Gönder</button>
-          <button className={classes.gnd}>Şifremi Telefonuma Gönder</button>
+          <button onClick={sendEmail} className={classes.gnd}>
+            Gönder
+          </button>
         </div>
       </div>
     </div>

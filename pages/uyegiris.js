@@ -48,13 +48,16 @@ export default function UyeGiris() {
         cookies.set("userData", res.data.data[0], { maxAge: maxAgeTime });
 
         if (res.data.status === 200 && cookies.get("jwt")) {
+          window.alert("Giriş Yapıldı");
           setTimeout(() => {
             router.replace(customer ? "/userpage" : "/warlockpage");
           }, 500);
         }
       })
-      .catch((err) => console.log(err))
-      .catch((e) => console.log(e));
+      .catch((err) => {
+        // console.log(err.rresponse.data.error);
+        window.alert(err.response.data.error);
+      });
   };
 
   return (

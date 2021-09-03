@@ -7,7 +7,7 @@ export default function MiniCategoryMenu({ falData, classes }) {
       {falData.length > 0 &&
         falData.map((data, index) => (
           <li key={index} className={classes.flt}>
-            <Link href={`/blog/${data.id}`}>
+            <Link href={`/falturleri/${data.id}`}>
               <a>{data.name}</a>
             </Link>
           </li>

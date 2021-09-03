@@ -5,8 +5,9 @@ import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
+import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 
-export default function Burcdetay({ horoscopeDescriptionData }) {
+export default function Burcdetay({ horoscopeDescriptionData, falData }) {
   return (
     <div className="burcdetay">
       <div className={classes.burchdr}>
@@ -41,59 +42,12 @@ export default function Burcdetay({ horoscopeDescriptionData }) {
                     <p>{data.description}</p>
                   </div>
                 </div>
-                <div className={classes.categories}>
-                  <ul className={classes.catalog}>
-                    <li className={classes.fldr}>Genel</li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Kahve Falı</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Tarot Falı</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Su Falı</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Katina Aşk Falı</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>İskambil Falı</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>DuruGörü</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Yıldızname</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Venüs Burcu</a>
-                      </Link>
-                    </li>
-                    <li className={classes.flt}>
-                      <Link href="/burcdetay">
-                        <a>Mars Burcu</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
               </div>
             );
           })}
+      </div>
+      <div className={classes.categories}>
+        <MiniCategoryMenu classes={classes} falData={falData} />
       </div>
     </div>
   );
@@ -108,17 +62,24 @@ export async function getServerSideProps(context) {
     }
   );
 
+  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
+    method: "GET",
+  });
+
+  const falData = await falRes.json();
+  console.log(falData);
   const horoscopeDescriptionData = await res.json();
 
-  if (!horoscopeDescriptionData) {
+  if (!horoscopeDescriptionData || !falData) {
     return {
       notFound: true,
     };
   }
-  console.log(paramsData);
+
   return {
     props: {
       horoscopeDescriptionData: horoscopeDescriptionData.data,
+      falData: falData.data,
     },
   };
 }

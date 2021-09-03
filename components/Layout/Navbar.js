@@ -29,9 +29,12 @@ export default function Navbar(data) {
   const [customer] = useState(false);
   const router = useRouter();
   const [userData, setUserData] = useState();
+  const [checkLogin, setCheckLogin] = useState([]);
   // Dropdown Menu
   const menuRef = useRef();
   const [menuIsOpen, setOpenMenu] = useState(false);
+
+  console.log(cookies.get("jwt"));
 
   useOutSideClick(menuRef, () => {
     console.log("asd");
@@ -125,20 +128,24 @@ export default function Navbar(data) {
           </Link>
         </li>
       </ul>
-      <div className={classes.giris}>
-        <Link href="/uyegiris">
-          <a>
-            <button className={classes.uyegiris}>Üye Girişi</button>
-          </a>
-        </Link>
-      </div>
-      <div className={classes.giris}>
-        <Link href="/kayit">
-          <a>
-            <button className={classes.uyegiris}>Üye Ol</button>
-          </a>
-        </Link>
-      </div>
+      {!cookies.get("jwt") && (
+        <>
+          <div className={classes.giris}>
+            <Link href="/uyegiris">
+              <a>
+                <button className={classes.uyegiris}>Üye Girişi</button>
+              </a>
+            </Link>
+          </div>
+          <div className={classes.giris}>
+            <Link href="/kayit">
+              <a>
+                <button className={classes.uyegiris}>Üye Ol</button>
+              </a>
+            </Link>
+          </div>
+        </>
+      )}
       <div className={classes.hamburgermenu}>
         <Menu>
           <MenuButton>

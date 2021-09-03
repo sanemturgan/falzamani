@@ -7,6 +7,9 @@ import {
   Input,
   NumberInput,
   NumberInputField,
+  Radio,
+  RadioGroup,
+  Stack,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -22,6 +25,7 @@ export default function Kayit() {
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [notification, setNotification] = useState();
+  const [customer, setCustomer] = useState(true);
 
   const cookies = new Cookies();
   const router = useRouter();
@@ -71,6 +75,31 @@ export default function Kayit() {
       </div>
 
       <div className={classes.formkariyer}>
+        <div className={classes.typeUser}>
+          <RadioGroup defaultValue="1">
+            <Stack spacing={5} direction="row">
+              <Radio colorScheme="purple" value="1">
+                <div
+                  className={classes.customer}
+                  style={{ color: "white", cursor: "pointer" }}
+                  onClick={() => setCustomer(true)}
+                >
+                  Danışman Girişi
+                </div>
+              </Radio>
+              <Radio colorScheme="purple" value="2">
+                <div
+                  className={classes.warlock}
+                  style={{ color: "white", cursor: "pointer" }}
+                  onClick={() => setCustomer(false)}
+                >
+                  Falcı Girişi
+                </div>
+              </Radio>
+            </Stack>
+          </RadioGroup>
+        </div>
+
         <form onSubmit={onSubmit}>
           <FormControl isRequired id="name">
             <FormLabel color="#fff" mb="16px" fontSize="18px">
