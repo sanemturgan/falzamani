@@ -26,6 +26,7 @@ export default function Kayit() {
   const [password2, setPassword2] = useState("");
   const [notification, setNotification] = useState();
   const [customer, setCustomer] = useState(true);
+  const [userType, setUserType] = useState("1");
 
   const cookies = new Cookies();
   const router = useRouter();
@@ -50,7 +51,9 @@ export default function Kayit() {
     console.log(userObject);
     await axios
       .post(
-        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
+        process.env.REACT_APP_CLIENT_API_URL + userType === "1"
+          ? `/customer/register`
+          : `/warlock/register`,
         userObject
       )
       .then((res) => {
@@ -63,11 +66,12 @@ export default function Kayit() {
         console.log(res);
       })
       .catch((err) => {
-        // console.log(err.rresponse.data.error);
-        window.alert(err.response.data.error);
+        if (err.response.data) {
+          window.alert(err.response.data.error);
+        }
       });
   };
-
+  console.log(userType);
   return (
     <div className="kayit">
       <div className={classes.kariyerhdr}>
@@ -76,13 +80,12 @@ export default function Kayit() {
 
       <div className={classes.formkariyer}>
         <div className={classes.typeUser}>
-          <RadioGroup defaultValue="1">
+          <RadioGroup defaultValue="1" onChange={setUserType} value={userType}>
             <Stack spacing={5} direction="row">
               <Radio colorScheme="purple" value="1">
                 <div
                   className={classes.customer}
                   style={{ color: "white", cursor: "pointer" }}
-                  onClick={() => setCustomer(true)}
                 >
                   Danışman Girişi
                 </div>
@@ -91,7 +94,6 @@ export default function Kayit() {
                 <div
                   className={classes.warlock}
                   style={{ color: "white", cursor: "pointer" }}
-                  onClick={() => setCustomer(false)}
                 >
                   Falcı Girişi
                 </div>

@@ -45,9 +45,9 @@ export default function Burcdetay({ horoscopeDescriptionData, falData }) {
               </div>
             );
           })}
-      </div>
-      <div className={classes.categories}>
-        <MiniCategoryMenu classes={classes} falData={falData} />
+        <div className={classes.categories}>
+          <MiniCategoryMenu classes={classes} falData={falData} />
+        </div>
       </div>
     </div>
   );
