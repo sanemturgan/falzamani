@@ -134,7 +134,7 @@ export default function Userpage() {
                       mt="16px"
                       fontSize="18px"
                     >
-                      Eski Şifre
+                      Yeni Şifre
                     </FormLabel>
                     <Input
                       onChange={(e) => {
@@ -156,7 +156,7 @@ export default function Userpage() {
                       mt="16px"
                       fontSize="18px"
                     >
-                      Yeni Şifre
+                      Yeni Şifre Tekrar
                     </FormLabel>
                     <Input
                       onChange={(e) => {

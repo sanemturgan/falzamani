@@ -29,6 +29,12 @@
 .srchi {
   margin: 0 10px;
 }
+.descriptionmain {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
 .detaymain {
   display: flex;
   color: #fff;

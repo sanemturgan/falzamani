@@ -136,6 +136,13 @@ a {
   padding: 0 25px;
   margin: auto;
 }
+
+.ChangePassword {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
 .odeme {
   width: 100%;
   max-width: 1250px;
