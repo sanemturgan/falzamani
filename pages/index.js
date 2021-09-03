@@ -196,7 +196,6 @@ export async function getServerSideProps() {
   );
   const warlockData = await warlockRes.json();
 
-  console.log(warlockData);
   const horoscopeRes = await fetch(
     process.env.NEXT_APP_API_URL + `/horoscope/all`,
     {

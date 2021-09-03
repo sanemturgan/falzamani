@@ -47,13 +47,6 @@ export default function Falturleri({ gigData, falData, falCategoryData }) {
 }
 export async function getServerSideProps(context) {
   const paramsData = await context.query;
-  const warlockRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/warlock/all`,
-    {
-      method: "GET",
-    }
-  );
-  const warlockData = await warlockRes.json();
 
   const falCategoryRes = await fetch(
     process.env.NEXT_APP_API_URL + `/category/${paramsData.id}`,
@@ -77,7 +70,7 @@ export async function getServerSideProps(context) {
 
   const gigData = await gigRes.json();
 
-  if (!warlockData || !falCategoryData || !gigData || !falData) {
+  if (!falCategoryData || !gigData || !falData) {
     return {
       notFound: true,
     };
@@ -85,7 +78,6 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      warlockData: warlockData.data,
       falCategoryData: falCategoryData.data,
       gigData: gigData.data,
       falData: falData.data,

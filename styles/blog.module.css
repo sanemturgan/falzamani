@@ -210,12 +210,13 @@
   padding: 5px;
 }
 .btmcrdimg {
-  width: 90%;
-  height: 120px;
+  width: 95%;
+  height: 100px;
   margin: 30px auto;
 
   position: relative;
 }
+
 @media screen and (max-width: 960px) {
   .flt a {
     font-size: 12px;
