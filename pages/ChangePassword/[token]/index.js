@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 export default function ChangePassword() {
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
-
+  const router = useRouter();
   const changePassword = async (e) => {
     e.preventDefault();
     let userObject = {
@@ -17,15 +17,8 @@ export default function ChangePassword() {
     await axios
       .put(
         process.env.REACT_APP_CLIENT_API_URL +
-          `${
-            customer ? `/customer/reset-password` : `/warlock/reset-password`
-          }`,
-        userObject,
-        {
-          headers: {
-            Authorization: `${cookies.get("jwt")}`,
-          },
-        }
+          `/password/forgot-password/${router.query.token}`,
+        userObject
       )
       .then((res) => {
         if (res.data.status === 200) {

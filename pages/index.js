@@ -100,11 +100,7 @@ function HomePage({ warlockData, horoscopeData }) {
                         />
                       </div>
                       <h5>{data.name}</h5>
-                      <h6 className={classes.online}>(ÇEVRİM İÇİ)</h6>
-                      <h6 className={classes.offline}>(ÇEVRİM DIŞI)</h6>
-                      <h6 className={classes.notavailable}>
-                        (MEŞGUL){data.status}
-                      </h6>
+                      <h6 className={classes.status}>{data.status}</h6>
                       <div className={classes.star}>
                         <FaStar color="#ECDCF5" size="14px" />
                         <FaStar color="#ECDCF5" size="14px" />
@@ -116,14 +112,14 @@ function HomePage({ warlockData, horoscopeData }) {
                       <p>{data.about}</p>
                       <div className={classes.crdi}>
                         <div className={classes.cardicon}>
-                          <Link href="/uzmanlar/4">
+                          <Link href={`/uzmanlar/${data.id}`}>
                             <a>
                               <FaPhoneAlt color="#ECDCF5" size="20px" />
                             </a>
                           </Link>
                         </div>
                         <div className={classes.cardicon}>
-                          <Link href="/uzmanlar/4">
+                          <Link href={`/uzmanlar/${data.id}`}>
                             <a>
                               <FaEnvelope color="#ECDCF5" size="20px" />
                             </a>
@@ -131,7 +127,7 @@ function HomePage({ warlockData, horoscopeData }) {
                         </div>
                       </div>
                       <div className={classes.cardbtn}>
-                        <Link href="/uzmanlar/4">
+                        <Link href={`/uzmanlar/${data.id}`}>
                           <a>
                             <button className={classes.cardgiris}>
                               Fal Baktır

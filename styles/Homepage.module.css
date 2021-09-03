@@ -19,6 +19,15 @@
 .backImage img {
   object-fit: cover;
 }
+.status {
+  margin: 5px;
+  padding: 2px 5px;
+  color: burlywood;
+  text-transform: uppercase;
+  border: 1px solid burlywood;
+  border-radius: 15px;
+  font-size: 12px;
+}
 .bnrhdr {
   /* width: 70%; */
   /* height: 60%; */
@@ -116,7 +125,6 @@
   font-size: 24px;
   color: #ecdcf5;
   margin: 0;
-  margin-bottom: 30px;
 }
 .card p {
   font-size: 18px;
