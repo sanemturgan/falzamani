@@ -42,12 +42,7 @@ export default function blogdetay({
           <div className={classes.blgdtyrght}>
             <div className={classes.blogcard}>
               <div className={classes.blgcrdimg}>
-                <Image
-                  src={Geyik}
-                  alt="dty"
-                  objectFit="contain"
-                  layout="fill"
-                />
+                <Image src={Geyik} alt="dty" objectFit="cover" layout="fill" />
               </div>
               <div className={classes.altexphdr}>
                 <h5>{blogSingleData.title}</h5>

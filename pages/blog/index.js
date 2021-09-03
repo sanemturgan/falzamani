@@ -37,8 +37,6 @@ export default function Blog({ blogData, horoscopeData, falData }) {
               blogData.map((data, index) => (
                 <div key={index} className={classes.blogcard}>
                   <div className={classes.blgcrdimg}>
-                    {console.log(data.image)}
-
                     <Image
                       src={`${data.image}`}
                       alt="blog"
@@ -56,7 +54,6 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                     <Link href={`/blog/${data.id}`}>
                       <a>Devamı için tıklayın</a>
                     </Link>
-                    {console.log(data)}
                   </div>
                 </div>
               ))}
@@ -83,7 +80,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                     <Image
                       src={`${data.image}`}
                       alt="dty"
-                      objectFit="contain"
+                      objectFit="cover"
                       layout="fill"
                     />
                   </div>
@@ -141,7 +138,6 @@ export async function getServerSideProps() {
 
   const horoscopeData = await horoscopeRes.json();
 
-  console.log(falData.data);
   if (!blogData || !horoscopeData || !falData) {
     return {
       notFound: true,

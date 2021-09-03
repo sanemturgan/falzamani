@@ -39,7 +39,6 @@ export default function GigCard({ gigData }) {
           border="2px"
           backgroundColor="inherit"
           onClick={() => {
-            console.log(isOpen);
             onOpen();
           }}
         >
