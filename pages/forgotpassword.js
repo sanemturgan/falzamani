@@ -6,7 +6,6 @@ import { useRouter } from "next/router";
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
   const router = useRouter();
-  console.log(email);
   const sendEmail = async () => {
     await axios
       .post(
@@ -23,7 +22,6 @@ export default function ForgotPassword() {
         console.log(res);
       })
       .catch((err) => {
-        // console.log(err.rresponse.data.error);
         window.alert(err.response.data.error);
       });
   };

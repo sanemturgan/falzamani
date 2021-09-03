@@ -67,7 +67,6 @@ export async function getServerSideProps(context) {
   });
 
   const falData = await falRes.json();
-  console.log(falData);
   const horoscopeDescriptionData = await res.json();
 
   if (!horoscopeDescriptionData || !falData) {

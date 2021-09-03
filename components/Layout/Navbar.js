@@ -21,23 +21,14 @@ import {
 import axios from "axios";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
-export default function Navbar(data) {
-  const [email] = useState("");
-  const [password] = useState("");
-  const [rememberMe] = useState(false);
+export default function Navbar() {
   const cookies = new Cookies();
-  const [customer] = useState(false);
-  const router = useRouter();
   const [userData, setUserData] = useState();
-  const [checkLogin, setCheckLogin] = useState([]);
   // Dropdown Menu
   const menuRef = useRef();
   const [menuIsOpen, setOpenMenu] = useState(false);
 
-  console.log(cookies.get("jwt"));
-
   useOutSideClick(menuRef, () => {
-    console.log("asd");
     setOpenMenu(false);
   });
   const [category, setCategory] = useState([]);
@@ -51,7 +42,7 @@ export default function Navbar(data) {
         })
         .catch((err) => console.log(err.response.data.error));
 
-      await setUserData(cookies.get("userData"));
+      setUserData(cookies.get("userData"));
     }
 
     fetchData();
@@ -171,7 +162,11 @@ export default function Navbar(data) {
               )}
             </li>
             <li>
-              <Link href="/userpage">
+              <Link
+                href={
+                  userData?.role === "CUSTOMER" ? "/userpage" : "/warlockpage"
+                }
+              >
                 <a>
                   <MenuItem>
                     <FaUserAlt color="#140731" size="14px" />

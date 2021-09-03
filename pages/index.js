@@ -187,7 +187,6 @@ function HomePage({ warlockData, horoscopeData }) {
 export async function getServerSideProps() {
   const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
   const data = await res.json();
-  console.log(data);
   const warlockRes = await fetch(
     process.env.NEXT_APP_API_URL + `/warlock/all`,
     {

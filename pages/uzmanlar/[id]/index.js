@@ -109,7 +109,7 @@ export async function getServerSideProps(context) {
     }
   );
   const warlockSingleData = await res.json();
-  console.log(warlockSingleData);
+
   const falRes = await fetch(
     process.env.NEXT_APP_API_URL + `/category/${paramsData.id}`,
     {

@@ -59,7 +59,6 @@ export default function NewGigModal({ onSubmit }) {
             <Button
               backgroundColor="inherit"
               onClick={() => {
-                console.log(isOpenAdd);
                 onOpenAdd();
               }}
             >

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import classes from "../styles/kayit.module.css";
 import {
   FormControl,
@@ -23,9 +22,6 @@ export default function Kayit() {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] = useState("");
-  const [notification, setNotification] = useState();
-  const [customer, setCustomer] = useState(true);
   const [userType, setUserType] = useState("1");
 
   const cookies = new Cookies();
@@ -48,12 +44,10 @@ export default function Kayit() {
       password,
     };
 
-    console.log(userObject);
     await axios
       .post(
-        process.env.REACT_APP_CLIENT_API_URL + userType === "1"
-          ? `/customer/register`
-          : `/warlock/register`,
+        process.env.REACT_APP_CLIENT_API_URL +
+          `${userType === "1" ? `/customer/register` : `/warlock/register`}`,
         userObject
       )
       .then((res) => {
@@ -69,9 +63,11 @@ export default function Kayit() {
         if (err.response.data) {
           window.alert(err.response.data.error);
         }
+
+        console.log(err.response.data.error);
       });
   };
-  console.log(userType);
+
   return (
     <div className="kayit">
       <div className={classes.kariyerhdr}>
@@ -80,7 +76,7 @@ export default function Kayit() {
 
       <div className={classes.formkariyer}>
         <div className={classes.typeUser}>
-          <RadioGroup defaultValue="1" onChange={setUserType} value={userType}>
+          <RadioGroup onChange={setUserType} value={userType}>
             <Stack spacing={5} direction="row">
               <Radio colorScheme="purple" value="1">
                 <div
@@ -153,7 +149,6 @@ export default function Kayit() {
               max={9999999999}
               min={0}
               onChange={(valueAsNumber) => {
-                console.log(valueAsNumber);
                 setPhone(valueAsNumber || "");
               }}
               value={phone}
@@ -195,21 +190,6 @@ export default function Kayit() {
               color="#fff"
             />
           </FormControl>
-          {notification && <p style={{ color: "white" }}>{notification}</p>}
-          {/* <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-            Şifre Tekrar
-          </FormLabel>
-          <Input
-            onChange={(e) => {
-              setPassword2(e.target.value);
-            }}
-            value={password2}
-            pr="4.5rem"
-            mb="16px"
-            type="password"
-            size="lg"
-            placeholder="Şifre Tekrar"
-          /> */}
           <div className={classes.gonder}>
             <button type="submit" className={classes.gnd}>
               Kayıt Ol
