@@ -9,22 +9,6 @@ import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
 import axios from "axios";
 import GigCard from "../../../components/GigCard";
 export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
-  const [gig, setGig] = useState();
-  useEffect(() => {
-    async function fetchData() {
-      const gigObject = { warlockId: 15 };
-      await axios
-        .get(process.env.REACT_APP_CLIENT_API_URL + `/gig`, gigObject)
-        .then((res) => {
-          setGig(res.data.data);
-          console.log(res);
-        })
-        .catch((err) => console.log());
-    }
-
-    fetchData();
-  }, []);
-
   return (
     <div className="uzmanDetay">
       <div className={classes.uzmanhdr}>
@@ -132,10 +116,11 @@ export async function getServerSideProps(context) {
       method: "GET",
     }
   );
+
   const falData = await falRes.json();
 
   const gigRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/gig/all/${paramsData.id}`,
+    process.env.NEXT_APP_API_URL + `/gig/${paramsData.id}/all`,
     {
       method: "GET",
     }

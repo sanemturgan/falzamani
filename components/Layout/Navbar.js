@@ -32,7 +32,11 @@ export default function Navbar(data) {
   // Dropdown Menu
   const menuRef = useRef();
   const [menuIsOpen, setOpenMenu] = useState(false);
-  useOutSideClick(menuRef, () => setOpenMenu(false));
+
+  useOutSideClick(menuRef, () => {
+    console.log("asd");
+    setOpenMenu(false);
+  });
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
@@ -65,7 +69,7 @@ export default function Navbar(data) {
       <ul className={classes.bar}>
         <li>
           <Link
-            href={userData?.role === "customer" ? "/userpage" : "/warlockpage"}
+            href={userData?.role === "CUSTOMER" ? "/userpage" : "/warlockpage"}
           >
             <a>
               <FaUserAlt color="#140731" size="14px" />

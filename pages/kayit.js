@@ -39,7 +39,7 @@ export default function Kayit() {
       surname,
       username,
       email,
-      phone,
+      phone: parseInt(phone),
       password,
     };
 
@@ -51,13 +51,17 @@ export default function Kayit() {
       )
       .then((res) => {
         if (res.data.status === 200) {
+          window.alert("Kayıt olundu");
           setTimeout(() => {
             router.replace("/uyegiris");
           }, 500);
         }
         console.log(res);
       })
-      .catch((err) => setNotification(err.response.data.error));
+      .catch((err) => {
+        // console.log(err.rresponse.data.error);
+        window.alert(err.response.data.error);
+      });
   };
 
   return (

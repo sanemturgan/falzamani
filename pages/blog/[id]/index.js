@@ -35,7 +35,7 @@ export default function blogdetay({
         <Input variant="unstyled" placeholder="Ara" />
       </div>
       <div className={classes.blghdr}>
-        <h4>Kahve Falında Geyik Görmek</h4>
+        <h4>{blogSingleData.title}</h4>
       </div>
       <div className={classes.blogdtymain}>
         <div className={classes.blgdtyust}>
