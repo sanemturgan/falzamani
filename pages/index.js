@@ -8,6 +8,7 @@ import Zodiacimg from "../public/img/zodiac.png";
 import BannerImg from "../public/img/banner.png";
 import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
 import Link from "next/link";
+import FileBase64 from "react-file-base64";
 SwiperCore.use([Navigation, A11y]);
 
 function HomePage({ warlockData, horoscopeData }) {
@@ -17,8 +18,20 @@ function HomePage({ warlockData, horoscopeData }) {
       setArrows(window.innerHeight > 900);
     }
   }, []);
+
+  const [files, setFiles] = useState();
+
+  const getFiles = (files) => {
+    setFiles(files);
+  };
+
+  console.log(files);
   return (
     <div className="wrapperClass">
+      <FileBase64 onDone={getFiles} />
+      {files && (
+        <Image src={files.base64} alt="dty" objectFit="contain" layout="fill" />
+      )}
       <div className={classes.banner}>
         <div className={classes.bnrhdr}>
           <h4>Fal Zamanına Hoş geldin!</h4>
