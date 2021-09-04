@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import classes from "../styles/Homepage.module.css";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
+//import Image from "next/image";
 import CardImg from "../public/img/falcard.png";
 import Zodiacimg from "../public/img/zodiac.png";
 import BannerImg from "../public/img/banner.png";
@@ -89,13 +90,14 @@ function HomePage({ warlockData, horoscopeData }) {
         >
           {warlockData.length > 0 &&
             warlockData.map((data, index) => {
+              console.log(warlockData);
               return (
                 <SwiperSlide key={index}>
                   <div className={classes.cardMain}>
                     <div className={classes.card}>
                       <div className={classes.cardimg}>
                         <Image
-                          src={CardImg}
+                          src={data.image}
                           alt="teller"
                           objectFit="cover"
                           layout="fill"
@@ -161,7 +163,7 @@ function HomePage({ warlockData, horoscopeData }) {
                   <div key={index} className={classes.zdcmain}>
                     <div className={classes.zdcimg}>
                       <Image
-                        src={Zodiacimg}
+                        src={data.image}
                         alt="zodiac"
                         objectFit="contain"
                         layout="fill"

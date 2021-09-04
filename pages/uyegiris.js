@@ -74,7 +74,7 @@ export default function UyeGiris() {
                   style={{ color: "white", cursor: "pointer" }}
                   onClick={() => setCustomer(true)}
                 >
-                  Danışman Girişi
+                  Danışan Girişi
                 </div>
               </Radio>
               <Radio colorScheme="purple" value="2">
@@ -83,7 +83,7 @@ export default function UyeGiris() {
                   style={{ color: "white", cursor: "pointer" }}
                   onClick={() => setCustomer(false)}
                 >
-                  Falcı Girişi
+                  Danışman Girişi
                 </div>
               </Radio>
             </Stack>

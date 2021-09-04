@@ -193,9 +193,10 @@ function WarlockPage() {
                     objectFit="contain"
                     layout="fill"
                     borderRadius="full"
+                    boxSize="150px"
                   />
                 ) : (
-                  <FaUserAlt fontSize="60px" />
+                  <FaUserAlt fontSize="90px" />
                 )}
               </div>
               <h5>{warlockData.name}</h5>
@@ -210,16 +211,24 @@ function WarlockPage() {
               </div>
 
               <div className={classes.ustiki}>
-                <RadioGroup
-                  onChange={(e) => onUpdateStatus(e)}
-                  value={radioValue}
-                >
-                  <Stack direction="row">
-                    <Radio value="çevrimiçi">Çevrimiçi</Radio>
-                    <Radio value="çevrimdışı">Çevrimdışı</Radio>
-                    <Radio value="meşgul">Meşgul</Radio>
-                  </Stack>
-                </RadioGroup>
+                <div className={classes.radio}>
+                  <RadioGroup
+                    onChange={(e) => onUpdateStatus(e)}
+                    value={radioValue}
+                  >
+                    <Stack direction="row" wrap="wrap" justifyContent="center">
+                      <Radio value="çevrimiçi" size="sm">
+                        Çevrimiçi
+                      </Radio>
+                      <Radio value="çevrimdışı" size="sm">
+                        Çevrimdışı
+                      </Radio>
+                      <Radio value="meşgul" size="sm">
+                        Meşgul
+                      </Radio>
+                    </Stack>
+                  </RadioGroup>
+                </div>
                 <div className={classes.exp}>
                   <GigEditable
                     onSubmit={onUptadeAbout}
