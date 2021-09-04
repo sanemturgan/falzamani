@@ -22,17 +22,25 @@
   align-items: center;
   padding: 50px;
   background: linear-gradient(#1e1435, #221737, #281c3b);
-  margin: auto;
-  margin-right: 30px;
+  width: 80%;
+  margin: 40px auto;
+
   border-radius: 50px;
   color: #fff;
-  margin-top: 72px;
 }
 .admininfo {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
   width: 100%;
+}
+.adminImage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
 }
 .info {
   display: flex;
@@ -77,8 +85,8 @@
   .info {
     flex-direction: column;
   }
-  .adminmain {
-    margin-right: 0;
+  .adminImage {
+    display: none;
   }
   .user {
     flex-direction: column;

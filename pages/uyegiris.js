@@ -23,7 +23,7 @@ export default function UyeGiris() {
   const cookies = new Cookies();
   useEffect(() => {
     if (cookies.get("jwt")) {
-      router.replace("/userpage");
+      router.replace("/");
     }
   }, []);
 

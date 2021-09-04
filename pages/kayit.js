@@ -44,12 +44,22 @@ export default function Kayit() {
       password,
       image: "",
     };
+    let warlockObject = {
+      name,
+      surname,
+      username,
+      email,
+      phone: parseInt(phone),
+      password,
+      image: "",
+      about: "",
+    };
 
     await axios
       .post(
         process.env.REACT_APP_CLIENT_API_URL +
           `${userType === "1" ? `/customer/register` : `/warlock/register`}`,
-        userObject
+        userType === "1" ? userObject : warlockObject
       )
       .then((res) => {
         if (res.data.status === 200) {

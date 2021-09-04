@@ -18,10 +18,10 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-
+import withCustomer from "../HOC/withCustomer";
 import CustomerHistory from "../components/CustomerHistory";
 
-export default function Userpage() {
+function Userpage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const cookies = new Cookies();
   const router = useRouter();
@@ -217,3 +217,4 @@ export default function Userpage() {
     </div>
   );
 }
+export default withCustomer(Userpage);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import classes from "../styles/NewGigEdit.module.css";
+import classes from "../styles/BlogEdit.module.css";
 import GigEditable from "../components/GigEditable";
 
 import {
@@ -26,9 +26,12 @@ import {
   RadioGroup,
   Stack,
   FormLabel,
+  Image,
 } from "@chakra-ui/react";
-
-export default function NewGigEdit({ data, onSubmit }) {
+import FileBase64 from "react-file-base64";
+import axios from "axios";
+import Cookies from "universal-cookie";
+export default function BlogEdit({ data, onSubmit }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpenAdd,
@@ -37,8 +40,27 @@ export default function NewGigEdit({ data, onSubmit }) {
   } = useDisclosure();
   const [title, setTitle] = useState(data.title);
   const [description, setDescription] = useState(data.description);
-  const [time, setTime] = useState(data.duration);
-  const [price, setPrice] = useState(data.price);
+  const [image, setImage] = useState(data.image);
+  const cookies = new Cookies();
+  const [files, setFiles] = useState();
+
+  const getFiles = (files) => {
+    setFiles(files);
+    axios
+      .put(
+        process.env.REACT_APP_CLIENT_API_URL + "/blog/image",
+        { image: files.base64 },
+        {
+          headers: {
+            Authorization: `${cookies.get("jwt")}`,
+          },
+        }
+      )
+
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err.response.data.error));
+  };
+
   return (
     data && (
       <div className={classes.option}>
@@ -46,13 +68,18 @@ export default function NewGigEdit({ data, onSubmit }) {
           <h5>{data.title}</h5>
         </div>
         <div className={classes.opexp}>
+          <p>
+            <Image
+              src={data.image}
+              alt="dty"
+              objectFit="cover"
+              layout="fill"
+              htmlWidth="300px"
+              borderRadius="30px"
+              marginBottom="5px"
+            />
+          </p>
           <p>{data.description}</p>
-          <p>
-            <span>{data.duration}</span>
-          </p>
-          <p>
-            <span>{data.price}</span>
-          </p>
         </div>
         <div className={classes.opran}>
           <Button
@@ -63,25 +90,38 @@ export default function NewGigEdit({ data, onSubmit }) {
               onOpen();
             }}
           >
-            İlanı Düzenle
+            Blog Düzenle
+          </Button>
+          <Button
+            color="#281c3b"
+            border="2px"
+            marginLeft="5px"
+            backgroundColor="inherit"
+          >
+            Kaldır
           </Button>
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>İlan Düzenle</ModalHeader>
+              <ModalHeader>Blog Düzenle</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <FormLabel>İlan Başlığı</FormLabel>
+                <FormLabel>Blog Başlığı</FormLabel>
                 <GigEditable value={title} onSubmit={(e) => setTitle(e)} />
-                <FormLabel>İlan Açıklaması</FormLabel>
+                <FormLabel>Blog Açıklaması</FormLabel>
                 <GigEditable
                   value={description}
                   onSubmit={(e) => setDescription(e)}
                 />
-                <FormLabel>Seans Süresi</FormLabel>
-                <GigEditable value={time} onSubmit={(e) => setTime(e)} />
-                <FormLabel>Seans Ücreti</FormLabel>
-                <GigEditable value={price} onSubmit={(e) => setPrice(e)} />
+                <FormLabel>Blog Resim</FormLabel>
+                <FileBase64 onDone={getFiles} />
+
+                <Image
+                  src={files?.base64}
+                  alt="dty"
+                  objectFit="cover"
+                  layout="fill"
+                />
               </ModalBody>
 
               <ModalFooter>
@@ -92,7 +132,7 @@ export default function NewGigEdit({ data, onSubmit }) {
                   colorScheme="green"
                   variant="ghost"
                   onClick={() => {
-                    onSubmit({ title, description, time, price });
+                    onSubmit({ title, description, image });
                     onClose();
                   }}
                 >

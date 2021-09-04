@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import classes from "../../styles/adminblog.module.css";
 import {
   FormControl,
@@ -11,24 +11,78 @@ import Link from "next/dist/client/link";
 import { FaFileExport } from "react-icons/fa";
 import Cookies from "universal-cookie";
 import axios from "axios";
-export default function Adminblog() {
+import NewBlogModal from "../../components/NewBlogModal";
+import BlogEdit from "../../components/BlogEdit";
+import withAdmin from "../../HOC/withAdmin";
+function AdminBlog() {
   const [title, setTitle] = useState("");
   const [img, setImg] = useState("");
   const [description, setDescription] = useState("");
+
+  const [blogs, setBlogs] = useState([]);
   const cookies = new Cookies();
-  const onSubmit = async (e) => {
-    e.preventDefault();
+
+  const onAddBlog = async (object) => {
+    const blogObject = {
+      title: object.title,
+      image: object.image,
+      description: object.description,
+    };
 
     await axios
-      .get(process.env.REACT_APP_CLIENT_API_URL + `/admin`, {
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
         headers: {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
       .then((res) => {
-        console.log(res.data);
+        if (res.data.status === 200) {
+          window.alert("Blog Eklendi");
+        }
+        console.log(res);
+      })
+      .catch((err) => {
+        if (err.response.data) {
+          window.alert(err.response.data.error);
+        }
+
+        console.log(err.response.data.error);
       });
   };
+  const adminBlog = async () => {
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/blog/all`, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        setBlogs(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+  useEffect(() => {
+    if (!cookies.get("jwt")) {
+      router.replace("/adminlogin");
+    }
+    adminBlog();
+  }, []);
+  const onUpdateBlog = async (object) => {
+    const blogObject = {
+      title: object.title,
+      image: object.image,
+      description: object.description,
+    };
+
+    await axios
+      .put(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => console.log(res));
+  };
+
   return (
     <div className="adminblog">
       <div className={classes.kariyerhdr}>
@@ -36,141 +90,19 @@ export default function Adminblog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <form onSubmit={onSubmit} id="blogform">
-            <FormControl isRequired id="blogtitle">
-              <FormLabel color="#fff" mb="16px" fontSize="18px">
-                Blog Başlık
-              </FormLabel>
-              <Input
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                }}
-                value={title}
-                placeholder="başlık"
-                color="#fff"
-                size="lg"
-              />
-            </FormControl>
-            <FormControl isRequired id="blogimg">
-              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-                Blog Fotoğraf
-              </FormLabel>
-              <Input
-                onChange={(e) => {
-                  setImg(e.target.value);
-                }}
-                value={img}
-                placeholder="fotoğraf"
-                color="#fff"
-                size="lg"
-              />
-            </FormControl>
-            <div className={classes.export}>
-              <p>dosya ekleyin</p>
-              <Button colorScheme="#402759">
-                <FaFileExport color="#ECDCF5" size="16px" />
-              </Button>
-            </div>
-            <FormControl isRequired id="blogdescription">
-              <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-                Blog Detay
-              </FormLabel>
-              <Textarea
-                onChange={(e) => {
-                  setDescription(e.target.value);
-                }}
-                value={description}
-                placeholder="detay"
-                color="#fff"
-                size="lg"
-              />
-            </FormControl>
-            <div className={classes.gonder}>
-              <button type="submit" className={classes.gnd}>
-                Ekle
-              </button>
-            </div>
-          </form>
+          <NewBlogModal onSubmit={onAddBlog} />
         </div>
-        <div className={classes.bloglist}>
-          <ul>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-            <li className={classes.listli}>
-              <div className={classes.bloginfo}>
-                Kova Burcu Haftalık Burç Yorumu
-              </div>
-              <div className={classes.infoedit}>
-                <ul>
-                  <li>
-                    <Link href="/editblog">
-                      <a>Düzenle</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/deleteblog">
-                      <a>Kaldır</a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-          </ul>
+        <div className={classes.options}>
+          {blogs.length > 0 &&
+            blogs.map((data, index) => {
+              return (
+                <BlogEdit
+                  key={index}
+                  data={data}
+                  onSubmit={(e) => onUpdateBlog(e, data.id)}
+                />
+              );
+            })}
         </div>
         <div className={classes.categories}>
           <ul className={classes.catalog}>
@@ -195,3 +127,4 @@ export default function Adminblog() {
     </div>
   );
 }
+export default withAdmin(AdminBlog);

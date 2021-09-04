@@ -11,7 +11,7 @@ import NewgGigEdit from "../../components/NewGigEdit";
 import Comment from "../../components/Comment";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import withAuth from "../../HOC/withAuth";
+import withWarlock from "../../HOC/withWarlock";
 import {
   ButtonGroup,
   Flex,
@@ -272,4 +272,4 @@ function WarlockPage() {
   );
 }
 
-export default withAuth(WarlockPage);
+export default withWarlock(WarlockPage);

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -6,13 +5,13 @@ const ReDirectLoader = dynamic(() => import("./ReDirectLoader"), {
   ssr: false,
 });
 
-const withAdmin = (Component) => {
+const withCustomer = (Component) => {
   const Auth = (props) => {
     const cookies = new Cookies();
-
+    const router = useRouter();
     if (
       cookies.get("jwt") === undefined ||
-      cookies.get("userData").role === "CUSTOMER" ||
+      cookies.get("userData").role === "ADMIN" ||
       cookies.get("userData").role === "WARLOCK"
     ) {
       return <ReDirectLoader />;
@@ -28,4 +27,4 @@ const withAdmin = (Component) => {
   return Auth;
 };
 
-export default withAdmin;
+export default withCustomer;

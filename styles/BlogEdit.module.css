@@ -1,0 +1,43 @@
+.option {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 40px;
+  margin: 10px;
+  background-color: #5a4b69;
+  border-radius: 50px;
+  color: #fff;
+}
+.optionAdvert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  width: 100%;
+  background-color: #5a4b69;
+  border-radius: 50px;
+}
+.advert {
+  background-color: #5a4b69;
+  width: 100%;
+  border-radius: 50px;
+  padding: 40px;
+  margin: 10px;
+}
+.ophdr {
+  padding: 3px;
+  font-size: 18px;
+}
+.opexp {
+  padding: 3px;
+  font-size: 16px;
+}
+.opexp span {
+  padding: 3px;
+  font-weight: lighter;
+}
+.opran {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}

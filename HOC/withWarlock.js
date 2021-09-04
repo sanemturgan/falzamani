@@ -10,9 +10,12 @@ const withWarlock = (Component) => {
   const Auth = (props) => {
     const cookies = new Cookies();
     const router = useRouter();
-    const [userData, setUserData] = useState();
-    setUserData(cookies.get("userData"));
-    if (cookies.get("jwt") === undefined && userData?.role === "WARLOCK") {
+
+    if (
+      cookies.get("jwt") === undefined ||
+      cookies.get("userData").role === "CUSTOMER" ||
+      cookies.get("userData").role === "ADMIN"
+    ) {
       return <ReDirectLoader />;
     }
     return <Component {...props} />;

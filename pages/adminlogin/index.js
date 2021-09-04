@@ -4,8 +4,8 @@ import { FormControl, FormLabel, Input, Checkbox } from "@chakra-ui/react";
 import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
+import axios from "axios";
 export default function ADMINLOGIN() {
-  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe] = useState(false);
@@ -14,7 +14,6 @@ export default function ADMINLOGIN() {
   const onSubmit = async (e) => {
     e.preventDefault();
     let userObject = {
-      username,
       email,
       password,
     };
@@ -24,14 +23,18 @@ export default function ADMINLOGIN() {
       .then((res) => {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
+        cookies.set("userData", res.data.data[0], { maxAge: maxAgeTime });
         if (res.data.status === 200 && cookies.get("jwt")) {
+          window.alert("Giriş Yapıldı");
           setTimeout(() => {
             router.replace("/adminpage");
             console.log(res);
           }, 500);
         }
       })
-      .catch((err) => console.log(err.response.data.error));
+      .catch((err) => {
+        window.alert(err.response.data.error);
+      });
   };
   return (
     <div className="adminlogin">
@@ -41,20 +44,6 @@ export default function ADMINLOGIN() {
       <div className={classes.admin}>
         <div className={classes.formkariyer}>
           <form id="formadmin">
-            <FormControl isRequired id="username">
-              <FormLabel color="#fff" mb="16px" fontSize="18px">
-                Kullanıcı Adı
-              </FormLabel>
-              <Input
-                onChange={(e) => {
-                  setUsername(e.target.value);
-                }}
-                value={email}
-                placeholder="kullanıcı adı"
-                color="#fff"
-                size="lg"
-              />
-            </FormControl>
             <FormControl isRequired id="email">
               <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
                 Email
@@ -95,30 +84,6 @@ export default function ADMINLOGIN() {
               </button>
             </div>
           </form>
-        </div>
-        <div className={classes.categories}>
-          <ul className={classes.catalog}>
-            <li className={classes.flt}>
-              <Link href="/adminpage">
-                <a>Hesabım</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/adminblog">
-                <a>Blog Düzenle</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/danisman">
-                <a>Danışmanlar</a>
-              </Link>
-            </li>
-            <li className={classes.flt}>
-              <Link href="/adminkredi">
-                <a>Kredi Düzenle</a>
-              </Link>
-            </li>
-          </ul>
         </div>
       </div>
     </div>
