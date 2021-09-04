@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
 import classes from "../../../styles/uzmandetay.module.css";
-import { FaPhoneAlt, FaStar, FaEnvelope, FaSortDown } from "react-icons/fa";
-import CardImg from "../../../public/img/falcard.png";
-import Image from "next/image";
+import { FaPhoneAlt, FaEnvelope, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import Comment from "../../../components/Comment";
-import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
-import axios from "axios";
+import { Switch, FormControl, FormLabel, Image } from "@chakra-ui/react";
+
 import GigCard from "../../../components/GigCard";
-export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
+export default function Uzmandetay({ warlockSingleData, gigData }) {
   return (
     <div className="uzmanDetay">
       <div className={classes.uzmanhdr}>
@@ -22,12 +20,18 @@ export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
         <div className={classes.uzmantop}>
           <div className={classes.ustbir}>
             <div className={classes.cardimg}>
-              <Image
-                src={CardImg}
-                alt="teller"
-                objectFit="contain"
-                layout="fill"
-              />
+              {warlockSingleData.image ? (
+                <Image
+                  src={warlockSingleData.image}
+                  alt="dty"
+                  objectFit="contain"
+                  layout="fill"
+                  borderRadius="full"
+                  boxSize="100px"
+                />
+              ) : (
+                <FaUserAlt fontSize="90px" color="lightgray" />
+              )}
             </div>
             <h5>{warlockSingleData.name}</h5>
             <h6 className={classes.status}>{warlockSingleData.status}</h6>
@@ -57,11 +61,11 @@ export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
             </div>
             <div className={classes.fallar}>
               <div className={classes.faldty}>
-                <h5>{falData.name}</h5>
+                <h5>{gigData.title}</h5>
                 <div className={classes.pay}>
                   <Link href="/odeme">
                     <a>
-                      <button>650 Kredi</button>
+                      <button>{gigData.price} Kredi</button>
                     </a>
                   </Link>
                   <Link href="/odeme">
@@ -88,7 +92,7 @@ export default function Uzmandetay({ warlockSingleData, falData, gigData }) {
             <h4>FALCI YORUMLARI</h4>
           </div>
           <div className={classes.comments}>
-            {warlockSingleData.Gig.map((data, index) => {
+            {warlockSingleData.Gig.map((data) => {
               return data.Comment.map((commentData, index) => {
                 return <Comment key={index} data={commentData} />;
               });
@@ -110,15 +114,6 @@ export async function getServerSideProps(context) {
   );
   const warlockSingleData = await res.json();
 
-  const falRes = await fetch(
-    process.env.NEXT_APP_API_URL + `/category/${paramsData.id}`,
-    {
-      method: "GET",
-    }
-  );
-
-  const falData = await falRes.json();
-
   const gigRes = await fetch(
     process.env.NEXT_APP_API_URL + `/gig/${paramsData.id}/all`,
     {
@@ -128,7 +123,7 @@ export async function getServerSideProps(context) {
 
   const gigData = await gigRes.json();
 
-  if (!warlockSingleData || !falData || !gigData) {
+  if (!warlockSingleData || !gigData) {
     return {
       notFound: true,
     };
@@ -136,7 +131,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       warlockSingleData: warlockSingleData.data,
-      falData: falData.data,
+
       gigData: gigData.data,
     },
   };

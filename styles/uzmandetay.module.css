@@ -47,9 +47,8 @@
   font-size: 20px;
 }
 .cardimg {
-  width: 230px;
-  height: 230px;
   position: relative;
+  padding: 5px;
 }
 .star {
   display: flex;

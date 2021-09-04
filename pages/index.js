@@ -3,11 +3,11 @@ import classes from "../styles/Homepage.module.css";
 import SwiperCore, { Navigation, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Image } from "@chakra-ui/react";
-//import Image from "next/image";
+import Img from "next/image";
 import CardImg from "../public/img/falcard.png";
 import Zodiacimg from "../public/img/zodiac.png";
 import BannerImg from "../public/img/banner.png";
-import { FaStar, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaStar, FaPhoneAlt, FaEnvelope, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 
 SwiperCore.use([Navigation, A11y]);
@@ -42,7 +42,7 @@ function HomePage({ warlockData, horoscopeData }) {
           </div>
         </div>
         <div className={classes.backImage}>
-          <Image src={BannerImg} alt="teller" objectFit="cover" layout="fill" />
+          <Img src={BannerImg} alt="teller" objectFit="cover" layout="fill" />
         </div>
       </div>
       <div className={classes.snm}>
@@ -96,12 +96,18 @@ function HomePage({ warlockData, horoscopeData }) {
                   <div className={classes.cardMain}>
                     <div className={classes.card}>
                       <div className={classes.cardimg}>
-                        <Image
-                          src={data.image}
-                          alt="teller"
-                          objectFit="cover"
-                          layout="fill"
-                        />
+                        {data.image ? (
+                          <Image
+                            src={data.image}
+                            alt="dty"
+                            objectFit="contain"
+                            layout="fill"
+                            borderRadius="full"
+                            boxSize="100px"
+                          />
+                        ) : (
+                          <FaUserAlt fontSize="90px" color="lightgray" />
+                        )}
                       </div>
                       <h5>{data.name}</h5>
                       <h6 className={classes.status}>{data.status}</h6>
@@ -148,7 +154,7 @@ function HomePage({ warlockData, horoscopeData }) {
       </div>
       <div className={classes.zodiac}>
         <div className={classes.zodiachdr}>
-          <h3>HAFTALIK BURÇ YORUMLARI</h3>
+          <h3>BURÇ YORUMLARI</h3>
         </div>
         <div className={classes.bottomSlider}>
           <Swiper
@@ -165,12 +171,14 @@ function HomePage({ warlockData, horoscopeData }) {
                       <Image
                         src={data.image}
                         alt="zodiac"
-                        objectFit="contain"
+                        objectFit="cover"
                         layout="fill"
+                        borderRadius="full"
+                        boxSize="250px"
                       />
                     </div>
                     <div className={classes.zdcrd}>
-                      <Link href="/burcdetay">
+                      <Link href={`/burcdetay/${data.id}`}>
                         <a>{data.name}</a>
                       </Link>
                     </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "../../../styles/burcdetay.module.css";
 import ZodiacImgthree from "../../../public/img/burcdty.png";
-import { Input } from "@chakra-ui/react";
+import { Input, Image } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
-import Image from "next/image";
+
 import Link from "next/link";
 import MiniHoroscopeCategory from "../../../components/MiniHoroscopeCategory";
 
@@ -31,10 +31,13 @@ export default function Burcdetay({ horoscopeDescriptionData, horoscopeData }) {
                 <div className={classes.dtyrght}>
                   <div className={classes.dtyimg}>
                     <Image
-                      src={ZodiacImgthree}
+                      src="https://images2.alphacoders.com/110/110412.jpg"
                       alt="dty"
                       objectFit="contain"
                       layout="fill"
+                      borderRadius="40px"
+                      htmlWidth="500px"
+                      marginBottom="50px"
                     />
                   </div>
                   <div className={classes.dtyexp}>

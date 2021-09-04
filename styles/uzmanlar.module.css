@@ -46,7 +46,7 @@
   margin: 70px 0;
 }
 .card {
-  width: 290px;
+  width: 250px;
   height: 404px;
   background-color: #281c3b;
   border-radius: 50px;
@@ -69,11 +69,8 @@
   margin: 0;
 }
 .cardimg {
-  width: 120px;
-  height: 120px;
-  padding: 15px;
-
   position: relative;
+  padding: 5px;
 }
 .crdi {
   display: flex;
@@ -107,7 +104,6 @@
 }
 @media screen and (max-width: 960px) {
   .card {
-    width: 250px;
     height: 370px;
   }
   .card h5 {

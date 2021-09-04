@@ -1,9 +1,9 @@
 import React from "react";
 import classes from "../../styles/uzmanlar.module.css";
-import { Input } from "@chakra-ui/react";
-import { FaPhoneAlt, FaStar, FaEnvelope, FaSearch } from "react-icons/fa";
+import { Input, Image } from "@chakra-ui/react";
+import { FaPhoneAlt, FaUserAlt, FaEnvelope, FaSearch } from "react-icons/fa";
 import CardImg from "../../public/img/falcard.png";
-import Image from "next/image";
+import Img from "next/image";
 import Link from "next/link";
 
 export default function uzmanlar({ warlockData }) {
@@ -33,12 +33,18 @@ export default function uzmanlar({ warlockData }) {
               return (
                 <div key={index} className={classes.card}>
                   <div className={classes.cardimg}>
-                    <Image
-                      src={CardImg}
-                      alt="teller"
-                      objectFit="cover"
-                      layout="fill"
-                    />
+                    {data.image ? (
+                      <Image
+                        src={data.image}
+                        alt="dty"
+                        objectFit="contain"
+                        layout="fill"
+                        borderRadius="full"
+                        boxSize="100px"
+                      />
+                    ) : (
+                      <FaUserAlt fontSize="90px" color="lightgray" />
+                    )}
                   </div>
                   <h5>{data.name}</h5>
                   <h6 className={classes.status}>{data.status}</h6>
