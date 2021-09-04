@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
+//import Image from "next/image";
 import Kova from "../public/img/kova.png";
 import classes from "../styles/SwiperCards.module.css";
 export default function MiniCategoryMenu({ blogData, classes }) {
@@ -8,11 +9,12 @@ export default function MiniCategoryMenu({ blogData, classes }) {
     <div className={classes.altcrd}>
       <div className={classes.altimg}>
         <Image
-          src={Kova}
-          // src={data.image}
+          src={blogData.image}
           alt="dty"
-          objectFit="contain"
+          objectFit="cover"
           layout="fill"
+          borderRadius="24px"
+          htmlWidth="200px"
         />
       </div>
       <div className={classes.altexp}>

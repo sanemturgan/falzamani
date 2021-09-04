@@ -7,12 +7,13 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-import { FaFileExport } from "react-icons/fa";
 
+import axios from "axios";
 export default function Kariyer() {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
+  const [text, setText] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -22,19 +23,7 @@ export default function Kariyer() {
       email,
       text,
     };
-    await axios
-      .post(
-        process.env.REACT_APP_CLIENT_API_URL + `/customer/register`,
-        userObject
-      )
-      .then((res) => {
-        if (res.data.status === 200) {
-          setTimeout(() => {
-            router.replace("/");
-          }, 500);
-        }
-        console.log(res);
-      });
+    console.log(userObject);
   };
 
   return (
@@ -58,37 +47,61 @@ export default function Kariyer() {
             <FormLabel color="#fff" mb="16px" fontSize="18px">
               Ad
             </FormLabel>
-            <Input placeholder="Adınız" size="lg" color="white" />
+            <Input
+              placeholder="Adınız"
+              size="lg"
+              color="white"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+              value={name}
+            />
           </FormControl>
           <FormControl isRequired id="surname">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Soyad
             </FormLabel>
-            <Input placeholder="Soyadınız" size="lg" color="white" />
+            <Input
+              placeholder="Soyadınız"
+              size="lg"
+              color="white"
+              onChange={(e) => {
+                setSurname(e.target.value);
+              }}
+              value={surname}
+            />
           </FormControl>
           <FormControl isRequired id="email">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Email
             </FormLabel>
-            <Input type="E-mail" size="lg" color="white" />
+            <Input
+              type="email"
+              size="lg"
+              color="white"
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              value={email}
+            />
           </FormControl>
           <FormControl isRequired id="text">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Mesajınız
             </FormLabel>
-            <Textarea placeholder="Mesajınız" size="lg" color="white" />
+            <Textarea
+              placeholder="Mesajınız"
+              size="lg"
+              color="white"
+              onChange={(e) => {
+                setText(e.target.value);
+              }}
+              value={text}
+            />
           </FormControl>
-          <div className={classes.export}>
-            <p>dosya seçebilirsiniz</p>
-            <Button colorScheme="#402759">
-              <FaFileExport color="#ECDCF5" size="16px" />
-            </Button>
-          </div>
 
           <div className={classes.gonder}>
-            <button onClick={onSubmit} className={classes.gnd}>
-              Giriş Yap
-            </button>
+            <button className={classes.gnd}>Gönder</button>
           </div>
         </form>
       </div>

@@ -119,7 +119,15 @@ export default function Userpage() {
               Değiştir
             </Button>
 
-            <Modal blockScrollOnMount={false} isOpen={isOpen} onClose={onClose}>
+            <Modal
+              blockScrollOnMount={false}
+              isOpen={isOpen}
+              onClose={() => {
+                setPassword("");
+                setRePassword("");
+                onClose();
+              }}
+            >
               <ModalOverlay />
               <ModalContent>
                 <ModalHeader>Şifre Değiştir</ModalHeader>
@@ -172,7 +180,15 @@ export default function Userpage() {
                 </ModalBody>
 
                 <ModalFooter>
-                  <Button variant="red" mr={3} onClick={onClose}>
+                  <Button
+                    variant="red"
+                    mr={3}
+                    onClick={() => {
+                      onClose();
+                      setPassword("");
+                      setRePassword("");
+                    }}
+                  >
                     Vazgeç
                   </Button>
                   <Button variant="purple" onClick={changePassword}>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import classes from "../../styles/warlockpage.module.css";
-import { FaPlusCircle } from "react-icons/fa";
+import { FaUserAlt } from "react-icons/fa";
 import CardImg from "../../public/img/falcard.png";
-import Image from "next/image";
+//import Image from "next/image";
 import Cookies from "universal-cookie";
 import router from "next/router";
 import GigEditable from "../../components/GigEditable";
@@ -21,8 +21,10 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  Image,
 } from "@chakra-ui/react";
 import axios from "axios";
+import FileBase64 from "react-file-base64";
 function WarlockPage() {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
@@ -152,6 +154,27 @@ function WarlockPage() {
     router.replace("/uyegiris");
   };
 
+  const [files, setFiles] = useState();
+
+  const getFiles = (files) => {
+    setFiles(files);
+    axios
+      .put(
+        process.env.REACT_APP_CLIENT_API_URL + "/warlock/image",
+        { image: files.base64 },
+        {
+          headers: {
+            Authorization: `${cookies.get("jwt")}`,
+          },
+        }
+      )
+
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err.response.data.error));
+  };
+
+  console.log(files);
+  console.log(warlockData);
   return (
     warlockData && (
       <div className="WarlockPage">
@@ -162,13 +185,18 @@ function WarlockPage() {
           <div className={classes.uzmantop}>
             <div className={classes.ustbir}>
               <div className={classes.cardimg}>
-                <Image
-                  src={CardImg}
-                  alt="teller"
-                  objectFit="contain"
-                  layout="fill"
-                />
-                <FaPlusCircle color="#281c3b" size="20px" />
+                <FileBase64 onDone={getFiles} />
+                {warlockData.image ? (
+                  <Image
+                    src={files?.base64 || warlockData.image}
+                    alt="dty"
+                    objectFit="contain"
+                    layout="fill"
+                    borderRadius="full"
+                  />
+                ) : (
+                  <FaUserAlt fontSize="60px" />
+                )}
               </div>
               <h5>{warlockData.name}</h5>
               <div className={classes.status}>(ONAYLI HESAP)</div>

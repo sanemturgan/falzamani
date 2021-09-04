@@ -1,13 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
 import classes from "../../styles/blog.module.css";
-import { Input } from "@chakra-ui/react";
+import { Input, Image } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import Image from "next/image";
+//import Image from "next/image";
 import MiniCategoryMenu from "../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../components/MiniCategorySecondMenu";
 import SwiperCards from "../../components/SwiperCards";
@@ -42,6 +42,8 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                       alt="blog"
                       objectFit="cover"
                       layout="fill"
+                      borderRadius="40px"
+                      htmlWidth="220px"
                     />
                   </div>
                   <div className={classes.altexphdr}>
@@ -82,6 +84,8 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                       alt="dty"
                       objectFit="cover"
                       layout="fill"
+                      borderRadius="20px"
+                      boxSize="130px"
                     />
                   </div>
                   <div className={classes.btmcrdlink}>

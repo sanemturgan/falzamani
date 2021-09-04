@@ -118,32 +118,33 @@ export default function Navbar() {
             <a>Bize Ulaşın</a>
           </Link>
         </li>
+        <li>
+          {!cookies.get("jwt") && (
+            <>
+              <div className={classes.giris}>
+                <Link href="/uyegiris">
+                  <a>
+                    <button className={classes.uyegiris}>Üye Girişi</button>
+                  </a>
+                </Link>
+              </div>
+              <div className={classes.giris}>
+                <Link href="/kayit">
+                  <a>
+                    <button className={classes.uyegiris}>Üye Ol</button>
+                  </a>
+                </Link>
+              </div>
+            </>
+          )}
+        </li>
       </ul>
-      {!cookies.get("jwt") && (
-        <>
-          <div className={classes.giris}>
-            <Link href="/uyegiris">
-              <a>
-                <button className={classes.uyegiris}>Üye Girişi</button>
-              </a>
-            </Link>
-          </div>
-          <div className={classes.giris}>
-            <Link href="/kayit">
-              <a>
-                <button className={classes.uyegiris}>Üye Ol</button>
-              </a>
-            </Link>
-          </div>
-        </>
-      )}
       <div className={classes.hamburgermenu}>
         <Menu>
           <MenuButton>
             <FaBars color="#140731" size="20px" />
           </MenuButton>
           <MenuList>
-            {/* MenuItems are not rendered unless Menu is open */}
             <li ref={menuRef} onClick={() => setOpenMenu(!menuIsOpen)}>
               Fal Türleri
               <FaAngleDown color="#140731" size="14px" />

@@ -4,8 +4,8 @@ import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Writer from "../../../public/img/writer.png";
 import Geyik from "../../../public/img/geyik.png";
-
-import Image from "next/image";
+import { Image } from "@chakra-ui/react";
+//import Image from "next/image";
 import Link from "next/link";
 import SwiperCards from "../../../components/SwiperCards";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -42,7 +42,14 @@ export default function blogdetay({
           <div className={classes.blgdtyrght}>
             <div className={classes.blogcard}>
               <div className={classes.blgcrdimg}>
-                <Image src={Geyik} alt="dty" objectFit="cover" layout="fill" />
+                <Image
+                  src={blogSingleData.image}
+                  alt="dty"
+                  objectFit="cover"
+                  layout="fill"
+                  borderRadius="40px"
+                  htmlWidth="600px"
+                />
               </div>
               <div className={classes.altexphdr}>
                 <h5>{blogSingleData.title}</h5>
@@ -53,10 +60,12 @@ export default function blogdetay({
               <div className={classes.writer}>
                 <div className={classes.wrtimg}>
                   <Image
-                    src={Writer}
+                    src={adminData.image}
                     alt="dty"
-                    objectFit="contain"
+                    objectFit="cover"
                     layout="fill"
+                    borderRadius="full"
+                    boxSize="100px"
                   />
                 </div>
                 <div className={classes.wrtexp}>

@@ -50,9 +50,9 @@
   flex-direction: column;
 }
 .blogcard {
-  margin: 15px;
+  margin: auto;
   text-align: center;
-  width: 90%;
+  width: 75%;
   border-radius: 50px;
   align-items: center;
   display: flex;
@@ -61,8 +61,8 @@
   background-color: #281c3b;
 }
 .blgcrdimg {
-  width: 100%;
-  height: 300px;
+  display: flex;
+  margin: 25px;
   position: relative;
 }
 .writer {
@@ -71,17 +71,18 @@
   justify-content: center;
 
   padding: 7px;
-  width: 70%;
+  width: 100%;
   text-align: center;
-  margin: 20px auto;
+  margin: 0 auto;
   background-color: #5a4b69;
-  border-radius: 50px;
+  border-radius: 0 0 50px 50px;
 }
 .wrtimg {
   position: relative;
-  width: 120px;
-  height: 120px;
-  padding: 10px;
+  /* width: 120px;
+  height: 120px; */
+  margin: 10px;
+  width: 25%;
 }
 .wrtexp {
   padding: 5px;
@@ -104,14 +105,14 @@
 .altexphdr {
   font-size: 20px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   width: 90%;
   margin: auto;
   border-bottom: 1px solid #fff;
   cursor: pointer;
 }
 .blgcrdexp {
-  padding: 20px;
+  padding: 30px;
   font-size: 16px;
   text-align: center;
 }
@@ -182,15 +183,13 @@
   width: 100%;
 }
 .altimg {
-  margin-top: 15px;
-  width: 200px;
-  height: 120px;
+  margin: 15px;
   position: relative;
 }
 .altcrd {
   width: 200px;
   background-color: #5a4b69;
-  border-radius: 50px;
+  border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;

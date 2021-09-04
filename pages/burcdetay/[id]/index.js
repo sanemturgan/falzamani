@@ -5,9 +5,9 @@ import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
-import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
+import MiniHoroscopeCategory from "../../../components/MiniHoroscopeCategory";
 
-export default function Burcdetay({ horoscopeDescriptionData, falData }) {
+export default function Burcdetay({ horoscopeDescriptionData, horoscopeData }) {
   return (
     <div className="burcdetay">
       <div className={classes.burchdr}>
@@ -46,7 +46,10 @@ export default function Burcdetay({ horoscopeDescriptionData, falData }) {
             );
           })}
         <div className={classes.categories}>
-          <MiniCategoryMenu classes={classes} falData={falData} />
+          <MiniHoroscopeCategory
+            classes={classes}
+            horoscopeData={horoscopeData}
+          />
         </div>
       </div>
     </div>
@@ -62,14 +65,17 @@ export async function getServerSideProps(context) {
     }
   );
 
-  const falRes = await fetch(process.env.NEXT_APP_API_URL + `/category/all`, {
-    method: "GET",
-  });
+  const horoscopeRes = await fetch(
+    process.env.NEXT_APP_API_URL + `/horoscope/all`,
+    {
+      method: "GET",
+    }
+  );
 
-  const falData = await falRes.json();
+  const horoscopeData = await horoscopeRes.json();
   const horoscopeDescriptionData = await res.json();
 
-  if (!horoscopeDescriptionData || !falData) {
+  if (!horoscopeDescriptionData || !horoscopeData) {
     return {
       notFound: true,
     };
@@ -78,7 +84,7 @@ export async function getServerSideProps(context) {
   return {
     props: {
       horoscopeDescriptionData: horoscopeDescriptionData.data,
-      falData: falData.data,
+      horoscopeData: horoscopeData.data,
     },
   };
 }

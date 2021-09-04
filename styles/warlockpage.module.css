@@ -46,8 +46,11 @@
   font-size: 20px;
 }
 .cardimg {
-  width: 230px;
-  height: 230px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
   position: relative;
 }
 .star {

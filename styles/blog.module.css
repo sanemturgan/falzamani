@@ -47,30 +47,31 @@
 .blgrght {
   width: 75%;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 .blogcard {
   margin: 15px;
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 90%;
+  width: 40%;
   border-radius: 50px;
   background-color: #281c3b;
 }
 .blgcrdimg {
-  width: 90%;
-  height: 120px;
-  margin: 30px auto;
-  border-radius: 50px;
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
 .altexphdr {
   font-size: 20px;
   display: flex;
-  justify-content: left;
+  justify-content: center;
   width: 90%;
+  text-align: center;
   margin: auto;
   border-bottom: 1px solid #fff;
 }
@@ -88,9 +89,14 @@
 }
 .blgmore {
   padding: 10px 50px;
-  text-align: left;
+  text-align: center;
   color: #1cd42e;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .categories {
   width: 25%;
@@ -154,15 +160,13 @@
   width: 100%;
 }
 .altimg {
-  margin-top: 15px;
-  width: 200px;
-  height: 120px;
+  margin: 15px;
   position: relative;
 }
 .altcrd {
   width: 200px;
   background-color: #5a4b69;
-  border-radius: 50px;
+  border-radius: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,7 +200,7 @@
   width: 170px;
   height: 200px;
   padding: 5px;
-  border-radius: 20px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -210,9 +214,7 @@
   padding: 5px;
 }
 .btmcrdimg {
-  width: 95%;
-  height: 100px;
-  margin: 30px auto;
+  margin: 10px auto;
 
   position: relative;
 }
@@ -246,10 +248,6 @@
   .altexp {
     font-size: 12px;
   }
-
-  .altimg {
-    padding: 10px;
-  }
 }
 @media screen and (max-width: 700px) {
   .categories {
@@ -258,7 +256,7 @@
   .blgrght {
     width: 100%;
     display: flex;
-    flex-direction: column;
+
     align-items: center;
     justify-content: center;
   }
@@ -268,5 +266,10 @@
   }
   .blghdr {
     margin-top: 50px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .blogcard {
+    width: 100%;
   }
 }

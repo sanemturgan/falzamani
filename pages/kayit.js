@@ -42,6 +42,7 @@ export default function Kayit() {
       email,
       phone: parseInt(phone),
       password,
+      image: "",
     };
 
     await axios
