@@ -31,7 +31,7 @@ import {
 import FileBase64 from "react-file-base64";
 import axios from "axios";
 import Cookies from "universal-cookie";
-export default function BlogEdit({ data }) {
+export default function BlogEdit({ data, adminBlog }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpenAdd,
@@ -40,14 +40,14 @@ export default function BlogEdit({ data }) {
   } = useDisclosure();
   const [title, setTitle] = useState(data.title);
   const [description, setDescription] = useState(data.description);
-  const [image, setImage] = useState(data.image);
+
   const cookies = new Cookies();
   const [files, setFiles] = useState();
 
   const onSubmit = async () => {
     const blogObject = {
       title: title,
-      image: image,
+      image: files.base64,
       description: description,
       id: data.id,
     };
@@ -58,7 +58,10 @@ export default function BlogEdit({ data }) {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        adminBlog();
+      })
       .catch((err) => {
         console.log(err);
       });
@@ -66,6 +69,23 @@ export default function BlogEdit({ data }) {
 
   const getFiles = (files) => {
     setFiles(files);
+  };
+
+  const deleteBlog = async () => {
+    const blogObject = {
+      id: data.id,
+    };
+
+    await axios
+      .delete(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        window.alert("Blog Silindi");
+      })
+      .catch((err) => console.log(err.response.data.error));
   };
 
   return (
@@ -92,7 +112,7 @@ export default function BlogEdit({ data }) {
           <Button
             color="#281c3b"
             border="2px"
-            backgroundColor="inherit"
+            backgroundColor="transparent"
             onClick={() => {
               onOpen();
             }}
@@ -103,7 +123,8 @@ export default function BlogEdit({ data }) {
             color="#281c3b"
             border="2px"
             marginLeft="5px"
-            backgroundColor="inherit"
+            backgroundColor="transparent"
+            onClick={deleteBlog}
           >
             Kaldır
           </Button>

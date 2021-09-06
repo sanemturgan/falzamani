@@ -75,7 +75,7 @@ export default function ADMINLOGIN() {
                 color="#fff"
               />
             </FormControl>
-            <Checkbox defaultIsChecked color="white" s>
+            <Checkbox defaultIsChecked color="white">
               Beni Hatırla
             </Checkbox>
             <div className={classes.gonder}>

@@ -198,8 +198,6 @@
 }
 
 .zdcimg {
-  width: 247px;
-  height: 247px;
   position: relative;
   top: 0;
   z-index: 2;
@@ -261,10 +259,7 @@
   .zodiachdr h3 {
     text-align: center;
   }
-  .zdcimg {
-    width: 217px;
-    height: 217px;
-  }
+
   .zdcrd {
     border-radius: 34px;
     width: 214px;

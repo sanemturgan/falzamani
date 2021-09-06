@@ -58,6 +58,7 @@ function AdminBlog() {
                 <BlogEdit
                   key={index}
                   data={data}
+                  adminBlog={adminBlog}
                   onSubmit={(e) => onUpdateBlog(e, data.id)}
                 />
               );

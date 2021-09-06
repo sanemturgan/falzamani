@@ -132,7 +132,7 @@ function AdminDanisman() {
               </Link>
             </li>
             <li className={classes.flt}>
-              <Link href="/danisman">
+              <Link href="/adminblog">
                 <a>Blog Düzenle</a>
               </Link>
             </li>
