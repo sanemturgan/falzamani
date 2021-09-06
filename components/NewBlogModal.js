@@ -39,7 +39,7 @@ import {
   FaSortDown,
   FaPlusCircle,
 } from "react-icons/fa";
-export default function NewBlogModal({ onSubmit }) {
+export default function NewBlogModal() {
   const {
     isOpen: isOpenAdd,
     onOpen: onOpenAdd,
@@ -48,27 +48,41 @@ export default function NewBlogModal({ onSubmit }) {
   const cookies = new Cookies();
   const [title, setTitle] = useState("Başlık Ekleyin");
   const [description, setDescription] = useState("Açıklama Ekleyin");
-  const [image, setImage] = useState("Fotoğraf Ekleyin");
-
   const [files, setFiles] = useState();
 
   const getFiles = (files) => {
     setFiles(files);
-    axios
-      .put(
-        process.env.REACT_APP_CLIENT_API_URL + "/blog/image",
-        { image: files.base64 },
-        {
-          headers: {
-            Authorization: `${cookies.get("jwt")}`,
-          },
-        }
-      )
-
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err.response.data.error));
   };
 
+  const onSubmit = async () => {
+    const blogObject = {
+      title: title,
+      image: files.base64,
+      description: description,
+    };
+
+    await axios
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        if (res.data.status === 200) {
+          window.alert("Blog Eklendi");
+        }
+        console.log(res);
+      })
+      .catch((err) => {
+        if (err.response.data) {
+          window.alert(err.response.data.error);
+        }
+
+        console.log(err.response.data.error);
+      });
+  };
+
+  console.log(files);
   return (
     <div className={classes.warlockAdvert}>
       <div className={classes.options}>
@@ -101,12 +115,14 @@ export default function NewBlogModal({ onSubmit }) {
                   <FormLabel>Blog Fotoğraf</FormLabel>
                   <FileBase64 onDone={getFiles} />
 
-                  <Image
-                    src={files?.base64}
-                    alt="dty"
-                    objectFit="cover"
-                    layout="fill"
-                  />
+                  {files && (
+                    <Image
+                      src={files?.base64}
+                      alt="dty"
+                      objectFit="cover"
+                      layout="fill"
+                    />
+                  )}
                 </ModalBody>
 
                 <ModalFooter>
@@ -116,7 +132,7 @@ export default function NewBlogModal({ onSubmit }) {
 
                   <Button
                     onClick={() => {
-                      onSubmit({ title, description, image });
+                      onSubmit();
                       onCloseAdd();
                     }}
                     colorScheme="green"

@@ -7,6 +7,7 @@ import axios from "axios";
 import Cookies from "universal-cookie";
 import { FaUserAlt } from "react-icons/fa";
 import FileBase64 from "react-file-base64";
+import withAdmin from "../../HOC/withAdmin";
 function AdminDanisman() {
   const cookies = new Cookies();
   const [warlock, setWarlock] = useState([]);

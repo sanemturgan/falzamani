@@ -22,33 +22,6 @@ function AdminBlog() {
   const [blogs, setBlogs] = useState([]);
   const cookies = new Cookies();
 
-  const onAddBlog = async (object) => {
-    const blogObject = {
-      title: object.title,
-      image: object.image,
-      description: object.description,
-    };
-
-    await axios
-      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
-        headers: {
-          Authorization: `${cookies.get("jwt")}`,
-        },
-      })
-      .then((res) => {
-        if (res.data.status === 200) {
-          window.alert("Blog Eklendi");
-        }
-        console.log(res);
-      })
-      .catch((err) => {
-        if (err.response.data) {
-          window.alert(err.response.data.error);
-        }
-
-        console.log(err.response.data.error);
-      });
-  };
   const adminBlog = async () => {
     await axios
       .get(process.env.REACT_APP_CLIENT_API_URL + `/blog/all`, {
@@ -67,21 +40,6 @@ function AdminBlog() {
     }
     adminBlog();
   }, []);
-  const onUpdateBlog = async (object) => {
-    const blogObject = {
-      title: object.title,
-      image: object.image,
-      description: object.description,
-    };
-
-    await axios
-      .put(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
-        headers: {
-          Authorization: `${cookies.get("jwt")}`,
-        },
-      })
-      .then((res) => console.log(res));
-  };
 
   return (
     <div className="adminblog">
@@ -90,11 +48,12 @@ function AdminBlog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <NewBlogModal onSubmit={onAddBlog} />
+          <NewBlogModal />
         </div>
         <div className={classes.options}>
           {blogs.length > 0 &&
             blogs.map((data, index) => {
+              console.log(data);
               return (
                 <BlogEdit
                   key={index}

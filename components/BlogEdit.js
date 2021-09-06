@@ -31,7 +31,7 @@ import {
 import FileBase64 from "react-file-base64";
 import axios from "axios";
 import Cookies from "universal-cookie";
-export default function BlogEdit({ data, onSubmit }) {
+export default function BlogEdit({ data }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpenAdd,
@@ -44,21 +44,28 @@ export default function BlogEdit({ data, onSubmit }) {
   const cookies = new Cookies();
   const [files, setFiles] = useState();
 
+  const onSubmit = async () => {
+    const blogObject = {
+      title: title,
+      image: image,
+      description: description,
+      id: data.id,
+    };
+
+    await axios
+      .put(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => console.log(res))
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   const getFiles = (files) => {
     setFiles(files);
-    axios
-      .put(
-        process.env.REACT_APP_CLIENT_API_URL + "/blog/image",
-        { image: files.base64 },
-        {
-          headers: {
-            Authorization: `${cookies.get("jwt")}`,
-          },
-        }
-      )
-
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err.response.data.error));
   };
 
   return (
@@ -116,23 +123,22 @@ export default function BlogEdit({ data, onSubmit }) {
                 <FormLabel>Blog Resim</FormLabel>
                 <FileBase64 onDone={getFiles} />
 
-                <Image
-                  src={files?.base64}
-                  alt="dty"
-                  objectFit="cover"
-                  layout="fill"
-                />
+                {data.image && (
+                  <Image
+                    src={files?.base64 || data.image}
+                    alt="dty"
+                    objectFit="cover"
+                    layout="fill"
+                  />
+                )}
               </ModalBody>
 
               <ModalFooter>
-                <Button colorScheme="red" variant="ghost">
-                  Sil
-                </Button>
                 <Button
                   colorScheme="green"
                   variant="ghost"
                   onClick={() => {
-                    onSubmit({ title, description, image });
+                    onSubmit();
                     onClose();
                   }}
                 >

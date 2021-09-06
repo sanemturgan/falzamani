@@ -172,9 +172,6 @@ function WarlockPage() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err.response.data.error));
   };
-
-  console.log(files);
-  console.log(warlockData);
   return (
     warlockData && (
       <div className="WarlockPage">
