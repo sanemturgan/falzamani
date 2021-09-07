@@ -61,7 +61,7 @@ function Adminpage() {
     setFiles(files);
     axios
       .put(
-        process.env.REACT_APP_CLIENT_API_URL + "/warlock/image",
+        process.env.REACT_APP_CLIENT_API_URL + "/admin/image",
         { image: files.base64 },
         {
           headers: {
@@ -243,11 +243,7 @@ function Adminpage() {
             </li>
             <li className={classes.flt}>
               <div className={classes.exit}>
-                <Link href="/adminlogin">
-                  <a>
-                    <button onClick={logOut}>Çıkış Yap</button>
-                  </a>
-                </Link>
+                <button onClick={logOut}>Çıkış Yap</button>
               </div>
             </li>
           </ul>
