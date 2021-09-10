@@ -46,7 +46,6 @@ function AdminDanisman() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err.response.data.error));
   };
-  console.log(warlock);
 
   return (
     <div className="danisman">

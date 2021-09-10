@@ -42,8 +42,8 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                       alt="blog"
                       objectFit="cover"
                       layout="fill"
-                      borderRadius="40px"
-                      htmlWidth="220px"
+                      borderRadius="40px 40px 0 0"
+                      boxSize="356px"
                     />
                   </div>
                   <div className={classes.altexphdr}>

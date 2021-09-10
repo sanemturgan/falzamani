@@ -94,7 +94,7 @@ export default function Kayit() {
                   className={classes.customer}
                   style={{ color: "white", cursor: "pointer" }}
                 >
-                  Danışman Girişi
+                  Danışan Olarak Kayıt Olun
                 </div>
               </Radio>
               <Radio colorScheme="purple" value="2">
@@ -102,7 +102,7 @@ export default function Kayit() {
                   className={classes.warlock}
                   style={{ color: "white", cursor: "pointer" }}
                 >
-                  Falcı Girişi
+                  Danışman Olarak Kayıt Olun
                 </div>
               </Radio>
             </Stack>

@@ -82,7 +82,6 @@ export default function NewBlogModal() {
       });
   };
 
-  console.log(files);
   return (
     <div className={classes.warlockAdvert}>
       <div className={classes.options}>
