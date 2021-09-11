@@ -33,6 +33,14 @@ export default function Navbar() {
   });
   const [category, setCategory] = useState([]);
 
+  // Dropdown Menu2
+  const menuRef2 = useRef();
+  const [menuIsOpen2, setOpenMenu2] = useState(false);
+
+  useOutSideClick(menuRef2, () => {
+    setOpenMenu2(false);
+  });
+
   useEffect(() => {
     async function fetchData() {
       await axios
@@ -76,10 +84,10 @@ export default function Navbar() {
           </Link>
         </li>
         {/*  Dropdown Menu  */}
-        <li ref={menuRef} onClick={() => setOpenMenu(!menuIsOpen)}>
+        <li ref={menuRef2} onClick={() => setOpenMenu2(!menuIsOpen2)}>
           Fal Türleri
-          <FaAngleDown color="#140731" size="16px" />
-          {menuIsOpen && (
+          <FaAngleDown color="#140731" size="14px" />
+          {menuIsOpen2 && (
             <div className={classes.navbarDropdownMenu}>
               <ul className={classes.dropdownmenu}>
                 {category.map((data, index) => (

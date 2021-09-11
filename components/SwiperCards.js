@@ -14,7 +14,7 @@ export default function MiniCategoryMenu({ blogData, classes }) {
           objectFit="cover"
           layout="fill"
           borderRadius="24px"
-          htmlWidth="200px"
+          boxSize="160px"
         />
       </div>
       <div className={classes.altexp}>

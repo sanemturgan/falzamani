@@ -29,7 +29,6 @@ export default function ChangePassword() {
         // console.log(err.rresponse.data.error);
         window.alert(err.response.data.error);
       });
-    console.log(userObject);
   };
   return (
     <div className="ChangePassword">

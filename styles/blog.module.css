@@ -59,7 +59,7 @@
   background-color: #281c3b;
 }
 .blgcrdimg {
-  margin: 20px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,6 +68,7 @@
 
 .altexphdr {
   font-size: 20px;
+  padding: 10px;
   display: flex;
   justify-content: center;
   width: 90%;
@@ -160,7 +161,11 @@
   width: 100%;
 }
 .altimg {
-  margin: 15px;
+  display: flex;
+  padding: 15px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 .altcrd {
@@ -179,6 +184,11 @@
   text-align: center;
   margin-bottom: 20px;
   padding: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .rghtbtm {
   display: flex;

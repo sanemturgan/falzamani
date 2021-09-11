@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import Cookies from "universal-cookie";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
@@ -10,11 +9,10 @@ const withWarlock = (Component) => {
   const Auth = (props) => {
     const cookies = new Cookies();
     const router = useRouter();
-
     if (
       cookies.get("jwt") === undefined ||
-      cookies.get("userData").role === "CUSTOMER" ||
-      cookies.get("userData").role === "ADMIN"
+      cookies.get("userData").role === "ADMIN" ||
+      cookies.get("userData").role === "CUSTOMER"
     ) {
       return <ReDirectLoader />;
     }

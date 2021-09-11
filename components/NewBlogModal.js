@@ -83,7 +83,6 @@ export default function NewBlogModal({ adminBlog }) {
       });
   };
 
-  console.log(files);
   return (
     <div className={classes.warlockAdvert}>
       <div className={classes.options}>

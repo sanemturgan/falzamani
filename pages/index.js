@@ -90,7 +90,6 @@ function HomePage({ warlockData, horoscopeData }) {
         >
           {warlockData.length > 0 &&
             warlockData.map((data, index) => {
-              console.log(warlockData);
               return (
                 <SwiperSlide key={index}>
                   <div className={classes.cardMain}>

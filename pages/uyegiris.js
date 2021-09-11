@@ -27,8 +27,6 @@ export default function UyeGiris() {
     }
   }, []);
 
-  console.log(customer);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     let userObject = {

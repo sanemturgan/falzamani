@@ -82,7 +82,9 @@ function Userpage() {
   const logOut = () => {
     cookies.remove("jwt");
     cookies.remove("userData");
-    router.replace("/uyegiris");
+    setTimeout(() => {
+      router.replace("/uyegiris");
+    }, 500);
   };
 
   return (

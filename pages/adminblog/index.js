@@ -53,7 +53,6 @@ function AdminBlog() {
         <div className={classes.options}>
           {blogs.length > 0 &&
             blogs.map((data, index) => {
-              console.log(data);
               return (
                 <BlogEdit
                   key={index}

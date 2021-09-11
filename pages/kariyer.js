@@ -23,7 +23,6 @@ export default function Kariyer() {
       email,
       text,
     };
-    console.log(userObject);
   };
 
   return (
