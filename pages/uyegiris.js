@@ -21,11 +21,11 @@ export default function UyeGiris() {
   const [customer, setCustomer] = useState(true);
   const router = useRouter();
   const cookies = new Cookies();
-  // useEffect(() => {
-  //   if (cookies.get("jwt")) {
-  //     router.replace("/");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (cookies.get("jwt")) {
+      router.replace("/");
+    }
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -54,7 +54,7 @@ export default function UyeGiris() {
         ) {
           window.alert("Giriş Yapıldı");
           setTimeout(() => {
-            // router.replace(customer ? "/userpage" : "/warlockpage");
+            router.replace(customer ? "/userpage" : "/warlockpage");
           }, 500);
         }
       })

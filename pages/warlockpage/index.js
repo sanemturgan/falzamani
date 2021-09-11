@@ -77,7 +77,10 @@ function WarlockPage() {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch((err) => {
+        window.alert(err.response.data.error);
+      });
   };
 
   const onUpdateGig = async (object, id) => {
@@ -173,99 +176,100 @@ function WarlockPage() {
       .catch((err) => console.log(err.response.data.error));
   };
   return (
-    warlockData && (
-      <div className="WarlockPage">
-        <div className={classes.uzmanhdr}>
-          <h4>FALCI PANELİM</h4>
-        </div>
-        <div className={classes.uzmangenel}>
-          <div className={classes.uzmantop}>
-            <div className={classes.ustbir}>
-              <div className={classes.cardimg}>
-                <FileBase64 onDone={getFiles} />
-                {warlockData.image ? (
-                  <Image
-                    src={files?.base64 || warlockData.image}
-                    alt="dty"
-                    objectFit="contain"
-                    layout="fill"
-                    borderRadius="full"
-                    boxSize="150px"
-                  />
-                ) : (
-                  <FaUserAlt fontSize="90px" />
-                )}
-              </div>
-              <h5>{warlockData.name}</h5>
-              <div className={classes.status}>(ONAYLI HESAP)</div>
-              <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
-              <div className={classes.exit}>
-                <Link href="/uyegiris">
-                  <a>
-                    <button onClick={logOut}>Çıkış Yap</button>
-                  </a>
-                </Link>
-              </div>
+    <div className="WarlockPage">
+      <div className={classes.uzmanhdr}>
+        <h4>FALCI PANELİM</h4>
+      </div>
+      <div className={classes.uzmangenel}>
+        <div className={classes.uzmantop}>
+          <div className={classes.ustbir}>
+            <div className={classes.cardimg}>
+              <FileBase64 onDone={getFiles} />
+              {warlockData.image ? (
+                <Image
+                  src={files?.base64 || warlockData.image}
+                  alt="dty"
+                  objectFit="contain"
+                  layout="fill"
+                  borderRadius="full"
+                  boxSize="150px"
+                />
+              ) : (
+                <FaUserAlt fontSize="90px" />
+              )}
+            </div>
+            <h5>{warlockData.name}</h5>
+            <div className={classes.status}>(ONAYLI HESAP)</div>
+            <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
+            <div className={classes.exit}>
+              <Link href="/uyegiris">
+                <a>
+                  <button onClick={logOut}>Çıkış Yap</button>
+                </a>
+              </Link>
+            </div>
 
-              <div className={classes.ustiki}>
-                <div className={classes.radio}>
-                  <RadioGroup
-                    onChange={(e) => onUpdateStatus(e)}
-                    value={radioValue}
-                  >
-                    <Stack direction="row" wrap="wrap" justifyContent="center">
-                      <Radio value="çevrimiçi" size="sm">
-                        Çevrimiçi
-                      </Radio>
-                      <Radio value="çevrimdışı" size="sm">
-                        Çevrimdışı
-                      </Radio>
-                      <Radio value="meşgul" size="sm">
-                        Meşgul
-                      </Radio>
-                    </Stack>
-                  </RadioGroup>
-                </div>
-                <div className={classes.exp}>
+            <div className={classes.ustiki}>
+              <div className={classes.radio}>
+                <RadioGroup
+                  onChange={(e) => onUpdateStatus(e)}
+                  value={radioValue}
+                >
+                  <Stack direction="row" wrap="wrap" justifyContent="center">
+                    <Radio value="çevrimiçi" size="sm">
+                      Çevrimiçi
+                    </Radio>
+                    <Radio value="çevrimdışı" size="sm">
+                      Çevrimdışı
+                    </Radio>
+                    <Radio value="meşgul" size="sm">
+                      Meşgul
+                    </Radio>
+                  </Stack>
+                </RadioGroup>
+              </div>
+              <div className={classes.exp}>
+                {warlockData && (
                   <GigEditable
                     onSubmit={onUptadeAbout}
                     value={warlockData.about}
                   />
-                </div>
-                <NewGigModal onSubmit={onAddGig} />
+                )}
               </div>
+              <NewGigModal onSubmit={onAddGig} />
             </div>
           </div>
+        </div>
 
-          <div className={classes.uzmanmid}>
-            <div className={classes.options}>
-              {gigs.length > 0 &&
-                gigs.map((data, index) => {
-                  return (
-                    <NewgGigEdit
-                      key={index}
-                      data={data}
-                      onSubmit={(e) => onUpdateGig(e, data.id)}
-                    />
-                  );
-                })}
-            </div>
+        <div className={classes.uzmanmid}>
+          <div className={classes.options}>
+            {gigs &&
+              gigs.map((data, index) => {
+                return (
+                  <NewgGigEdit
+                    key={index}
+                    data={data}
+                    onSubmit={(e) => onUpdateGig(e, data.id)}
+                  />
+                );
+              })}
           </div>
-          <div className={classes.uzmanbtm}>
-            <div className={classes.btmhdr}>
-              <h4>FALCI YORUMLARI</h4>
-            </div>
-            <div className={classes.comments}>
-              {warlockData.Gig.map((data, index) => {
+        </div>
+        <div className={classes.uzmanbtm}>
+          <div className={classes.btmhdr}>
+            <h4>FALCI YORUMLARI</h4>
+          </div>
+          <div className={classes.comments}>
+            {warlockData &&
+              warlockData.Gig.map((data, index) => {
                 return data.Comment.map((commentData, index) => {
                   return <Comment key={index} data={commentData} />;
                 });
               })}
-            </div>
           </div>
         </div>
       </div>
-    )
+    </div>
   );
 }
 
