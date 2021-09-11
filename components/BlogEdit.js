@@ -47,7 +47,7 @@ export default function BlogEdit({ data, adminBlog }) {
   const onSubmit = async () => {
     const blogObject = {
       title: title,
-      image: files.base64,
+      image: files?.base64 || data.image,
       description: description,
       id: data.id,
     };
@@ -84,8 +84,12 @@ export default function BlogEdit({ data, adminBlog }) {
       })
       .then((res) => {
         window.alert("Blog Silindi");
+
+        console.log(res);
       })
-      .catch((err) => console.log(err.response.data.error));
+      .catch((err) => {
+        console.log(err.response.data.error);
+      });
   };
 
   return (

@@ -48,7 +48,7 @@ function AdminBlog() {
       </div>
       <div className={classes.blogadmin}>
         <div className={classes.blogform}>
-          <NewBlogModal />
+          <NewBlogModal adminBlog={adminBlog} />
         </div>
         <div className={classes.options}>
           {blogs.length > 0 &&

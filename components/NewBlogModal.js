@@ -39,7 +39,7 @@ import {
   FaSortDown,
   FaPlusCircle,
 } from "react-icons/fa";
-export default function NewBlogModal() {
+export default function NewBlogModal({ adminBlog }) {
   const {
     isOpen: isOpenAdd,
     onOpen: onOpenAdd,
@@ -72,6 +72,7 @@ export default function NewBlogModal() {
           window.alert("Blog Eklendi");
         }
         console.log(res);
+        adminBlog();
       })
       .catch((err) => {
         if (err.response.data) {
