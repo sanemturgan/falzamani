@@ -114,7 +114,6 @@ export default function NewBlogModal({ adminBlog }) {
                   />
                   <FormLabel>Blog Fotoğraf</FormLabel>
                   <FileBase64 onDone={getFiles} />
-
                   {files && (
                     <Image
                       src={files?.base64}

@@ -8,9 +8,11 @@ import Cookies from "universal-cookie";
 import { FaUserAlt } from "react-icons/fa";
 import FileBase64 from "react-file-base64";
 import withAdmin from "../../HOC/withAdmin";
+import Verified from "../../components/Verified";
 function AdminDanisman() {
   const cookies = new Cookies();
   const [warlock, setWarlock] = useState([]);
+
   const adminWarlock = async () => {
     await axios
       .get(process.env.REACT_APP_CLIENT_API_URL + `/warlock/all`, {
@@ -43,7 +45,28 @@ function AdminDanisman() {
         }
       )
 
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        adminWarlock();
+      })
+      .catch((err) => console.log(err.response.data.error));
+  };
+
+  const deleteUser = async (id) => {
+    await axios
+      .delete(
+        process.env.REACT_APP_CLIENT_API_URL + "/admin",
+        { id: 75 },
+        {
+          headers: {
+            Authorization: `${cookies.get("jwt")}`,
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        adminWarlock();
+      })
       .catch((err) => console.log(err.response.data.error));
   };
 
@@ -99,25 +122,20 @@ function AdminDanisman() {
                       </Link>
                     </div>
                     <div className={classes.cardbtn}>
-                      <button className={classes.deleteWarlock}>
+                      <button
+                        onClick={() => {
+                          deleteUser(data.id);
+                        }}
+                        className={classes.deleteWarlock}
+                      >
                         Üyeyi Sil
                       </button>
                     </div>
-                    <div className={classes.cardbtn}>
-                      <RadioGroup defaultValue="1">
-                        <Stack spacing={1} color="white">
-                          <Radio value="1" isDisabled size="sm">
-                            Onay Bekliyor
-                          </Radio>
-                          <Radio value="2" size="sm">
-                            Onayla
-                          </Radio>
-                          <Radio value="3" size="sm">
-                            Reddet
-                          </Radio>
-                        </Stack>
-                      </RadioGroup>
-                    </div>
+                    {data.verified ? (
+                      <span style={{ color: "white" }}>ONAYLANDI</span>
+                    ) : (
+                      <Verified data={data} adminWarlock={adminWarlock} />
+                    )}
                   </div>
                 );
               })}

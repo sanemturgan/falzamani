@@ -110,7 +110,7 @@ function Adminpage() {
         <div className={classes.admininfo}>
           <div className={classes.adminImage}>
             <FileBase64 onDone={getFiles} />
-            {adminInfo.image ? (
+            {files?.base64 || adminInfo.image ? (
               <Image
                 src={files?.base64 || adminInfo.image}
                 alt="dty"

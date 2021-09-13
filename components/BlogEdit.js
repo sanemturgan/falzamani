@@ -101,7 +101,7 @@ export default function BlogEdit({ data, adminBlog }) {
         <div className={classes.opexp}>
           <p>
             <Image
-              src={data.image}
+              src={files?.base64 || data.image}
               alt="dty"
               objectFit="cover"
               layout="fill"
@@ -147,7 +147,6 @@ export default function BlogEdit({ data, adminBlog }) {
                 />
                 <FormLabel>Blog Resim</FormLabel>
                 <FileBase64 onDone={getFiles} />
-
                 {data.image && (
                   <Image
                     src={files?.base64 || data.image}
