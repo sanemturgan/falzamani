@@ -8,7 +8,7 @@ import Cookies from "universal-cookie";
 import { FaUserAlt } from "react-icons/fa";
 import FileBase64 from "react-file-base64";
 import withAdmin from "../../HOC/withAdmin";
-import Verified from "../../components/Verified";
+import WarlockCard from "../../components/WarlockCard";
 function AdminDanisman() {
   const cookies = new Cookies();
   const [warlock, setWarlock] = useState([]);
@@ -53,16 +53,15 @@ function AdminDanisman() {
   };
 
   const deleteUser = async (id) => {
+    const userId = {
+      id: id,
+    };
     await axios
-      .delete(
-        process.env.REACT_APP_CLIENT_API_URL + "/admin",
-        { id: 75 },
-        {
-          headers: {
-            Authorization: `${cookies.get("jwt")}`,
-          },
-        }
-      )
+      .delete(process.env.REACT_APP_CLIENT_API_URL + "/admin", userId, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
       .then((res) => {
         console.log(res);
         adminWarlock();
@@ -79,65 +78,8 @@ function AdminDanisman() {
         <div className={classes.danismanlist}>
           <div className={classes.cardMain}>
             {warlock.length > 0 &&
-              warlock.map((data, index) => {
-                return (
-                  <div key={index} className={classes.card}>
-                    <div className={classes.cardimg}>
-                      {data.image ? (
-                        <Image
-                          src={data.image}
-                          alt="dty"
-                          objectFit="contain"
-                          layout="fill"
-                          borderRadius="full"
-                          boxSize="100px"
-                        />
-                      ) : (
-                        <FaUserAlt fontSize="90px" color="lightgray" />
-                      )}
-                    </div>
-                    <h5>{data.name}</h5>
-                    <h6 className={classes.status}>{data.status}</h6>
-
-                    <p>{data.about}</p>
-                    <div className={classes.crdi}>
-                      <div className={classes.cardicon}>
-                        <Link href={`/uzmanlar/${data.id}`}>
-                          <a></a>
-                        </Link>
-                      </div>
-                      <div className={classes.cardicon}>
-                        <Link href={`/uzmanlar/${data.id}`}>
-                          <a></a>
-                        </Link>
-                      </div>
-                    </div>
-                    <div className={classes.cardbtn}>
-                      <Link href={`/uzmanlar/${data.id}`}>
-                        <a>
-                          <button className={classes.cardgiris}>
-                            Detay Görüntüle
-                          </button>
-                        </a>
-                      </Link>
-                    </div>
-                    <div className={classes.cardbtn}>
-                      <button
-                        onClick={() => {
-                          deleteUser(data.id);
-                        }}
-                        className={classes.deleteWarlock}
-                      >
-                        Üyeyi Sil
-                      </button>
-                    </div>
-                    {data.verified ? (
-                      <span style={{ color: "white" }}>ONAYLANDI</span>
-                    ) : (
-                      <Verified data={data} adminWarlock={adminWarlock} />
-                    )}
-                  </div>
-                );
+              warlock.map((data) => {
+                return <WarlockCard key={data.id} data={data} />;
               })}
           </div>
         </div>

@@ -10,6 +10,7 @@ export default function ADMINLOGIN() {
   const [password, setPassword] = useState("");
   const [rememberMe] = useState(false);
   const router = useRouter();
+  const cookies = new Cookies();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -21,7 +22,6 @@ export default function ADMINLOGIN() {
     await axios
       .post(process.env.REACT_APP_CLIENT_API_URL + `/admin/login`, userObject)
       .then((res) => {
-        const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
         cookies.set("userData", `${res.data.data[0]}`, { maxAge: maxAgeTime });
         if (res.data.status === 200 && cookies.get("jwt")) {
