@@ -48,7 +48,7 @@ export default function Navbar() {
         .then((res) => {
           setCategory(res.data.data);
         })
-        .catch((err) => console.log(err.response.data.error));
+        .catch((err) => console.log(err));
 
       setUserData(cookies.get("userData"));
     }
