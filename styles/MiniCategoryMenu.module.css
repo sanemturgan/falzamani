@@ -9,6 +9,11 @@
   width: 70%;
   border-radius: 50px;
   background-color: #5a4b69;
+  transition: 0.3s;
+}
+.flt :hover {
+  transform: scale(1.12);
+  transition: 0.3s;
 }
 .flt a {
   font-size: 16px;

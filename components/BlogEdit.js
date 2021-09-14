@@ -77,7 +77,7 @@ export default function BlogEdit({ data, adminBlog }) {
     };
 
     await axios
-      .delete(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
         headers: {
           Authorization: `${cookies.get("jwt")}`,
         },

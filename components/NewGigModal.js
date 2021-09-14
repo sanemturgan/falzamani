@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import classes from "../styles/NewGigModal.module.css";
 import GigEditable from "../components/GigEditable";
-
+import axios from "axios";
 import {
   Editable,
   EditableInput,
@@ -25,6 +25,7 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  Select,
   FormLabel,
 } from "@chakra-ui/react";
 
@@ -47,6 +48,21 @@ export default function NewGigModal({ onSubmit }) {
   const [description, setDescription] = useState("Açıklama Ekleyin");
   const [time, setTime] = useState("Seans Süresi Belirleyin");
   const [price, setPrice] = useState("Seans Ücreti Belirleyin");
+  const [category, setCategory] = useState();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      await axios
+        .get(process.env.REACT_APP_CLIENT_API_URL + `/category/all`)
+        .then((res) => {
+          setCategories(res.data.data);
+        })
+        .catch((err) => console.log(err.response.data.error));
+    }
+
+    fetchData();
+  }, []);
 
   return (
     <div className={classes.warlockAdvert}>
@@ -77,6 +93,19 @@ export default function NewGigModal({ onSubmit }) {
                     value={description}
                     onSubmit={(e) => setDescription(e)}
                   />
+                  <FormLabel>İlan Kategorisini Belirleyin</FormLabel>
+                  <Select
+                    onChange={(e) => {
+                      setCategory(e.target.value);
+                    }}
+                    placeholder="Kategori Seçin"
+                  >
+                    {categories.map((data, index) => (
+                      <option key={index} value={data.id}>
+                        {data.name}
+                      </option>
+                    ))}
+                  </Select>
                   <FormLabel>Seans Süresi</FormLabel>
                   <GigEditable value={time} onSubmit={(e) => setTime(e)} />
                   <FormLabel>Seans Ücreti</FormLabel>
@@ -90,7 +119,7 @@ export default function NewGigModal({ onSubmit }) {
 
                   <Button
                     onClick={() => {
-                      onSubmit({ title, description, time, price });
+                      onSubmit({ title, description, time, price, category });
                       onCloseAdd();
                     }}
                     colorScheme="green"

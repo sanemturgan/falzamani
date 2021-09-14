@@ -18,13 +18,12 @@
 .kredi {
   display: flex;
   flex-wrap: wrap;
-  width: 90%;
-  margin: auto;
+  width: 100%;
   align-items: center;
   justify-content: center;
 }
 .kredicar {
-  width: 350px;
+  width: 300px;
 
   border-radius: 50px;
   background: conic-gradient(
@@ -79,9 +78,18 @@
     padding: 5px;
     margin: 2px;
   }
+  .kredicar {
+    width: 250px;
+  }
 }
 @media screen and (max-width: 500px) {
   .kredicar h3 {
     padding: 10px;
+  }
+  .kredicar p {
+    padding: 5px 10px;
+  }
+  .kredicar {
+    width: 200px;
   }
 }

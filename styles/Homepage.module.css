@@ -57,7 +57,8 @@
 .bnrgiris {
   width: 148px;
   height: 54px;
-  background-color: #1cd42e;
+  background-color: #1cd42e9a;
+  transition: 0.3s;
   color: #fff;
   border-radius: 34px;
   border: none;
@@ -66,7 +67,8 @@
   cursor: pointer;
 }
 .bnrgiris:hover {
-  border: 2px solid white;
+  background-color: #1cd42e;
+  transition: 0.3s;
 }
 .snm {
   margin-top: 72px;
@@ -108,8 +110,8 @@
 }
 
 .card {
-  width: 300px;
-  height: 504px;
+  width: 250px;
+  height: 404px;
   background-color: #281c3b;
   border-radius: 50px;
   display: flex;
@@ -126,8 +128,13 @@
 .card p {
   font-size: 18px;
   color: #fff;
-  padding: 15px;
+  padding: 0 15px;
   margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .cardimg {
   position: relative;
@@ -142,7 +149,8 @@
 .cardgiris {
   width: 148px;
   height: 54px;
-  background-color: #1cd42e;
+  background-color: #1cd42e9a;
+  transition: 0.3s;
   color: #fff;
   border-radius: 34px;
   border: none;
@@ -151,11 +159,10 @@
   margin: 10px;
 }
 .cardgiris:hover {
-  border: 2px solid white;
+  background-color: #1cd42e;
+  transition: 0.3s;
 }
-.star {
-  display: flex;
-}
+
 .zodiac {
   display: flex;
   flex-direction: column;
@@ -181,6 +188,11 @@
   justify-content: center;
   text-align: center;
   height: 360px;
+  transition: 0.3s;
+}
+.zdcmain:hover {
+  transform: scale(0.9);
+  transition: 0.3s;
 }
 .bottomSlider {
   width: 100%;
@@ -214,6 +226,7 @@
   justify-content: center;
   cursor: pointer;
 }
+
 .zdcrd a {
   font-size: 20px;
   color: #140731;

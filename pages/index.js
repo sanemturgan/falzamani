@@ -110,14 +110,14 @@ function HomePage({ warlockData, horoscopeData }) {
                       </div>
                       <h5>{data.name}</h5>
                       <h6 className={classes.status}>{data.status}</h6>
-                      <div className={classes.star}>
+                      {/* <div className={classes.star}>
                         <FaStar color="#ECDCF5" size="14px" />
                         <FaStar color="#ECDCF5" size="14px" />
                         <FaStar color="#ECDCF5" size="14px" />
                         <FaStar color="#ECDCF5" size="14px" />
                         <FaStar color="#ECDCF5" size="14px" />
                         {data.rating}
-                      </div>
+                      </div> */}
                       <p>{data.about}</p>
                       <div className={classes.crdi}>
                         <div className={classes.cardicon}>

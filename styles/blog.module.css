@@ -99,6 +99,10 @@
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
+.blgmore a:hover {
+  text-decoration-line: underline;
+}
+
 .categories {
   width: 25%;
   display: flex;
@@ -129,6 +133,7 @@
   border-radius: 40px;
   background-color: #5a4b69;
 }
+
 .altcatalog ul {
   list-style: none;
 }
@@ -177,8 +182,12 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: 0.3s;
 }
-
+.altcrd:hover {
+  transform: scale(1.12);
+  transition: 0.3s;
+}
 .altexp {
   font-size: 16px;
   text-align: center;
@@ -219,6 +228,11 @@
   background-color: #5a4b69;
   margin: 10px;
   cursor: pointer;
+  transition: 0.3s;
+}
+.btmcrd:hover {
+  transform: scale(1.12);
+  transition: 0.3s;
 }
 .btmcrdlink {
   padding: 5px;
