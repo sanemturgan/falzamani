@@ -7,13 +7,15 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-
+import Cookies from "universal-cookie";
 import axios from "axios";
+
 export default function Kariyer() {
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
+  const cookies = new Cookies();
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -23,6 +25,20 @@ export default function Kariyer() {
       email,
       text,
     };
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + "/warlock/career",
+        userObject,
+        {
+          headers: {
+            Authorization: cookies.get("jwt"),
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => console.log(err.response.data.error));
   };
 
   return (
@@ -100,7 +116,9 @@ export default function Kariyer() {
           </FormControl>
 
           <div className={classes.gonder}>
-            <button className={classes.gnd}>Gönder</button>
+            <button type="submit" className={classes.gnd}>
+              Gönder
+            </button>
           </div>
         </form>
       </div>
