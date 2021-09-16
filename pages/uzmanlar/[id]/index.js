@@ -36,14 +36,14 @@ export default function Uzmandetay({ warlockSingleData, gigData }) {
             <h5>{warlockSingleData.name}</h5>
             <h6 className={classes.status}>{warlockSingleData.status}</h6>
 
-            <div className={classes.onlinebtn}>
+            {/* <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="alerts" mb="0" fontSize="14px">
                   Online Olduğunda Bildir
                 </FormLabel>
                 <Switch size="lg" id="alerts" />
               </FormControl>
-            </div>
+            </div> */}
           </div>
           <div className={classes.ustiki}>
             <div className={classes.iletisim}>

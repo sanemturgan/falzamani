@@ -17,7 +17,7 @@ export default function UyeGiris() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [notification, setNotification] = useState();
+
   const [customer, setCustomer] = useState(true);
   const router = useRouter();
   const cookies = new Cookies();

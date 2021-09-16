@@ -26,7 +26,7 @@ function Userpage() {
   const cookies = new Cookies();
   const router = useRouter();
   const [customerInfo, setCustomerInfo] = useState("");
-  const [notification, setNotification] = useState();
+
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [show, setShow] = React.useState(false);
@@ -44,7 +44,7 @@ function Userpage() {
           .then((res) => {
             setCustomerInfo(res.data.data);
           })
-          .catch((err) => setNotification(err.response.data.error));
+          .catch((err) => console.log(err.response.data.error));
       } else {
         router.replace("/uyegiris");
       }
