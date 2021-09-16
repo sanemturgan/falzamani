@@ -35,9 +35,7 @@
 .srchi {
   margin: 0 10px;
 }
-.star {
-  display: flex;
-}
+
 .cardMain {
   display: flex;
   align-items: center;
@@ -70,7 +68,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
 }
 .cardimg {
@@ -88,7 +86,8 @@
 .cardgiris {
   padding: 5px 20px;
   margin-bottom: 15px;
-  background-color: #1cd42e;
+  background-color: #1cd42e9a;
+  transition: 0.3s;
   color: #fff;
   border-radius: 34px;
   border: none;
@@ -96,7 +95,8 @@
   cursor: pointer;
 }
 .cardgiris:hover {
-  border: 2px solid white;
+  background-color: #1cd42e;
+  transition: 0.3s;
 }
 .status {
   margin: 5px;

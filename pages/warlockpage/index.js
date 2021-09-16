@@ -28,20 +28,23 @@ import FileBase64 from "react-file-base64";
 function WarlockPage() {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
-  const [warlockData, setWarlockData] = useState("");
+  const [warlockData, setWarlockData] = useState();
 
-  const warlockGig = async () => {
+  /*const warlockGig = async () => {
     await axios
-      .get(process.env.REACT_APP_CLIENT_API_URL + `/gig/5/all`, {
-        headers: {
-          Authorization: `${cookies.get("userData")}`,
-        },
-      })
+      .get(
+        process.env.REACT_APP_CLIENT_API_URL + `/gig/${warlockData?.id}/all`,
+        {
+          headers: {
+            Authorization: `${cookies.get("userData")}`,
+          },
+        }
+      )
       .then((res) => {
         setGigs(res.data.data);
       })
       .catch((err) => console.log(err));
-  };
+  };*/
 
   const getWarlock = async () => {
     await axios
@@ -50,7 +53,18 @@ function WarlockPage() {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
-      .then((res) => setWarlockData(res.data.data))
+      .then(async (res) => {
+        setWarlockData(res.data.data);
+        await axios
+          .get(
+            process.env.REACT_APP_CLIENT_API_URL +
+              `/gig/${res.data.data.id}/all`
+          )
+          .then((res) => {
+            setGigs(res.data.data);
+          })
+          .catch((err) => console.log(err));
+      })
       .catch((err) => console.log(err));
   };
 
@@ -59,7 +73,6 @@ function WarlockPage() {
       router.replace("/uyegiris");
     }
     getWarlock();
-    warlockGig();
   }, []);
 
   const onAddGig = async (object) => {
@@ -68,7 +81,7 @@ function WarlockPage() {
       price: parseInt(object.price),
       title: object.title,
       duration: object.time,
-      categoryId: 5,
+      categoryId: parseInt(object.category),
     };
 
     await axios
@@ -130,7 +143,7 @@ function WarlockPage() {
       .then((res) => console.log(res));
   };
 
-  const [radioValue, setRadioValue] = useState(warlockData.status);
+  const [radioValue, setRadioValue] = useState(warlockData?.status);
   const EditableControls = () => {
     const {
       isEditing,
@@ -185,7 +198,7 @@ function WarlockPage() {
           <div className={classes.ustbir}>
             <div className={classes.cardimg}>
               <FileBase64 onDone={getFiles} />
-              {warlockData.image ? (
+              {warlockData?.image ? (
                 <Image
                   src={files?.base64 || warlockData.image}
                   alt="dty"
@@ -198,7 +211,7 @@ function WarlockPage() {
                 <FaUserAlt fontSize="90px" />
               )}
             </div>
-            <h5>{warlockData.name}</h5>
+            <h5>{warlockData?.name}</h5>
             <div className={classes.status}>(ONAYLI HESAP)</div>
             <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
             <div className={classes.exit}>

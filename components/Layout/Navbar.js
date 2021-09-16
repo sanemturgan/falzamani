@@ -136,6 +136,12 @@ export default function Navbar() {
                   </a>
                 </Link>
               </div>
+            </>
+          )}
+        </li>
+        <li>
+          {!cookies.get("jwt") && (
+            <>
               <div className={classes.giris}>
                 <Link href="/kayit">
                   <a>

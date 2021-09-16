@@ -47,6 +47,9 @@
   font-size: 20px;
 }
 .cardimg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   padding: 5px;
 }
@@ -334,4 +337,15 @@
   }
 }
 @media screen and (max-width: 460px) {
+  .iletisim {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .cardicon {
+    border-bottom: none;
+  }
+  .faldty {
+    flex-wrap: wrap;
+  }
 }
