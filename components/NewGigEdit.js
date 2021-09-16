@@ -27,8 +27,9 @@ import {
   Stack,
   FormLabel,
 } from "@chakra-ui/react";
-
-export default function NewGigEdit({ data, onSubmit }) {
+import axios from "axios";
+import Cookies from "universal-cookie";
+export default function NewGigEdit({ data, onSubmit, getWarlock }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
     isOpen: isOpenAdd,
@@ -39,6 +40,25 @@ export default function NewGigEdit({ data, onSubmit }) {
   const [description, setDescription] = useState(data.description);
   const [time, setTime] = useState(data.duration);
   const [price, setPrice] = useState(data.price);
+  const cookies = new Cookies();
+
+  const deleteGig = async (id) => {
+    const gigId = {
+      id: id,
+    };
+    await axios
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/gig/delete", gigId, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        getWarlock();
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     data && (
       <div className={classes.option}>
@@ -85,7 +105,14 @@ export default function NewGigEdit({ data, onSubmit }) {
               </ModalBody>
 
               <ModalFooter>
-                <Button colorScheme="red" variant="ghost">
+                <Button
+                  colorScheme="red"
+                  variant="ghost"
+                  onClick={() => {
+                    deleteGig(data.id);
+                    onClose();
+                  }}
+                >
                   Sil
                 </Button>
                 <Button

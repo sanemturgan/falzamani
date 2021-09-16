@@ -47,7 +47,7 @@ function Adminpage() {
           .then((res) => {
             setAdminInfo(res.data.data);
           })
-          .catch((err) => setNotification(err.response.data.error));
+          .catch((err) => console.log(err.response.data.error));
       } else {
         router.replace("/");
       }
