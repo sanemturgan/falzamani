@@ -15,19 +15,9 @@ function Footer() {
   return (
     <div className={classes.footer}>
       <div className={classes.socialicons}>
-        <Link href="/instagram">
+        <Link href="https://www.instagram.com/falll_zamani/?hl=tr">
           <a>
             <FaInstagram color="#ECDCF5" size="30px" />
-          </a>
-        </Link>
-        <Link href="/facebook">
-          <a>
-            <FaFacebookSquare color="#ECDCF5" size="30px" />
-          </a>
-        </Link>
-        <Link href="/linkedin">
-          <a>
-            <FaLinkedin color="#ECDCF5" size="30px" />
           </a>
         </Link>
       </div>
