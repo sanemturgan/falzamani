@@ -12,7 +12,7 @@ import Link from "next/link";
 
 SwiperCore.use([Navigation, A11y]);
 
-function HomePage({ warlockData, horoscopeData }) {
+const HomePage = ({ warlockData, horoscopeData }) => {
   const [arrows, setArrows] = useState(true);
   useEffect(() => {
     if (window) {
@@ -190,10 +190,8 @@ function HomePage({ warlockData, horoscopeData }) {
       </div>
     </div>
   );
-}
+};
 export async function getServerSideProps() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos/1");
-  const data = await res.json();
   const warlockRes = await fetch(
     process.env.NEXT_APP_API_URL + `/warlock/all`,
     {
@@ -211,7 +209,7 @@ export async function getServerSideProps() {
 
   const horoscopeData = await horoscopeRes.json();
 
-  if (!data || !warlockData || !horoscopeData) {
+  if (!warlockData || !horoscopeData) {
     return {
       notFound: true,
     };
@@ -219,7 +217,6 @@ export async function getServerSideProps() {
 
   return {
     props: {
-      data, // will be passed to the page component as props
       warlockData: warlockData.data,
       horoscopeData: horoscopeData.data,
     },
