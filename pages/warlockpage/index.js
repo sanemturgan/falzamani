@@ -90,7 +90,10 @@ function WarlockPage() {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
-      .then((res) => console.log(res))
+      .then((res) => {
+        console.log(res);
+        getWarlock();
+      })
       .catch((err) => {
         window.alert(err.response.data.error);
       });
@@ -144,6 +147,7 @@ function WarlockPage() {
   };
 
   const [radioValue, setRadioValue] = useState(warlockData?.status);
+  console.log(warlockData?.status);
   const EditableControls = () => {
     const {
       isEditing,
