@@ -8,16 +8,40 @@ import {
   NumberInput,
   NumberInputField,
 } from "@chakra-ui/react";
-
+import Cookies from "universal-cookie";
+import axios from "axios";
 export default function Bizeulasin() {
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
-
   const [text, setText] = useState("");
+  const [phone, setPhone] = useState("");
+  const cookies = new Cookies();
+
   const onSubmit = async (e) => {
     e.preventDefault();
+    let userObject = {
+      name,
+      surname,
+      phone,
+      email,
+      text,
+    };
+    await axios
+      .post(
+        process.env.REACT_APP_CLIENT_API_URL + "/contactUs/career",
+        userObject,
+        {
+          headers: {
+            Authorization: cookies.get("jwt"),
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        window.alert("Mesajınız Gönderildi..");
+      })
+      .catch((err) => console.log(err.response.data.error));
   };
   return (
     <div className="bizeulasin">
@@ -105,14 +129,14 @@ export default function Bizeulasin() {
                 setText(e.target.value);
               }}
               value={text}
-              placeholder="ad"
+              placeholder="Mesajınız"
               color="#fff"
               size="lg"
             />
           </FormControl>
 
           <div className={classes.gonder}>
-            <button mt="16px" type="send" className={classes.gnd}>
+            <button mt="16px" type="submit" className={classes.gnd}>
               Gönder
             </button>
           </div>

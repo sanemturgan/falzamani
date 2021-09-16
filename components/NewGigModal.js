@@ -3,16 +3,6 @@ import classes from "../styles/NewGigModal.module.css";
 import GigEditable from "../components/GigEditable";
 import axios from "axios";
 import {
-  Editable,
-  EditableInput,
-  EditablePreview,
-  ButtonGroup,
-  Flex,
-  EditIcon,
-  IconButton,
-  CheckIcon,
-  useEditableControls,
-  CloseIcon,
   Button,
   Modal,
   useDisclosure,
@@ -29,14 +19,7 @@ import {
   FormLabel,
 } from "@chakra-ui/react";
 
-import {
-  FaPhoneAlt,
-  FaStar,
-  FaEnvelope,
-  FaSearch,
-  FaSortDown,
-  FaPlusCircle,
-} from "react-icons/fa";
+import { FaPlusCircle } from "react-icons/fa";
 export default function NewGigModal({ onSubmit }) {
   const {
     isOpen: isOpenAdd,

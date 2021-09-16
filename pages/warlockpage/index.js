@@ -30,22 +30,6 @@ function WarlockPage() {
   const [gigs, setGigs] = useState([]);
   const [warlockData, setWarlockData] = useState();
 
-  /*const warlockGig = async () => {
-    await axios
-      .get(
-        process.env.REACT_APP_CLIENT_API_URL + `/gig/${warlockData?.id}/all`,
-        {
-          headers: {
-            Authorization: `${cookies.get("userData")}`,
-          },
-        }
-      )
-      .then((res) => {
-        setGigs(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  };*/
-
   const getWarlock = async () => {
     await axios
       .get(process.env.REACT_APP_CLIENT_API_URL + `/warlock/me`, {
@@ -111,7 +95,10 @@ function WarlockPage() {
           Authorization: `${cookies.get("jwt")}`,
         },
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        getWarlock();
+      });
   };
 
   const onUpdateStatus = async (value) => {
@@ -263,6 +250,7 @@ function WarlockPage() {
                     key={index}
                     data={data}
                     onSubmit={(e) => onUpdateGig(e, data.id)}
+                    getWarlock={getWarlock}
                   />
                 );
               })}

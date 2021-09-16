@@ -17,11 +17,12 @@ export default function WarlockCard({ data }) {
     await axios
       .post(process.env.REACT_APP_CLIENT_API_URL + "/admin", userId, {
         headers: {
-          Authorization: cookies.get("jwt"),
+          Authorization: `${cookies.get("jwt")}`,
         },
       })
       .then((res) => {
         console.log(res);
+        adminWarlock();
       })
       .catch((err) => console.log(err.response.data.error));
   };
