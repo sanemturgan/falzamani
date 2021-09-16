@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import parse from "html-react-parser";
+// callbackUrl: "http://localhost:3001/api/odeme/callback",
 
 export default function Odemeal() {
   const onPay = async (e) => {
@@ -14,7 +15,7 @@ export default function Odemeal() {
       currency: "TRY",
       basketId: "B67832",
       paymentGroup: "PRODUCT",
-      callbackUrl: "https://falzamani-backend.herokuapp.com/api/odeme/callback",
+      callbackUrl: "http://localhost:3001/api/odeme/callback",
       enabledInstallments: [2, 3, 6, 9],
       buyer: {
         id: "BY789",
@@ -73,10 +74,7 @@ export default function Odemeal() {
         },
       ],
     };
-    const data = await axios.post(
-      "https://falzamani-backend.herokuapp.com/api/odeme",
-      request
-    );
+    const data = await axios.post("http://localhost:3001/api/odeme", request);
     console.log(data.data);
     const parsedData = parse(`${data.data.checkoutFormContent}`);
     console.log(parsedData);
