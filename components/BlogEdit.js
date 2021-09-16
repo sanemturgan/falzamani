@@ -31,6 +31,7 @@ import {
 import FileBase64 from "react-file-base64";
 import axios from "axios";
 import Cookies from "universal-cookie";
+import adminblog from "../pages/adminblog";
 export default function BlogEdit({ data, adminBlog }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const {
@@ -77,7 +78,7 @@ export default function BlogEdit({ data, adminBlog }) {
     };
 
     await axios
-      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog", blogObject, {
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/blog/delete", blogObject, {
         headers: {
           Authorization: `${cookies.get("jwt")}`,
         },
@@ -86,6 +87,7 @@ export default function BlogEdit({ data, adminBlog }) {
         window.alert("Blog Silindi");
 
         console.log(res);
+        adminBlog();
       })
       .catch((err) => {
         console.log(err.response.data.error);

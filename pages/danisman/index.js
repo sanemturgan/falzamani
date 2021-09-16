@@ -32,26 +32,6 @@ function AdminDanisman() {
     adminWarlock();
   }, []);
 
-  const getFiles = (files) => {
-    setFiles(files);
-    axios
-      .put(
-        process.env.REACT_APP_CLIENT_API_URL + "/warlock/image",
-        { image: files.base64 },
-        {
-          headers: {
-            Authorization: `${cookies.get("jwt")}`,
-          },
-        }
-      )
-
-      .then((res) => {
-        console.log(res);
-        adminWarlock();
-      })
-      .catch((err) => console.log(err.response.data.error));
-  };
-
   return (
     <div className="danisman">
       <div className={classes.kariyerhdr}>
@@ -62,7 +42,13 @@ function AdminDanisman() {
           <div className={classes.cardMain}>
             {warlock.length > 0 &&
               warlock.map((data) => {
-                return <WarlockCard key={data.id} data={data} />;
+                return (
+                  <WarlockCard
+                    key={data.id}
+                    data={data}
+                    adminWarlock={adminWarlock}
+                  />
+                );
               })}
           </div>
         </div>

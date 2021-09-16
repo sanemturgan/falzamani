@@ -7,7 +7,7 @@ import Verified from "../components/Verified";
 import axios from "axios";
 import Cookies from "universal-cookie";
 
-export default function WarlockCard({ data }) {
+export default function WarlockCard({ data, adminWarlock }) {
   const cookies = new Cookies();
 
   const deleteUser = async (id) => {
