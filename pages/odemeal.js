@@ -74,24 +74,23 @@ export default function Odemeal() {
         },
       ],
     };
-    const data = await axios
-      .post("https://falzamani-backend.herokuapp.com/api/odeme", request)
-      .then((res) => {
-        console.log(res);
-        console.log(data?.data);
-        const parsedData = parse(`${data.data.checkoutFormContent}`);
-        console.log(parsedData);
-        setRender(parse(`${data.data.checkoutFormContent}`));
-        const script = document.createElement("script");
+    const data = await axios.post(
+      "https://falzamani-backend.herokuapp.com/api/odeme",
+      request
+    );
+    console.log(res);
+    console.log(data?.data);
+    const parsedData = parse(`${data.data.checkoutFormContent}`);
+    console.log(parsedData);
+    setRender(parse(`${data.data.checkoutFormContent}`));
+    const script = document.createElement("script");
 
-        script.innerHTML = parsedData.props.dangerouslySetInnerHTML.__html;
-        script.type = parsedData.props.type;
-        script.async = true;
+    script.innerHTML = parsedData.props.dangerouslySetInnerHTML.__html;
+    script.type = parsedData.props.type;
+    script.async = true;
 
-        document.body.appendChild(script);
-        console.log(script);
-      })
-      .catch((err) => console.log(err));
+    document.body.appendChild(script);
+    console.log(script);
   };
   const [render, setRender] = useState(null);
   return (
