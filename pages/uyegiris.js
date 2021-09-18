@@ -125,7 +125,6 @@ export default function UyeGiris() {
               color="#fff"
             />
           </FormControl>
-          {notification && <p style={{ color: "white" }}>{notification}</p>}
           <Checkbox
             onChange={(e) => {
               setRememberMe(e.target.checked);
