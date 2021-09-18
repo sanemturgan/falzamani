@@ -78,8 +78,6 @@ export default function Odemeal() {
       "https://falzamani-backend.herokuapp.com/api/odeme",
       request
     );
-    console.log(res);
-    console.log(data?.data);
     const parsedData = parse(`${data.data.checkoutFormContent}`);
     console.log(parsedData);
     setRender(parse(`${data.data.checkoutFormContent}`));
