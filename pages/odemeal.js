@@ -15,7 +15,7 @@ export default function Odemeal() {
       currency: "TRY",
       basketId: "B67832",
       paymentGroup: "PRODUCT",
-      callbackUrl: "http://localhost:3001/api/odeme/callback",
+      callbackUrl: "https://falzamani-backend.herokuapp.com/api/odeme/callback",
       enabledInstallments: [2, 3, 6, 9],
       buyer: {
         id: "BY789",
@@ -74,19 +74,24 @@ export default function Odemeal() {
         },
       ],
     };
-    const data = await axios.post("http://localhost:3001/api/odeme", request);
-    console.log(data.data);
-    const parsedData = parse(`${data.data.checkoutFormContent}`);
-    console.log(parsedData);
-    setRender(parse(`${data.data.checkoutFormContent}`));
-    const script = document.createElement("script");
+    const data = await axios
+      .post("https://falzamani-backend.herokuapp.com/api/odeme", request)
+      .then((res) => {
+        console.log(res);
+        console.log(data?.data);
+        const parsedData = parse(`${data.data.checkoutFormContent}`);
+        console.log(parsedData);
+        setRender(parse(`${data.data.checkoutFormContent}`));
+        const script = document.createElement("script");
 
-    script.innerHTML = parsedData.props.dangerouslySetInnerHTML.__html;
-    script.type = parsedData.props.type;
-    script.async = true;
+        script.innerHTML = parsedData.props.dangerouslySetInnerHTML.__html;
+        script.type = parsedData.props.type;
+        script.async = true;
 
-    document.body.appendChild(script);
-    console.log(script);
+        document.body.appendChild(script);
+        console.log(script);
+      })
+      .catch((err) => console.log(err));
   };
   const [render, setRender] = useState(null);
   return (
