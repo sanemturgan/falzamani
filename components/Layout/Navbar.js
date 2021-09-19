@@ -50,7 +50,7 @@ export default function Navbar() {
         })
         .catch((err) => console.log(err));
 
-      setUserData(cookies.get("userData"));
+      setUserData(JSON.parse(localStorage.getItem("userData")));
     }
 
     fetchData();

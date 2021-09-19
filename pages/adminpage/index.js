@@ -31,7 +31,7 @@ function Adminpage() {
   const router = useRouter();
   const logOut = () => {
     cookies.remove("jwt");
-    cookies.remove("userData");
+    localStorage.removeItem("userData");
     router.replace("/adminlogin");
   };
 

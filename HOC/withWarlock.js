@@ -11,8 +11,8 @@ const withWarlock = (Component) => {
     const router = useRouter();
     if (
       cookies.get("jwt") === undefined ||
-      cookies.get("userData").role === "ADMIN" ||
-      cookies.get("userData").role === "CUSTOMER"
+      JSON.parse(localStorage.getItem("userData")).role === "ADMIN" ||
+      JSON.parse(localStorage.getItem("userData")).role === "CUSTOMER"
     ) {
       return <ReDirectLoader />;
     }

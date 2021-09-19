@@ -8,10 +8,6 @@ import Cookies from "universal-cookie";
 export default function Odemeal() {
   const cookies = new Cookies();
 
-  if (cookies.get("userData")) {
-    console.log(cookies.get("userData"));
-  }
-
   const onPay = async (e) => {
     e.preventDefault();
     const request = {
@@ -20,16 +16,16 @@ export default function Odemeal() {
       price: "50",
       paidPrice: "52",
       currency: "TRY",
-      basketId: cookies.get("userData").id,
+      basketId: JSON.parse(localStorage.getItem("userData")).id,
       paymentGroup: "PRODUCT",
       callbackUrl: "https://falzamani-backend.herokuapp.com/api/odeme/callback",
       enabledInstallments: [2, 3, 6, 9],
       buyer: {
-        id: cookies.get("userData").id,
-        name: cookies.get("userData").name,
-        surname: cookies.get("userData").surname,
-        gsmNumber: cookies.get("userData").phone,
-        email: cookies.get("userData").email,
+        id: JSON.parse(localStorage.getItem("userData")).id,
+        name: JSON.parse(localStorage.getItem("userData")).name,
+        surname: JSON.parse(localStorage.getItem("userData")).surname,
+        gsmNumber: JSON.parse(localStorage.getItem("userData")).phone,
+        email: JSON.parse(localStorage.getItem("userData")).email,
         identityNumber: "74300864791",
         lastLoginDate: "2015-10-05 12:43:35",
         registrationDate: "2013-04-21 15:12:09",
@@ -41,14 +37,14 @@ export default function Odemeal() {
         zipCode: "34732",
       },
       shippingAddress: {
-        contactName: cookies.get("userData").name,
+        contactName: JSON.parse(localStorage.getItem("userData")).name,
         city: "Istanbul",
         country: "Turkey",
         address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
         zipCode: "34742",
       },
       billingAddress: {
-        contactName: cookies.get("userData").name,
+        contactName: JSON.parse(localStorage.getItem("userData")).name,
         city: "Istanbul",
         country: "Turkey",
         address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",

@@ -12,8 +12,8 @@ const withAdmin = (Component) => {
 
     if (
       cookies.get("jwt") === undefined ||
-      cookies.get("userData").role === "CUSTOMER" ||
-      cookies.get("userData").role === "WARLOCK"
+      JSON.parse(localStorage.getItem("userData")).role === "CUSTOMER" ||
+      JSON.parse(localStorage.getItem("userData")).role === "WARLOCK"
     ) {
       return <ReDirectLoader />;
     }
