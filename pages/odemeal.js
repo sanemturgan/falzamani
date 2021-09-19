@@ -2,27 +2,34 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import parse from "html-react-parser";
+import Cookies from "universal-cookie";
 // callbackUrl: "http://localhost:3001/api/odeme/callback",
 
 export default function Odemeal() {
+  const cookies = new Cookies();
+
+  if (cookies.get("userData")) {
+    console.log(cookies.get("userData"));
+  }
+
   const onPay = async (e) => {
     e.preventDefault();
     const request = {
       locale: "tr",
       conversationId: "123456789",
-      price: "1",
-      paidPrice: "1.2",
+      price: "50",
+      paidPrice: "52",
       currency: "TRY",
-      basketId: "B67832",
+      basketId: cookies.get("userData").id,
       paymentGroup: "PRODUCT",
       callbackUrl: "https://falzamani-backend.herokuapp.com/api/odeme/callback",
       enabledInstallments: [2, 3, 6, 9],
       buyer: {
-        id: "BY789",
-        name: "John",
-        surname: "Doe",
-        gsmNumber: "+905350000000",
-        email: "email@email.com",
+        id: cookies.get("userData").id,
+        name: cookies.get("userData").name,
+        surname: cookies.get("userData").surname,
+        gsmNumber: cookies.get("userData").phone,
+        email: cookies.get("userData").email,
         identityNumber: "74300864791",
         lastLoginDate: "2015-10-05 12:43:35",
         registrationDate: "2013-04-21 15:12:09",
@@ -34,14 +41,14 @@ export default function Odemeal() {
         zipCode: "34732",
       },
       shippingAddress: {
-        contactName: "Jane Doe",
+        contactName: cookies.get("userData").name,
         city: "Istanbul",
         country: "Turkey",
         address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
         zipCode: "34742",
       },
       billingAddress: {
-        contactName: "Jane Doe",
+        contactName: cookies.get("userData").name,
         city: "Istanbul",
         country: "Turkey",
         address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
@@ -49,28 +56,11 @@ export default function Odemeal() {
       },
       basketItems: [
         {
-          id: "BI101",
-          name: "Binocular",
-          category1: "Collectibles",
-          category2: "Accessories",
-          itemType: "PHYSICAL",
-          price: "0.3",
-        },
-        {
-          id: "BI102",
-          name: "Game code",
-          category1: "Game",
-          category2: "Online Game Items",
+          id: "500KRD",
+          name: "500 kredi",
+          category1: "Krediler",
           itemType: "VIRTUAL",
-          price: "0.5",
-        },
-        {
-          id: "BI103",
-          name: "Usb",
-          category1: "Electronics",
-          category2: "Usb / Cable",
-          itemType: "PHYSICAL",
-          price: "0.2",
+          price: "50",
         },
       ],
     };
@@ -90,6 +80,7 @@ export default function Odemeal() {
     document.body.appendChild(script);
     console.log(script);
   };
+
   const [render, setRender] = useState(null);
   return (
     <div className="App">

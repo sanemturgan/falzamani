@@ -43,7 +43,7 @@ export default function UyeGiris() {
       .then(async (res) => {
         const cookies = new Cookies();
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
-        cookies.set("userData", `${res.data.data[0]}`, {
+        cookies.set("userData", res.data.data[0], {
           maxAge: maxAgeTime,
         });
 
