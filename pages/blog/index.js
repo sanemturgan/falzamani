@@ -28,7 +28,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
         <Input variant="unstyled" placeholder="Ara" />
       </div>
       <div className={classes.blghdr}>
-        <h4>Son Yazılar</h4>
+        <h4>Popüler Yazılar</h4>
       </div>
       <div className={classes.blgmain}>
         <div className={classes.blgust}>

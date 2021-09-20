@@ -51,7 +51,8 @@
   padding: 30px 0;
 }
 .kredibtn {
-  background-color: #1cd42e;
+  background-color: #1cd42e9a;
+  transition: 0.3s;
   width: fit-content;
   margin: auto;
   border-radius: 40px;
@@ -62,8 +63,10 @@
   margin: 2px;
 }
 .kredibtn:hover {
-  border: 1px solid white;
+  background-color: #1cd42e;
+  transition: 0.3s;
 }
+
 @media screen and (max-width: 960px) {
   .kredicar h3 {
     font-size: 16px;

@@ -216,13 +216,13 @@
     border-radius: 40px;
     padding: 0;
     text-align: center;
+    width: 100%;
   }
   .wrtexp h4 {
     font-size: 16px;
     padding: 5px;
     border-bottom: 1px solid #fff;
-    width: 50%;
-    margin: auto;
+    width: 100%;
   }
   .wrtexp p {
     padding: 10px;
