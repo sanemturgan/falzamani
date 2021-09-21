@@ -1,9 +1,31 @@
 import React, { useState, useEffect } from "react";
 
+import Cookies from "universal-cookie";
 import { Button } from "@chakra-ui/react";
 import classes from "../styles/GigCard.module.css";
 import axios from "axios";
 export default function GigCard({ gigData }) {
+  const cookies = new Cookies();
+  const onSubmit = async () => {
+    let dateObject = {
+      gigId: gigData.id,
+      warlockId: gigData.warlockId,
+      customerId: JSON.parse(localStorage.getItem("userData")).id,
+      credit: gigData.price,
+      description: "",
+    };
+    await axios
+      .post(process.env.REACT_APP_CLIENT_API_URL + `/date`, dateObject, {
+        headers: {
+          Authorization: `${cookies.get("jwt")}`,
+        },
+      })
+      .then((res) => {
+        window.alert("Randevu Alındı,Danışmanın Onayı Bekleniyor");
+        console.log(res);
+      })
+      .catch((err) => console.log(err.response.data.error));
+  };
   return (
     <div className={classes.option}>
       <div className={classes.ophdr}>
@@ -24,7 +46,7 @@ export default function GigCard({ gigData }) {
           border="2px"
           backgroundColor="inherit"
           onClick={() => {
-            onOpen();
+            onSubmit();
           }}
         >
           Randevu Al

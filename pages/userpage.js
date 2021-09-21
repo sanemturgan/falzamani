@@ -86,7 +86,7 @@ function Userpage() {
       router.replace("/uyegiris");
     }, 500);
   };
-
+  console.log(customerInfo);
   return (
     <div className="userpage">
       <div className={classes.kariyerhdr}>
