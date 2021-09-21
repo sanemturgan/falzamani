@@ -17,7 +17,9 @@ export default function Odemeal() {
       currency: "TRY",
       basketId: JSON.parse(localStorage.getItem("userData")).id,
       // paymentGroup: "PRODUCT",
-      callbackUrl: "https://falzamani-backend.herokuapp.com/api/odeme/callback",
+      callbackUrl: `https://falzamani-backend.herokuapp.com/api/odeme/callback/${
+        JSON.parse(localStorage.getItem("userData")).id
+      }`,
       enabledInstallments: [1],
       buyer: {
         id: JSON.parse(localStorage.getItem("userData")).id,
