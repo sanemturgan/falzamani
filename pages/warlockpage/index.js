@@ -157,7 +157,7 @@ function WarlockPage() {
 
   const logOut = () => {
     cookies.remove("jwt");
-    cookies.remove("userData");
+    localStorage.removeItem("userData");
     router.replace("/uyegiris");
   };
 

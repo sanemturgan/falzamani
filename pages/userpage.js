@@ -81,7 +81,7 @@ function Userpage() {
 
   const logOut = () => {
     cookies.remove("jwt");
-    cookies.remove("userData");
+    localStorage.removeItem("userData");
     setTimeout(() => {
       router.replace("/uyegiris");
     }, 500);

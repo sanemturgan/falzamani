@@ -6,9 +6,6 @@ import {
   Input,
   NumberInput,
   NumberInputField,
-  Radio,
-  RadioGroup,
-  Stack,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -22,7 +19,6 @@ export default function AdminKayit() {
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userType, setUserType] = useState("1");
 
   const cookies = new Cookies();
   const router = useRouter();

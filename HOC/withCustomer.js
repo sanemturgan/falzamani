@@ -11,8 +11,8 @@ const withCustomer = (Component) => {
     const router = useRouter();
     if (
       cookies.get("jwt") === undefined ||
-      cookies.get("userData").role === "ADMIN" ||
-      cookies.get("userData").role === "WARLOCK"
+      JSON.parse(localStorage.getItem("userData")).role === "ADMIN" ||
+      JSON.parse(localStorage.getItem("userData")).role === "WARLOCK"
     ) {
       return <ReDirectLoader />;
     }

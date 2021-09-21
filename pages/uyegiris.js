@@ -41,16 +41,15 @@ export default function UyeGiris() {
         userObject
       )
       .then(async (res) => {
-        const cookies = new Cookies();
-        cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
-        cookies.set("userData", `${res.data.data[0]}`, {
+        localStorage.setItem("userData", JSON.stringify(res.data.data[0]));
+        cookies.set("jwt", res.data.token, {
           maxAge: maxAgeTime,
         });
 
         if (
           res.data.status === 200 &&
           cookies.get("jwt") &&
-          cookies.get("userData")
+          localStorage.getItem("userData")
         ) {
           window.alert("Giriş Yapıldı");
           setTimeout(() => {
@@ -59,7 +58,7 @@ export default function UyeGiris() {
         }
       })
       .catch((err) => {
-        window.alert(err.response.data.error);
+        window.alert(err);
       });
   };
 
@@ -125,7 +124,6 @@ export default function UyeGiris() {
               color="#fff"
             />
           </FormControl>
-
           <Checkbox
             onChange={(e) => {
               setRememberMe(e.target.checked);

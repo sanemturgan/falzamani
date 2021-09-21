@@ -23,7 +23,9 @@ export default function ADMINLOGIN() {
       .post(process.env.REACT_APP_CLIENT_API_URL + `/admin/login`, userObject)
       .then((res) => {
         cookies.set("jwt", res.data.token, { maxAge: maxAgeTime });
-        cookies.set("userData", `${res.data.data[0]}`, { maxAge: maxAgeTime });
+        localStorage.setItem("userData", JSON.stringify(res.data.data[0]), {
+          maxAge: maxAgeTime,
+        });
         if (res.data.status === 200 && cookies.get("jwt")) {
           window.alert("Giriş Yapıldı");
           setTimeout(() => {

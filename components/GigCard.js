@@ -4,21 +4,6 @@ import { Button } from "@chakra-ui/react";
 import classes from "../styles/GigCard.module.css";
 import axios from "axios";
 export default function GigCard({ gigData }) {
-  const [gigs, setGigs] = useState([]);
-
-  const warlockGig = async () => {
-    await axios
-      .get(process.env.REACT_APP_CLIENT_API_URL + "/gig/5/all")
-      .then((res) => {
-        setGigs(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-  useEffect(() => {
-    warlockGig();
-  }, []);
-
   return (
     <div className={classes.option}>
       <div className={classes.ophdr}>
