@@ -28,11 +28,7 @@ export default function Bizeulasin() {
       text,
     };
     await axios
-      .post(process.env.REACT_APP_CLIENT_API_URL + "/contactUs", userObject, {
-        headers: {
-          Authorization: cookies.get("jwt"),
-        },
-      })
+      .post(process.env.REACT_APP_CLIENT_API_URL + "/contactUs", userObject)
       .then((res) => {
         console.log(res);
         window.alert("Mesajınız Gönderildi..");
