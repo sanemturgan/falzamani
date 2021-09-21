@@ -26,12 +26,21 @@ function Userpage() {
   const cookies = new Cookies();
   const router = useRouter();
   const [customerInfo, setCustomerInfo] = useState("");
-
+  const [dateInfo, setDateInfo] = useState([]);
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
   const [show, setShow] = React.useState(false);
   const handleClick = () => setShow(!show);
 
+  const getDate = async (id) => {
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/date/all/${id}/all`)
+      .then(async (res) => {
+        console.log(res);
+        setDateInfo(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     async function fetchData() {
       if (cookies.get("jwt")) {
@@ -43,6 +52,7 @@ function Userpage() {
           })
           .then((res) => {
             setCustomerInfo(res.data.data);
+            getDate(res.data.data.id);
           })
           .catch((err) => console.log(err.response.data.error));
       } else {
@@ -86,7 +96,7 @@ function Userpage() {
       router.replace("/uyegiris");
     }, 500);
   };
-  console.log(customerInfo);
+
   return (
     <div className="userpage">
       <div className={classes.kariyerhdr}>
@@ -212,12 +222,20 @@ function Userpage() {
         </div>
         <div className={classes.danismanlistbtm}>
           <div className={classes.btmhdr}>
-            <h5>Fal Geçmişi</h5>
+            <h5>Randevu Geçmişi</h5>
           </div>
           <div className={classes.btminfo}>
             <ul>
-              <CustomerHistory classes={classes} />
-              <CustomerHistory classes={classes} />
+              {dateInfo.length > 0 &&
+                dateInfo.map((data, index) => {
+                  return (
+                    <CustomerHistory
+                      key={index}
+                      data={data}
+                      classes={classes}
+                    />
+                  );
+                })}
             </ul>
           </div>
         </div>

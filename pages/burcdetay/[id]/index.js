@@ -31,9 +31,10 @@ export default function Burcdetay({ horoscopeDescriptionData, horoscopeData }) {
                 <div className={classes.dtyrght}>
                   <div className={classes.dtyimg}>
                     <Image
-                      src="https://images2.alphacoders.com/110/110412.jpg"
+                      src="https://res.cloudinary.com/dlm2ceo0l/image/upload/v1632255446/18DpHXl_ms1lir.jpg"
                       alt="dty"
-                      objectFit="contain"
+                      objectFit="cover"
+                      objectPosition="top"
                       layout="fill"
                       borderRadius="40px"
                       htmlWidth="500px"
@@ -83,7 +84,6 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
-
   return {
     props: {
       horoscopeDescriptionData: horoscopeDescriptionData.data,

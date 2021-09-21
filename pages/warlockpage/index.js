@@ -12,6 +12,7 @@ import Comment from "../../components/Comment";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import withWarlock from "../../HOC/withWarlock";
+
 import {
   ButtonGroup,
   Flex,
@@ -25,10 +26,12 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import FileBase64 from "react-file-base64";
+import RandevuCard from "../../components/RandevuCard";
 function WarlockPage() {
   const cookies = new Cookies();
   const [gigs, setGigs] = useState([]);
   const [warlockData, setWarlockData] = useState();
+  const [dateInfo, setDateInfo] = useState([]);
 
   const getWarlock = async () => {
     await axios
@@ -39,6 +42,7 @@ function WarlockPage() {
       })
       .then(async (res) => {
         setWarlockData(res.data.data);
+        getDate(res.data.data.id);
         await axios
           .get(
             process.env.REACT_APP_CLIENT_API_URL +
@@ -134,7 +138,7 @@ function WarlockPage() {
   };
 
   const [radioValue, setRadioValue] = useState(warlockData?.status);
-  console.log(warlockData?.status);
+
   const EditableControls = () => {
     const {
       isEditing,
@@ -179,6 +183,17 @@ function WarlockPage() {
       .then((res) => console.log(res))
       .catch((err) => console.log(err.response.data.error));
   };
+
+  const getDate = async (id) => {
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/date/${id}/all/all`)
+      .then(async (res) => {
+        console.log(res);
+        setDateInfo(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div className="WarlockPage">
       <div className={classes.uzmanhdr}>
@@ -203,8 +218,8 @@ function WarlockPage() {
               )}
             </div>
             <h5>{warlockData?.name}</h5>
-            <div className={classes.status}>(ONAYLI HESAP)</div>
-            <div className={classes.statustwo}>(ONAY BEKLİYOR)</div>
+            <div className={classes.status}>Onaylı Hesap</div>
+
             <div className={classes.exit}>
               <Link href="/uyegiris">
                 <a>
@@ -239,6 +254,19 @@ function WarlockPage() {
                     value={warlockData.about}
                   />
                 )}
+              </div>
+              <div className={classes.randevu}>
+                {dateInfo.length > 0 &&
+                  dateInfo.map((data, index) => {
+                    return (
+                      <RandevuCard
+                        key={index}
+                        data={data}
+                        classes={classes}
+                        getDate={getDate}
+                      />
+                    );
+                  })}
               </div>
               <NewGigModal onSubmit={onAddGig} />
             </div>

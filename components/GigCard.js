@@ -76,7 +76,13 @@ export default function GigCard({ gigData }) {
               <Button color="red" variant="ghost" mr={3} onClick={onClose}>
                 Vazgeç
               </Button>
-              <Button colorScheme="purple" onClick={onSubmit}>
+              <Button
+                colorScheme="purple"
+                onClick={() => {
+                  onSubmit();
+                  onClose();
+                }}
+              >
                 Randevu Al
               </Button>
             </ModalFooter>

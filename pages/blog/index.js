@@ -83,6 +83,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
                       src={`${data.image}`}
                       alt="dty"
                       objectFit="cover"
+                      objectPosition="top"
                       layout="fill"
                       borderRadius="20px"
                       boxSize="130px"

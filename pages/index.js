@@ -171,9 +171,10 @@ const HomePage = ({ warlockData, horoscopeData }) => {
                         src={data.image}
                         alt="zodiac"
                         objectFit="cover"
+                        objectPosition="top"
                         layout="fill"
                         borderRadius="full"
-                        boxSize="250px"
+                        boxSize="244px"
                       />
                     </div>
                     <div className={classes.zdcrd}>
