@@ -114,6 +114,12 @@ function Userpage() {
           </div>
           <div className={classes.info}>
             <div className={classes.user}>
+              <p>Kalan Kredi:</p>
+              <p>{customerInfo.credit}</p>
+            </div>
+          </div>
+          <div className={classes.info}>
+            <div className={classes.user}>
               <p>Şifre:</p>
               <p>*********</p>
             </div>
