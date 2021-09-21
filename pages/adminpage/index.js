@@ -236,11 +236,11 @@ function Adminpage() {
                 <a>Danışmanlar</a>
               </Link>
             </li>
-            <li className={classes.flt}>
+            {/* <li className={classes.flt}>
               <Link href="/adminkredi">
                 <a>Kredi Düzenle</a>
               </Link>
-            </li>
+            </li> */}
             <li className={classes.flt}>
               <div className={classes.exit}>
                 <button onClick={logOut}>Çıkış Yap</button>

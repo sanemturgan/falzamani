@@ -167,6 +167,17 @@ a {
   padding: 0 25px;
   margin: auto;
 }
+.OdemeAlMain {
+  width: 100%;
+  max-width: 1250px;
+  padding: 0 25px;
+  margin: auto;
+}
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .swipercards {
   display: flex;
   width: 100%;

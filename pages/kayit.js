@@ -9,6 +9,7 @@ import {
   Radio,
   RadioGroup,
   Stack,
+  FormHelperText,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -183,6 +184,16 @@ export default function Kayit() {
               color="white"
               placeholder="Email"
             />
+          </FormControl>
+          <FormControl isRequired id="tckn">
+            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+              TCKN
+            </FormLabel>
+            <Input id="tckn" />
+            <FormHelperText>
+              TCKN asla paylaşılmaz. Kredi Kartı Uyumluluk Sorgusu İçin
+              Gereklidir.{" "}
+            </FormHelperText>
           </FormControl>
           <FormControl isRequired id="password">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">

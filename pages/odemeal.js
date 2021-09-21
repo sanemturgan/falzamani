@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import parse from "html-react-parser";
+import { background } from "@chakra-ui/styled-system";
+
 // callbackUrl: "http://localhost:3001/api/odeme/callback",
 
 export default function Odemeal() {
@@ -76,12 +78,27 @@ export default function Odemeal() {
 
   const [render, setRender] = useState(null);
   return (
-    <div className="App">
-      <button style={{ color: "white" }} onClick={(e) => onPay(e)}>
-        ÖDEME YAP
-      </button>
-      {render}
-      <div id="iyzipay-checkout-form" className="responsive"></div>
+    <div className="OdemeAlMain">
+      <div className="App">
+        <button
+          style={{
+            color: "white",
+            backgroundColor: "#5a4b69",
+            borderRadius: "40px",
+            padding: "40px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            margin: "100px 0",
+            fontSize: "16px",
+          }}
+          onClick={(e) => onPay(e)}
+        >
+          ÖDEME YAP
+        </button>
+        {render}
+        <div id="iyzipay-checkout-form" className="responsive"></div>
+      </div>
     </div>
   );
 }

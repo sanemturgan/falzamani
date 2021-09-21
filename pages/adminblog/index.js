@@ -75,11 +75,11 @@ function AdminBlog() {
                 <a>Danışmanlar</a>
               </Link>
             </li>
-            <li className={classes.flt}>
+            {/* <li className={classes.flt}>
               <Link href="/adminkredi">
                 <a>Kredi Düzenle</a>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
