@@ -50,7 +50,10 @@ export default function CustomerHistory({ classes, data }) {
       .then(async (res) => {
         console.log(res);
       })
-      .catch((err) => console.log(err));
+      .catch(
+        console.log(err.response.data.error),
+        window.alert(err.response.data.error)
+      );
   };
   return (
     <li className={classes.btminfolist}>

@@ -35,7 +35,8 @@ export default function ADMINLOGIN() {
         }
       })
       .catch((err) => {
-        window.alert(err.response.data.error);
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
       });
   };
   return (

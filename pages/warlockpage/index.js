@@ -53,7 +53,10 @@ function WarlockPage() {
           })
           .catch((err) => console.log(err));
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
 
   useEffect(() => {
@@ -181,7 +184,10 @@ function WarlockPage() {
       )
 
       .then((res) => console.log(res))
-      .catch((err) => console.log(err.response.data.error));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
 
   const getDate = async (id) => {
@@ -191,7 +197,10 @@ function WarlockPage() {
         console.log(res);
         setDateInfo(res.data.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
 
   return (

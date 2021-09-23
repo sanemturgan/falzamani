@@ -32,7 +32,10 @@ function AdminBlog() {
       .then((res) => {
         setBlogs(res.data.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
   useEffect(() => {
     if (!cookies.get("jwt")) {

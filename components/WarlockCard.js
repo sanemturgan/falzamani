@@ -24,7 +24,10 @@ export default function WarlockCard({ data, adminWarlock }) {
         console.log(res);
         adminWarlock();
       })
-      .catch((err) => console.log(err.response.data.error));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
 
   return (

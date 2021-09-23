@@ -50,7 +50,10 @@ export default function RandevuCard({ classes, data, getDate }) {
         console.log(res);
         getDate(data.warlockId);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
   };
   return (
     <li className={classes.btminfolist}>
