@@ -49,7 +49,9 @@ export default function Uzmandetay({ warlockSingleData, gigData }) {
             <div className={classes.iletisim}>
               <div className={classes.cardicon}>
                 <FaPhoneAlt color="#ECDCF5" size="20px" />
-                <p>{warlockSingleData.phone}</p>
+                <a href={`tel:${warlockSingleData.phone}`}>
+                  <p>{warlockSingleData.phone}</p>
+                </a>
               </div>
               <div className={classes.cardicon}>
                 <FaEnvelope color="#ECDCF5" size="20px" />
