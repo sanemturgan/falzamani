@@ -64,7 +64,8 @@ export default function BlogEdit({ data, adminBlog }) {
         adminBlog();
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
       });
   };
 
@@ -90,7 +91,8 @@ export default function BlogEdit({ data, adminBlog }) {
         adminBlog();
       })
       .catch((err) => {
-        console.log(err.response.data.error);
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
       });
   };
 

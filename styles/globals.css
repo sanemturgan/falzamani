@@ -207,6 +207,12 @@ a {
   display: flex;
   width: fit-content;
 }
+@media screen and (max-width: 420px) {
+  .zodiacswp .swiper-slide {
+    width: max-content;
+    margin: 0 -15px;
+  }
+}
 .swpalt .swiper-slide {
   margin: auto;
   display: flex;
