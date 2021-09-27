@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "../../styles/uzmanlar.module.css";
 import { Input, Image } from "@chakra-ui/react";
 import { FaPhoneAlt, FaUserAlt, FaEnvelope, FaSearch } from "react-icons/fa";
 import CardImg from "../../public/img/falcard.png";
 import Img from "next/image";
 import Link from "next/link";
-
-export default function uzmanlar({ warlockData }) {
+import axios from "axios";
+export default function Uzmanlar({ warlockData }) {
+  const [search, setSearch] = useState("");
+  const getSearch = async (e) => {
+    setSearch(e.target.value);
+    /* const searchObject = {
+      text: "a",
+    };*/
+    await axios
+      .get(process.env.REACT_APP_CLIENT_API_URL + `/search`, {
+        text: "a",
+      })
+      .then(async (res, req) => {
+        console.log(res);
+        console.log(req);
+      })
+      .catch((err) => {
+        console.log(err.response.data.error),
+          window.alert(err.response.data.error);
+      });
+  };
   return (
     <div className="uzmanMain">
       <div className={classes.uzmanlar}>
@@ -19,13 +38,16 @@ export default function uzmanlar({ warlockData }) {
         </div>
         <div className={classes.search}>
           <div className={classes.srchi}>
-            <Link href="/search">
-              <a>
-                <FaSearch color="#281c3b" size="16px" />
-              </a>
-            </Link>
+            <FaSearch color="#281c3b" size="16px" />
           </div>
-          <Input variant="unstyled" placeholder="Ara" />
+          <Input
+            onChange={(e) => {
+              getSearch(e);
+            }}
+            variant="unstyled"
+            placeholder="Ara"
+            value={search}
+          />
         </div>
         <div className={classes.cardMain}>
           {warlockData.length > 0 &&
