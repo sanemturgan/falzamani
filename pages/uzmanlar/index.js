@@ -10,20 +10,17 @@ export default function Uzmanlar({ warlockData }) {
   const [search, setSearch] = useState("");
   const getSearch = async (e) => {
     setSearch(e.target.value);
-    /* const searchObject = {
-      text: "a",
-    };*/
+
     await axios
-      .get(process.env.REACT_APP_CLIENT_API_URL + `/search`, {
-        text: "a",
+      .post(process.env.REACT_APP_CLIENT_API_URL + `/search`, {
+        text: e.target.value,
       })
-      .then(async (res, req) => {
+      .then(async (res) => {
         console.log(res);
-        console.log(req);
+        localStorage.setItem("searchData", JSON.stringify(res.data.data), {});
       })
       .catch((err) => {
-        console.log(err.response.data.error),
-          window.alert(err.response.data.error);
+        console.log(err), window.alert(err);
       });
   };
   return (
@@ -38,7 +35,11 @@ export default function Uzmanlar({ warlockData }) {
         </div>
         <div className={classes.search}>
           <div className={classes.srchi}>
-            <FaSearch color="#281c3b" size="16px" />
+            <Link href="/search">
+              <a>
+                <FaSearch color="#281c3b" size="16px" />
+              </a>
+            </Link>
           </div>
           <Input
             onChange={(e) => {
