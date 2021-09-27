@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import classes from "../../styles/adminlogin.module.css";
 import { FormControl, FormLabel, Input, Checkbox } from "@chakra-ui/react";
-import Link from "next/dist/client/link";
 import { useRouter } from "next/router";
 import Cookies from "universal-cookie";
 import axios from "axios";

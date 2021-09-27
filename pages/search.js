@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from "../styles/search.module.css";
 import axios from "axios";
-
+import Cookies from "universal-cookie";
 import Link from "next/link";
 export default function Search() {
   const [searchData, setSearchData] = useState([]);
@@ -20,6 +20,7 @@ export default function Search() {
       </div>
       <div className={classes.searchmain}>
         <h4>Arama Sonuçları</h4>
+        <h5>Blog Arama Sonuçları</h5>
         {searchData.blogs &&
           searchData?.blogs.length > 0 &&
           searchData.blogs.map((data, index) => {
@@ -33,6 +34,7 @@ export default function Search() {
               </div>
             );
           })}
+        <h5>İlan Arama Sonuçları</h5>
         {searchData.gigs &&
           searchData?.gigs.length > 0 &&
           searchData.gigs.map((data, index) => {
@@ -46,6 +48,7 @@ export default function Search() {
               </div>
             );
           })}
+        <h5>Burç Arama Sonuçları</h5>
         {searchData.horoscopes &&
           searchData?.horoscopes.length > 0 &&
           searchData.horoscopes.map((data, index) => {
@@ -59,6 +62,7 @@ export default function Search() {
               </div>
             );
           })}
+        <h5>Danışman Arama Sonuçları</h5>
         {searchData.warlocks &&
           searchData?.warlocks.length > 0 &&
           searchData.warlocks.map((data, index) => {
@@ -72,23 +76,6 @@ export default function Search() {
               </div>
             );
           })}
-
-        <div className={classes.searchlist}>
-          <ul>
-            <li>
-              <p>.......... için arama sonuçları</p>
-            </li>
-            <li>
-              <p>.......... için arama sonuçları</p>
-            </li>
-            <li>
-              <p>.......... için arama sonuçları</p>
-            </li>
-            <li>
-              <p>.......... için arama sonuçları</p>
-            </li>
-          </ul>
-        </div>
       </div>
     </div>
   );

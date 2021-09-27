@@ -3,7 +3,7 @@ import React from "react";
 import classes from "../../styles/blog.module.css";
 import { Input, Image } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
-
+import Search from "../../components/Search";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,16 +17,7 @@ export default function Blog({ blogData, horoscopeData, falData }) {
       <div className={classes.bloghdr}>
         <h4>BLOG</h4>
       </div>
-      <div className={classes.search}>
-        <div className={classes.srchi}>
-          <Link href="/search">
-            <a>
-              <FaSearch color="#281c3b" size="16px" />
-            </a>
-          </Link>
-        </div>
-        <Input variant="unstyled" placeholder="Ara" />
-      </div>
+      <Search />
       <div className={classes.blghdr}>
         <h4>Popüler Yazılar</h4>
       </div>

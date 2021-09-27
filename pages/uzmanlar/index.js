@@ -6,23 +6,8 @@ import CardImg from "../../public/img/falcard.png";
 import Img from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import Search from "../../components/Search";
 export default function Uzmanlar({ warlockData }) {
-  const [search, setSearch] = useState("");
-  const getSearch = async (e) => {
-    setSearch(e.target.value);
-
-    await axios
-      .post(process.env.REACT_APP_CLIENT_API_URL + `/search`, {
-        text: e.target.value,
-      })
-      .then(async (res) => {
-        console.log(res);
-        localStorage.setItem("searchData", JSON.stringify(res.data.data), {});
-      })
-      .catch((err) => {
-        console.log(err), window.alert(err);
-      });
-  };
   return (
     <div className="uzmanMain">
       <div className={classes.uzmanlar}>
@@ -33,23 +18,7 @@ export default function Uzmanlar({ warlockData }) {
             sağlayacak uzmanı seç.
           </p>
         </div>
-        <div className={classes.search}>
-          <div className={classes.srchi}>
-            <Link href="/search">
-              <a>
-                <FaSearch color="#281c3b" size="16px" />
-              </a>
-            </Link>
-          </div>
-          <Input
-            onChange={(e) => {
-              getSearch(e);
-            }}
-            variant="unstyled"
-            placeholder="Ara"
-            value={search}
-          />
-        </div>
+        <Search />
         <div className={classes.cardMain}>
           {warlockData.length > 0 &&
             warlockData.map((data, index) => {

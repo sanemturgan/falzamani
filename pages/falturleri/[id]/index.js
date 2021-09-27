@@ -2,7 +2,7 @@ import React from "react";
 import classes from "../../../styles/falturleri.module.css";
 import { Input } from "@chakra-ui/react";
 import { FaSearch } from "react-icons/fa";
-
+import Search from "../../../components/Search";
 import Link from "next/link";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 
@@ -13,16 +13,7 @@ export default function Falturleri({ gigData, falData, falCategoryData }) {
       <div className={classes.faltrhdr}>
         <h4>FAL TÜRLERİ</h4>
       </div>
-      <div className={classes.search}>
-        <div className={classes.srchi}>
-          <Link href="/search">
-            <a>
-              <FaSearch color="#281c3b" size="16px" />
-            </a>
-          </Link>
-        </div>
-        <Input variant="unstyled" placeholder="Ara" />
-      </div>
+      <Search />
       <div className={classes.falmain}>
         <div className={classes.faltur}>
           <div className={classes.falturhdr}>

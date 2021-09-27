@@ -9,7 +9,7 @@ import { Image } from "@chakra-ui/react";
 import Link from "next/link";
 import SwiperCards from "../../../components/SwiperCards";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import Search from "../../../components/Search";
 import MiniCategoryMenu from "../../../components/MiniCategoryMenu";
 import MiniCategorySecondMenu from "../../../components/MiniCategorySecondMenu";
 
@@ -24,16 +24,7 @@ export default function blogdetay({
       <div className={classes.bloghdr}>
         <h4>BLOG</h4>
       </div>
-      <div className={classes.search}>
-        <div className={classes.srchi}>
-          <Link href="/search">
-            <a>
-              <FaSearch color="#281c3b" size="16px" />
-            </a>
-          </Link>
-        </div>
-        <Input variant="unstyled" placeholder="Ara" />
-      </div>
+      <Search />
       <div className={classes.blghdr}>
         <h4>{blogSingleData.title}</h4>
       </div>
