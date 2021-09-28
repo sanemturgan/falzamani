@@ -55,6 +55,7 @@ export default function RandevuCard({ classes, data, getDate }) {
           window.alert(err.response.data.error);
       });
   };
+  console.log(data);
   return (
     <li className={classes.btminfolist}>
       <div className={classes.infofal}></div>
@@ -63,6 +64,12 @@ export default function RandevuCard({ classes, data, getDate }) {
         <h6>İlan Türü: {data.Gig.category.name}</h6>
         <h6>Danışan Adı: {data.Customer.name}</h6>
         <h6>Kredi: {data.credit} Kredi</h6>
+        <h6>
+          Telefon:
+          <a href={`tel:${data.Customer.phone}`}>
+            <p>{data.Customer.phone}</p>
+          </a>
+        </h6>
         <div className={classes.cardbtn}>
           {data.verified ? (
             <span style={{ color: "green", fontWeight: "900" }}>ONAYLANDI</span>

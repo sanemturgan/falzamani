@@ -61,23 +61,6 @@ export default function Uzmandetay({ warlockSingleData, gigData }) {
             <div className={classes.expbtm}>
               <p>{warlockSingleData.about}</p>
             </div>
-            <div className={classes.fallar}>
-              <div className={classes.faldty}>
-                <h5>{gigData.title}</h5>
-                <div className={classes.pay}>
-                  <Link href="/odeme">
-                    <a>
-                      <button>{gigData.price} Kredi</button>
-                    </a>
-                  </Link>
-                  <Link href="/odeme">
-                    <a>
-                      <button className={classes.rnd}>Randevu Al</button>
-                    </a>
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
