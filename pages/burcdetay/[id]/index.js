@@ -8,6 +8,7 @@ import Link from "next/link";
 import MiniHoroscopeCategory from "../../../components/MiniHoroscopeCategory";
 
 export default function Burcdetay({ horoscopeDescriptionData, horoscopeData }) {
+  console.log(horoscopeDescriptionData[0].description);
   return (
     <div className="burcdetay">
       <div className={classes.burchdr}>
