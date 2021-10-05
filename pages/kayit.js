@@ -45,6 +45,7 @@ export default function Kayit() {
       phone: parseInt(phone),
       password,
       image: "",
+      tckn,
     };
     let warlockObject = {
       name,
@@ -55,6 +56,7 @@ export default function Kayit() {
       password,
       image: "",
       about: "",
+      tckn,
     };
 
     await axios
