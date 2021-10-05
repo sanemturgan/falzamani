@@ -27,7 +27,7 @@ export default function Odemeal() {
         surname: JSON.parse(localStorage.getItem("userData")).surname,
         gsmNumber: JSON.parse(localStorage.getItem("userData")).phone,
         email: JSON.parse(localStorage.getItem("userData")).email,
-        identityNumber: "74300864791",
+        identityNumber: JSON.parse(localStorage.getItem("userData")).identity,
         // lastLoginDate: "2015-10-05 12:43:35",
         // registrationDate: "2013-04-21 15:12:09",
         registrationAddress:
