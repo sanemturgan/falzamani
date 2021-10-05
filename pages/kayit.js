@@ -22,6 +22,7 @@ export default function Kayit() {
   const [phone, setPhone] = useState();
   const [surname, setSurname] = useState("");
   const [email, setEmail] = useState("");
+  const [tckn, setTckn] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("1");
 
@@ -189,7 +190,17 @@ export default function Kayit() {
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               TCKN
             </FormLabel>
-            <Input id="tckn" />
+            <Input
+              onChange={(e) => {
+                setTckn(e.target.value);
+              }}
+              value={tckn}
+              type="tckn"
+              id="tckn"
+              size="lg"
+              color="white"
+              placeholder="TCKN"
+            />
             <FormHelperText>
               TCKN asla paylaşılmaz. Kredi Kartı Uyumluluk Sorgusu İçin
               Gereklidir.{" "}

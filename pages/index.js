@@ -27,7 +27,7 @@ const HomePage = ({ warlockData, horoscopeData }) => {
           <h4>Fal Zamanına Hoş geldin!</h4>
           <h4>
             <span>
-              50+ Gerçek Falcılar ile Online, Canlı Hemen Fal Baktır! Tüm Fal
+              Gerçek Falcılar ile Online, Canlı Hemen Fal Baktır! Tüm Fal
               Severler Fal Zamanında!
             </span>
           </h4>

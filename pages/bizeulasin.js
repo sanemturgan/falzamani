@@ -77,7 +77,7 @@ export default function Bizeulasin() {
               onChange={(e) => {
                 setSurname(e.target.value);
               }}
-              value={name}
+              value={surname}
               placeholder="  soyad"
               color="#fff"
               size="lg"
