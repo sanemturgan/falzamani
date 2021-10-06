@@ -12,7 +12,6 @@ export default function Search() {
   useEffect(() => {
     getSearch();
   }, []);
-  console.log(JSON.parse(localStorage.getItem("searchData")).warlocks);
   return (
     <div className="search">
       <div className={classes.kariyerhdr}>
