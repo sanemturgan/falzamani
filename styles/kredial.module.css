@@ -24,7 +24,7 @@
 }
 .kredicar {
   width: 300px;
-
+  height: 300px;
   border-radius: 50px;
   background: conic-gradient(
     from 0.9turn at 50% 50%,
@@ -44,11 +44,11 @@
 }
 .kredicar h3 {
   font-size: 20px;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .kredicar p {
   font-size: 16px;
-  padding: 30px 0;
+  padding: 20px 0;
 }
 .kredibtn {
   background-color: #1cd42e9a;
@@ -83,6 +83,8 @@
   }
   .kredicar {
     width: 250px;
+    height: 250px;
+    margin: 30px;
   }
 }
 @media screen and (max-width: 500px) {
@@ -94,5 +96,7 @@
   }
   .kredicar {
     width: 200px;
+    height: 200px;
+    margin: 25px;
   }
 }
