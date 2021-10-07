@@ -55,14 +55,14 @@ export default function GigCard({ gigData }) {
         </p>
       </div>
       <div className={classes.opran}>
-        <Button
+        {/* <Button
           color="#281c3b"
           border="2px"
           backgroundColor="inherit"
           onClick={onOpen}
         >
           Randevu Al
-        </Button>
+        </Button> */}
         <Modal isOpen={isOpen} onClose={onClose}>
           <ModalOverlay />
           <ModalContent>
