@@ -68,7 +68,6 @@
 .writer {
   display: flex;
   align-items: center;
-  justify-content: center;
 
   padding: 7px;
   width: 100%;
@@ -79,10 +78,10 @@
 }
 .wrtimg {
   position: relative;
-  /* width: 120px;
-  height: 120px; */
-  margin: 10px;
-  width: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
 }
 .wrtexp {
   padding: 5px;
@@ -278,7 +277,6 @@
   }
   .wrtexp p {
     padding: 5px 15px;
-    text-align: left;
   }
   .wrtexp {
     border-radius: 17px;

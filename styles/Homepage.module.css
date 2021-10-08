@@ -96,6 +96,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  width: 33.3%;
 }
 .snmlist h6 {
   font-size: 20px;
@@ -310,5 +311,6 @@
     border-bottom: 1px solid #fff;
     padding: 5px 0;
     margin: 5px 0;
+    width: 100%;
   }
 }

@@ -61,21 +61,21 @@ const HomePage = ({ warlockData, horoscopeData }) => {
               </p>
             </li>
             <li>
-              <h6>Tüm Fal Severler Fal Zamanında!</h6>
+              <h6>
+                Gerçek Falcılar ile gerçek yorumlarınızı cevaplamak için
+                sabırsızlanıyor
+              </h6>
               <p>
-                Gerçek falcılara online fal baktırmak artık çok kolay. Kahve
-                falı, tarot falı, katina aşk falı, ilişki danışmanlığı,
-                astroloji falı, rüya yorumu ve el falı baktırmak için online
-                gerçek falcını seçip hemen fal baktır.
+                Aklınızda sorulara tecrübesiyle kişiselleştirilmiş cevap
+                bulmanızı sağlayacak uzmanı seç.
               </p>
             </li>
             <li>
-              <h6>Tüm Fal Severler Fal Zamanında!</h6>
+              <h6>İster Randevu al, İster Hemen Aran! Yolculuğa başla</h6>
               <p>
-                Gerçek falcılara online fal baktırmak artık çok kolay. Kahve
-                falı, tarot falı, katina aşk falı, ilişki danışmanlığı,
-                astroloji falı, rüya yorumu ve el falı baktırmak için online
-                gerçek falcını seçip hemen fal baktır.
+                Görüşme isteğine ve uzmanına göre randevu alımını
+                tamamlayabilirsin. Öncesinde ve sonrasında ücretsiz
+                mesajlaşabilir, görüşmene dair sorularını sorabilirsin.
               </p>
             </li>
           </ul>
