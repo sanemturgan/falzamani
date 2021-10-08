@@ -1,44 +1,11 @@
 import React from "react";
 import classes from "../styles/kredial.module.css";
 import Link from "next/link";
-import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  useDisclosure,
-} from "@chakra-ui/react";
-import { useRouter } from "next/router";
-import Cookies from "universal-cookie";
-import axios from "axios";
+import { Button } from "@chakra-ui/react";
+
 export default function Kredial() {
-  const router = useRouter();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const cookies = new Cookies();
-  const onSubmit = async () => {
-    let creditObject = {
-      customerId: JSON.parse(localStorage.getItem("userData")).id,
-      credit: JSON.parse(localStorage.getItem("userData")).price,
-    };
-    await axios
-      .post(process.env.REACT_APP_CLIENT_API_URL + `/date`, creditObject, {
-        headers: {
-          Authorization: `${cookies.get("jwt")}`,
-        },
-      })
-      .then((res) => {
-        window.alert("Satın Alma İşlemi Gerçekleşiyor");
-        console.log(res);
-        router.replace("/odemeal");
-      })
-      .catch((err) => {
-        console.log(err.response.data.error),
-          window.alert(err.response.data.error);
-      });
+  const onClick = async () => {
+    window.alert("Satın alma özelliği şu an kullanılamıyor.");
   };
   return (
     <div className="kredial">
@@ -59,37 +26,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -104,37 +44,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -147,37 +60,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -191,37 +77,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -236,37 +95,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -281,37 +113,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -326,37 +131,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
         <div className={classes.kredicar}>
@@ -369,37 +147,10 @@ export default function Kredial() {
               backgroundColor="#1cd42e"
               colorScheme="green"
               color="#fff"
-              onClick={onOpen}
+              onClick={onClick}
             >
               Satın Al
             </Button>
-            <Modal isOpen={isOpen} onClose={onClose}>
-              <ModalOverlay />
-              <ModalContent>
-                <ModalHeader>
-                  Satın almak istediğinize emin misiniz?
-                </ModalHeader>
-                <ModalCloseButton />
-                <ModalBody>
-                  <p>Miktar,toplam kredinize eklenecektir.</p>
-                </ModalBody>
-
-                <ModalFooter>
-                  <Button color="red" variant="ghost" mr={3} onClick={onClose}>
-                    Vazgeç
-                  </Button>
-                  <Button
-                    colorScheme="purple"
-                    onClick={() => {
-                      onSubmit();
-                      onClose();
-                    }}
-                  >
-                    Satın Al
-                  </Button>
-                </ModalFooter>
-              </ModalContent>
-            </Modal>
           </div>
         </div>
       </div>

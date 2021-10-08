@@ -40,6 +40,7 @@ export default function GigCard({ gigData }) {
           window.alert(err.response.data.error);
       });
   };
+
   return (
     <div className={classes.option}>
       <div className={classes.ophdr}>
