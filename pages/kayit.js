@@ -187,25 +187,29 @@ export default function Kayit() {
               placeholder="Email"
             />
           </FormControl>
-          <FormControl isRequired id="tckn">
-            <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
-              TCKN
-            </FormLabel>
-            <Input
-              onChange={(e) => {
-                setTckn(e.target.value);
-              }}
-              value={tckn}
-              id="tckn"
-              size="lg"
-              color="white"
-              placeholder="TCKN"
-            />
-            <FormHelperText>
-              TCKN asla paylaşılmaz. Kredi Kartı Uyumluluk Sorgusu İçin
-              Gereklidir.{" "}
-            </FormHelperText>
-          </FormControl>
+          {userType === "1" && (
+            <>
+              <FormControl isRequired id="tckn">
+                <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
+                  TCKN
+                </FormLabel>
+                <Input
+                  onChange={(e) => {
+                    setTckn(e.target.value);
+                  }}
+                  value={tckn}
+                  id="tckn"
+                  size="lg"
+                  color="white"
+                  placeholder="TCKN"
+                />
+                <FormHelperText>
+                  TCKN asla paylaşılmaz. Kredi Kartı Uyumluluk Sorgusu İçin
+                  Gereklidir.{" "}
+                </FormHelperText>
+              </FormControl>
+            </>
+          )}
           <FormControl isRequired id="password">
             <FormLabel color="#fff" mb="16px" mt="16px" fontSize="18px">
               Şifre
