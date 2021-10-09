@@ -36,7 +36,7 @@ export default function AdminKayit() {
       surname,
       username,
       email,
-      phone: parseInt(phone),
+      phone: phone,
       password,
       image: "",
       about: "",

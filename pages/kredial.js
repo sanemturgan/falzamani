@@ -9,15 +9,89 @@ export default function Kredial() {
   const [render, setRender] = useState(null);
   const onPay = async (e, price) => {
     e.preventDefault();
+    let basketItem;
+    if (price === 20) {
+      basketItem = {
+        id: "200KRD",
+        name: "200 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "20",
+      };
+    }
+    if (price === 30) {
+      basketItem = {
+        id: "300KRD",
+        name: "300 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "30",
+      };
+    }
+    if (price === 45) {
+      basketItem = {
+        id: "500KRD",
+        name: "500 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "45",
+      };
+    }
+    if (price === 85) {
+      basketItem = {
+        id: "1000KRD",
+        name: "1000 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "85",
+      };
+    }
+    if (price === 125) {
+      basketItem = {
+        id: "1500KRD",
+        name: "1500 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "125",
+      };
+    }
+    if (price === 160) {
+      basketItem = {
+        id: "2000KRD",
+        name: "2000 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "160",
+      };
+    }
+    if (price === 225) {
+      basketItem = {
+        id: "3000KRD",
+        name: "3000 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "225",
+      };
+    }
+    if (price === 700) {
+      basketItem = {
+        id: "10000KRD",
+        name: "10000 kredi",
+        category1: "Krediler",
+        itemType: "VIRTUAL",
+        price: "700",
+      };
+    }
+
     const request = {
       locale: "tr",
       conversationId: "123456789",
-      price: "50",
-      paidPrice: "52",
+      price: `${price}`,
+      paidPrice: `${price}`,
       currency: "TRY",
       basketId: JSON.parse(localStorage.getItem("userData")).id,
       paymentGroup: "PRODUCT",
-      callbackUrl: `https://falzamani-backend.herokuapp.com/api/odeme/callback/${
+      callbackUrl: `${process.env.REACT_APP_CLIENT_API_URL}/odeme/callback/${
         JSON.parse(localStorage.getItem("userData")).id
       }`,
       enabledInstallments: [1],
@@ -28,8 +102,8 @@ export default function Kredial() {
         gsmNumber: JSON.parse(localStorage.getItem("userData")).phone,
         email: JSON.parse(localStorage.getItem("userData")).email,
         identityNumber: JSON.parse(localStorage.getItem("userData")).identity,
-        lastLoginDate: "2015-10-05 12:43:35",
-        registrationDate: "2013-04-21 15:12:09",
+        // lastLoginDate: "2015-10-05 12:43:35",
+        // registrationDate: "2013-04-21 15:12:09",
         registrationAddress:
           "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
         ip: "85.34.78.112",
@@ -51,18 +125,10 @@ export default function Kredial() {
         address: "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
         zipCode: "34742",
       },
-      basketItems: [
-        {
-          id: "500KRD",
-          name: "500 kredi",
-          category1: "Krediler",
-          itemType: "VIRTUAL",
-          price: "50",
-        },
-      ],
+      basketItems: [basketItem],
     };
     const data = await axios.post(
-      "https://falzamani-backend.herokuapp.com/api/odeme",
+      `${process.env.REACT_APP_CLIENT_API_URL}/odeme`,
       request
     );
     const parsedData = parse(`${data.data.checkoutFormContent}`);
@@ -105,7 +171,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e, 25)}
+                onClick={(e) => onPay(e, 20)}
               >
                 Satın Al
               </button>
@@ -134,7 +200,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 30)}
               >
                 Satın Al
               </button>
@@ -161,7 +227,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 45)}
               >
                 Satın Al
               </button>
@@ -189,7 +255,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 85)}
               >
                 Satın Al
               </button>
@@ -218,7 +284,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 125)}
               >
                 Satın Al
               </button>
@@ -247,7 +313,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 160)}
               >
                 Satın Al
               </button>
@@ -276,7 +342,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 225)}
               >
                 Satın Al
               </button>
@@ -303,7 +369,7 @@ export default function Kredial() {
                   justifyContent: "center",
                   fontSize: "14px",
                 }}
-                onClick={(e) => onPay(e)}
+                onClick={(e) => onPay(e, 700)}
               >
                 Satın Al
               </button>
