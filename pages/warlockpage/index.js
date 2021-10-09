@@ -74,7 +74,7 @@ function WarlockPage() {
       duration: object.time,
       categoryId: parseInt(object.category),
     };
-
+    console.log(object);
     await axios
       .post(process.env.REACT_APP_CLIENT_API_URL + "/gig", gigObject, {
         headers: {
@@ -227,7 +227,9 @@ function WarlockPage() {
               )}
             </div>
             <h5>{warlockData?.name}</h5>
-            <div className={classes.status}>Onaylı Hesap</div>
+            <div className={classes.status}>
+              {warlockData?.verified ? "Onaylı Hesap" : "Onay Bekliyor"}
+            </div>
 
             <div className={classes.exit}>
               <Link href="/uyegiris">

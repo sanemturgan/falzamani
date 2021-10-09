@@ -71,10 +71,10 @@ export default function NewGigEdit({ data, onSubmit, getWarlock }) {
         <div className={classes.opexp}>
           <p>{data.description}</p>
           <p>
-            <span>{data.duration}</span>
+            <span>{data.duration} dk</span>
           </p>
           <p>
-            <span>{data.price}</span>
+            <span>{data.price} Kredi</span>
           </p>
         </div>
         <div className={classes.opran}>

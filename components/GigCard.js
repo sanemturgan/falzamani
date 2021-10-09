@@ -49,10 +49,10 @@ export default function GigCard({ gigData }) {
       <div className={classes.opexp}>
         <p>{gigData.description}</p>
         <p>
-          <span>{gigData.duration}</span>
+          <span>{gigData.duration} dk</span>
         </p>
         <p>
-          <span>{gigData.price}</span>
+          <span>{gigData.price} Kredi</span>
         </p>
       </div>
       <div className={classes.opran}>

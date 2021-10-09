@@ -7,6 +7,15 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 export default function Kredial() {
   const [render, setRender] = useState(null);
+  const [IP, setIP] = useState("");
+  const getIp = async () => {
+    const res = await axios.get("https://geolocation-db.com/json/");
+    setIP(res.data.IPv4);
+  };
+
+  useEffect(() => {
+    getIp();
+  }, []);
   const onPay = async (e, price) => {
     e.preventDefault();
     let basketItem;
@@ -106,7 +115,7 @@ export default function Kredial() {
         // registrationDate: "2013-04-21 15:12:09",
         registrationAddress:
           "Nidakule Göztepe, Merdivenköy Mah. Bora Sok. No:1",
-        ip: "85.34.78.112",
+        ip: IP,
         city: "Istanbul",
         country: "Turkey",
         zipCode: "34732",
