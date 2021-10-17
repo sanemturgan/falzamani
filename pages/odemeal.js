@@ -16,7 +16,7 @@ export default function Odemeal() {
       currency: "TRY",
       basketId: JSON.parse(localStorage.getItem("userData")).id,
       paymentGroup: "PRODUCT",
-      callbackUrl: `https://falzamani-backend.herokuapp.com/api/odeme/callback/${
+      callbackUrl: `https://falzamani.herokuapp.com/api/odeme/callback/${
         JSON.parse(localStorage.getItem("userData")).id
       }`,
       enabledInstallments: [1],
@@ -61,7 +61,7 @@ export default function Odemeal() {
       ],
     };
     const data = await axios.post(
-      "https://falzamani-backend.herokuapp.com/api/odeme",
+      "https://falzamani.herokuapp.com/api/odeme",
       request
     );
     const parsedData = parse(`${data.data.checkoutFormContent}`);
