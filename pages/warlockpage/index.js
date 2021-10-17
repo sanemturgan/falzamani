@@ -266,6 +266,7 @@ function WarlockPage() {
                   />
                 )}
               </div>
+
               <div className={classes.randevu}>
                 {dateInfo.length > 0 &&
                   dateInfo.map((data, index) => {

@@ -3,10 +3,26 @@ import classes from "../../../styles/uzmandetay.module.css";
 import { FaPhoneAlt, FaEnvelope, FaUserAlt } from "react-icons/fa";
 import Link from "next/link";
 import Comment from "../../../components/Comment";
-import { Switch, FormControl, FormLabel, Image } from "@chakra-ui/react";
+import {
+  Switch,
+  FormControl,
+  FormLabel,
+  Image,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  Button,
+  Portal,
+} from "@chakra-ui/react";
 
 import GigCard from "../../../components/GigCard";
 export default function Uzmandetay({ warlockSingleData, gigData }) {
+  console.log(warlockSingleData);
   return (
     <div className="uzmanDetay">
       <div className={classes.uzmanhdr}>
@@ -35,7 +51,35 @@ export default function Uzmandetay({ warlockSingleData, gigData }) {
             </div>
             <h5>{warlockSingleData.name}</h5>
             <h6 className={classes.status}>{warlockSingleData.status}</h6>
-
+            <span
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {" "}
+              {gigData.length > 0 &&
+                gigData.map((data, index) => {
+                  return (
+                    <p
+                      key={index}
+                      gigData={data}
+                      style={{
+                        border: "1px solid #fff",
+                        borderRadius: "15px",
+                        padding: "2px 10px",
+                        margin: "5px",
+                        textAlign: "center",
+                        fontSize: "12px",
+                      }}
+                    >
+                      {data.title}{" "}
+                    </p>
+                  );
+                })}
+            </span>
             {/* <div className={classes.onlinebtn}>
               <FormControl display="flex" alignItems="center">
                 <FormLabel htmlFor="alerts" mb="0" fontSize="14px">
@@ -46,19 +90,69 @@ export default function Uzmandetay({ warlockSingleData, gigData }) {
             </div> */}
           </div>
           <div className={classes.ustiki}>
+            <p>Falınızı mail yoluyla bize ulaştırabilirsiniz.</p>
             <div className={classes.iletisim}>
-              <div className={classes.cardicon}>
+              {/* <div className={classes.cardicon}>
                 <a href={`tel:${warlockSingleData.phone}`}>
                   <FaPhoneAlt color="#ECDCF5" size="20px" />
                 </a>
-              </div>
+              </div> */}
+
               <div className={classes.cardicon}>
-                <FaEnvelope color="#ECDCF5" size="20px" />
-                <p>{warlockSingleData.email}</p>
+                <Popover>
+                  <PopoverTrigger>
+                    <Button colorScheme="purple">
+                      {" "}
+                      <FaEnvelope color="#ECDCF5" size="20px" />
+                      <p>Fal@falzamani.com</p>
+                    </Button>
+                  </PopoverTrigger>
+                  <Portal>
+                    <PopoverContent>
+                      <PopoverArrow />
+                      <PopoverHeader>
+                        Doğum Haritası ile ilgili bilgilerinizi
+                        belirtirken,uzmanınızın ismini eklemeyi unutmayınız.
+                      </PopoverHeader>
+                      <PopoverCloseButton />
+                      <PopoverBody>
+                        <Button colorScheme="purple" width="100%">
+                          <a href="mailto:Fal@falzamani.com">
+                            <FaEnvelope color="#ECDCF5" size="20px" />
+                          </a>
+                        </Button>
+                      </PopoverBody>
+                    </PopoverContent>
+                  </Portal>
+                </Popover>
               </div>
             </div>
             <div className={classes.expbtm}>
-              <p>{warlockSingleData.about}</p>
+              <div className={classes.aboutTop}>
+                <p>{warlockSingleData.about}</p>
+              </div>
+              <div className={classes.aboutbottom}>
+                <p> Uzman yorumcu {warlockSingleData.name},</p>
+                <span>
+                  {" "}
+                  {gigData.length > 0 &&
+                    gigData.map((data, index) => {
+                      return (
+                        <p key={index} gigData={data}>
+                          {data.title}{" "}
+                        </p>
+                      );
+                    })}
+                </span>
+                <p>
+                  {" "}
+                  alanlarındaki yeteneğini kullanarak sizinle iletişime geçmek
+                  için sabırsızlanıyor. Randevunuzu alarak o gün ve saat içinde
+                  falınıza canlı olarak baktırabilir yada uzmanımıza yaşınızı,
+                  burcunuzu ve sormak istediğiniz soruları yazarak yazılı
+                  danışmanlık alma fırsatını da yakalayabilirsiniz
+                </p>
+              </div>
             </div>
           </div>
         </div>

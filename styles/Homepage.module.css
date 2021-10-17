@@ -127,14 +127,14 @@
   margin: 0;
 }
 .card p {
-  font-size: 18px;
+  font-size: 14px;
   color: #fff;
   padding: 0 15px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 1;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
 }
 .cardimg {

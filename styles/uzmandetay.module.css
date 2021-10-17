@@ -131,6 +131,7 @@
   text-align: center;
   margin: 10px;
 }
+
 .fallar {
   width: 100%;
   display: flex;
@@ -194,6 +195,21 @@
 .opexp span {
   padding: 3px;
   font-weight: lighter;
+}
+.aboutTop {
+  border: 1px solid #fff;
+  padding: 10px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aboutbottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  margin-top: 15px;
 }
 .opran {
   display: flex;
@@ -274,8 +290,9 @@
     font-size: 16px;
   }
   .ustiki {
-    margin-top: 20px;
+    margin-top: 0;
     width: 100%;
+    text-align: center;
   }
   .exp {
     font-size: 12px;
